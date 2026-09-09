@@ -91,6 +91,27 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* instagram feed — swap the placeholder for the SnapWidget embed code once it's ready */}
+      <section className="border-t border-hairline-soft bg-canvas-soft px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1400px] text-center">
+          <p className="text-[13px] font-[600] text-text-muted">INSTAGRAM</p>
+          <a
+            href="https://instagram.com/lieucoffee"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-1 inline-block text-[24px] font-[652] text-ink hover:text-text-muted"
+          >
+            @lieucoffee
+          </a>
+
+          <div className="mt-8 flex min-h-[160px] w-full items-center justify-center rounded-md border border-dashed border-hairline bg-canvas p-8">
+            <p className="max-w-sm text-[14px] font-[456] leading-[1.43] text-text-muted">
+              여기에 SnapWidget 임베드 코드가 들어갈 예정이에요. 코드를 보내주시면 바로 연결할게요.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
