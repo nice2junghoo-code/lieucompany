@@ -16,7 +16,7 @@ function Home() {
           <div className="max-w-md animate-[slide-in-right_0.7s_ease-out_both]">
             {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
             <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-              BUJA ROASTER
+              <span className="lg:whitespace-nowrap">BUJA ROASTER</span>
               <br />
               B30S
             </h1>
