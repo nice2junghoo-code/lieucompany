@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import CheckIcon from '../components/CheckIcon'
 import logo from '../assets/lieu-logo.png'
@@ -25,23 +24,6 @@ function Home() {
               <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted sm:text-[18px]">
                 스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
               </p>
-
-              <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-                {/* button-primary */}
-                <Link
-                  to="/about"
-                  className="inline-flex h-12 items-center justify-center rounded-full border border-transparent bg-primary px-6 text-[16px] font-[600] text-on-primary transition-all duration-150 hover:border-hairline hover:bg-canvas hover:text-ink active:scale-[0.97]"
-                >
-                  ABOUT
-                </Link>
-                {/* button-outline */}
-                <a
-                  href="#programs"
-                  className="inline-flex h-12 items-center justify-center rounded-full border border-hairline bg-canvas px-6 text-[16px] font-[600] text-ink transition-all duration-150 hover:border-ink hover:bg-canvas-soft active:scale-[0.97] active:bg-hairline-soft"
-                >
-                  강의 프로그램 보기
-                </a>
-              </div>
             </div>
           </div>
 
