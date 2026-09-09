@@ -15,14 +15,14 @@ function Home() {
         <div className="mx-auto max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
           <div className="max-w-md animate-[slide-in-right_0.7s_ease-out_both]">
             {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-            <h1 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
+            <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
               BUJA ROASTER
               <br />
               B30S
             </h1>
 
-            {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
-            <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-ink sm:text-[18px]">
+            {/* body-lg, bumped to a bold weight */}
+            <p className="mt-4 text-[16px] font-[600] leading-[1.38] text-ink sm:text-[18px]">
               스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
             </p>
 
