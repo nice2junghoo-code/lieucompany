@@ -92,17 +92,16 @@ function Home() {
         </div>
       </section>
 
-      {/* instagram feed — swap the placeholder for the SnapWidget embed code once it's ready */}
-      <section className="border-t border-hairline-soft bg-canvas-soft px-6 py-16 lg:px-10 lg:py-20">
+      {/* instagram feed */}
+      <section className="border-t border-hairline-soft bg-canvas px-6 py-16 lg:px-10 lg:py-20">
         <div className="mx-auto max-w-[1400px] text-center">
-          <p className="text-[13px] font-[600] text-text-muted">INSTAGRAM</p>
           <a
             href="https://instagram.com/lieucoffee"
             target="_blank"
             rel="noreferrer"
-            className="mt-1 inline-block text-[24px] font-[652] text-ink hover:text-text-muted"
+            className="inline-block text-[24px] font-[652] text-ink hover:text-text-muted"
           >
-            @lieucoffee
+            리우컴퍼니 소식
           </a>
 
           <div className="mt-8">
@@ -115,6 +114,18 @@ function Home() {
               style={{ border: 'none', overflow: 'hidden', width: '100%' }}
               title="Posts from Instagram"
             />
+          </div>
+
+          {/* hashtags */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {['#리우컴퍼니', '#부자로스터', '#리우커피', '#전기식로스터기'].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-sm border border-hairline bg-canvas px-4 py-2 text-[13px] font-[600] text-ink"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </section>
