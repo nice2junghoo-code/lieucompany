@@ -10,47 +10,48 @@ function Home() {
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
 
-      {/* hero: full-bleed image with the headline overlaid top-left, like the Palisade reference */}
-      <section className="mx-auto max-w-[1200px] px-6 pt-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-md bg-canvas">
-          {/* hero image */}
-          <img
-            src={heroImage}
-            alt="부자로스터 B30S"
-            className="absolute inset-0 h-full w-full object-contain object-bottom sm:object-center"
-          />
-
-          {/* text, anchored top-left over the image — normal flow so the box grows to fit it */}
-          <div className="relative flex min-h-[480px] flex-col items-start justify-start p-8 sm:min-h-[520px] sm:p-12 lg:min-h-[600px] lg:p-16">
-            {/* opaque panel keeps the copy legible over the photo, card-feature chrome */}
-            <div className="max-w-md rounded-md border border-hairline-soft bg-canvas p-6">
+      {/* hero: stacked text-then-image on mobile, true full-bleed overlay from lg up — like hyundai.com */}
+      <section className="relative w-full overflow-hidden bg-canvas">
+        <div className="relative lg:h-[680px]">
+          {/* text: normal flow (sits above the image) below lg, overlaid on the image's clear left side from lg up */}
+          <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-start px-6 pt-10 pb-6 sm:pt-14 lg:absolute lg:inset-0 lg:h-full lg:justify-center lg:px-8 lg:py-0">
+            <div className="max-w-md">
               {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-              <h1 className="text-[26px] font-[652] leading-[1.13] text-ink sm:text-[32px] lg:text-[40px] lg:leading-[1.13]">
+              <h1 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
                 BUJA ROASTER B30S
               </h1>
 
               {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
-              <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted">
+              <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted sm:text-[18px]">
                 스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
               </p>
-            </div>
 
-            <div className="mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-              {/* button-primary */}
-              <Link
-                to="/about"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-transparent bg-primary px-6 text-[16px] font-[600] text-on-primary transition-all duration-150 hover:border-hairline hover:bg-canvas hover:text-ink active:scale-[0.97]"
-              >
-                ABOUT
-              </Link>
-              {/* button-outline */}
-              <a
-                href="#programs"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-hairline bg-canvas px-6 text-[16px] font-[600] text-ink transition-all duration-150 hover:border-ink hover:bg-canvas-soft active:scale-[0.97] active:bg-hairline-soft"
-              >
-                강의 프로그램 보기
-              </a>
+              <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+                {/* button-primary */}
+                <Link
+                  to="/about"
+                  className="inline-flex h-12 items-center justify-center rounded-full border border-transparent bg-primary px-6 text-[16px] font-[600] text-on-primary transition-all duration-150 hover:border-hairline hover:bg-canvas hover:text-ink active:scale-[0.97]"
+                >
+                  ABOUT
+                </Link>
+                {/* button-outline */}
+                <a
+                  href="#programs"
+                  className="inline-flex h-12 items-center justify-center rounded-full border border-hairline bg-canvas px-6 text-[16px] font-[600] text-ink transition-all duration-150 hover:border-ink hover:bg-canvas-soft active:scale-[0.97] active:bg-hairline-soft"
+                >
+                  강의 프로그램 보기
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* image: normal flow (sits below the text) below lg, docks to the right as a full-bleed overlay from lg up */}
+          <div className="aspect-square w-full sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
+            <img
+              src={heroImage}
+              alt="BUJA ROASTER B30S"
+              className="h-full w-full object-contain lg:object-right"
+            />
           </div>
         </div>
       </section>
