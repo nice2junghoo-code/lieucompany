@@ -38,7 +38,7 @@ function Home() {
 
         {/* product photo — soft studio-style gradient, seamless into the icon row below */}
         <div className="w-full bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-          <div className="relative mx-auto aspect-[1005/877] w-full max-w-2xl px-6 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
+          <div className="relative mx-auto aspect-[1005/877] w-full max-w-xl px-6 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
             <img
               src={heroImage}
               alt="BUJA ROASTER B30S"
