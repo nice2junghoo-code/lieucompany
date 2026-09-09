@@ -119,7 +119,7 @@ function Home() {
           <div className="mt-8">
             {/* SnapWidget — snapwidget.js (loaded in index.html) auto-resizes the height */}
             <iframe
-              src="https://snapwidget.com/embed/1130380"
+              src="https://snapwidget.com/embed/1130381"
               className="snapwidget-widget"
               frameBorder="0"
               scrolling="no"
