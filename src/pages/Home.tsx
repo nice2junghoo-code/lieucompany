@@ -14,7 +14,7 @@ function Home() {
       <section className="relative w-full overflow-hidden bg-canvas">
         <div className="relative lg:h-[680px]">
           {/* text: normal flow (sits above the image) below lg, overlaid on the image's clear left side from lg up */}
-          <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-start px-6 pt-10 pb-6 sm:pt-14 lg:absolute lg:inset-0 lg:h-full lg:justify-center lg:px-8 lg:py-0">
+          <div className="relative z-10 mx-auto flex max-w-[1400px] flex-col items-start px-6 pt-10 pb-6 sm:pt-14 lg:absolute lg:inset-0 lg:h-full lg:justify-center lg:px-10 lg:py-0">
             <div className="max-w-md">
               {/* small label above the title */}
               <p className="text-[13px] font-[456] text-text-muted">ER (Electric Roaster)</p>
