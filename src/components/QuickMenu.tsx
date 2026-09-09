@@ -1,4 +1,4 @@
-const QUICK_LINKS = ['구매상담', '시현신청', '정비예약']
+const QUICK_LINKS = ['구매상담', '시현신청', 'A/S정비예약']
 
 function QuickMenu() {
   return (
@@ -8,7 +8,7 @@ function QuickMenu() {
           <a
             key={label}
             href="#"
-            className="rounded-sm border border-hairline bg-canvas px-6 py-3 text-[14px] font-[600] text-ink transition-colors hover:border-ink"
+            className="rounded-sm border border-hairline bg-canvas px-6 py-3 text-[14px] font-[600] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary"
           >
             {label}
           </a>
