@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import CheckIcon from '../components/CheckIcon'
 import logo from '../assets/lieu-logo.png'
+import heroImage from '../assets/hero-roaster.jpg'
 import { PROFILE_HIGHLIGHTS, TRUST_STATS } from '../data/profile'
 
 function Home() {
@@ -11,44 +12,39 @@ function Home() {
 
       {/* hero: full-bleed image with the headline overlaid top-left, like the Palisade reference */}
       <section className="mx-auto max-w-[1200px] px-6 pt-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-md bg-field">
-          {/* hero image slot — swap the placeholder for a real photo when one is ready */}
-          <div className="absolute inset-0 flex flex-col items-end justify-end gap-1.5 p-6 text-text-faint">
-            <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-              <circle cx="8.5" cy="9.5" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-              <path
-                d="M21 16l-5.5-5.5a1 1 0 0 0-1.4 0L5 19"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
-            <p className="text-[12px] font-[456]">이미지를 추가해 주세요</p>
-          </div>
+        <div className="relative overflow-hidden rounded-md bg-canvas">
+          {/* hero image */}
+          <img
+            src={heroImage}
+            alt="부자로스터 B30S"
+            className="absolute inset-0 h-full w-full object-contain object-bottom sm:object-center"
+          />
 
           {/* text, anchored top-left over the image — normal flow so the box grows to fit it */}
           <div className="relative flex min-h-[480px] flex-col items-start justify-start p-8 sm:min-h-[520px] sm:p-12 lg:min-h-[600px] lg:p-16">
-            {/* button-pill-soft, used as an eyebrow tag */}
-            <span className="mb-5 inline-flex items-center rounded-full bg-canvas px-3 py-1.5 text-[12px] font-[600] text-ink">
-              기업·기관 AI 교육 전문 강사
-            </span>
+            {/* opaque panel keeps the copy legible over the photo, card-feature chrome */}
+            <div className="max-w-md rounded-md border border-hairline-soft bg-canvas p-6">
+              {/* button-pill-soft, used as an eyebrow tag */}
+              <span className="mb-5 inline-flex items-center rounded-full bg-canvas-soft px-3 py-1.5 text-[12px] font-[600] text-ink">
+                기업·기관 AI 교육 전문 강사
+              </span>
 
-            {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-            <h1 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
-              체계적인 관리 시스템을 기반으로 한
-              <br />
-              서비스 경쟁력
-            </h1>
+              {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
+              <h1 className="text-[26px] font-[652] leading-[1.13] text-ink sm:text-[32px] lg:text-[40px] lg:leading-[1.13]">
+                체계적인 관리 시스템을 기반으로 한
+                <br />
+                서비스 경쟁력
+              </h1>
 
-            {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
-            <p className="mt-4 max-w-md text-[16px] font-[300] leading-[1.38] text-ink-soft sm:text-[18px]">
-              리우컴퍼니에서 공급한 제품 설비에 대한 사후관리가 완벽하게 이루어질 수 있도록 전국망의 서비스를
-              운영하고 있습니다. 영업 및 서비스망은 앞으로 꾸준히 확대될 것이며, 커피 시장을 선도하는 제품과
-              서비스를 제공하기 위해 더욱 성장해 나갈 것을 약속드립니다.
-            </p>
+              {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
+              <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted">
+                리우컴퍼니에서 공급한 제품 설비에 대한 사후관리가 완벽하게 이루어질 수 있도록 전국망의 서비스를
+                운영하고 있습니다. 영업 및 서비스망은 앞으로 꾸준히 확대될 것이며, 커피 시장을 선도하는 제품과
+                서비스를 제공하기 위해 더욱 성장해 나갈 것을 약속드립니다.
+              </p>
+            </div>
 
-            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+            <div className="mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
               {/* button-primary */}
               <Link
                 to="/about"
