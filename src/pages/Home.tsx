@@ -104,18 +104,6 @@ function Home() {
             리우컴퍼니 소식
           </a>
 
-          <div className="mt-8">
-            {/* SnapWidget — snapwidget.js (loaded in index.html) auto-resizes the height */}
-            <iframe
-              src="https://snapwidget.com/embed/1130380"
-              className="snapwidget-widget"
-              frameBorder="0"
-              scrolling="no"
-              style={{ border: 'none', overflow: 'hidden', width: '100%' }}
-              title="Posts from Instagram"
-            />
-          </div>
-
           {/* hashtags */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {['#리우컴퍼니', '#부자로스터', '#리우커피', '#전기식로스터기'].map((tag) => (
@@ -126,6 +114,18 @@ function Home() {
                 {tag}
               </span>
             ))}
+          </div>
+
+          <div className="mt-8">
+            {/* SnapWidget — snapwidget.js (loaded in index.html) auto-resizes the height */}
+            <iframe
+              src="https://snapwidget.com/embed/1130380"
+              className="snapwidget-widget"
+              frameBorder="0"
+              scrolling="no"
+              style={{ border: 'none', overflow: 'hidden', width: '100%' }}
+              title="Posts from Instagram"
+            />
           </div>
         </div>
       </section>
