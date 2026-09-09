@@ -24,23 +24,14 @@ function Home() {
           <div className="relative flex min-h-[480px] flex-col items-start justify-start p-8 sm:min-h-[520px] sm:p-12 lg:min-h-[600px] lg:p-16">
             {/* opaque panel keeps the copy legible over the photo, card-feature chrome */}
             <div className="max-w-md rounded-md border border-hairline-soft bg-canvas p-6">
-              {/* button-pill-soft, used as an eyebrow tag */}
-              <span className="mb-5 inline-flex items-center rounded-full bg-canvas-soft px-3 py-1.5 text-[12px] font-[600] text-ink">
-                기업·기관 AI 교육 전문 강사
-              </span>
-
               {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
               <h1 className="text-[26px] font-[652] leading-[1.13] text-ink sm:text-[32px] lg:text-[40px] lg:leading-[1.13]">
-                체계적인 관리 시스템을 기반으로 한
-                <br />
-                서비스 경쟁력
+                BUJA ROASTER B30S
               </h1>
 
               {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
               <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted">
-                리우컴퍼니에서 공급한 제품 설비에 대한 사후관리가 완벽하게 이루어질 수 있도록 전국망의 서비스를
-                운영하고 있습니다. 영업 및 서비스망은 앞으로 꾸준히 확대될 것이며, 커피 시장을 선도하는 제품과
-                서비스를 제공하기 위해 더욱 성장해 나갈 것을 약속드립니다.
+                스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
               </p>
             </div>
 
