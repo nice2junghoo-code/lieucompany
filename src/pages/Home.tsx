@@ -2,7 +2,7 @@ import Header from '../components/Header'
 import QuickMenu from '../components/QuickMenu'
 import CheckIcon from '../components/CheckIcon'
 import logo from '../assets/lieu-logo.png'
-import heroImage from '../assets/hero-roaster.jpg'
+import heroImage from '../assets/hero-roaster.png'
 import { PROFILE_HIGHLIGHTS, TRUST_STATS } from '../data/profile'
 
 function Home() {
