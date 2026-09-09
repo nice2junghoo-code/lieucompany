@@ -8,7 +8,7 @@ function Header() {
     <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/">
-          <img src={logo} alt="LIEU" className="h-5 w-auto" />
+          <img src={logo} alt="LIEU" className="h-16 w-auto" />
         </Link>
 
         <nav className="flex items-center gap-8">
