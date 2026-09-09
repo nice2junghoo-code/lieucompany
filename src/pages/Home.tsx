@@ -1,4 +1,5 @@
 import Header from '../components/Header'
+import QuickMenu from '../components/QuickMenu'
 import CheckIcon from '../components/CheckIcon'
 import logo from '../assets/lieu-logo.png'
 import heroImage from '../assets/hero-roaster.jpg'
@@ -8,6 +9,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
+      <QuickMenu />
 
       {/* hero: stacked text-then-image on mobile, true full-bleed overlay from lg up — like hyundai.com */}
       <section className="relative w-full overflow-hidden bg-canvas">
