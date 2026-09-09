@@ -1,19 +1,27 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/lieu-logo.png'
 
+const NAV_LINKS = [{ label: 'ABOUT', to: '/about' }]
+
 function Header() {
   return (
-    <div className="sticky top-4 z-10 flex justify-center px-4">
-      <div className="flex items-center gap-6 rounded-full bg-canvas-soft py-2 pr-2 pl-5">
+    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas-soft">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/">
-          <img src={logo} alt="LIEU" className="h-5 w-auto" />
+          <img src={logo} alt="LIEU" className="h-6 w-auto" />
         </Link>
-        <Link
-          to="/about"
-          className="inline-flex h-10 items-center rounded-full border border-transparent bg-primary px-4 text-[16px] font-[600] text-on-primary transition-all duration-150 hover:border-hairline hover:bg-canvas hover:text-ink active:scale-[0.97]"
-        >
-          ABOUT
-        </Link>
+
+        <nav className="flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </div>
   )
