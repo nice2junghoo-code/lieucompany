@@ -36,13 +36,20 @@ function Home() {
           </div>
         </div>
 
-        {/* product photo, centered */}
-        <div className="mx-auto aspect-square w-full max-w-2xl px-6 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
-          <img
-            src={heroImage}
-            alt="BUJA ROASTER B30S"
-            className="h-full w-full object-contain animate-[slide-in-right_0.7s_ease-out_0.25s_both]"
-          />
+        {/* product photo — soft studio-style gradient, seamless into the icon row below */}
+        <div className="w-full bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
+          <div className="relative mx-auto aspect-square w-full max-w-2xl px-6 pt-6 pb-10 sm:pt-8 sm:pb-14 lg:px-10 lg:pb-16">
+            {/* ground shadow */}
+            <div
+              className="absolute bottom-8 left-1/2 h-8 w-2/3 -translate-x-1/2 rounded-full bg-ink/15 blur-xl sm:bottom-10 sm:h-10"
+              aria-hidden="true"
+            />
+            <img
+              src={heroImage}
+              alt="BUJA ROASTER B30S"
+              className="relative h-full w-full object-contain animate-[slide-in-right_0.7s_ease-out_0.25s_both]"
+            />
+          </div>
         </div>
       </section>
 
