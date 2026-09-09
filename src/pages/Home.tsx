@@ -16,8 +16,11 @@ function Home() {
           {/* text: normal flow (sits above the image) below lg, overlaid on the image's clear left side from lg up */}
           <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-start px-6 pt-10 pb-6 sm:pt-14 lg:absolute lg:inset-0 lg:h-full lg:justify-center lg:px-8 lg:py-0">
             <div className="max-w-md">
+              {/* small label above the title */}
+              <p className="text-[13px] font-[456] text-text-muted">ER (Electric Roaster)</p>
+
               {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-              <h1 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
+              <h1 className="mt-1 text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
                 BUJA ROASTER
                 <br />
                 B30S
