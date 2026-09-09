@@ -51,26 +51,10 @@ function WrenchIcon({ className }: IconProps) {
   )
 }
 
-function CatalogIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M6 3.5h8.5L18 7v13.5H6z"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-      <path d="M14.5 3.5V7H18" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-      <path d="M12 12v6M9.3 15.3 12 18l2.7-2.7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 const QUICK_LINKS = [
   { label: '구매상담', Icon: HeadsetIcon },
   { label: '시현신청', Icon: DemoIcon },
   { label: '정비예약', Icon: WrenchIcon },
-  { label: '카달로그·가격표', Icon: CatalogIcon },
 ]
 
 function QuickMenu() {
