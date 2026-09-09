@@ -18,13 +18,20 @@ function Home() {
             <div className="max-w-md">
               {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
               <h1 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
-                BUJA ROASTER B30S
+                BUJA ROASTER
+                <br />
+                B30S
               </h1>
 
               {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
               <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted sm:text-[18px]">
                 스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
               </p>
+
+              {/* small spec chip */}
+              <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
+                적정 투입량 100g~300g
+              </div>
             </div>
           </div>
 
