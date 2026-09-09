@@ -9,7 +9,6 @@ function Home() {
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
-      <QuickMenu />
 
       {/* hero: stacked text-then-image on mobile, true full-bleed overlay from lg up — like hyundai.com */}
       <section className="relative w-full overflow-hidden bg-canvas">
@@ -39,6 +38,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <QuickMenu />
 
       {/* profile card, below the hero */}
       <section className="mx-auto max-w-[1200px] px-6 pb-16 lg:px-8 lg:pb-24">
