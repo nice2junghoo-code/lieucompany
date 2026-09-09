@@ -37,6 +37,33 @@ function About() {
           </p>
         </div>
       </div>
+
+      {/* quote band, styled after the hyundai.com pull-quote reference — same font as the rest of the site */}
+      <div className="bg-canvas-soft py-20 sm:py-24">
+        <div className="mx-auto max-w-[860px] px-6 text-center lg:px-8">
+          <span className="text-[56px] leading-none font-[652] text-hairline" aria-hidden="true">
+            &ldquo;
+          </span>
+
+          <p className="mt-2 text-[20px] font-[652] leading-[1.5] text-ink sm:text-[26px]">
+            체계적인 관리 시스템을 기반으로 한 서비스 경쟁력.
+            <br />
+            리우컴퍼니에서 공급한 제품 설비에 대한 사후관리가 완벽하게 이루어질 수 있도록
+            <br />
+            전국망의 서비스를 운영하고 있습니다.
+            <br />
+            영업 및 서비스망은 앞으로 꾸준히 확대될 것이며, 커피 시장을 선도하는 제품과 서비스를
+            <br />
+            제공하기 위해 더욱 성장해 나갈 것을 약속드립니다.
+          </p>
+
+          <span className="mt-2 block text-[56px] leading-none font-[652] text-hairline" aria-hidden="true">
+            &rdquo;
+          </span>
+
+          <p className="mt-4 text-[14px] font-[456] text-text-muted">리우컴퍼니</p>
+        </div>
+      </div>
     </div>
   )
 }
