@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/*
+  Design tokens ported from DESIGN-mobbin.md.
+  Tailwind v4 turns --color-*, --radius-* and --font-* theme keys into
+  matching utilities (bg-ink, rounded-full, font-display, ...).
+*/
+@theme {
+  --color-primary: #141414;
+  --color-on-primary: #ffffff;
+  --color-ink: #141414;
+  --color-ink-soft: #262626;
+  --color-text-muted: #707070;
+  --color-text-faint: #adadad;
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #f3f3f3;
+  --color-field: #f0f0f0;
+  --color-hairline-soft: #f0f0f0;
+  --color-hairline: #e0e0e0;
+  --color-accent: #0066ff;
+
+  --radius-none: 0px;
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-full: 9999px;
+
+  --font-display: "Inter", "Pretendard Variable", "Pretendard", -apple-system,
+    BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 456;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
