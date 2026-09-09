@@ -106,10 +106,10 @@ function Home() {
 
           {/* hashtags */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            {['#리우컴퍼니', '#부자로스터', '#리우커피', '#전기식로스터기'].map((tag) => (
+            {['#리우컴퍼니', '#부자로스터', '#리우커피', '#전기식로스터기', '#뎀트럭', '#뎀트럭트롤리'].map((tag) => (
               <span
                 key={tag}
-                className="rounded-sm border border-hairline bg-canvas px-4 py-2 text-[13px] font-[600] text-ink"
+                className="rounded-sm border border-hairline-soft bg-canvas-soft px-4 py-2 text-[13px] font-[600] text-ink"
               >
                 {tag}
               </span>
