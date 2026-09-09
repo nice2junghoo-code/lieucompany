@@ -105,10 +105,16 @@ function Home() {
             @lieucoffee
           </a>
 
-          <div className="mt-8 flex min-h-[160px] w-full items-center justify-center rounded-md border border-dashed border-hairline bg-canvas p-8">
-            <p className="max-w-sm text-[14px] font-[456] leading-[1.43] text-text-muted">
-              여기에 SnapWidget 임베드 코드가 들어갈 예정이에요. 코드를 보내주시면 바로 연결할게요.
-            </p>
+          <div className="mt-8 flex justify-center">
+            {/* SnapWidget */}
+            <iframe
+              src="https://snapwidget.com/embed/1130380"
+              className="snapwidget-widget"
+              frameBorder="0"
+              scrolling="no"
+              style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: 1020, aspectRatio: '1020 / 255' }}
+              title="Posts from Instagram"
+            />
           </div>
         </div>
       </section>
