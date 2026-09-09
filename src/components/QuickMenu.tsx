@@ -1,20 +1,5 @@
 type IconProps = { className?: string }
 
-function QuoteIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="5" y="3.5" width="14" height="17" rx="2" stroke="currentColor" strokeWidth="1.4" />
-      <rect x="7.5" y="6" width="9" height="3.5" rx="0.6" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="8.7" cy="13.3" r="0.9" fill="currentColor" />
-      <circle cx="12" cy="13.3" r="0.9" fill="currentColor" />
-      <circle cx="15.3" cy="13.3" r="0.9" fill="currentColor" />
-      <circle cx="8.7" cy="16.7" r="0.9" fill="currentColor" />
-      <circle cx="12" cy="16.7" r="0.9" fill="currentColor" />
-      <circle cx="15.3" cy="16.7" r="0.9" fill="currentColor" />
-    </svg>
-  )
-}
-
 function HeadsetIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
@@ -82,7 +67,6 @@ function CatalogIcon({ className }: IconProps) {
 }
 
 const QUICK_LINKS = [
-  { label: '견적내기', Icon: QuoteIcon },
   { label: '구매상담', Icon: HeadsetIcon },
   { label: '시현신청', Icon: DemoIcon },
   { label: '정비예약', Icon: WrenchIcon },
