@@ -105,14 +105,14 @@ function Home() {
             @lieucoffee
           </a>
 
-          <div className="mt-8 flex justify-center">
-            {/* SnapWidget */}
+          <div className="mt-8">
+            {/* SnapWidget — snapwidget.js (loaded in index.html) auto-resizes the height */}
             <iframe
               src="https://snapwidget.com/embed/1130380"
               className="snapwidget-widget"
               frameBorder="0"
               scrolling="no"
-              style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: 1020, aspectRatio: '1020 / 255' }}
+              style={{ border: 'none', overflow: 'hidden', width: '100%' }}
               title="Posts from Instagram"
             />
           </div>
