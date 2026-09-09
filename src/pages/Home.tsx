@@ -13,7 +13,7 @@ function Home() {
       {/* hero: text top-left, product photo centered below it — stacked at every breakpoint so they never overlap */}
       <section className="relative w-full overflow-hidden bg-canvas">
         <div className="mx-auto max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
-          <div className="max-w-md">
+          <div className="max-w-md animate-[slide-in-right_0.7s_ease-out_both]">
             {/* small label above the title */}
             <p className="text-[13px] font-[456] text-text-muted">ER (Electric Roaster)</p>
 
@@ -38,7 +38,11 @@ function Home() {
 
         {/* product photo, centered */}
         <div className="mx-auto aspect-square w-full max-w-2xl px-6 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
-          <img src={heroImage} alt="BUJA ROASTER B30S" className="h-full w-full object-contain" />
+          <img
+            src={heroImage}
+            alt="BUJA ROASTER B30S"
+            className="h-full w-full object-contain animate-[slide-in-right_0.7s_ease-out_0.25s_both]"
+          />
         </div>
       </section>
 
