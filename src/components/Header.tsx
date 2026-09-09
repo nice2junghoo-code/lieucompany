@@ -5,7 +5,7 @@ const NAV_LINKS = [{ label: 'ABOUT', to: '/about' }]
 
 function Header() {
   return (
-    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas-soft">
+    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/">
           <img src={logo} alt="LIEU" className="h-6 w-auto" />
