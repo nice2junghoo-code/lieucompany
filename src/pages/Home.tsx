@@ -10,42 +10,35 @@ function Home() {
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
 
-      {/* hero: stacked text-then-image on mobile, true full-bleed overlay from lg up — like hyundai.com */}
+      {/* hero: text top-left, product photo centered below it — stacked at every breakpoint so they never overlap */}
       <section className="relative w-full overflow-hidden bg-canvas">
-        <div className="relative lg:h-[680px]">
-          {/* text: normal flow (sits above the image) below lg, overlaid on the image's clear left side from lg up */}
-          <div className="relative z-10 mx-auto flex max-w-[1400px] flex-col items-start px-6 pt-10 pb-6 sm:pt-14 lg:absolute lg:inset-0 lg:h-full lg:justify-center lg:px-10 lg:py-0">
-            <div className="max-w-md">
-              {/* small label above the title */}
-              <p className="text-[13px] font-[456] text-text-muted">ER (Electric Roaster)</p>
+        <div className="mx-auto max-w-[1400px] px-6 pt-10 pb-6 sm:pt-14 lg:px-10 lg:pt-16">
+          <div className="max-w-md">
+            {/* small label above the title */}
+            <p className="text-[13px] font-[456] text-text-muted">ER (Electric Roaster)</p>
 
-              {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-              <h1 className="mt-1 text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
-                BUJA ROASTER
-                <br />
-                B30S
-              </h1>
+            {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
+            <h1 className="mt-1 text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px] lg:text-[56px] lg:leading-[1.0]">
+              BUJA ROASTER
+              <br />
+              B30S
+            </h1>
 
-              {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
-              <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted sm:text-[18px]">
-                스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
-              </p>
+            {/* body-lg: the light 300-weight counterpoint to the 652 heading */}
+            <p className="mt-4 text-[16px] font-[300] leading-[1.38] text-text-muted sm:text-[18px]">
+              스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
+            </p>
 
-              {/* small spec chip */}
-              <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
-                적정 투입량 100g~300g
-              </div>
+            {/* small spec chip */}
+            <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
+              적정 투입량 100g~300g
             </div>
           </div>
+        </div>
 
-          {/* image: normal flow (sits below the text) below lg, docks to the right as a full-bleed overlay from lg up */}
-          <div className="aspect-square w-full sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
-            <img
-              src={heroImage}
-              alt="BUJA ROASTER B30S"
-              className="h-full w-full object-contain lg:object-right"
-            />
-          </div>
+        {/* product photo, centered */}
+        <div className="mx-auto aspect-square w-full max-w-2xl px-6 pt-10 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
+          <img src={heroImage} alt="BUJA ROASTER B30S" className="h-full w-full object-contain" />
         </div>
       </section>
 
