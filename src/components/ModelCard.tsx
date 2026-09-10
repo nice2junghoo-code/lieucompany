@@ -17,7 +17,7 @@ function ModelCard({ model }: { model: Model }) {
 
       <p className="text-center text-[18px] font-[652] text-ink">{model.name}</p>
 
-      <div className="mt-3 rounded-sm border border-ink bg-ink px-4 py-2.5 text-center text-[13px] font-[600] text-on-primary transition-colors group-hover:border-hairline group-hover:bg-canvas group-hover:text-ink">
+      <div className="mt-3 rounded-sm border border-ink bg-canvas px-4 py-2.5 text-center text-[13px] font-[600] text-ink transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-on-primary">
         자세히보기
       </div>
     </a>
