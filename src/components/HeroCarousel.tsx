@@ -53,6 +53,9 @@ function HeroCarousel() {
   const goPrev = () => setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length)
   const goNext = () => setIndex((i) => (i + 1) % SLIDES.length)
 
+  const prevSlide = SLIDES[(index - 1 + SLIDES.length) % SLIDES.length]
+  const nextSlide = SLIDES[(index + 1) % SLIDES.length]
+
   return (
     <section className="relative w-full overflow-hidden bg-canvas">
       <div
@@ -100,18 +103,20 @@ function HeroCarousel() {
       <button
         type="button"
         onClick={goPrev}
-        aria-label="이전 모델"
-        className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
+        aria-label={`${prevSlide.model} 보기`}
+        className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 flex-col items-center gap-1 text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
       >
         <ArrowIcon direction="left" />
+        <span className="text-[12px] font-[600]">{prevSlide.model}</span>
       </button>
       <button
         type="button"
         onClick={goNext}
-        aria-label="다음 모델"
-        className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
+        aria-label={`${nextSlide.model} 보기`}
+        className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 flex-col items-center gap-1 text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
       >
         <ArrowIcon direction="right" />
+        <span className="text-[12px] font-[600]">{nextSlide.model}</span>
       </button>
 
       {/* dots */}
