@@ -1,9 +1,7 @@
 import Header from '../components/Header'
 import QuickMenu from '../components/QuickMenu'
-import CategoryMenu from '../components/CategoryMenu'
-import ModelCard from '../components/ModelCard'
+import ProductCatalog from '../components/ProductCatalog'
 import heroImage from '../assets/hero-roaster.png'
-import { MODELS } from '../data/models'
 
 function Home() {
   return (
@@ -47,20 +45,9 @@ function Home() {
 
       <QuickMenu />
 
-      {/* product category boxes — left-aligned row on desktop, tap-to-expand on mobile */}
-      <section className="bg-canvas pt-8 lg:pt-10">
-        <CategoryMenu />
-      </section>
-
-      {/* model list — left-aligned row on desktop, swipeable on mobile */}
-      <section className="px-6 pt-4 pb-16 lg:px-10 lg:pb-20">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
-            {MODELS.map((model) => (
-              <ModelCard key={model.id} model={model} />
-            ))}
-          </div>
-        </div>
+      {/* product catalog — category filter + matching model cards */}
+      <section className="bg-canvas pt-8 pb-16 lg:pt-10 lg:pb-20">
+        <ProductCatalog />
       </section>
 
       {/* instagram feed */}
