@@ -49,6 +49,15 @@ body {
   overflow-wrap: break-word;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes slide-in-right {
   from {
     opacity: 0;

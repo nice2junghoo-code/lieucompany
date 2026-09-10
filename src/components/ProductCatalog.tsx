@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { MODELS } from '../data/models'
 import ModelCard from './ModelCard'
 
@@ -17,6 +17,20 @@ function ChevronIcon({ open }: { open: boolean }) {
   )
 }
 
+function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-8 w-8" aria-hidden="true">
+      <path
+        d={direction === 'left' ? 'M12 4.5 6 10l6 5.5' : 'M8 4.5 14 10l-6 5.5'}
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function boxClass(active: boolean) {
   return `shrink-0 rounded-sm border px-3 py-1.5 text-[12px] font-[600] whitespace-nowrap transition-colors ${
     active
@@ -28,8 +42,13 @@ function boxClass(active: boolean) {
 function ProductCatalog() {
   const [selected, setSelected] = useState('모든모델')
   const [open, setOpen] = useState(false)
+  const rowRef = useRef<HTMLDivElement>(null)
 
   const models = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.category === selected)
+
+  const scrollRow = (direction: 1 | -1) => {
+    rowRef.current?.scrollBy({ left: direction * rowRef.current.clientWidth * 0.9, behavior: 'smooth' })
+  }
 
   return (
     <div>
@@ -74,13 +93,34 @@ function ProductCatalog() {
         </div>
       </div>
 
-      {/* model list — left-aligned row on desktop, swipeable on mobile */}
-      <div className="mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
-        <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
+      {/* model list — swipeable on mobile, arrow-scrollable on desktop/tablet */}
+      <div className="relative mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
+        <div ref={rowRef} className="no-scrollbar flex gap-4 overflow-x-auto scroll-smooth">
           {models.map((model) => (
             <ModelCard key={model.id} model={model} />
           ))}
         </div>
+
+        {models.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => scrollRow(-1)}
+              aria-label="이전 모델 보기"
+              className="absolute top-1/2 left-0 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex"
+            >
+              <ArrowIcon direction="left" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollRow(1)}
+              aria-label="다음 모델 보기"
+              className="absolute top-1/2 right-0 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex"
+            >
+              <ArrowIcon direction="right" />
+            </button>
+          </>
+        )}
       </div>
     </div>
   )
