@@ -35,14 +35,11 @@ function ProductCatalog() {
     <div>
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* desktop/tablet: full row, left-aligned */}
-        <div className="hidden sm:flex sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-2 sm:gap-y-3">
+        <div className="hidden sm:flex sm:flex-wrap sm:items-center sm:justify-start sm:gap-2">
           {CATEGORIES.map((label) => (
-            <div key={label} className="flex flex-col items-start gap-1">
-              <button type="button" onClick={() => setSelected(label)} className={boxClass(selected === label)}>
-                {label}
-              </button>
-              <span className="pl-0.5 text-[11px] font-[456] whitespace-nowrap text-text-muted">모델 그룹 보기</span>
-            </div>
+            <button key={label} type="button" onClick={() => setSelected(label)} className={boxClass(selected === label)}>
+              {label}
+            </button>
           ))}
         </div>
 
@@ -56,7 +53,6 @@ function ProductCatalog() {
             {selected}
             <ChevronIcon open={open} />
           </button>
-          <p className="mt-1 pl-1 text-[11px] font-[456] text-text-muted">모델 그룹 보기</p>
 
           {open && (
             <div className="mt-2 flex flex-col gap-1 rounded-sm border border-hairline-soft bg-canvas-soft p-2">
