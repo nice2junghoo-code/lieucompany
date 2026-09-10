@@ -13,7 +13,7 @@ export type Model = {
   id: string
   name: string
   tagline: string
-  category: string
+  categories: string[]
   image: string
 }
 
@@ -22,70 +22,70 @@ export const MODELS: Model[] = [
     id: 'b30s',
     name: '부자로스터 B30S',
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b30sImage,
   },
   {
     id: 'b80',
     name: '부자로스터 B80',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b80Image,
   },
   {
     id: 'b80c',
     name: '부자로스터 B80C',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b80cImage,
   },
   {
     id: 'b80s',
     name: '부자로스터 B80S',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b80sImage,
   },
   {
     id: 'b150',
     name: '부자로스터 B150',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b150Image,
   },
   {
     id: 'b150c',
     name: '부자로스터 B150C',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b150cImage,
   },
   {
     id: 'b150s',
     name: '부자로스터 B150S',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기'],
     image: b150sImage,
   },
   {
     id: 'b180sg',
     name: '부자로스터 B180SG',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '가스식로스터기',
+    categories: ['가스식로스터기'],
     image: b180sgImage,
   },
   {
     id: 'b500s',
     name: '부자로스터 B500S',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '전기식로스터기',
+    categories: ['전기식로스터기', '대형로스터기'],
     image: b500sImage,
   },
   {
     id: 'b500sg',
     name: '부자로스터 B500SG',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    category: '가스식로스터기',
+    categories: ['가스식로스터기', '대형로스터기'],
     image: b500sgImage,
   },
 ]

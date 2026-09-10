@@ -1,7 +1,7 @@
 import type { Model } from '../data/models'
 
 function ModelCard({ model }: { model: Model }) {
-  const typeLabel = model.category === '가스식로스터기' ? 'GR (Gas Type Roaster)' : 'ER (Electric Roaster)'
+  const typeLabel = model.categories.includes('가스식로스터기') ? 'GR (Gas Type Roaster)' : 'ER (Electric Roaster)'
 
   return (
     <a

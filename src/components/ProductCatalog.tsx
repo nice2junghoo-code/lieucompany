@@ -44,7 +44,7 @@ function ProductCatalog() {
   const [open, setOpen] = useState(false)
   const rowRef = useRef<HTMLDivElement>(null)
 
-  const models = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.category === selected)
+  const models = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
 
   const scrollRow = (direction: 1 | -1) => {
     rowRef.current?.scrollBy({ left: direction * rowRef.current.clientWidth * 0.9, behavior: 'smooth' })
