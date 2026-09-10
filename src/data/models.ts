@@ -11,7 +11,7 @@ export type Model = {
 export const MODELS: Model[] = [
   {
     id: 'b30s',
-    name: 'B30S',
+    name: 'BUJA ROASTER B30S',
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     category: '전기식로스터기',
     image: b30sImage,
