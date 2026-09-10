@@ -43,8 +43,8 @@ function HeroCarousel() {
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
         {SLIDES.map((slide) => (
-          <div key={slide.key} className="w-full shrink-0">
-            <div className="mx-auto max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
+          <div key={slide.key} className="flex w-full shrink-0 flex-col">
+            <div className="mx-auto w-full max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
               <div className="max-w-md">
                 <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                   <span className="lg:whitespace-nowrap">BUJA ROASTER</span>
@@ -60,7 +60,8 @@ function HeroCarousel() {
               </div>
             </div>
 
-            <div className="w-full bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
+            {/* flex-1 so this fills any leftover height when a taller slide stretches the row — keeps the bottom the gradient's soft tone instead of showing white */}
+            <div className="flex w-full flex-1 items-center justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
               <div className={`relative mx-auto ${slide.aspectClass} w-full ${slide.sizeClass} px-6 pt-6 pb-10 sm:pt-0 sm:pb-14 lg:px-10 lg:pb-16`}>
                 <img src={slide.image} alt={slide.alt} className="relative h-full w-full object-contain" />
               </div>
