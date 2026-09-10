@@ -1,10 +1,9 @@
 import Header from '../components/Header'
 import QuickMenu from '../components/QuickMenu'
 import CategoryMenu from '../components/CategoryMenu'
-import CheckIcon from '../components/CheckIcon'
-import logo from '../assets/lieu-logo.png'
+import ModelCard from '../components/ModelCard'
 import heroImage from '../assets/hero-roaster.png'
-import { PROFILE_HIGHLIGHTS, TRUST_STATS } from '../data/profile'
+import { MODELS } from '../data/models'
 
 function Home() {
   return (
@@ -53,46 +52,12 @@ function Home() {
         <CategoryMenu />
       </section>
 
-      {/* profile card, below the hero */}
-      <section className="mx-auto max-w-[1200px] px-6 pb-16 lg:px-8 lg:pb-24">
-        <div className="mx-auto w-full max-w-md rounded-md border border-hairline-soft bg-canvas p-6">
-          {/* button-pill-soft */}
-          <span className="inline-flex items-center rounded-full bg-canvas-soft px-3 py-1.5 text-[12px] font-[600] text-ink">
-            📺 EBS &lt;처음 배우는 AI&gt; 출연
-          </span>
-
-          <div className="mt-5 flex items-center gap-4">
-            {/* app-icon-squircle: 30% corner radius */}
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[30%] bg-field p-2.5">
-              <img src={logo} alt="LIEU" className="h-full w-full object-contain" />
-            </div>
-            <div>
-              {/* heading-4 */}
-              <p className="text-[24px] font-[652] leading-[1.25] text-ink">세이투 대표</p>
-              {/* body-sm */}
-              <p className="text-[14px] font-[456] leading-[1.43] text-text-muted">
-                AI 콘텐츠 교육 전문가 · 20년 차 개발자
-              </p>
-            </div>
-          </div>
-
-          <ul className="mt-6 space-y-3 border-t border-hairline-soft pt-6">
-            {PROFILE_HIGHLIGHTS.map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-[14px] font-[456] leading-[1.43] text-ink">
-                <CheckIcon />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-6 grid grid-cols-2 gap-3 border-t border-hairline-soft pt-6">
-            {TRUST_STATS.map((stat) => (
-              <div key={stat.label} className="rounded-sm bg-canvas-soft px-4 py-3 text-center">
-                {/* heading-4 */}
-                <p className="text-[24px] font-[652] leading-[1.25] text-ink">{stat.value}</p>
-                {/* caption */}
-                <p className="mt-0.5 text-[12px] font-[456] leading-[1.33] text-text-muted">{stat.label}</p>
-              </div>
+      {/* model list — left-aligned row on desktop, swipeable on mobile */}
+      <section className="px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
+            {MODELS.map((model) => (
+              <ModelCard key={model.id} model={model} />
             ))}
           </div>
         </div>
