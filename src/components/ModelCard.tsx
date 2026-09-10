@@ -1,26 +1,5 @@
 import type { Model } from '../data/models'
 
-function ElectricIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3.5 21 19.5H3L12 3.5Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-      <path
-        d="M13 9.8h-2.3l-.9 3.3h1.9l-.7 2.6 3.3-4h-2l.7-1.9Z"
-        stroke="currentColor"
-        strokeWidth="1.1"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-      />
-    </svg>
-  )
-}
-
 function ModelCard({ model }: { model: Model }) {
   return (
     <a
@@ -29,7 +8,6 @@ function ModelCard({ model }: { model: Model }) {
       className="group w-[240px] shrink-0 rounded-md border border-hairline-soft bg-canvas p-4 transition-colors hover:border-hairline"
     >
       <div className="inline-flex items-center gap-1 rounded-sm border border-ink bg-ink px-2 py-1 text-[10px] font-[600] text-on-primary">
-        <ElectricIcon className="h-[1em] w-[1em]" />
         ER (Electric Roaster)
       </div>
 
