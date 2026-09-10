@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/lieu-logo.png'
 
-const NAV_LINKS = [{ label: 'ABOUT', to: '/about' }]
+const NAV_LINKS = [
+  { label: 'PRODUCT', to: '/products' },
+  { label: 'ABOUT', to: '/about' },
+]
 
 function Header() {
   return (
