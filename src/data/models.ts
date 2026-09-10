@@ -6,6 +6,8 @@ import b150Image from '../assets/model-b150.png'
 import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
+import b500sImage from '../assets/model-b500s.png'
+import b500sgImage from '../assets/model-b500sg.png'
 
 export type Model = {
   id: string
@@ -71,5 +73,19 @@ export const MODELS: Model[] = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     category: '가스식로스터기',
     image: b180sgImage,
+  },
+  {
+    id: 'b500s',
+    name: '부자로스터 B500S',
+    tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
+    category: '전기식로스터기',
+    image: b500sImage,
+  },
+  {
+    id: 'b500sg',
+    name: '부자로스터 B500SG',
+    tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
+    category: '가스식로스터기',
+    image: b500sgImage,
   },
 ]
