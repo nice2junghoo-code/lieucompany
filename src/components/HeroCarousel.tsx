@@ -70,9 +70,9 @@ function HeroCarousel() {
                 {/* keyed on isActive so the entrance animation replays each time this slide becomes current */}
                 <div key={`text-${isActive}`} className={`max-w-md ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
                   <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-                    <span className="lg:whitespace-nowrap">부자로스터</span>
-                    <br />
-                    {slide.model}
+                    <span className="lg:whitespace-nowrap">
+                      부자로스터 {slide.model}
+                    </span>
                   </h1>
 
                   <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">{slide.tagline}</p>
