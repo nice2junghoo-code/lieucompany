@@ -1,79 +1,14 @@
 import Header from '../components/Header'
 import QuickMenu from '../components/QuickMenu'
 import ProductCatalog from '../components/ProductCatalog'
-import heroImage from '../assets/hero-roaster.png'
-import heroImageB80S from '../assets/hero-roaster-b80s.png'
+import HeroCarousel from '../components/HeroCarousel'
 
 function Home() {
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
 
-      {/* hero: text top-left, product photo centered below it — stacked at every breakpoint so they never overlap */}
-      <section className="relative w-full overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
-          <div className="max-w-md animate-[slide-in-right_0.7s_ease-out_both]">
-            {/* heading-1, stepping down through heading-3/2 on narrower viewports */}
-            <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-              <span className="lg:whitespace-nowrap">BUJA ROASTER</span>
-              <br />
-              B30S
-            </h1>
-
-            {/* body-lg, bumped to a bold weight */}
-            <p className="mt-4 text-[16px] font-[600] leading-[1.38] text-ink sm:text-[18px]">
-              스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기
-            </p>
-
-            {/* small spec chip */}
-            <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
-              적정 투입량 100g~300g
-            </div>
-          </div>
-        </div>
-
-        {/* product photo — soft studio-style gradient, seamless into the icon row below */}
-        <div className="w-full bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-          <div className="relative mx-auto aspect-[1005/877] w-full max-w-[260px] px-6 pt-6 pb-10 sm:max-w-md sm:pt-0 sm:pb-14 lg:max-w-xl lg:px-10 lg:pb-16">
-            <img
-              src={heroImage}
-              alt="BUJA ROASTER B30S"
-              className="relative h-full w-full object-contain animate-[slide-in-right_0.7s_ease-out_0.25s_both]"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* hero 2: B80S — same layout/animation pattern as the B30S hero above, image sized up for the larger machine */}
-      <section className="relative w-full overflow-hidden bg-canvas">
-        <div className="mx-auto max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
-          <div className="max-w-md animate-[slide-in-right_0.7s_ease-out_both]">
-            <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-              <span className="lg:whitespace-nowrap">BUJA ROASTER</span>
-              <br />
-              B80S
-            </h1>
-
-            <p className="mt-4 text-[16px] font-[600] leading-[1.38] text-ink sm:text-[18px]">
-              초보자부터 전문가까지 수준 높은 로스팅 구현
-            </p>
-
-            <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
-              적정 투입량 300g~800g(최대1kg)
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-          <div className="relative mx-auto aspect-[943/807] w-full max-w-[280px] px-6 pt-6 pb-10 sm:max-w-lg sm:pt-0 sm:pb-14 lg:max-w-2xl lg:px-10 lg:pb-16">
-            <img
-              src={heroImageB80S}
-              alt="BUJA ROASTER B80S"
-              className="relative h-full w-full object-contain animate-[slide-in-right_0.7s_ease-out_0.25s_both]"
-            />
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       <QuickMenu />
 
