@@ -75,7 +75,7 @@ function HeroCarousel() {
                     {slide.model}
                   </h1>
 
-                  <p className="mt-4 text-[16px] font-[600] leading-[1.38] text-ink sm:text-[18px]">{slide.tagline}</p>
+                  <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">{slide.tagline}</p>
 
                   <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
                     {slide.spec}
@@ -107,7 +107,7 @@ function HeroCarousel() {
         className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
       >
         <ArrowIcon direction="left" />
-        <span className="text-[16px] font-[600]">{prevSlide.model}</span>
+        <span className="text-[16px] font-[456]">{prevSlide.model}</span>
       </button>
       <button
         type="button"
@@ -115,7 +115,7 @@ function HeroCarousel() {
         aria-label={`${nextSlide.model} 보기`}
         className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
       >
-        <span className="text-[16px] font-[600]">{nextSlide.model}</span>
+        <span className="text-[16px] font-[456]">{nextSlide.model}</span>
         <ArrowIcon direction="right" />
       </button>
 
