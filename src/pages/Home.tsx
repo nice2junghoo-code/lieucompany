@@ -47,6 +47,23 @@ function Home() {
 
       <QuickMenu />
 
+      {/* product category boxes */}
+      <section className="border-b border-hairline-soft bg-canvas px-6 py-10 lg:px-10 lg:py-12">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-3">
+          {['모든모델', '전기식로스터기', '가스식로스터기', '소형로스터기', '대형로스터기', '테이블', '뎀트럭트롤리'].map(
+            (label) => (
+              <a
+                key={label}
+                href="#"
+                className="rounded-sm border border-hairline bg-canvas px-6 py-3 text-[14px] font-[600] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary"
+              >
+                {label}
+              </a>
+            ),
+          )}
+        </div>
+      </section>
+
       {/* profile card, below the hero */}
       <section className="mx-auto max-w-[1200px] px-6 pb-16 lg:px-8 lg:pb-24">
         <div className="mx-auto w-full max-w-md rounded-md border border-hairline-soft bg-canvas p-6">
