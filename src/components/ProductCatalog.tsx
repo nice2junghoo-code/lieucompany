@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { MODELS } from '../data/models'
 import ModelCard from './ModelCard'
 
-const CATEGORIES = ['모든모델', '전기식로스터기', '가스식로스터기', '소형로스터기', '대형로스터기', '테이블', '뎀트럭트롤리']
+const CATEGORIES = ['모든모델', '전기식로스터기', '가스식로스터기', '대형로스터기', '테이블', '뎀트럭트롤리']
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
