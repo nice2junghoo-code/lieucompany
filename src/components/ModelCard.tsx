@@ -1,13 +1,15 @@
 import type { Model } from '../data/models'
 
 function ModelCard({ model }: { model: Model }) {
+  const typeLabel = model.category === '가스식로스터기' ? 'GR (Gas Type Roaster)' : 'ER (Electric Roaster)'
+
   return (
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
       className="group w-[240px] shrink-0 rounded-md border border-hairline-soft bg-canvas p-4 transition-colors hover:border-hairline"
     >
-      <div className="text-[10px] font-[700] text-ink">ER (Electric Roaster)</div>
+      <div className="text-[10px] font-[700] text-ink">{typeLabel}</div>
 
       <div className="mt-1 flex aspect-square items-center justify-center rounded-sm bg-canvas p-3">
         <img src={model.image} alt={model.name} className="h-full w-full object-contain" />
