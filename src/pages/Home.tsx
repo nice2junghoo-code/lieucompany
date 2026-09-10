@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import QuickMenu from '../components/QuickMenu'
+import CategoryMenu from '../components/CategoryMenu'
 import CheckIcon from '../components/CheckIcon'
 import logo from '../assets/lieu-logo.png'
 import heroImage from '../assets/hero-roaster.png'
@@ -47,21 +48,9 @@ function Home() {
 
       <QuickMenu />
 
-      {/* product category boxes — single row always; scrolls horizontally on narrow screens */}
+      {/* product category boxes — left-aligned row on desktop, tap-to-expand on mobile */}
       <section className="border-b border-hairline-soft bg-canvas py-8 lg:py-10">
-        <div className="mx-auto flex max-w-[1400px] gap-2 overflow-x-auto px-6 sm:flex-wrap sm:items-center sm:justify-center sm:overflow-visible lg:px-10">
-          {['모든모델', '전기식로스터기', '가스식로스터기', '소형로스터기', '대형로스터기', '테이블', '뎀트럭트롤리'].map(
-            (label) => (
-              <a
-                key={label}
-                href="#"
-                className="shrink-0 rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[11px] font-[600] whitespace-nowrap text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary sm:text-[12px]"
-              >
-                {label}
-              </a>
-            ),
-          )}
-        </div>
+        <CategoryMenu />
       </section>
 
       {/* profile card, below the hero */}
