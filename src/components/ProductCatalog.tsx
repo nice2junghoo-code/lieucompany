@@ -75,7 +75,7 @@ function ProductCatalog() {
       </div>
 
       {/* model list — left-aligned row on desktop, swipeable on mobile */}
-      <div className="mx-auto mt-4 max-w-[1400px] px-6 lg:px-10">
+      <div className="mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
         <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
           {models.map((model) => (
             <ModelCard key={model.id} model={model} />
