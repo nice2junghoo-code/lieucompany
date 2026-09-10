@@ -16,7 +16,7 @@ function Products() {
         </div>
 
         {/* model list — left-aligned row on desktop, swipeable on mobile */}
-        <div className="mx-auto mt-10 max-w-[1400px] px-6 lg:px-10">
+        <div className="mx-auto mt-4 max-w-[1400px] px-6 lg:px-10">
           <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
             {MODELS.map((model) => (
               <ModelCard key={model.id} model={model} />

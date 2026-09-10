@@ -48,12 +48,12 @@ function Home() {
       <QuickMenu />
 
       {/* product category boxes — left-aligned row on desktop, tap-to-expand on mobile */}
-      <section className="border-b border-hairline-soft bg-canvas py-8 lg:py-10">
+      <section className="bg-canvas pt-8 lg:pt-10">
         <CategoryMenu />
       </section>
 
       {/* model list — left-aligned row on desktop, swipeable on mobile */}
-      <section className="px-6 py-16 lg:px-10 lg:py-20">
+      <section className="px-6 pt-4 pb-16 lg:px-10 lg:pb-20">
         <div className="mx-auto max-w-[1400px]">
           <div className="flex gap-4 overflow-x-auto sm:flex-wrap sm:overflow-visible">
             {MODELS.map((model) => (

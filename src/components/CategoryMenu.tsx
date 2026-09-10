@@ -1,6 +1,11 @@
 import { useState } from 'react'
+import { MODELS } from '../data/models'
 
 const CATEGORIES = ['모든모델', '전기식로스터기', '가스식로스터기', '소형로스터기', '대형로스터기', '테이블', '뎀트럭트롤리']
+
+function countFor(label: string) {
+  return label === '모든모델' ? MODELS.length : MODELS.filter((m) => m.category === label).length
+}
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -24,11 +29,16 @@ function CategoryMenu() {
   return (
     <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
       {/* desktop/tablet: full row, left-aligned */}
-      <div className="hidden sm:flex sm:flex-wrap sm:items-center sm:justify-start sm:gap-2">
+      <div className="hidden sm:flex sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-2 sm:gap-y-3">
         {CATEGORIES.map((label) => (
-          <a key={label} href="#" className={boxClass}>
-            {label}
-          </a>
+          <div key={label} className="flex flex-col items-start gap-1">
+            <a href="#" className={boxClass}>
+              {label}
+            </a>
+            <span className="pl-0.5 text-[11px] font-[456] whitespace-nowrap text-text-muted">
+              모델 그룹 보기({countFor(label)})
+            </span>
+          </div>
         ))}
       </div>
 
@@ -42,6 +52,7 @@ function CategoryMenu() {
           모든모델
           <ChevronIcon open={open} />
         </button>
+        <p className="mt-1 pl-1 text-[11px] font-[456] text-text-muted">모델 그룹 보기({countFor('모든모델')})</p>
 
         {open && (
           <div className="mt-2 flex flex-col gap-1 rounded-sm border border-hairline-soft bg-canvas-soft p-2">
@@ -49,9 +60,10 @@ function CategoryMenu() {
               <a
                 key={label}
                 href="#"
-                className="rounded-sm px-3 py-2.5 text-[13px] font-[600] text-ink transition-colors hover:bg-canvas"
+                className="flex items-baseline justify-between rounded-sm px-3 py-2.5 text-[13px] font-[600] text-ink transition-colors hover:bg-canvas"
               >
                 {label}
+                <span className="text-[11px] font-[456] text-text-muted">({countFor(label)})</span>
               </a>
             ))}
           </div>
