@@ -9,7 +9,7 @@ const SLIDES = [
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     spec: '적정 투입량 100g~300g',
     image: heroImageB30S,
-    alt: 'BUJA ROASTER B30S',
+    alt: '부자로스터 B30S',
     aspectClass: 'aspect-[1005/877]',
     sizeClass: 'max-w-[260px] sm:max-w-md lg:max-w-xl',
   },
@@ -19,7 +19,7 @@ const SLIDES = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     spec: '적정 투입량 300g~800g(최대1kg)',
     image: heroImageB80S,
-    alt: 'BUJA ROASTER B80S',
+    alt: '부자로스터 B80S',
     aspectClass: 'aspect-[943/807]',
     sizeClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
   },
@@ -70,7 +70,7 @@ function HeroCarousel() {
                 {/* keyed on isActive so the entrance animation replays each time this slide becomes current */}
                 <div key={`text-${isActive}`} className={`max-w-md ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
                   <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-                    <span className="lg:whitespace-nowrap">BUJA ROASTER</span>
+                    <span className="lg:whitespace-nowrap">부자로스터</span>
                     <br />
                     {slide.model}
                   </h1>
