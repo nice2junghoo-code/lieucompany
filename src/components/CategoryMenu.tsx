@@ -27,7 +27,7 @@ function CategoryMenu() {
       <div className="hidden sm:flex sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-2 sm:gap-y-3">
         {CATEGORIES.map((label) => (
           <div key={label} className="flex flex-col items-start gap-1">
-            <a href="#" className={boxClass}>
+            <a href="#" onClick={(e) => e.preventDefault()} className={boxClass}>
               {label}
             </a>
             <span className="pl-0.5 text-[11px] font-[456] whitespace-nowrap text-text-muted">모델 그룹 보기</span>
@@ -53,6 +53,7 @@ function CategoryMenu() {
               <a
                 key={label}
                 href="#"
+                onClick={(e) => e.preventDefault()}
                 className="rounded-sm px-3 py-2.5 text-[13px] font-[600] text-ink transition-colors hover:bg-canvas"
               >
                 {label}

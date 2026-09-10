@@ -25,6 +25,7 @@ function ModelCard({ model }: { model: Model }) {
   return (
     <a
       href="#"
+      onClick={(e) => e.preventDefault()}
       className="group w-[240px] shrink-0 rounded-md border border-hairline-soft bg-canvas p-4 transition-colors hover:border-hairline"
     >
       <div className="inline-flex items-center gap-1 rounded-sm border border-ink bg-ink px-2 py-1 text-[10px] font-[600] text-on-primary">
