@@ -28,6 +28,20 @@ const SLIDES = [
 // 5s per slide — in line with the rotation speed used on most large hero carousels (e.g. Hyundai's model banner)
 const ROTATE_MS = 5000
 
+function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
+      <path
+        d={direction === 'left' ? 'M12 4.5 6 10l6 5.5' : 'M8 4.5 14 10l-6 5.5'}
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function HeroCarousel() {
   const [index, setIndex] = useState(0)
 
@@ -35,6 +49,9 @@ function HeroCarousel() {
     const id = setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), ROTATE_MS)
     return () => clearInterval(id)
   }, [])
+
+  const goPrev = () => setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length)
+  const goNext = () => setIndex((i) => (i + 1) % SLIDES.length)
 
   return (
     <section className="relative w-full overflow-hidden bg-canvas">
@@ -78,6 +95,24 @@ function HeroCarousel() {
           )
         })}
       </div>
+
+      {/* prev/next arrows — desktop/tablet only, mobile stays swipe-free as before */}
+      <button
+        type="button"
+        onClick={goPrev}
+        aria-label="이전 모델"
+        className="absolute top-1/2 left-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-hairline bg-canvas text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary sm:flex lg:left-8"
+      >
+        <ArrowIcon direction="left" />
+      </button>
+      <button
+        type="button"
+        onClick={goNext}
+        aria-label="다음 모델"
+        className="absolute top-1/2 right-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-hairline bg-canvas text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary sm:flex lg:right-8"
+      >
+        <ArrowIcon direction="right" />
+      </button>
 
       {/* dots */}
       <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2">
