@@ -9,7 +9,7 @@ function ModelCard({ model }: { model: Model }) {
     >
       <div className="text-[10px] font-[600] text-ink">ER (Electric Roaster)</div>
 
-      <div className="mt-3 flex aspect-square items-center justify-center rounded-sm bg-canvas p-3">
+      <div className="mt-1 flex aspect-square items-center justify-center rounded-sm bg-canvas p-3">
         <img src={model.image} alt={model.name} className="h-full w-full object-contain" />
       </div>
 
