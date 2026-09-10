@@ -104,19 +104,19 @@ function HeroCarousel() {
         type="button"
         onClick={goPrev}
         aria-label={`${prevSlide.model} 보기`}
-        className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 flex-col items-center gap-1 text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
+        className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
       >
         <ArrowIcon direction="left" />
-        <span className="text-[12px] font-[600]">{prevSlide.model}</span>
+        <span className="text-[16px] font-[600]">{prevSlide.model}</span>
       </button>
       <button
         type="button"
         onClick={goNext}
         aria-label={`${nextSlide.model} 보기`}
-        className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 flex-col items-center gap-1 text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
+        className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
       >
+        <span className="text-[16px] font-[600]">{nextSlide.model}</span>
         <ArrowIcon direction="right" />
-        <span className="text-[12px] font-[600]">{nextSlide.model}</span>
       </button>
 
       {/* dots */}
