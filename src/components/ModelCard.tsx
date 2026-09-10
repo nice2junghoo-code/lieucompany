@@ -11,8 +11,13 @@ function ModelCard({ model }: { model: Model }) {
     >
       <div className="text-[10px] font-[700] text-ink">{typeLabel}</div>
 
-      <div className="mt-1 flex aspect-square items-center justify-center rounded-sm bg-canvas p-3">
-        <img src={model.image} alt={model.name} className="h-full w-full object-contain" />
+      <div className="mt-1 flex aspect-square items-center justify-center overflow-hidden rounded-sm bg-canvas p-3">
+        <img
+          src={model.image}
+          alt={model.name}
+          className="h-full w-full object-contain"
+          style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
+        />
       </div>
 
       <p className="text-center text-[18px] font-[652] text-ink">{model.name}</p>

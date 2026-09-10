@@ -16,6 +16,9 @@ export type Model = {
   tagline: string
   categories: string[]
   image: string
+  // scales the product photo up within its card — use when the source photo
+  // frames the machine smaller than the others (e.g. wider multi-part shots)
+  imageScale?: number
 }
 
 export const MODELS: Model[] = [
@@ -95,5 +98,6 @@ export const MODELS: Model[] = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     categories: ['가스식로스터기', '대형로스터기'],
     image: b15kSgImage,
+    imageScale: 1.15,
   },
 ]
