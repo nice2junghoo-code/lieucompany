@@ -47,15 +47,15 @@ function Home() {
 
       <QuickMenu />
 
-      {/* product category boxes */}
-      <section className="border-b border-hairline-soft bg-canvas px-6 py-10 lg:px-10 lg:py-12">
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-3">
+      {/* product category boxes — single row always; scrolls horizontally on narrow screens */}
+      <section className="border-b border-hairline-soft bg-canvas py-8 lg:py-10">
+        <div className="mx-auto flex max-w-[1400px] gap-2 overflow-x-auto px-6 sm:flex-wrap sm:items-center sm:justify-center sm:overflow-visible lg:px-10">
           {['모든모델', '전기식로스터기', '가스식로스터기', '소형로스터기', '대형로스터기', '테이블', '뎀트럭트롤리'].map(
             (label) => (
               <a
                 key={label}
                 href="#"
-                className="rounded-sm border border-hairline bg-canvas px-6 py-3 text-[14px] font-[600] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary"
+                className="shrink-0 rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[11px] font-[600] whitespace-nowrap text-ink transition-colors hover:border-ink hover:bg-ink hover:text-on-primary sm:text-[12px]"
               >
                 {label}
               </a>
