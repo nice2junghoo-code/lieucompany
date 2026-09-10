@@ -5,6 +5,7 @@ import b80sImage from '../assets/hero-roaster-b80s.png'
 import b150Image from '../assets/model-b150.png'
 import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
+import b180sgImage from '../assets/model-b180sg.png'
 
 export type Model = {
   id: string
@@ -63,5 +64,12 @@ export const MODELS: Model[] = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     category: '전기식로스터기',
     image: b150sImage,
+  },
+  {
+    id: 'b180sg',
+    name: 'BUJA ROASTER B180SG',
+    tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
+    category: '가스식로스터기',
+    image: b180sgImage,
   },
 ]
