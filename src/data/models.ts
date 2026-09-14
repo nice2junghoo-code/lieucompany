@@ -23,6 +23,8 @@ export type Model = {
   imageScale?: number
   // overrides the auto ER/GR badge with custom text — for non-roaster products
   badgeLabel?: string
+  // overrides the default 18px name size — for longer names that need to fit on one line
+  nameTextClass?: string
 }
 
 export const MODELS: Model[] = [
@@ -119,5 +121,6 @@ export const MODELS: Model[] = [
     categories: ['뎀트럭트롤리'],
     image: demtruckImage,
     badgeLabel: 'Dumtruk',
+    nameTextClass: 'text-[13px]',
   },
 ]
