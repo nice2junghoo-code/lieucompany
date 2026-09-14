@@ -128,7 +128,7 @@ function HeroCarousel() {
                 </div>
 
                 {slide.stats && (
-                  <div className="w-full px-6 pt-4 pb-8 lg:px-10 lg:pt-4 lg:pb-10">
+                  <div className="w-full px-6 pt-8 pb-8 lg:px-10 lg:pt-10 lg:pb-10">
                     <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
                       {slide.stats.map((stat) => (
                         <div key={stat.label} className="px-2 text-center">
