@@ -20,6 +20,8 @@ export type Model = {
   // scales the product photo up within its card — use when the source photo
   // frames the machine smaller than the others (e.g. wider multi-part shots)
   imageScale?: number
+  // overrides the auto ER/GR badge with custom text — for non-roaster products
+  badgeLabel?: string
 }
 
 export const MODELS: Model[] = [
@@ -107,5 +109,6 @@ export const MODELS: Model[] = [
     tagline: '이동이 편리한 바퀴형 로스터기 거치대',
     categories: ['테이블'],
     image: bujaTableImage,
+    badgeLabel: 'BUJA TABLE',
   },
 ]

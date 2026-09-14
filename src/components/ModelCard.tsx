@@ -3,7 +3,7 @@ import type { Model } from '../data/models'
 function ModelCard({ model }: { model: Model }) {
   const isGas = model.categories.includes('가스식로스터기')
   const isElectric = model.categories.includes('전기식로스터기')
-  const typeLabel = isGas ? 'GR (Gas Type Roaster)' : isElectric ? 'ER (Electric Roaster)' : null
+  const typeLabel = model.badgeLabel ?? (isGas ? 'GR (Gas Type Roaster)' : isElectric ? 'ER (Electric Roaster)' : null)
 
   return (
     <a
