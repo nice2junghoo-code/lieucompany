@@ -25,7 +25,11 @@ const SLIDES = [
     alt: '부자로스터 B80S',
     aspectClass: 'aspect-[943/807]',
     sizeClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
-    stats: null,
+    stats: [
+      { label: '투입량', value: '300g ~ 800G (최대1kg)' },
+      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '크기', value: '1000 x 320 x 810mm' },
+    ],
   },
 ]
 
