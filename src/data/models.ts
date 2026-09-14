@@ -9,6 +9,7 @@ import b180sgImage from '../assets/model-b180sg.png'
 import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
+import bujaTableImage from '../assets/model-buja-table.png'
 
 export type Model = {
   id: string
@@ -99,5 +100,12 @@ export const MODELS: Model[] = [
     categories: ['가스식로스터기', '대형로스터기'],
     image: b15kSgImage,
     imageScale: 1.15,
+  },
+  {
+    id: 'buja-table',
+    name: '부자테이블',
+    tagline: '이동이 편리한 바퀴형 로스터기 거치대',
+    categories: ['테이블'],
+    image: bujaTableImage,
   },
 ]
