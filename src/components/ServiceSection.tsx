@@ -7,6 +7,14 @@ const SERVICES = [
   { key: 'smoke-control', label: '제연설비', image: null },
 ]
 
+function ChevronRightIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+      <path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function ServiceSection() {
   return (
     <section className="bg-canvas px-6 pt-4 pb-16 lg:px-10 lg:pt-4 lg:pb-20">
@@ -16,21 +24,28 @@ function ServiceSection() {
             key={service.key}
             href="#"
             onClick={(e) => e.preventDefault()}
-            className="group block rounded-md border border-hairline-soft bg-canvas p-4 transition-colors hover:border-hairline"
+            className="group relative block aspect-square w-full overflow-hidden rounded-md"
           >
             {service.image ? (
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-sm">
-                <img src={service.image} alt={service.label} className="h-full w-full object-cover" />
-              </div>
+              <img
+                src={service.image}
+                alt={service.label}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             ) : (
               // placeholder — real photo to come later
-              <div className="aspect-[16/9] w-full rounded-sm bg-field" />
+              <div className="absolute inset-0 bg-field" />
             )}
 
-            <p className="mt-4 text-center text-[18px] font-[652] text-ink">{service.label}</p>
+            {/* bottom scrim so the white text stays legible over any photo */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
-            <div className="mt-3 rounded-sm border border-ink bg-canvas px-4 py-2.5 text-center text-[13px] font-[600] text-ink transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-on-primary">
-              자세히보기
+            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 px-6 pb-8 text-center">
+              <p className="text-[20px] font-[652] text-white">{service.label}</p>
+              <span className="inline-flex items-center gap-1 text-[13px] font-[600] text-white underline underline-offset-4">
+                자세히 보기
+                <ChevronRightIcon />
+              </span>
             </div>
           </a>
         ))}
