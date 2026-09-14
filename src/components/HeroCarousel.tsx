@@ -7,21 +7,25 @@ const SLIDES = [
     key: 'b30s',
     model: 'B30S',
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
-    spec: '적정 투입량 100g~300g',
     image: heroImageB30S,
     alt: '부자로스터 B30S',
     aspectClass: 'aspect-[1005/877]',
     sizeClass: 'max-w-[260px] sm:max-w-md lg:max-w-xl',
+    stats: [
+      { label: '투입량', value: '100g ~ 300G (최대350g)' },
+      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '크기', value: '770 x 250 x 670mm' },
+    ],
   },
   {
     key: 'b80s',
     model: 'B80S',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
-    spec: '적정 투입량 300g~800g(최대1kg)',
     image: heroImageB80S,
     alt: '부자로스터 B80S',
     aspectClass: 'aspect-[943/807]',
     sizeClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
+    stats: null,
   },
 ]
 
@@ -66,9 +70,9 @@ function HeroCarousel() {
           const isActive = i === index
           return (
             <div key={slide.key} className="flex w-full shrink-0 flex-col">
-              <div className="mx-auto w-full max-w-[1400px] px-6 pt-10 sm:pt-14 lg:px-10 lg:pt-16">
+              <div className="mx-auto w-full max-w-[1400px] px-6 pt-10 text-center sm:pt-14 lg:px-10 lg:pt-16">
                 {/* keyed on isActive so the entrance animation replays each time this slide becomes current */}
-                <div key={`text-${isActive}`} className={`max-w-md ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
+                <div key={`text-${isActive}`} className={`mx-auto max-w-md ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
                   <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                     <span className="lg:whitespace-nowrap">
                       부자로스터 {slide.model}
@@ -76,10 +80,6 @@ function HeroCarousel() {
                   </h1>
 
                   <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">{slide.tagline}</p>
-
-                  <div className="mt-4 inline-flex items-center rounded-sm border border-hairline bg-canvas px-3 py-1.5 text-[13px] font-[456] text-ink">
-                    {slide.spec}
-                  </div>
                 </div>
               </div>
 
@@ -94,6 +94,17 @@ function HeroCarousel() {
                   />
                 </div>
               </div>
+
+              {slide.stats && (
+                <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline px-6 py-8 lg:px-10 lg:py-10">
+                  {slide.stats.map((stat) => (
+                    <div key={stat.label} className="px-2 text-center">
+                      <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
+                      <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )
         })}

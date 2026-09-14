@@ -1,5 +1,4 @@
 import Header from '../components/Header'
-import QuickMenu from '../components/QuickMenu'
 import ProductCatalog from '../components/ProductCatalog'
 import HeroCarousel from '../components/HeroCarousel'
 
@@ -9,8 +8,6 @@ function Home() {
       <Header />
 
       <HeroCarousel />
-
-      <QuickMenu />
 
       {/* product catalog — category filter + matching model cards */}
       <section className="bg-canvas pt-8 pb-16 lg:pt-10 lg:pb-20">
