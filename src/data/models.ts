@@ -10,6 +10,7 @@ import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
 import bujaTableImage from '../assets/model-buja-table.png'
+import demtruckImage from '../assets/model-demtruck.png'
 
 export type Model = {
   id: string
@@ -110,5 +111,13 @@ export const MODELS: Model[] = [
     categories: ['테이블'],
     image: bujaTableImage,
     badgeLabel: 'BUJA TABLE',
+  },
+  {
+    id: 'demtruck',
+    name: '뎀트럭2.0헤비듀티-디럭스 키트',
+    tagline: '높이 조절이 가능한 헤비듀티 로스터기 이동용 카트',
+    categories: ['뎀트럭트롤리'],
+    image: demtruckImage,
+    badgeLabel: 'Dumtruk',
   },
 ]
