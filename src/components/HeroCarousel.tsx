@@ -100,13 +100,15 @@ function HeroCarousel() {
               </div>
 
               {slide.stats && (
-                <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline px-6 py-8 lg:px-10 lg:py-10">
-                  {slide.stats.map((stat) => (
-                    <div key={stat.label} className="px-2 text-center">
-                      <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
-                      <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
-                    </div>
-                  ))}
+                <div className="w-full bg-canvas-soft px-6 py-8 lg:px-10 lg:py-10">
+                  <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
+                    {slide.stats.map((stat) => (
+                      <div key={stat.label} className="px-2 text-center">
+                        <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
+                        <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
