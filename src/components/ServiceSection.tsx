@@ -7,7 +7,7 @@ const SERVICES = [
 
 function ServiceSection() {
   return (
-    <section className="border-t border-hairline-soft bg-canvas px-6 py-16 lg:px-10 lg:py-20">
+    <section className="bg-canvas px-6 pt-4 pb-16 lg:px-10 lg:pt-4 lg:pb-20">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-6 sm:grid-cols-2">
         {SERVICES.map((service) => (
           <a
