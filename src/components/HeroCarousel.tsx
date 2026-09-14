@@ -88,7 +88,7 @@ function HeroCarousel() {
               </div>
 
               {/* flex-1 so this fills any leftover height when a taller slide stretches the row — keeps the bottom the gradient's soft tone instead of showing white */}
-              <div className="flex w-full flex-1 items-center justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
+              <div className="flex w-full flex-1 items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
                 <div className={`relative mx-auto ${slide.aspectClass} w-full ${slide.sizeClass} px-6 pt-6 pb-10 sm:pt-0 sm:pb-14 lg:px-10 lg:pb-16`}>
                   <img
                     key={`img-${isActive}`}
