@@ -69,9 +69,14 @@ function HeroCarousel() {
 
   const handlePointerDown = (e: React.PointerEvent) => {
     pointerStartRef.current = { x: e.clientX, y: e.clientY }
+    // keep receiving move/up/cancel on this element even if the finger drifts outside it mid-swipe
+    e.currentTarget.setPointerCapture(e.pointerId)
   }
 
-  const handlePointerUp = (e: React.PointerEvent) => {
+  // pointerup fires on a clean release; pointercancel fires when the browser hands the
+  // gesture to native scrolling instead — treat both the same so a wobbly real-finger
+  // swipe (not a lab-perfect straight line) still registers
+  const handlePointerEnd = (e: React.PointerEvent) => {
     const start = pointerStartRef.current
     pointerStartRef.current = null
     if (!start) return
@@ -88,7 +93,8 @@ function HeroCarousel() {
         className="flex touch-pan-y transition-transform duration-700 ease-out select-none"
         style={{ transform: `translateX(-${index * 100}%)` }}
         onPointerDown={handlePointerDown}
-        onPointerUp={handlePointerUp}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
       >
         {SLIDES.map((slide, i) => {
           const isActive = i === index
