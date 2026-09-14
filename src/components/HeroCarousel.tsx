@@ -64,21 +64,19 @@ function HeroCarousel() {
   const prevSlide = SLIDES[(index - 1 + SLIDES.length) % SLIDES.length]
   const nextSlide = SLIDES[(index + 1) % SLIDES.length]
 
-  // swipe support for mobile — desktop uses the arrow buttons instead
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null)
+  // swipe support for mobile (and mouse-drag) — pointer events cover touch, mouse, and pen in one handler
+  const pointerStartRef = useRef<{ x: number; y: number } | null>(null)
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0]
-    touchStartRef.current = { x: t.clientX, y: t.clientY }
+  const handlePointerDown = (e: React.PointerEvent) => {
+    pointerStartRef.current = { x: e.clientX, y: e.clientY }
   }
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const start = touchStartRef.current
-    touchStartRef.current = null
+  const handlePointerUp = (e: React.PointerEvent) => {
+    const start = pointerStartRef.current
+    pointerStartRef.current = null
     if (!start) return
-    const t = e.changedTouches[0]
-    const dx = t.clientX - start.x
-    const dy = t.clientY - start.y
+    const dx = e.clientX - start.x
+    const dy = e.clientY - start.y
     if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return
     if (dx < 0) goNext()
     else goPrev()
@@ -87,10 +85,10 @@ function HeroCarousel() {
   return (
     <section className="relative w-full overflow-hidden bg-canvas">
       <div
-        className="flex touch-pan-y transition-transform duration-700 ease-out"
+        className="flex touch-pan-y transition-transform duration-700 ease-out select-none"
         style={{ transform: `translateX(-${index * 100}%)` }}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
       >
         {SLIDES.map((slide, i) => {
           const isActive = i === index
@@ -117,6 +115,7 @@ function HeroCarousel() {
                       key={`img-${isActive}`}
                       src={slide.image}
                       alt={slide.alt}
+                      draggable={false}
                       className={`relative h-full w-full object-contain ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_0.25s_both]' : ''}`}
                     />
                   </div>
