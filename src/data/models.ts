@@ -121,5 +121,6 @@ export const MODELS: Model[] = [
     categories: ['뎀트럭트롤리'],
     image: demtruckImage,
     badgeLabel: 'Dumtruk',
+    imageScale: 1.15,
   },
 ]
