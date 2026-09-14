@@ -1,8 +1,10 @@
+import serviceReservationImage from '../assets/service-reservation.jpg'
+
 const SERVICES = [
-  { key: 'center', label: '서비스 센터' },
-  { key: 'reservation', label: '서비스 예약' },
-  { key: 'demo', label: '시현신청' },
-  { key: 'smoke-control', label: '제연설비' },
+  { key: 'center', label: '서비스 센터', image: null },
+  { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
+  { key: 'demo', label: '시현신청', image: null },
+  { key: 'smoke-control', label: '제연설비', image: null },
 ]
 
 function ServiceSection() {
@@ -16,8 +18,14 @@ function ServiceSection() {
             onClick={(e) => e.preventDefault()}
             className="group block rounded-md border border-hairline-soft bg-canvas p-4 transition-colors hover:border-hairline"
           >
-            {/* placeholder — real photo to come later */}
-            <div className="aspect-[16/9] w-full rounded-sm bg-field" />
+            {service.image ? (
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-sm">
+                <img src={service.image} alt={service.label} className="h-full w-full object-cover" />
+              </div>
+            ) : (
+              // placeholder — real photo to come later
+              <div className="aspect-[16/9] w-full rounded-sm bg-field" />
+            )}
 
             <p className="mt-4 text-center text-[18px] font-[652] text-ink">{service.label}</p>
 
