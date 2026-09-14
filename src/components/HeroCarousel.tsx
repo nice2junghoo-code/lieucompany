@@ -87,30 +87,32 @@ function HeroCarousel() {
                 </div>
               </div>
 
-              {/* flex-1 so this fills any leftover height when a taller slide stretches the row — keeps the bottom the gradient's soft tone instead of showing white */}
-              <div className="flex w-full flex-1 items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-                <div className={`relative mx-auto ${slide.aspectClass} w-full ${slide.sizeClass} px-6 pt-6 pb-10 sm:pt-0 sm:pb-14 lg:px-10 lg:pb-16`}>
-                  <img
-                    key={`img-${isActive}`}
-                    src={slide.image}
-                    alt={slide.alt}
-                    className={`relative h-full w-full object-contain ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_0.25s_both]' : ''}`}
-                  />
-                </div>
-              </div>
-
-              {slide.stats && (
-                <div className="w-full bg-canvas-soft px-6 py-8 lg:px-10 lg:py-10">
-                  <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
-                    {slide.stats.map((stat) => (
-                      <div key={stat.label} className="px-2 text-center">
-                        <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
-                        <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
-                      </div>
-                    ))}
+              {/* flex-1 column so this fills any leftover height when a taller slide stretches the row — the slack lands after the stats block instead of pushing image/stats apart */}
+              <div className="flex w-full flex-1 flex-col bg-canvas-soft">
+                <div className="flex w-full items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
+                  <div className={`relative mx-auto ${slide.aspectClass} w-full ${slide.sizeClass} px-6 pt-6 sm:pt-0 lg:px-10`}>
+                    <img
+                      key={`img-${isActive}`}
+                      src={slide.image}
+                      alt={slide.alt}
+                      className={`relative h-full w-full object-contain ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_0.25s_both]' : ''}`}
+                    />
                   </div>
                 </div>
-              )}
+
+                {slide.stats && (
+                  <div className="w-full px-6 pt-4 pb-8 lg:px-10 lg:pt-4 lg:pb-10">
+                    <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
+                      {slide.stats.map((stat) => (
+                        <div key={stat.label} className="px-2 text-center">
+                          <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
+                          <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           )
         })}
