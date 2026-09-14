@@ -1,6 +1,8 @@
 const SERVICES = [
   { key: 'center', label: '서비스 센터' },
   { key: 'reservation', label: '서비스 예약' },
+  { key: 'demo', label: '시현신청' },
+  { key: 'smoke-control', label: '제연설비' },
 ]
 
 function ServiceSection() {
