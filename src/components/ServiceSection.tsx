@@ -1,11 +1,13 @@
 import serviceReservationImage from '../assets/service-reservation.png'
 import serviceSmokeControlImage from '../assets/service-smoke-control.png'
 import serviceDemoImage from '../assets/service-demo.png'
+import serviceOverhaulImage from '../assets/service-overhaul.png'
 
 const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
   { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
   { key: 'demo', label: '시현신청', image: serviceDemoImage },
+  { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
   { key: 'smoke-control', label: '제연설비', image: serviceSmokeControlImage },
 ]
 
@@ -20,7 +22,7 @@ function ChevronRightIcon() {
 function ServiceSection() {
   return (
     <section className="bg-canvas px-6 pt-4 pb-16 lg:px-10 lg:pt-4 lg:pb-20">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((service) => (
           <a
             key={service.key}
