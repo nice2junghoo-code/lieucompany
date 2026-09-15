@@ -1,10 +1,11 @@
 import serviceReservationImage from '../assets/service-reservation.png'
 import serviceSmokeControlImage from '../assets/service-smoke-control.png'
+import serviceDemoImage from '../assets/service-demo.png'
 
 const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
   { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
-  { key: 'demo', label: '시현신청', image: null },
+  { key: 'demo', label: '시현신청', image: serviceDemoImage },
   { key: 'smoke-control', label: '제연설비', image: serviceSmokeControlImage },
 ]
 
@@ -42,7 +43,7 @@ function ServiceSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
             <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 px-6 pb-8 text-center">
-              <p className="text-[20px] font-[652] text-white">{service.label}</p>
+              <p className="text-[26px] font-[652] text-white sm:text-[28px]">{service.label}</p>
               <span className="inline-flex items-center gap-1 text-[13px] font-[600] text-white underline underline-offset-4">
                 자세히 보기
                 <ChevronRightIcon />
