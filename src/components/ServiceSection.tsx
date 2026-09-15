@@ -1,10 +1,11 @@
 import serviceReservationImage from '../assets/service-reservation.jpg'
+import serviceSmokeControlImage from '../assets/service-smoke-control.png'
 
 const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
   { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
   { key: 'demo', label: '시현신청', image: null },
-  { key: 'smoke-control', label: '제연설비', image: null },
+  { key: 'smoke-control', label: '제연설비', image: serviceSmokeControlImage },
 ]
 
 function ChevronRightIcon() {
