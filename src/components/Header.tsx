@@ -99,7 +99,7 @@ function Header() {
 
       {/* desktop mega-menu — full-width bar below the nav row, sub-items centered, matching the BYD-style reference */}
       {hoveredLink?.children && (
-        <div className="hidden border-t border-hairline-soft bg-ink sm:block">
+        <div className="hidden border-t border-hairline-soft bg-ink/70 backdrop-blur-md sm:block">
           <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 py-4 lg:px-10">
             {hoveredLink.children.map((child) => (
               <Link
@@ -139,13 +139,13 @@ function Header() {
                 )}
 
                 {link.children && isExpanded && (
-                  <div className="flex flex-col gap-1 bg-ink px-4 py-2">
+                  <div className="flex flex-col pb-2">
                     {link.children.map((child) => (
                       <Link
                         key={child.label}
                         to={child.to}
                         onClick={closeAll}
-                        className="py-2 text-[15px] font-[456] text-on-primary"
+                        className="py-2 text-[15px] font-[456] text-text-muted"
                       >
                         {child.label}
                       </Link>
