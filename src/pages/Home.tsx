@@ -2,6 +2,7 @@ import Header from '../components/Header'
 import ProductCatalog from '../components/ProductCatalog'
 import HeroCarousel from '../components/HeroCarousel'
 import ServiceSection from '../components/ServiceSection'
+import CompanyIntro from '../components/CompanyIntro'
 
 function Home() {
   return (
@@ -16,6 +17,8 @@ function Home() {
       </section>
 
       <ServiceSection />
+
+      <CompanyIntro />
     </div>
   )
 }
