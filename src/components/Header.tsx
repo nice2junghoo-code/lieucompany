@@ -35,43 +35,33 @@ function PlusIcon({ open }: { open: boolean }) {
 function Header() {
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState<string | null>(null)
+  const [hovered, setHovered] = useState<string | null>(null)
 
   const closeAll = () => {
     setOpen(false)
     setExpanded(null)
   }
 
+  const hoveredLink = NAV_LINKS.find((link) => link.label === hovered)
+
   return (
-    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas">
+    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas" onMouseLeave={() => setHovered(null)}>
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" onClick={closeAll}>
           <img src={logo} alt="LIEU" className="h-16 w-auto" />
         </Link>
 
-        {/* desktop/tablet nav — mobile uses the hamburger menu below instead */}
-        <nav className="hidden items-center gap-8 sm:flex">
+        {/* desktop/tablet nav — centered independent of the logo/menu-button widths on either side; mobile uses the hamburger menu below instead */}
+        <nav className="hidden items-center gap-8 sm:absolute sm:left-1/2 sm:flex sm:-translate-x-1/2">
           {NAV_LINKS.map((link) => (
-            <div key={link.to} className="group relative">
-              <Link to={link.to} className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted">
-                {link.label}
-              </Link>
-
-              {link.children && (
-                <div className="invisible absolute top-full left-1/2 z-10 -translate-x-1/2 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-                  <div className="min-w-[100px] rounded-sm border border-hairline-soft bg-canvas py-2">
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.to}
-                        to={child.to}
-                        className="block px-4 py-2 text-center text-[13px] font-[456] text-ink transition-colors hover:text-text-muted"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <Link
+              key={link.to}
+              to={link.to}
+              onMouseEnter={() => setHovered(link.children ? link.label : null)}
+              className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted"
+            >
+              {link.label}
+            </Link>
           ))}
         </nav>
 
@@ -84,6 +74,24 @@ function Header() {
           <MenuIcon open={open} />
         </button>
       </div>
+
+      {/* desktop mega-menu — full-width bar below the nav row, sub-items centered, matching the BYD-style reference */}
+      {hoveredLink?.children && (
+        <div className="hidden border-t border-hairline-soft bg-canvas sm:block">
+          <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-10 px-6 py-4 lg:px-10">
+            {hoveredLink.children.map((child) => (
+              <Link
+                key={child.to}
+                to={child.to}
+                onClick={() => setHovered(null)}
+                className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* mobile menu — full-screen accordion list, closed rows expand with + / − */}
       {open && (
