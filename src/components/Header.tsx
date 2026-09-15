@@ -3,7 +3,11 @@ import logo from '../assets/lieu-logo.png'
 
 const NAV_LINKS = [
   { label: 'PRODUCT', to: '/products' },
-  { label: 'ABOUT', to: '/about' },
+  {
+    label: '브랜드',
+    to: '/about',
+    children: [{ label: '뉴스', to: '/news' }],
+  },
 ]
 
 function Header() {
@@ -16,13 +20,27 @@ function Header() {
 
         <nav className="flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted"
-            >
-              {link.label}
-            </Link>
+            <div key={link.to} className="group relative">
+              <Link to={link.to} className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted">
+                {link.label}
+              </Link>
+
+              {link.children && (
+                <div className="invisible absolute top-full left-1/2 z-10 -translate-x-1/2 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
+                  <div className="min-w-[100px] rounded-sm border border-hairline-soft bg-canvas py-2">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        className="block px-4 py-2 text-center text-[13px] font-[456] text-ink transition-colors hover:text-text-muted"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       </div>
