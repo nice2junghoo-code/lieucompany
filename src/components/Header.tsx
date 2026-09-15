@@ -19,7 +19,10 @@ const NAV_LINKS = [
   {
     label: '브랜드',
     to: '/about',
-    children: [{ label: '뉴스', to: '/news' }],
+    children: [
+      { label: 'ABOUT US', to: '/about' },
+      { label: '뉴스', to: '/news' },
+    ],
   },
 ]
 
