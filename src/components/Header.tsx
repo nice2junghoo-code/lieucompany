@@ -58,7 +58,7 @@ function Header() {
               key={link.to}
               to={link.to}
               onMouseEnter={() => setHovered(link.children ? link.label : null)}
-              className="text-[16px] font-[600] text-ink transition-colors hover:text-text-muted"
+              className="text-[18px] font-[600] text-ink transition-colors hover:text-text-muted"
             >
               {link.label}
             </Link>
