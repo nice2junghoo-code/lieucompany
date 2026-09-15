@@ -4,7 +4,18 @@ import logo from '../assets/lieu-logo.png'
 
 const NAV_LINKS = [
   { label: 'PRODUCT', to: '/products' },
-  { label: '서비스', to: '/service' },
+  {
+    label: '서비스',
+    to: '/service',
+    children: [
+      { label: '쇼룸 및 서비스 센터', to: '/service' },
+      { label: 'A/S 서비스', to: '/service' },
+      { label: '부자로스터 시현 신청', to: '/service' },
+      { label: '이전 설치 및 시운전 지원', to: '/service' },
+      { label: '오버홀', to: '/service' },
+      { label: '로스터기 전문 덕트 배관 설비', to: '/service' },
+    ],
+  },
   {
     label: '브랜드',
     to: '/about',
@@ -79,10 +90,10 @@ function Header() {
       {/* desktop mega-menu — full-width bar below the nav row, sub-items centered, matching the BYD-style reference */}
       {hoveredLink?.children && (
         <div className="hidden border-t border-hairline-soft bg-canvas sm:block">
-          <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-10 px-6 py-4 lg:px-10">
+          <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 py-4 lg:px-10">
             {hoveredLink.children.map((child) => (
               <Link
-                key={child.to}
+                key={child.label}
                 to={child.to}
                 onClick={() => setHovered(null)}
                 className="text-[15px] font-[600] text-ink transition-colors hover:text-text-muted"
@@ -121,7 +132,7 @@ function Header() {
                   <div className="flex flex-col pb-2">
                     {link.children.map((child) => (
                       <Link
-                        key={child.to}
+                        key={child.label}
                         to={child.to}
                         onClick={closeAll}
                         className="py-2 text-[15px] font-[456] text-text-muted"
