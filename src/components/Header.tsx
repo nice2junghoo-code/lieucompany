@@ -4,6 +4,7 @@ import logo from '../assets/lieu-logo.png'
 
 const NAV_LINKS = [
   { label: 'PRODUCT', to: '/products' },
+  { label: '서비스', to: '/service' },
   {
     label: '브랜드',
     to: '/about',

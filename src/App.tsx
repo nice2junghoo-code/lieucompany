@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Products from './pages/Products'
 import News from './pages/News'
+import Service from './pages/Service'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/products" element={<Products />} />
       <Route path="/news" element={<News />} />
+      <Route path="/service" element={<Service />} />
     </Routes>
   )
 }
