@@ -7,7 +7,8 @@ function CompanyIntro() {
             부자로스터기 공식 판매 대리점 리우컴퍼니
           </h2>
           <p className="mt-4 text-[15px] font-[456] leading-[1.7] text-white/60 sm:text-[16px]">
-            리우컴퍼니는 부자로스터 본사와 2015년 정식 판매 대리점 계약을 체결하고, 현재까지 전국에 부자로스터기를 공식 유통하고 있습니다.
+            리우컴퍼니는 부자로스터 본사와 2015년 정식 판매 대리점 계약을 체결하고,
+            <br className="hidden sm:block" /> 현재까지 전국에 부자로스터기를 공식 유통하고 있습니다.
           </p>
         </div>
 
