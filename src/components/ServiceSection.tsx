@@ -23,7 +23,7 @@ function ChevronRightIcon() {
 
 function ServiceSection() {
   return (
-    <section className="bg-canvas px-6 pt-4 pb-16 lg:px-10 lg:pt-4 lg:pb-20">
+    <section className="bg-canvas px-6 pt-8 pb-16 lg:px-10 lg:pt-10 lg:pb-20">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((service) => (
           <a
