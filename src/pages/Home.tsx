@@ -16,9 +16,9 @@ function Home() {
         <ProductCatalog />
       </section>
 
-      <ServiceSection />
-
       <CompanyIntro />
+
+      <ServiceSection />
     </div>
   )
 }
