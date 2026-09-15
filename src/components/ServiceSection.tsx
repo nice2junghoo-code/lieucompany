@@ -1,4 +1,4 @@
-import serviceReservationImage from '../assets/service-reservation.jpg'
+import serviceReservationImage from '../assets/service-reservation.png'
 import serviceSmokeControlImage from '../assets/service-smoke-control.png'
 
 const SERVICES = [
