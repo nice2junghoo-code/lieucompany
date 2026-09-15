@@ -1,3 +1,5 @@
+import companyIntroImage from '../assets/company-intro.png'
+
 function CompanyIntro() {
   return (
     <section className="bg-ink px-6 py-16 lg:px-10 lg:py-20">
@@ -14,8 +16,9 @@ function CompanyIntro() {
           </p>
         </div>
 
-        {/* placeholder — real photo to come later */}
-        <div className="aspect-[4/3] w-full rounded-md border border-white/15 bg-white/5" />
+        <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
+          <img src={companyIntroImage} alt="부자로스터기 공식 판매 대리점" className="h-full w-full object-cover" />
+        </div>
       </div>
     </section>
   )
