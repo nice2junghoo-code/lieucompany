@@ -8,8 +8,8 @@ const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
   { key: 'reservation', label: 'A/S 서비스 신청', image: serviceReservationImage },
   { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage },
-  { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
   { key: 'relocation', label: '이전 설치 및 시운전 지원', image: serviceRelocationImage },
+  { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
   { key: 'smoke-control', label: '로스터기 전문 덕트 배관 설비', image: serviceSmokeControlImage },
 ]
 
