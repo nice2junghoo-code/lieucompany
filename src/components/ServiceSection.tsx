@@ -6,7 +6,7 @@ import serviceOverhaulImage from '../assets/service-overhaul.png'
 const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
   { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
-  { key: 'demo', label: '시현신청', image: serviceDemoImage },
+  { key: 'demo', label: '부자로스터 시현신청', image: serviceDemoImage },
   { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
   { key: 'smoke-control', label: '제연설비', image: serviceSmokeControlImage },
 ]
