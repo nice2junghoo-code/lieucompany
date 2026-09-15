@@ -60,10 +60,17 @@ function Header() {
   const hoveredLink = NAV_LINKS.find((link) => link.label === hovered)
 
   return (
-    <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas" onMouseLeave={() => setHovered(null)}>
+    <div
+      className="group sticky top-0 z-10 w-full border-b border-hairline-soft bg-ink transition-colors duration-300 hover:bg-canvas"
+      onMouseLeave={() => setHovered(null)}
+    >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" onClick={closeAll}>
-          <img src={logo} alt="LIEU" className="h-16 w-auto" />
+          <img
+            src={logo}
+            alt="LIEU"
+            className="h-16 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
+          />
         </Link>
 
         {/* desktop/tablet nav — centered independent of the logo/menu-button widths on either side; mobile uses the hamburger menu below instead */}
@@ -73,7 +80,7 @@ function Header() {
               key={link.to}
               to={link.to}
               onMouseEnter={() => setHovered(link.children ? link.label : null)}
-              className="text-[20px] font-[600] text-ink transition-colors hover:text-text-muted"
+              className="text-[20px] font-[600] text-on-primary transition-colors duration-300 group-hover:text-ink"
             >
               {link.label}
             </Link>
@@ -84,7 +91,7 @@ function Header() {
           type="button"
           onClick={() => (open ? closeAll() : setOpen(true))}
           aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
-          className="flex items-center justify-center text-ink sm:hidden"
+          className="flex items-center justify-center text-on-primary transition-colors duration-300 group-hover:text-ink sm:hidden"
         >
           <MenuIcon open={open} />
         </button>
