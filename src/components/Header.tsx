@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/lieu-logo.png'
 
@@ -10,15 +11,45 @@ const NAV_LINKS = [
   },
 ]
 
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+      {open ? (
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      ) : (
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      )}
+    </svg>
+  )
+}
+
+function PlusIcon({ open }: { open: boolean }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <path d="M10 4v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={open ? 'hidden' : ''} />
+      <path d="M4 10h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 function Header() {
+  const [open, setOpen] = useState(false)
+  const [expanded, setExpanded] = useState<string | null>(null)
+
+  const closeAll = () => {
+    setOpen(false)
+    setExpanded(null)
+  }
+
   return (
     <div className="sticky top-0 z-10 w-full border-b border-hairline-soft bg-canvas">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/">
+        <Link to="/" onClick={closeAll}>
           <img src={logo} alt="LIEU" className="h-16 w-auto" />
         </Link>
 
-        <nav className="flex items-center gap-8">
+        {/* desktop/tablet nav — mobile uses the hamburger menu below instead */}
+        <nav className="hidden items-center gap-8 sm:flex">
           {NAV_LINKS.map((link) => (
             <div key={link.to} className="group relative">
               <Link to={link.to} className="text-[14px] font-[456] text-ink transition-colors hover:text-text-muted">
@@ -43,7 +74,59 @@ function Header() {
             </div>
           ))}
         </nav>
+
+        <button
+          type="button"
+          onClick={() => (open ? closeAll() : setOpen(true))}
+          aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+          className="flex items-center justify-center text-ink sm:hidden"
+        >
+          <MenuIcon open={open} />
+        </button>
       </div>
+
+      {/* mobile menu — full-screen accordion list, closed rows expand with + / − */}
+      {open && (
+        <nav className="absolute inset-x-0 top-full z-20 max-h-[calc(100vh-97px)] overflow-y-auto bg-canvas px-6 py-2 sm:hidden">
+          {NAV_LINKS.map((link) => {
+            const isExpanded = expanded === link.label
+
+            return (
+              <div key={link.to} className="border-b border-hairline-soft">
+                {link.children ? (
+                  <button
+                    type="button"
+                    onClick={() => setExpanded(isExpanded ? null : link.label)}
+                    className="flex w-full items-center justify-between py-4 text-left text-[17px] font-[600] text-ink"
+                  >
+                    {link.label}
+                    <PlusIcon open={isExpanded} />
+                  </button>
+                ) : (
+                  <Link to={link.to} onClick={closeAll} className="block py-4 text-[17px] font-[600] text-ink">
+                    {link.label}
+                  </Link>
+                )}
+
+                {link.children && isExpanded && (
+                  <div className="flex flex-col pb-2">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        onClick={closeAll}
+                        className="py-2 text-[15px] font-[456] text-text-muted"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </nav>
+      )}
     </div>
   )
 }
