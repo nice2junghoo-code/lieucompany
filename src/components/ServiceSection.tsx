@@ -2,6 +2,7 @@ import serviceReservationImage from '../assets/service-reservation.png'
 import serviceSmokeControlImage from '../assets/service-smoke-control.png'
 import serviceDemoImage from '../assets/service-demo.png'
 import serviceOverhaulImage from '../assets/service-overhaul.png'
+import serviceRelocationImage from '../assets/service-relocation.png'
 
 const SERVICES = [
   { key: 'center', label: '서비스 센터', image: null },
@@ -9,6 +10,7 @@ const SERVICES = [
   { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage },
   { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
   { key: 'smoke-control', label: '로스터기 전문 덕트 배관 설비', image: serviceSmokeControlImage },
+  { key: 'relocation', label: '이전 설치 및 시운전 지원', image: serviceRelocationImage },
 ]
 
 function ChevronRightIcon() {
