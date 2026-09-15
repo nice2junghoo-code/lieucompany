@@ -8,7 +8,7 @@ const SERVICES = [
   { key: 'reservation', label: '서비스 예약', image: serviceReservationImage },
   { key: 'demo', label: '부자로스터 시현신청', image: serviceDemoImage },
   { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage },
-  { key: 'smoke-control', label: '제연설비', image: serviceSmokeControlImage },
+  { key: 'smoke-control', label: '로스터기 전문 덕트 배관 설비', image: serviceSmokeControlImage },
 ]
 
 function ChevronRightIcon() {
