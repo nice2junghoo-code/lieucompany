@@ -19,7 +19,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" className="h-8 w-8" aria-hidden="true">
+    <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
       <path
         d={direction === 'left' ? 'M12 4.5 6 10l6 5.5' : 'M8 4.5 14 10l-6 5.5'}
         stroke="currentColor"
@@ -107,7 +107,7 @@ function ProductCatalog() {
               type="button"
               onClick={() => scrollRow(-1)}
               aria-label="이전 모델 보기"
-              className="absolute top-1/2 left-0 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex"
+              className="absolute top-1/2 left-0 z-10 hidden h-9 w-12 -translate-y-1/2 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary sm:flex"
             >
               <ArrowIcon direction="left" />
             </button>
@@ -115,7 +115,7 @@ function ProductCatalog() {
               type="button"
               onClick={() => scrollRow(1)}
               aria-label="다음 모델 보기"
-              className="absolute top-1/2 right-0 z-10 hidden -translate-y-1/2 items-center justify-center text-ink transition-colors hover:text-text-muted sm:flex"
+              className="absolute top-1/2 right-0 z-10 hidden h-9 w-12 -translate-y-1/2 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary sm:flex"
             >
               <ArrowIcon direction="right" />
             </button>
