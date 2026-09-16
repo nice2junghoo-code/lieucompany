@@ -72,9 +72,18 @@ function PlusIcon({ open }: { open: boolean }) {
   )
 }
 
+const DEFAULT_MAP_ID = LOCATIONS.find((loc) => loc.address)?.id ?? null
+
 function Showroom() {
   const [mapOpenId, setMapOpenId] = useState<string | null>(null)
+  const [activeMapId, setActiveMapId] = useState<string | null>(DEFAULT_MAP_ID)
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const activeLocation = LOCATIONS.find((loc) => loc.id === activeMapId)
+
+  const handleToggleMap = (id: string, isOpen: boolean) => {
+    setMapOpenId(isOpen ? null : id)
+    setActiveMapId(id)
+  }
 
   const handleCopyAddress = (id: string, address: string) => {
     navigator.clipboard.writeText(address).catch(() => {})
@@ -96,8 +105,8 @@ function Showroom() {
           쇼룸을 운영하고 있습니다.
         </p>
 
-        <div className="mx-auto mt-12 max-w-[640px]">
-          {/* self-contained cards on every screen size — name + 지도 보기 toggle, contact rows, inline map */}
+        <div className="mx-auto mt-12 grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-[1fr_1fr] lg:grid-cols-[420px_1fr]">
+          {/* self-contained cards — name + 지도 보기 toggle, contact rows; map shows inline on mobile, in the shared panel on the right at sm+ */}
           <div className="flex flex-col gap-4">
             <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
 
@@ -111,7 +120,7 @@ function Showroom() {
                     {loc.address && (
                       <button
                         type="button"
-                        onClick={() => setMapOpenId(isMapOpen ? null : loc.id)}
+                        onClick={() => handleToggleMap(loc.id, isMapOpen)}
                         className="flex shrink-0 items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4"
                       >
                         지도 보기
@@ -174,17 +183,34 @@ function Showroom() {
                     )}
                   </div>
 
+                  {/* mobile only — desktop shows the map in the shared panel on the right instead */}
                   {isMapOpen && loc.address && (
                     <iframe
                       title={loc.name}
                       src={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`}
-                      className="mt-4 h-[280px] w-full border-0"
+                      className="mt-4 h-[280px] w-full border-0 sm:hidden"
                       loading="lazy"
                     />
                   )}
                 </div>
               )
             })}
+          </div>
+
+          {/* shared map panel — desktop/tablet only */}
+          <div className="hidden bg-canvas-soft sm:block">
+            {activeLocation?.address ? (
+              <iframe
+                title={activeLocation.name}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address)}&output=embed`}
+                className="h-full min-h-[520px] w-full border-0"
+                loading="lazy"
+              />
+            ) : (
+              <div className="flex h-full min-h-[520px] items-center justify-center text-[14px] text-text-muted">
+                지도 위치 준비 중입니다
+              </div>
+            )}
           </div>
         </div>
       </main>
