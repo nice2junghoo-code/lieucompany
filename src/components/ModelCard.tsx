@@ -9,18 +9,16 @@ function ModelCard({ model }: { model: Model }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group w-[240px] shrink-0 rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
+      className="group w-[240px] shrink-0 overflow-hidden rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
     >
       {typeLabel && <div className="text-[10px] font-[700] text-ink">{typeLabel}</div>}
 
-      <div className="mt-1 flex aspect-square items-center justify-center overflow-hidden">
-        <img
-          src={model.image}
-          alt={model.name}
-          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
-          style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
-        />
-      </div>
+      <img
+        src={model.image}
+        alt={model.name}
+        className="mt-1 w-full object-contain transition-transform duration-500 group-hover:scale-110"
+        style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
+      />
 
       <p className={`text-center whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[15px]'}`}>{model.name}</p>
 
