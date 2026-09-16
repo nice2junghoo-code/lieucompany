@@ -4,7 +4,7 @@ export type NavLink = { label: string; to: string; children?: NavChild[] }
 // shared by Header (top nav + dropdowns) and Footer (link columns) — add a
 // new top-level category or child link here and both update together
 export const NAV_LINKS: NavLink[] = [
-  { label: 'PRODUCT', to: '/products' },
+  { label: '모델', to: '/products' },
   {
     label: '서비스',
     to: '/service',
