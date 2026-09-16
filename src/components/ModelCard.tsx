@@ -9,7 +9,7 @@ function ModelCard({ model }: { model: Model }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group w-[280px] shrink-0 overflow-hidden rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
+      className="group flex w-[280px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
     >
       <p className={`text-left whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[15px]'}`}>{model.name}</p>
       {typeLabel && <div className="mt-1.5 text-left text-[10px] font-[700] text-ink">{typeLabel}</div>}
@@ -21,7 +21,7 @@ function ModelCard({ model }: { model: Model }) {
         style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
       />
 
-      <div className="mt-3 grid grid-cols-2 gap-1.5">
+      <div className="mt-auto grid grid-cols-2 gap-1.5 pt-6">
         <div className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors group-hover:border-ink group-hover:bg-ink group-hover:text-on-primary">
           자세히보기
         </div>
