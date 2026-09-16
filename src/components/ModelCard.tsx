@@ -30,7 +30,17 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         <img
           src={model.image}
           alt={model.name}
-          className={`block object-contain ${fullWidth ? 'w-[70%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${model.id === 'demtruck' ? 'mb-12' : ''}`}
+          className={`block object-contain ${fullWidth ? 'w-[70%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${
+            model.id === 'demtruck'
+              ? fullWidth
+                ? 'mb-7'
+                : 'mb-12'
+              : model.id === 'b15k-sg'
+                ? ''
+                : fullWidth
+                  ? 'mb-2'
+                  : ''
+          }`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
       </div>
