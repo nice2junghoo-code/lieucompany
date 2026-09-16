@@ -8,12 +8,18 @@ function ModelCard({ model }: { model: Model }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group flex w-[280px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas px-4 py-6 shadow-sm transition-shadow hover:shadow-lg"
+      className="group flex w-[300px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas px-4 py-7 shadow-sm transition-shadow hover:shadow-lg"
     >
       <div className="flex items-center gap-2">
-        <p className={`whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[18px]'}`}>{model.name}</p>
+        <div className="flex flex-col">
+          {model.name.split('\n').map((line, i) => (
+            <p key={i} className={`whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[22px]'}`}>
+              {line}
+            </p>
+          ))}
+        </div>
         {isElectric && (
-          <span className="shrink-0 rounded-none bg-accent px-1.5 py-1 text-[11px] font-[700] text-on-primary">ER</span>
+          <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary">ER</span>
         )}
         {isGas && (
           <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
