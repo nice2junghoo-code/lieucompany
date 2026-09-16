@@ -30,7 +30,7 @@ function ModelCard({ model }: { model: Model }) {
         <img
           src={model.image}
           alt={model.name}
-          className={`block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110 ${model.id === 'demtruck' ? 'mb-4' : ''}`}
+          className={`block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110 ${model.id === 'demtruck' ? 'mb-12' : ''}`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
       </div>
