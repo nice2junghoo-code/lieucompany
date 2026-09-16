@@ -135,7 +135,7 @@ function Showroom() {
                     <img
                       src={loc.photo}
                       alt={loc.name}
-                      className={`mt-4 aspect-square w-full object-cover ${isActive ? 'block' : 'block sm:hidden'}`}
+                      className={`mt-4 h-40 w-full object-cover ${isActive ? 'block' : 'block sm:hidden'}`}
                     />
                   )}
 
