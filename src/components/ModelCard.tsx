@@ -3,7 +3,6 @@ import type { Model } from '../data/models'
 function ModelCard({ model }: { model: Model }) {
   const isGas = model.categories.includes('가스식로스터기')
   const isElectric = model.categories.includes('전기식로스터기')
-  const typeLabel = model.badgeLabel ?? (isGas ? 'GR (Gas Type Roaster)' : isElectric ? 'ER (Electric Roaster)' : null)
 
   return (
     <a
@@ -20,13 +19,12 @@ function ModelCard({ model }: { model: Model }) {
           <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
         )}
       </div>
-      {typeLabel && <div className="mt-0.5 text-left text-[12px] font-[700] text-text-muted">{typeLabel}</div>}
 
       <div className="mt-3 flex h-[170px] items-end justify-center">
         <img
           src={model.image}
           alt={model.name}
-          className="block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110"
+          className={`block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110 ${model.id === 'demtruck' ? 'mb-4' : ''}`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
       </div>
