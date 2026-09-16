@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import companyIntroImage from '../assets/company-intro.png'
 
 function CompanyIntro() {
@@ -14,6 +15,13 @@ function CompanyIntro() {
             <span className="sm:hidden"> </span>
             현재까지 전국에 부자로스터기를 공식 유통하고 있습니다.
           </p>
+
+          <Link
+            to="/about"
+            className="mt-6 inline-block rounded-none border border-canvas bg-canvas px-6 py-3 text-[13px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+          >
+            자세히 보기
+          </Link>
         </div>
 
         <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
