@@ -102,7 +102,7 @@ function ProductCatalog() {
         </div>
 
         {models.length > 1 && (
-          <div className="mt-6 hidden items-center justify-center gap-3 sm:flex">
+          <div className="mt-8 hidden items-center justify-center gap-3 sm:flex lg:mt-10">
             <button
               type="button"
               onClick={() => scrollRow(-1)}
