@@ -11,7 +11,7 @@ function Products() {
         <h1 className="px-6 text-center text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px]">제품</h1>
 
         <div className="mt-10">
-          <ProductCatalog />
+          <ProductCatalog layout="grid" />
         </div>
       </main>
 

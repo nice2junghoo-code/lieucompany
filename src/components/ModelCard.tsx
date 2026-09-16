@@ -1,6 +1,6 @@
 import type { Model } from '../data/models'
 
-function ModelCard({ model }: { model: Model }) {
+function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boolean }) {
   const isGas = model.categories.includes('가스식로스터기')
   const isElectric = model.categories.includes('전기식로스터기')
 
@@ -8,7 +8,7 @@ function ModelCard({ model }: { model: Model }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group flex w-[300px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas px-4 py-7 shadow-sm transition-shadow hover:shadow-lg"
+      className={`group flex ${fullWidth ? 'w-full' : 'w-[300px] shrink-0'} flex-col overflow-hidden rounded-none bg-canvas px-4 py-7 shadow-sm transition-shadow hover:shadow-lg`}
     >
       <div className="flex items-center gap-2">
         <div className="flex flex-col">

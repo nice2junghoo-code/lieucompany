@@ -39,15 +39,27 @@ function boxClass(active: boolean) {
   }`
 }
 
-function ProductCatalog() {
+function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
   const [selected, setSelected] = useState('모든모델')
   const [open, setOpen] = useState(false)
   const rowRef = useRef<HTMLDivElement>(null)
 
-  const models = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
+  const models = layout === 'grid' || selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
 
   const scrollRow = (direction: 1 | -1) => {
     rowRef.current?.scrollBy({ left: direction * rowRef.current.clientWidth * 0.9, behavior: 'smooth' })
+  }
+
+  if (layout === 'grid') {
+    return (
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {models.map((model) => (
+            <ModelCard key={model.id} model={model} fullWidth />
+          ))}
+        </div>
+      </div>
+    )
   }
 
   return (
