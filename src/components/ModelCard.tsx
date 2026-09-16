@@ -8,7 +8,7 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className={`group flex ${fullWidth ? 'w-full' : 'w-[300px] shrink-0'} flex-col overflow-hidden rounded-none bg-canvas px-4 py-7 shadow-sm transition-shadow hover:shadow-lg`}
+      className={`group flex ${fullWidth ? 'w-full' : 'w-[300px] shrink-0'} flex-col overflow-hidden rounded-2xl bg-canvas-soft px-4 py-7 shadow-sm transition-shadow hover:shadow-lg`}
     >
       <div className="flex items-center gap-2">
         <div className="flex flex-col">
@@ -30,7 +30,7 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         <img
           src={model.image}
           alt={model.name}
-          className={`block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110 ${model.id === 'demtruck' ? 'mb-12' : ''}`}
+          className={`block w-[75%] object-contain ${model.id === 'demtruck' ? 'mb-12' : ''}`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
       </div>
