@@ -112,28 +112,34 @@ function Showroom() {
 
             {LOCATIONS.map((loc) => {
               const isMapOpen = mapOpenId === loc.id
+              const isActive = activeMapId === loc.id
+              const infoVisibilityClass = isActive ? 'flex' : 'flex sm:hidden'
 
               return (
                 <div key={loc.id} className="rounded-2xl border border-hairline p-5">
-                  <div className="flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleToggleMap(loc.id, isMapOpen)}
+                    className="flex w-full items-center justify-between gap-3 text-left"
+                  >
                     <p className="text-[17px] font-[700] text-ink">{loc.name}</p>
                     {loc.address && (
-                      <button
-                        type="button"
-                        onClick={() => handleToggleMap(loc.id, isMapOpen)}
-                        className="flex shrink-0 items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4"
-                      >
+                      <span className="flex shrink-0 items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4 sm:hidden">
                         지도 보기
                         <PlusIcon open={isMapOpen} />
-                      </button>
+                      </span>
                     )}
-                  </div>
+                  </button>
 
                   {loc.photo && (
-                    <img src={loc.photo} alt={loc.name} className="mt-4 h-40 w-full object-cover" />
+                    <img
+                      src={loc.photo}
+                      alt={loc.name}
+                      className={`mt-4 aspect-square w-full object-cover ${isActive ? 'block' : 'block sm:hidden'}`}
+                    />
                   )}
 
-                  <div className="mt-4 flex flex-col gap-3 border-t border-hairline-soft pt-4">
+                  <div className={`mt-4 flex-col gap-3 border-t border-hairline-soft pt-4 ${infoVisibilityClass}`}>
                     {loc.phone && (
                       <div className="flex items-center gap-2 text-[14px] text-text-muted">
                         <PhoneIcon />
