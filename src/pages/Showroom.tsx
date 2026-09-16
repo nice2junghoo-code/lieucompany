@@ -91,14 +91,12 @@ function PlusIcon({ open }: { open: boolean }) {
 }
 
 function Showroom() {
-  const [mapOpenId, setMapOpenId] = useState<string | null>(null)
-  const [activeMapId, setActiveMapId] = useState<string | null>(null)
+  const [activeId, setActiveId] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
-  const activeLocation = LOCATIONS.find((loc) => loc.id === activeMapId)
+  const activeLocation = LOCATIONS.find((loc) => loc.id === activeId)
 
-  const handleToggleMap = (id: string, isOpen: boolean) => {
-    setMapOpenId(isOpen ? null : id)
-    setActiveMapId(id)
+  const handleToggleCard = (id: string, isActive: boolean) => {
+    setActiveId(isActive ? null : id)
   }
 
   const handleCopyAddress = (id: string, address: string) => {
@@ -127,8 +125,7 @@ function Showroom() {
             <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
 
             {LOCATIONS.map((loc) => {
-              const isMapOpen = mapOpenId === loc.id
-              const isActive = activeMapId === loc.id
+              const isActive = activeId === loc.id
               const infoVisibilityClass = isActive ? 'flex' : 'hidden'
 
               return (
@@ -138,7 +135,7 @@ function Showroom() {
                 >
                   <button
                     type="button"
-                    onClick={() => handleToggleMap(loc.id, isMapOpen)}
+                    onClick={() => handleToggleCard(loc.id, isActive)}
                     className="flex w-full items-center justify-between gap-3 text-left"
                   >
                     <p className="text-[17px] font-[700] text-ink">{loc.name}</p>
@@ -146,7 +143,7 @@ function Showroom() {
                       {loc.address && (
                         <span className="flex items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4 sm:hidden">
                           지도 보기
-                          <PlusIcon open={isMapOpen} />
+                          <PlusIcon open={isActive} />
                         </span>
                       )}
                       {isActive && <CopiedIcon />}
@@ -211,7 +208,7 @@ function Showroom() {
                   </div>
 
                   {/* mobile only — desktop shows the map in the shared panel on the right instead */}
-                  {isMapOpen && loc.address && (
+                  {isActive && loc.address && (
                     <iframe
                       title={loc.name}
                       src={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`}
