@@ -10,7 +10,6 @@ export const NAV_LINKS: NavLink[] = [
     label: '서비스',
     to: '/service',
     children: [
-      { label: '쇼룸 및 서비스 센터', to: '/service' },
       { label: 'A/S 서비스', to: '/service' },
       { label: '부자로스터 시현 신청', to: '/service' },
       { label: '이전 설치 및 시운전 지원', to: '/service' },
