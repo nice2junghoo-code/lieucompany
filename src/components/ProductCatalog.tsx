@@ -32,7 +32,7 @@ function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
 }
 
 function boxClass(active: boolean) {
-  return `shrink-0 rounded-full border px-4 py-2 text-[12px] font-[600] whitespace-nowrap transition-colors ${
+  return `shrink-0 rounded-none border px-4 py-2 text-[12px] font-[600] whitespace-nowrap transition-colors ${
     active
       ? 'border-ink bg-ink text-on-primary'
       : 'border-hairline bg-canvas text-ink hover:border-ink hover:bg-ink hover:text-on-primary'
