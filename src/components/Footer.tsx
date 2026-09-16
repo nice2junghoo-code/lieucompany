@@ -53,7 +53,7 @@ function Footer() {
       </div>
 
       {/* tablet/desktop: columns, all links visible */}
-      <div className="mx-auto hidden max-w-[1400px] sm:grid sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:gap-x-16">
+      <div className="mx-auto hidden max-w-[1400px] sm:grid sm:grid-cols-5 sm:gap-x-8 sm:gap-y-10 lg:gap-x-16">
         {NAV_LINKS.map((link) => (
           <div key={link.label}>
             <Link to={link.to} className="text-[15px] font-[700] text-on-primary">
