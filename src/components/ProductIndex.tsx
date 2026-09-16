@@ -26,11 +26,11 @@ function ProductIndex() {
 
               <div className="mt-6 flex flex-wrap items-start gap-x-8 gap-y-6">
                 {models.map((model) => (
-                  <div key={model.id} className="flex w-[160px] flex-col items-start gap-2">
+                  <div key={model.id} className="flex w-[250px] flex-col items-start gap-2">
                     <img
                       src={model.image}
                       alt={model.name}
-                      className="h-[160px] w-full object-contain"
+                      className="h-[250px] w-full object-contain"
                       style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
                     />
                     <p className="text-left text-[13px] font-[456] text-ink">{model.name.replace('\n', ' ')}</p>
