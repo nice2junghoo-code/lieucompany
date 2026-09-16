@@ -12,7 +12,7 @@ function Home() {
       <HeroCarousel />
 
       {/* product catalog — category filter + matching model cards */}
-      <section className="bg-canvas pt-8 pb-16 lg:pt-10 lg:pb-20">
+      <section className="bg-canvas-soft pt-8 pb-16 lg:pt-10 lg:pb-20">
         <ProductCatalog />
       </section>
 

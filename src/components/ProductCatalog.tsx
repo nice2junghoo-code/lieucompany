@@ -94,7 +94,7 @@ function ProductCatalog() {
       </div>
 
       {/* model list — swipeable on mobile, arrow-scrollable on desktop/tablet */}
-      <div className="relative mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
+      <div className="mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
         <div ref={rowRef} className="no-scrollbar flex gap-4 overflow-x-auto scroll-smooth">
           {models.map((model) => (
             <ModelCard key={model.id} model={model} />
@@ -102,12 +102,12 @@ function ProductCatalog() {
         </div>
 
         {models.length > 1 && (
-          <>
+          <div className="mt-6 hidden items-center justify-center gap-3 sm:flex">
             <button
               type="button"
               onClick={() => scrollRow(-1)}
               aria-label="이전 모델 보기"
-              className="absolute top-1/2 left-0 z-10 hidden h-9 w-12 -translate-y-1/2 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary sm:flex"
+              className="flex h-9 w-12 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary"
             >
               <ArrowIcon direction="left" />
             </button>
@@ -115,11 +115,11 @@ function ProductCatalog() {
               type="button"
               onClick={() => scrollRow(1)}
               aria-label="다음 모델 보기"
-              className="absolute top-1/2 right-0 z-10 hidden h-9 w-12 -translate-y-1/2 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary sm:flex"
+              className="flex h-9 w-12 items-center justify-center border border-ink bg-canvas text-ink transition-colors hover:bg-ink hover:text-on-primary"
             >
               <ArrowIcon direction="right" />
             </button>
-          </>
+          </div>
         )}
       </div>
     </div>
