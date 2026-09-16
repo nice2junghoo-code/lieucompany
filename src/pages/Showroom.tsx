@@ -137,7 +137,7 @@ function Showroom() {
                 key={i}
                 src={src}
                 alt=""
-                className="h-[160px] w-[160px] shrink-0 rounded-none object-cover sm:h-[220px] sm:w-[220px]"
+                className="h-[240px] w-[240px] shrink-0 rounded-none object-cover sm:h-[340px] sm:w-[340px]"
               />
             ))}
           </div>
