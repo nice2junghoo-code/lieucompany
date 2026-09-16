@@ -81,11 +81,9 @@ function PlusIcon({ open }: { open: boolean }) {
   )
 }
 
-const DEFAULT_MAP_ID = LOCATIONS.find((loc) => loc.address)?.id ?? null
-
 function Showroom() {
   const [mapOpenId, setMapOpenId] = useState<string | null>(null)
-  const [activeMapId, setActiveMapId] = useState<string | null>(DEFAULT_MAP_ID)
+  const [activeMapId, setActiveMapId] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const activeLocation = LOCATIONS.find((loc) => loc.id === activeMapId)
 
@@ -125,19 +123,25 @@ function Showroom() {
               const infoVisibilityClass = isActive ? 'flex' : 'flex sm:hidden'
 
               return (
-                <div key={loc.id} className="rounded-2xl border border-hairline p-5">
+                <div
+                  key={loc.id}
+                  className={`rounded-2xl border p-5 transition-colors ${isActive ? 'border-ink' : 'border-hairline'}`}
+                >
                   <button
                     type="button"
                     onClick={() => handleToggleMap(loc.id, isMapOpen)}
                     className="flex w-full items-center justify-between gap-3 text-left"
                   >
                     <p className="text-[17px] font-[700] text-ink">{loc.name}</p>
-                    {loc.address && (
-                      <span className="flex shrink-0 items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4 sm:hidden">
-                        지도 보기
-                        <PlusIcon open={isMapOpen} />
-                      </span>
-                    )}
+                    <span className="flex shrink-0 items-center gap-2">
+                      {loc.address && (
+                        <span className="flex items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4 sm:hidden">
+                          지도 보기
+                          <PlusIcon open={isMapOpen} />
+                        </span>
+                      )}
+                      {isActive && <CopiedIcon />}
+                    </span>
                   </button>
 
                   {loc.photo && (
@@ -208,7 +212,7 @@ function Showroom() {
             })}
           </div>
 
-          {/* shared map panel — desktop/tablet only */}
+          {/* shared map panel — desktop/tablet only; shows all of Korea until a location is picked */}
           <div className="hidden bg-canvas-soft sm:block">
             {activeLocation?.address ? (
               <iframe
@@ -218,9 +222,12 @@ function Showroom() {
                 loading="lazy"
               />
             ) : (
-              <div className="flex h-full min-h-[520px] items-center justify-center text-[14px] text-text-muted">
-                지도 위치 준비 중입니다
-              </div>
+              <iframe
+                title="대한민국 전체 지도"
+                src="https://www.google.com/maps?q=대한민국&z=7&output=embed"
+                className="h-full min-h-[520px] w-full border-0"
+                loading="lazy"
+              />
             )}
           </div>
         </div>
