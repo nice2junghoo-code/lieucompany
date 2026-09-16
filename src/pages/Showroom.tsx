@@ -7,7 +7,7 @@ const LOCATIONS = [
   {
     id: 'namyangju',
     name: 'BUJA ROASTER 남양주 전시장',
-    address: '경기도 남양주시 다산중앙로 19번길 21 블루웨일 10층 1011호',
+    address: '경기도 남양주시 다산중앙로 19번길 21 블루웨일 1차 10층 1011호',
     phone: '010-7466-2744',
     hours: '평일 10:00 ~ 18:00\n토/일/공휴일 휴무',
     photo: null,
