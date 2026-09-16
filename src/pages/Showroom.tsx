@@ -3,8 +3,12 @@ import { useState } from 'react'
 import Header from '../components/Header'
 
 const LOCATIONS = [
-  { id: 'hq', name: 'BUJA ROASTER 본사' },
-  { id: 'namyangju', name: 'BUJA ROASTER 남양주 전시장' },
+  { id: 'hq', name: 'BUJA ROASTER 본사', address: null },
+  {
+    id: 'namyangju',
+    name: 'BUJA ROASTER 남양주 전시장',
+    address: '다산중앙로 19번길 21 블루웨일 10층 1011호',
+  },
 ]
 
 function CheckIcon() {
@@ -17,7 +21,8 @@ function CheckIcon() {
 }
 
 function Showroom() {
-  const [selected, setSelected] = useState(LOCATIONS[0].id)
+  const [selected, setSelected] = useState(LOCATIONS[1].id)
+  const selectedLocation = LOCATIONS.find((loc) => loc.id === selected)
 
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
@@ -59,8 +64,19 @@ function Showroom() {
             </div>
           </div>
 
-          <div className="flex min-h-[360px] items-center justify-center bg-canvas-soft text-[14px] text-text-muted lg:min-h-[520px]">
-            지도 위치 준비 중입니다
+          <div className="min-h-[360px] bg-canvas-soft lg:min-h-[520px]">
+            {selectedLocation?.address ? (
+              <iframe
+                title={selectedLocation.name}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(selectedLocation.address)}&output=embed`}
+                className="h-[360px] w-full border-0 lg:h-[520px]"
+                loading="lazy"
+              />
+            ) : (
+              <div className="flex h-[360px] items-center justify-center text-[14px] text-text-muted lg:h-[520px]">
+                지도 위치 준비 중입니다
+              </div>
+            )}
           </div>
         </div>
       </main>
