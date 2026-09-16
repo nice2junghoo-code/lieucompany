@@ -5,6 +5,7 @@ export type NavLink = { label: string; to: string; children?: NavChild[] }
 // new top-level category or child link here and both update together
 export const NAV_LINKS: NavLink[] = [
   { label: '모델', to: '/products' },
+  { label: '전시장', to: '/showroom' },
   {
     label: '서비스',
     to: '/service',
