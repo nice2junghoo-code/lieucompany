@@ -9,8 +9,8 @@ export const NAV_LINKS: NavLink[] = [
     label: '구매',
     to: '/purchase',
     children: [
-      { label: '시현 신청', to: '/purchase' },
       { label: '견적내기', to: '/purchase' },
+      { label: '시현 신청', to: '/purchase' },
       { label: '구매 상담 신청', to: '/purchase' },
     ],
   },
