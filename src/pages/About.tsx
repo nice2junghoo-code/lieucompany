@@ -1,4 +1,5 @@
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import aboutPhoto from '../assets/about-photo.jpg'
 
 function About() {
@@ -65,6 +66,8 @@ function About() {
           <p className="mt-4 text-[14px] font-[456] text-text-muted">리우컴퍼니</p>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

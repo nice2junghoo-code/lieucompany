@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import namyangjuPhoto from '../assets/showroom-namyangju.png'
 import hqPhoto from '../assets/showroom-hq.png'
 
@@ -241,6 +242,8 @@ function Showroom() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   )
 }

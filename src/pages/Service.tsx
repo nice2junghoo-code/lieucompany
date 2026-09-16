@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import ServiceSection from '../components/ServiceSection'
+import Footer from '../components/Footer'
 
 function Service() {
   return (
@@ -13,6 +14,8 @@ function Service() {
           <ServiceSection />
         </div>
       </main>
+
+      <Footer />
     </div>
   )
 }

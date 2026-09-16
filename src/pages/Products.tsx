@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import ProductCatalog from '../components/ProductCatalog'
+import Footer from '../components/Footer'
 
 function Products() {
   return (
@@ -13,6 +14,8 @@ function Products() {
           <ProductCatalog />
         </div>
       </main>
+
+      <Footer />
     </div>
   )
 }
