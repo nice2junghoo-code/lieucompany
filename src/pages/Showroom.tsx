@@ -190,7 +190,10 @@ function Showroom() {
                         <span className="mt-0.5">
                           <ClockIcon />
                         </span>
-                        <span className="whitespace-pre-line">{loc.hours}</span>
+                        <div>
+                          <span className="whitespace-pre-line">{loc.hours}</span>
+                          <p className="mt-1 text-[13px] font-[700] text-red-600">전시장 쇼룸은 사전 예약제 입니다.</p>
+                        </div>
                       </div>
                     )}
 
