@@ -63,6 +63,15 @@ function CopyIcon() {
   )
 }
 
+function CopiedIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 shrink-0" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" fill="var(--color-ink)" stroke="var(--color-ink)" strokeWidth="1.4" />
+      <path d="M6 10.3l2.6 2.6L14.5 7" stroke="var(--color-canvas)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function PlusIcon({ open }: { open: boolean }) {
   return (
     <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
@@ -157,11 +166,7 @@ function Showroom() {
                           aria-label="주소 복사"
                           className="flex shrink-0 items-center gap-1 text-ink"
                         >
-                          {copiedId === loc.id ? (
-                            <span className="text-[12px] font-[600]">복사됨</span>
-                          ) : (
-                            <CopyIcon />
-                          )}
+                          {copiedId === loc.id ? <CopiedIcon /> : <CopyIcon />}
                         </button>
                       </div>
                     ) : (
