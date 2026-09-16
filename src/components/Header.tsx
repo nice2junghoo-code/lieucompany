@@ -77,7 +77,7 @@ function Header() {
       {/* desktop mega-menu — full-width bar below the nav row, sub-items centered, matching the BYD-style reference */}
       {hoveredLink?.children && (
         <div className="hidden border-t border-hairline-soft bg-ink/70 backdrop-blur-md sm:block">
-          <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 py-4 lg:px-10">
+          <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-[60px] gap-y-2 px-6 py-4 lg:px-10">
             {hoveredLink.children.map((child) => (
               <Link
                 key={child.label}
