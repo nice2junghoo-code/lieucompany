@@ -7,7 +7,7 @@ const LOCATIONS = [
   {
     id: 'namyangju',
     name: 'BUJA ROASTER 남양주 전시장',
-    address: '다산중앙로 19번길 21 블루웨일 10층 1011호',
+    address: '경기도 남양주시 다산중앙로 19번길 21 블루웨일 10층 1011호',
     phone: '010-7466-2744',
     hours: '평일 10:00 ~ 18:00\n토/일/공휴일 휴무',
     photo: null,
@@ -84,6 +84,13 @@ function Showroom() {
   const [selected, setSelected] = useState(LOCATIONS[1].id)
   const selectedLocation = LOCATIONS.find((loc) => loc.id === selected)
   const [mapOpenId, setMapOpenId] = useState<string | null>(null)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  const handleCopyAddress = (id: string, address: string) => {
+    navigator.clipboard.writeText(address).catch(() => {})
+    setCopiedId(id)
+    setTimeout(() => setCopiedId((current) => (current === id ? null : current)), 1500)
+  }
 
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
@@ -137,11 +144,15 @@ function Showroom() {
                         <span className="flex-1">{loc.address}</span>
                         <button
                           type="button"
-                          onClick={() => navigator.clipboard.writeText(loc.address)}
+                          onClick={() => handleCopyAddress(loc.id, loc.address)}
                           aria-label="주소 복사"
-                          className="text-ink"
+                          className="flex shrink-0 items-center gap-1 text-ink"
                         >
-                          <CopyIcon />
+                          {copiedId === loc.id ? (
+                            <span className="text-[12px] font-[600]">복사됨</span>
+                          ) : (
+                            <CopyIcon />
+                          )}
                         </button>
                       </div>
                     ) : (
@@ -236,7 +247,19 @@ function Showroom() {
                       <span className="mt-0.5">
                         <PinIcon />
                       </span>
-                      {selectedLocation.address}
+                      <span className="flex-1">{selectedLocation.address}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyAddress(selectedLocation.id, selectedLocation.address)}
+                        aria-label="주소 복사"
+                        className="mt-0.5 flex shrink-0 items-center text-ink"
+                      >
+                        {copiedId === selectedLocation.id ? (
+                          <span className="text-[12px] font-[600]">복사됨</span>
+                        ) : (
+                          <CopyIcon />
+                        )}
+                      </button>
                     </div>
 
                     {selectedLocation.hours && (
