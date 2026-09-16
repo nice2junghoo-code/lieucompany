@@ -20,7 +20,7 @@ function ModelCard({ model }: { model: Model }) {
         )}
       </div>
 
-      <div className="mt-3 flex h-[170px] items-end justify-center">
+      <div className="mt-4 flex h-[210px] items-end justify-center">
         <img
           src={model.image}
           alt={model.name}
