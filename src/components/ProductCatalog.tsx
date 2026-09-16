@@ -95,7 +95,7 @@ function ProductCatalog() {
 
       {/* model list — swipeable on mobile, arrow-scrollable on desktop/tablet */}
       <div className="relative mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
-        <div ref={rowRef} className="no-scrollbar flex gap-4 overflow-x-auto scroll-smooth">
+        <div ref={rowRef} className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth sm:snap-none">
           {models.map((model) => (
             <ModelCard key={model.id} model={model} />
           ))}
