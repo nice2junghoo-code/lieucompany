@@ -24,11 +24,17 @@ function ProductIndex() {
                 {group.label}
               </p>
 
-              <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-3">
+              <div className="mt-6 flex flex-wrap items-start gap-x-8 gap-y-6">
                 {models.map((model) => (
-                  <span key={model.id} className="text-left text-[15px] font-[456] text-ink">
-                    {model.name.replace('\n', ' ')}
-                  </span>
+                  <div key={model.id} className="flex w-[160px] flex-col items-start gap-2">
+                    <img
+                      src={model.image}
+                      alt={model.name}
+                      className="h-[160px] w-full object-contain"
+                      style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
+                    />
+                    <p className="text-left text-[13px] font-[456] text-ink">{model.name.replace('\n', ' ')}</p>
+                  </div>
                 ))}
               </div>
             </div>
