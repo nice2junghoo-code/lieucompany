@@ -11,8 +11,8 @@ function ModelCard({ model }: { model: Model }) {
       onClick={(e) => e.preventDefault()}
       className="group flex w-[280px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
     >
-      <p className={`text-left whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[15px]'}`}>{model.name}</p>
-      {typeLabel && <div className="mt-1.5 text-left text-[10px] font-[700] text-ink">{typeLabel}</div>}
+      <p className={`text-left whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[18px]'}`}>{model.name}</p>
+      {typeLabel && <div className="mt-0.5 text-left text-[12px] font-[700] text-ink">{typeLabel}</div>}
 
       <img
         src={model.image}
