@@ -26,7 +26,7 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         )}
       </div>
 
-      <div className={`${fullWidth ? 'mt-8 h-[280px]' : 'mt-4 h-[210px]'} flex items-end justify-center`}>
+      <div className={`${fullWidth ? 'mt-8 h-[250px]' : 'mt-4 h-[210px]'} flex items-end justify-center`}>
         <img
           src={model.image}
           alt={model.name}
