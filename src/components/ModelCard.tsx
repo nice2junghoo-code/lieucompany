@@ -16,7 +16,7 @@ function ModelCard({ model }: { model: Model }) {
       <img
         src={model.image}
         alt={model.name}
-        className="mt-1 w-full object-contain transition-transform duration-500 group-hover:scale-110"
+        className="mx-auto mt-1 block w-[75%] object-contain transition-transform duration-500 group-hover:scale-110"
         style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
       />
 
