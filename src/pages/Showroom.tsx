@@ -1,6 +1,24 @@
+import { useState } from 'react'
+
 import Header from '../components/Header'
 
+const LOCATIONS = [
+  { id: 'hq', name: 'BUJA ROASTER 본사' },
+  { id: 'namyangju', name: 'BUJA ROASTER 남양주 전시장' },
+]
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 shrink-0" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" fill="currentColor" />
+      <path d="M6 10.5l2.5 2.5L14.5 7" stroke="var(--color-canvas)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function Showroom() {
+  const [selected, setSelected] = useState(LOCATIONS[0].id)
+
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
@@ -14,6 +32,37 @@ function Showroom() {
           소비자들이 부자로스터기 모델을 직접 사용 시연해 보고, 구매할 수 있도록 최적화된 부자로스터기 전시장
           쇼룸을 운영하고 있습니다.
         </p>
+
+        {/* location list + map — BYD dealer-locator reference */}
+        <div className="mx-auto mt-12 grid max-w-[1400px] grid-cols-1 gap-8 lg:grid-cols-[360px_1fr]">
+          <div>
+            <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
+
+            <div className="mt-6 flex flex-col gap-3">
+              {LOCATIONS.map((loc) => {
+                const isSelected = selected === loc.id
+
+                return (
+                  <button
+                    key={loc.id}
+                    type="button"
+                    onClick={() => setSelected(loc.id)}
+                    className={`flex items-center justify-between rounded-none border px-5 py-4 text-left text-[15px] font-[600] transition-colors ${
+                      isSelected ? 'border-ink bg-canvas text-ink' : 'border-hairline bg-canvas text-ink hover:border-ink'
+                    }`}
+                  >
+                    {loc.name}
+                    {isSelected && <CheckIcon />}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="flex min-h-[360px] items-center justify-center bg-canvas-soft text-[14px] text-text-muted lg:min-h-[520px]">
+            지도 위치 준비 중입니다
+          </div>
+        </div>
       </main>
     </div>
   )
