@@ -67,14 +67,14 @@ function ProductCatalog() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex w-full items-center justify-between rounded-sm border border-hairline bg-canvas px-4 py-2.5 text-[13px] font-[600] text-ink"
+            className="flex w-full items-center justify-between rounded-none border border-hairline bg-canvas px-4 py-2.5 text-[13px] font-[600] text-ink"
           >
             {selected}
             <ChevronIcon open={open} />
           </button>
 
           {open && (
-            <div className="mt-2 flex flex-col gap-1 rounded-sm border border-hairline-soft bg-canvas-soft p-2">
+            <div className="mt-2 flex flex-col gap-1 rounded-none border border-hairline-soft bg-canvas-soft p-2">
               {CATEGORIES.filter((label) => label !== selected).map((label) => (
                 <button
                   key={label}
@@ -83,7 +83,7 @@ function ProductCatalog() {
                     setSelected(label)
                     setOpen(false)
                   }}
-                  className="rounded-sm px-3 py-2.5 text-left text-[13px] font-[600] text-ink transition-colors hover:bg-canvas"
+                  className="rounded-none px-3 py-2.5 text-left text-[13px] font-[600] text-ink transition-colors hover:bg-canvas"
                 >
                   {label}
                 </button>
