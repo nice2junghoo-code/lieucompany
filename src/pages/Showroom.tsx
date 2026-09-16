@@ -4,6 +4,15 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import namyangjuPhoto from '../assets/showroom-namyangju.png'
 import hqPhoto from '../assets/showroom-hq.png'
+import gallery1 from '../assets/showroom-gallery/gallery-1.jpg'
+import gallery2 from '../assets/showroom-gallery/gallery-2.jpg'
+import gallery3 from '../assets/showroom-gallery/gallery-3.jpg'
+import gallery4 from '../assets/showroom-gallery/gallery-4.jpg'
+import gallery5 from '../assets/showroom-gallery/gallery-5.jpg'
+import gallery6 from '../assets/showroom-gallery/gallery-6.jpg'
+import gallery7 from '../assets/showroom-gallery/gallery-7.jpg'
+
+const GALLERY_IMAGES = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7]
 
 const LOCATIONS = [
   {
@@ -107,7 +116,7 @@ function Showroom() {
   }
 
   return (
-    <div className="min-h-screen bg-canvas font-display text-ink">
+    <div className="min-h-screen overflow-x-hidden bg-canvas font-display text-ink">
       <Header />
 
       <main className="px-6 py-16 lg:py-20">
@@ -119,6 +128,20 @@ function Showroom() {
           소비자들이 부자로스터기 모델을 직접 사용 시연해 보고, 구매할 수 있도록 최적화된 부자로스터기 전시장
           쇼룸을 운영하고 있습니다.
         </p>
+
+        {/* auto-scrolling gallery — full-bleed, right-to-left, seamless loop */}
+        <div className="mx-[calc(50%-50vw)] mt-10 w-screen overflow-hidden">
+          <div className="flex w-max animate-[marquee-left_36s_linear_infinite] gap-4">
+            {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className="h-[160px] w-[160px] shrink-0 rounded-none object-cover sm:h-[220px] sm:w-[220px]"
+              />
+            ))}
+          </div>
+        </div>
 
         <div className="mx-auto mt-12 grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-[1fr_1fr] lg:grid-cols-[420px_1fr]">
           {/* self-contained cards — name + 지도 보기 toggle, contact rows; map shows inline on mobile, in the shared panel on the right at sm+ */}
