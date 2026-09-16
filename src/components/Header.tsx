@@ -51,13 +51,13 @@ function Header() {
         </Link>
 
         {/* desktop/tablet nav — centered independent of the logo/menu-button widths on either side; mobile uses the hamburger menu below instead */}
-        <nav className="hidden items-center gap-8 sm:absolute sm:left-1/2 sm:flex sm:-translate-x-1/2">
+        <nav className="hidden items-center gap-10 sm:absolute sm:left-1/2 sm:flex sm:-translate-x-1/2">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onMouseEnter={() => setHovered(link.children ? link.label : null)}
-              className="text-[20px] font-[600] text-on-primary transition-colors duration-300 group-hover:text-ink"
+              className="text-[18px] font-[600] text-on-primary transition-colors duration-300 group-hover:text-ink"
             >
               {link.label}
             </Link>
