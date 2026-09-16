@@ -26,11 +26,11 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         )}
       </div>
 
-      <div className={`${fullWidth ? 'mt-6' : 'mt-4'} flex h-[210px] items-end justify-center`}>
+      <div className={`${fullWidth ? 'mt-8 h-[280px]' : 'mt-4 h-[210px]'} flex items-end justify-center`}>
         <img
           src={model.image}
           alt={model.name}
-          className={`block object-contain ${fullWidth ? 'w-[55%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${model.id === 'demtruck' ? 'mb-12' : ''}`}
+          className={`block object-contain ${fullWidth ? 'w-[70%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${model.id === 'demtruck' ? 'mb-12' : ''}`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
       </div>
