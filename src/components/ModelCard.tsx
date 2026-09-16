@@ -8,7 +8,7 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className={`group flex ${fullWidth ? 'w-full max-w-[420px] rounded-2xl bg-canvas-soft' : 'w-[300px] shrink-0 rounded-none bg-canvas'} flex-col overflow-hidden px-4 py-7 shadow-sm transition-shadow hover:shadow-lg`}
+      className={`group flex ${fullWidth ? 'w-full max-w-[420px] rounded-none border border-transparent bg-canvas hover:border-ink' : 'w-[300px] shrink-0 rounded-none bg-canvas'} flex-col overflow-hidden px-4 py-7 shadow-sm transition-[box-shadow,border-color] hover:shadow-lg`}
     >
       <div className="flex items-center gap-2">
         <div className="flex flex-col">
@@ -46,14 +46,10 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
       </div>
 
       <div className="mt-auto grid grid-cols-2 gap-1.5 pt-6">
-        <div
-          className={`rounded-none border border-ink px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary ${fullWidth ? 'bg-canvas-soft' : 'bg-canvas'}`}
-        >
+        <div className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary">
           자세히보기
         </div>
-        <div
-          className={`rounded-none border border-ink px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary ${fullWidth ? 'bg-canvas-soft' : 'bg-canvas'}`}
-        >
+        <div className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary">
           구매 상담 신청
         </div>
       </div>
