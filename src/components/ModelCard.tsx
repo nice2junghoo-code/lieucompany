@@ -11,7 +11,15 @@ function ModelCard({ model }: { model: Model }) {
       onClick={(e) => e.preventDefault()}
       className="group flex w-[280px] shrink-0 flex-col overflow-hidden rounded-none bg-canvas px-4 py-6 shadow-sm transition-shadow hover:shadow-lg"
     >
-      <p className={`text-left whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[18px]'}`}>{model.name}</p>
+      <div className="flex items-center gap-2">
+        <p className={`whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[18px]'}`}>{model.name}</p>
+        {isElectric && (
+          <span className="shrink-0 rounded-none bg-accent px-1.5 py-1 text-[11px] font-[700] text-on-primary">ER</span>
+        )}
+        {isGas && (
+          <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
+        )}
+      </div>
       {typeLabel && <div className="mt-0.5 text-left text-[12px] font-[700] text-text-muted">{typeLabel}</div>}
 
       <div className="mt-3 flex h-[170px] items-end justify-center">
