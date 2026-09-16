@@ -62,9 +62,28 @@ function ClockIcon() {
   )
 }
 
+function CopyIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <rect x="7.5" y="7.5" width="9" height="9" rx="1.2" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M4.5 12.5v-8a1 1 0 0 1 1-1h8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function PlusIcon({ open }: { open: boolean }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <path d="M10 4v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={open ? 'hidden' : ''} />
+      <path d="M4 10h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 function Showroom() {
   const [selected, setSelected] = useState(LOCATIONS[1].id)
   const selectedLocation = LOCATIONS.find((loc) => loc.id === selected)
+  const [mapOpenId, setMapOpenId] = useState<string | null>(null)
 
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
@@ -80,96 +99,169 @@ function Showroom() {
           쇼룸을 운영하고 있습니다.
         </p>
 
-        {/* location list + map — BYD dealer-locator reference */}
-        <div className="mx-auto mt-12 grid max-w-[1400px] grid-cols-1 gap-8 lg:grid-cols-[360px_1fr]">
-          <div>
+        <div className="mx-auto mt-12 max-w-[1400px]">
+          {/* mobile: self-contained cards — name + 지도 보기 toggle, contact rows, inline map */}
+          <div className="flex flex-col gap-4 sm:hidden">
             <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              {LOCATIONS.map((loc) => {
-                const isSelected = selected === loc.id
+            {LOCATIONS.map((loc) => {
+              const isMapOpen = mapOpenId === loc.id
 
-                return (
-                  <button
-                    key={loc.id}
-                    type="button"
-                    onClick={() => setSelected(loc.id)}
-                    className={`flex items-center justify-between rounded-none border px-5 py-4 text-left text-[15px] font-[600] transition-colors ${
-                      isSelected ? 'border-ink bg-canvas text-ink' : 'border-hairline bg-canvas text-ink hover:border-ink'
-                    }`}
-                  >
-                    {loc.name}
-                    {isSelected && <CheckIcon />}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="relative min-h-[360px] bg-canvas-soft lg:min-h-[520px]">
-            {selectedLocation?.address ? (
-              <iframe
-                title={selectedLocation.name}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(selectedLocation.address)}&output=embed`}
-                className="h-[360px] w-full border-0 lg:h-[520px]"
-                loading="lazy"
-              />
-            ) : (
-              <div className="flex h-[360px] items-center justify-center text-[14px] text-text-muted lg:h-[520px]">
-                지도 위치 준비 중입니다
-              </div>
-            )}
-
-            {/* info card — BYD dealer-popup reference, overlaid on the map on larger screens */}
-            {selectedLocation?.address && (
-              <div className="bottom-4 left-4 w-full bg-canvas p-5 shadow-lg sm:absolute sm:w-[320px]">
-                {selectedLocation.photo && (
-                  <img
-                    src={selectedLocation.photo}
-                    alt={selectedLocation.name}
-                    className="h-32 w-full object-cover"
-                  />
-                )}
-
-                <p className="mt-1 text-[16px] font-[652] text-ink">{selectedLocation.name}</p>
-
-                <div className="mt-4 flex flex-col gap-2.5 border-t border-hairline-soft pt-4">
-                  {selectedLocation.phone && (
-                    <div className="flex items-center gap-2 text-[14px] text-ink">
-                      <PhoneIcon />
-                      {selectedLocation.phone}
-                    </div>
-                  )}
-
-                  <div className="flex items-start gap-2 text-[14px] text-ink">
-                    <span className="mt-0.5">
-                      <PinIcon />
-                    </span>
-                    {selectedLocation.address}
+              return (
+                <div key={loc.id} className="rounded-2xl border border-hairline p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-[17px] font-[700] text-ink">{loc.name}</p>
+                    {loc.address && (
+                      <button
+                        type="button"
+                        onClick={() => setMapOpenId(isMapOpen ? null : loc.id)}
+                        className="flex shrink-0 items-center gap-1 text-[13px] font-[600] text-ink underline underline-offset-4"
+                      >
+                        지도 보기
+                        <PlusIcon open={isMapOpen} />
+                      </button>
+                    )}
                   </div>
 
-                  {selectedLocation.hours && (
-                    <div className="flex items-start gap-2 text-[14px] text-ink">
-                      <span className="mt-0.5">
-                        <ClockIcon />
-                      </span>
-                      <span className="whitespace-pre-line">{selectedLocation.hours}</span>
-                    </div>
+                  <div className="mt-4 flex flex-col gap-3 border-t border-hairline-soft pt-4">
+                    {loc.phone && (
+                      <div className="flex items-center gap-2 text-[14px] text-text-muted">
+                        <PhoneIcon />
+                        {loc.phone}
+                      </div>
+                    )}
+
+                    {loc.address ? (
+                      <div className="flex items-center gap-2 text-[14px] text-text-muted">
+                        <PinIcon />
+                        <span className="flex-1">{loc.address}</span>
+                        <button
+                          type="button"
+                          onClick={() => navigator.clipboard.writeText(loc.address)}
+                          aria-label="주소 복사"
+                          className="text-ink"
+                        >
+                          <CopyIcon />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="text-[14px] text-text-muted">위치 정보 준비 중입니다</div>
+                    )}
+
+                    {loc.hours && (
+                      <div className="flex items-start gap-2 text-[14px] text-text-muted">
+                        <span className="mt-0.5">
+                          <ClockIcon />
+                        </span>
+                        <span className="whitespace-pre-line">{loc.hours}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {isMapOpen && loc.address && (
+                    <iframe
+                      title={loc.name}
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`}
+                      className="mt-4 h-[240px] w-full border-0"
+                      loading="lazy"
+                    />
                   )}
                 </div>
+              )
+            })}
+          </div>
 
-                {selectedLocation.dealerUrl && (
-                  <a
-                    href={selectedLocation.dealerUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-4 inline-block text-[13px] font-[600] text-ink underline underline-offset-4"
-                  >
-                    딜러 사이트 →
-                  </a>
-                )}
+          {/* tablet/desktop: selectable list on the left, shared map + info card on the right */}
+          <div className="hidden sm:grid sm:grid-cols-1 sm:gap-8 lg:grid-cols-[360px_1fr]">
+            <div>
+              <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
+
+              <div className="mt-6 flex flex-col gap-3">
+                {LOCATIONS.map((loc) => {
+                  const isSelected = selected === loc.id
+
+                  return (
+                    <button
+                      key={loc.id}
+                      type="button"
+                      onClick={() => setSelected(loc.id)}
+                      className={`flex items-center justify-between rounded-none border px-5 py-4 text-left text-[15px] font-[600] transition-colors ${
+                        isSelected ? 'border-ink bg-canvas text-ink' : 'border-hairline bg-canvas text-ink hover:border-ink'
+                      }`}
+                    >
+                      {loc.name}
+                      {isSelected && <CheckIcon />}
+                    </button>
+                  )
+                })}
               </div>
-            )}
+            </div>
+
+            <div className="relative min-h-[520px] bg-canvas-soft">
+              {selectedLocation?.address ? (
+                <iframe
+                  title={selectedLocation.name}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(selectedLocation.address)}&output=embed`}
+                  className="h-[520px] w-full border-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-[520px] items-center justify-center text-[14px] text-text-muted">
+                  지도 위치 준비 중입니다
+                </div>
+              )}
+
+              {/* info card — BYD dealer-popup reference, overlaid on the map */}
+              {selectedLocation?.address && (
+                <div className="absolute bottom-4 left-4 w-[320px] bg-canvas p-5 shadow-lg">
+                  {selectedLocation.photo && (
+                    <img
+                      src={selectedLocation.photo}
+                      alt={selectedLocation.name}
+                      className="h-32 w-full object-cover"
+                    />
+                  )}
+
+                  <p className="mt-1 text-[16px] font-[652] text-ink">{selectedLocation.name}</p>
+
+                  <div className="mt-4 flex flex-col gap-2.5 border-t border-hairline-soft pt-4">
+                    {selectedLocation.phone && (
+                      <div className="flex items-center gap-2 text-[14px] text-ink">
+                        <PhoneIcon />
+                        {selectedLocation.phone}
+                      </div>
+                    )}
+
+                    <div className="flex items-start gap-2 text-[14px] text-ink">
+                      <span className="mt-0.5">
+                        <PinIcon />
+                      </span>
+                      {selectedLocation.address}
+                    </div>
+
+                    {selectedLocation.hours && (
+                      <div className="flex items-start gap-2 text-[14px] text-ink">
+                        <span className="mt-0.5">
+                          <ClockIcon />
+                        </span>
+                        <span className="whitespace-pre-line">{selectedLocation.hours}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedLocation.dealerUrl && (
+                    <a
+                      href={selectedLocation.dealerUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-4 inline-block text-[13px] font-[600] text-ink underline underline-offset-4"
+                    >
+                      딜러 사이트 →
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </main>
