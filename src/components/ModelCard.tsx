@@ -9,11 +9,11 @@ function ModelCard({ model }: { model: Model }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group w-[240px] shrink-0 rounded-md bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
+      className="group w-[240px] shrink-0 rounded-none bg-canvas p-4 shadow-sm transition-shadow hover:shadow-lg"
     >
       {typeLabel && <div className="text-[10px] font-[700] text-ink">{typeLabel}</div>}
 
-      <div className="mt-1 flex aspect-square items-center justify-center overflow-hidden rounded-sm bg-canvas-soft p-3">
+      <div className="mt-1 flex aspect-square items-center justify-center overflow-hidden">
         <img
           src={model.image}
           alt={model.name}
