@@ -129,7 +129,7 @@ function Showroom() {
             {LOCATIONS.map((loc) => {
               const isMapOpen = mapOpenId === loc.id
               const isActive = activeMapId === loc.id
-              const infoVisibilityClass = isActive ? 'flex' : 'flex sm:hidden'
+              const infoVisibilityClass = isActive ? 'flex' : 'hidden'
 
               return (
                 <div
@@ -157,7 +157,7 @@ function Showroom() {
                     <img
                       src={loc.photo}
                       alt={loc.name}
-                      className={`mt-4 h-[180px] w-full object-cover ${isActive ? 'block' : 'block sm:hidden'}`}
+                      className={`mt-4 h-[180px] w-full object-cover ${isActive ? 'block' : 'hidden'}`}
                     />
                   )}
 
