@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Header from '../components/Header'
 import namyangjuPhoto from '../assets/showroom-namyangju.png'
+import hqPhoto from '../assets/showroom-hq.png'
 
 const LOCATIONS = [
   {
@@ -10,7 +11,7 @@ const LOCATIONS = [
     address: '충남 금산군 추부면 비례리 160-4',
     phone: '010-8925-2099',
     hours: '평일 10:00 ~ 18:00\n토/일/공휴일 휴무',
-    photo: null,
+    photo: hqPhoto,
     dealerUrl: null,
   },
   {
