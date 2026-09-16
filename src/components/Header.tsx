@@ -51,7 +51,7 @@ function Header() {
         </Link>
 
         {/* desktop/tablet nav — centered independent of the logo/menu-button widths on either side; mobile uses the hamburger menu below instead */}
-        <nav className="hidden items-center gap-10 sm:absolute sm:left-1/2 sm:flex sm:-translate-x-1/2">
+        <nav className="hidden items-center gap-[60px] sm:absolute sm:left-1/2 sm:flex sm:-translate-x-1/2">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.to}
