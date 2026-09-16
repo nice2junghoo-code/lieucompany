@@ -3,6 +3,7 @@ import ProductCatalog from '../components/ProductCatalog'
 import HeroCarousel from '../components/HeroCarousel'
 import ServiceSection from '../components/ServiceSection'
 import CompanyIntro from '../components/CompanyIntro'
+import Footer from '../components/Footer'
 
 function Home() {
   return (
@@ -19,6 +20,8 @@ function Home() {
       <CompanyIntro />
 
       <ServiceSection />
+
+      <Footer />
     </div>
   )
 }

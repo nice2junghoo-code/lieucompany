@@ -1,30 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/lieu-logo.png'
-
-const NAV_LINKS = [
-  { label: 'PRODUCT', to: '/products' },
-  {
-    label: '서비스',
-    to: '/service',
-    children: [
-      { label: '쇼룸 및 서비스 센터', to: '/service' },
-      { label: 'A/S 서비스', to: '/service' },
-      { label: '부자로스터 시현 신청', to: '/service' },
-      { label: '이전 설치 및 시운전 지원', to: '/service' },
-      { label: '오버홀', to: '/service' },
-      { label: '로스터기 전문 덕트 배관 설비', to: '/service' },
-    ],
-  },
-  {
-    label: '브랜드',
-    to: '/about',
-    children: [
-      { label: 'ABOUT US', to: '/about' },
-      { label: '뉴스', to: '/news' },
-    ],
-  },
-]
+import { NAV_LINKS } from '../data/navigation'
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
