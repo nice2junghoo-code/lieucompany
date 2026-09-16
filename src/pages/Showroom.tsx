@@ -3,11 +3,15 @@ import { useState } from 'react'
 import Header from '../components/Header'
 
 const LOCATIONS = [
-  { id: 'hq', name: 'BUJA ROASTER 본사', address: null },
+  { id: 'hq', name: 'BUJA ROASTER 본사', address: null, phone: null, hours: null, photo: null, dealerUrl: null },
   {
     id: 'namyangju',
     name: 'BUJA ROASTER 남양주 전시장',
     address: '다산중앙로 19번길 21 블루웨일 10층 1011호',
+    phone: null,
+    hours: null,
+    photo: null,
+    dealerUrl: null,
   },
 ]
 
@@ -16,6 +20,44 @@ function CheckIcon() {
     <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 shrink-0" aria-hidden="true">
       <circle cx="10" cy="10" r="9" fill="currentColor" />
       <path d="M6 10.5l2.5 2.5L14.5 7" stroke="var(--color-canvas)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function PinIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <path
+        d="M10 18s6-5.09 6-9.5A6 6 0 1 0 4 8.5C4 12.91 10 18 10 18Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="10" cy="8.5" r="2" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
+  )
+}
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <path
+        d="M5 3.5h2.2l1 3-1.5 1.3a8 8 0 0 0 4.5 4.5l1.3-1.5 3 1V14a1.5 1.5 0 0 1-1.6 1.5A11.5 11.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function ClockIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+      <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M10 6v4l2.6 1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -64,7 +106,7 @@ function Showroom() {
             </div>
           </div>
 
-          <div className="min-h-[360px] bg-canvas-soft lg:min-h-[520px]">
+          <div className="relative min-h-[360px] bg-canvas-soft lg:min-h-[520px]">
             {selectedLocation?.address ? (
               <iframe
                 title={selectedLocation.name}
@@ -75,6 +117,57 @@ function Showroom() {
             ) : (
               <div className="flex h-[360px] items-center justify-center text-[14px] text-text-muted lg:h-[520px]">
                 지도 위치 준비 중입니다
+              </div>
+            )}
+
+            {/* info card — BYD dealer-popup reference, overlaid on the map on larger screens */}
+            {selectedLocation?.address && (
+              <div className="bottom-4 left-4 w-full bg-canvas p-5 shadow-lg sm:absolute sm:w-[320px]">
+                {selectedLocation.photo && (
+                  <img
+                    src={selectedLocation.photo}
+                    alt={selectedLocation.name}
+                    className="h-32 w-full object-cover"
+                  />
+                )}
+
+                <p className="mt-1 text-[16px] font-[652] text-ink">{selectedLocation.name}</p>
+
+                <div className="mt-4 flex flex-col gap-2.5 border-t border-hairline-soft pt-4">
+                  {selectedLocation.phone && (
+                    <div className="flex items-center gap-2 text-[14px] text-ink">
+                      <PhoneIcon />
+                      {selectedLocation.phone}
+                    </div>
+                  )}
+
+                  <div className="flex items-start gap-2 text-[14px] text-ink">
+                    <span className="mt-0.5">
+                      <PinIcon />
+                    </span>
+                    {selectedLocation.address}
+                  </div>
+
+                  {selectedLocation.hours && (
+                    <div className="flex items-start gap-2 text-[14px] text-ink">
+                      <span className="mt-0.5">
+                        <ClockIcon />
+                      </span>
+                      <span className="whitespace-pre-line">{selectedLocation.hours}</span>
+                    </div>
+                  )}
+                </div>
+
+                {selectedLocation.dealerUrl && (
+                  <a
+                    href={selectedLocation.dealerUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-block text-[13px] font-[600] text-ink underline underline-offset-4"
+                  >
+                    딜러 사이트 →
+                  </a>
+                )}
               </div>
             )}
           </div>
