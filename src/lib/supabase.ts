@@ -11,6 +11,7 @@ export type NewsRow = {
   id: string
   date: string
   title: string
+  content: string | null
   image_url: string | null
   created_at: string
 }

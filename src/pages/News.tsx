@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { supabase, type NewsRow } from '../lib/supabase'
@@ -57,7 +58,7 @@ function News() {
           {!loading && filtered.length > 0 && (
             <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((item) => (
-                <a key={item.id} href="#" onClick={(e) => e.preventDefault()} className="group block">
+                <Link key={item.id} to={`/news/${item.id}`} className="group block">
                   <div className="aspect-video w-full overflow-hidden bg-canvas-soft">
                     {item.image_url ? (
                       <img
@@ -71,7 +72,7 @@ function News() {
                   </div>
                   <p className="mt-4 text-[14px] text-text-muted">{item.date}</p>
                   <p className="mt-2 line-clamp-2 text-[17px] font-[600] leading-[1.4] text-ink">{item.title}</p>
-                </a>
+                </Link>
               ))}
             </div>
           )}

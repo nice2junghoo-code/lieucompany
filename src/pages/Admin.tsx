@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import { supabase, type NewsRow } from '../lib/supabase'
 
-const emptyForm = { id: '', date: '', title: '', imageFile: null as File | null }
+const emptyForm = { id: '', date: '', title: '', content: '', imageFile: null as File | null }
 
 function Admin() {
   const navigate = useNavigate()
@@ -46,7 +46,7 @@ function Admin() {
   }
 
   const startEdit = (post: NewsRow) => {
-    setForm({ id: post.id, date: post.date, title: post.title, imageFile: null })
+    setForm({ id: post.id, date: post.date, title: post.title, content: post.content ?? '', imageFile: null })
     setError('')
   }
 
@@ -67,14 +67,14 @@ function Admin() {
       }
 
       if (form.id) {
-        const update: Partial<NewsRow> = { date: form.date, title: form.title }
+        const update: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content }
         if (imageUrl) update.image_url = imageUrl
         const { error: updateError } = await supabase.from('news').update(update).eq('id', form.id)
         if (updateError) throw updateError
       } else {
         const { error: insertError } = await supabase
           .from('news')
-          .insert({ date: form.date, title: form.title, image_url: imageUrl ?? null })
+          .insert({ date: form.date, title: form.title, content: form.content, image_url: imageUrl ?? null })
         if (insertError) throw insertError
       }
 
@@ -124,6 +124,14 @@ function Admin() {
               onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
               placeholder="제목"
               className="w-full rounded-none border border-hairline bg-canvas px-4 py-2.5 text-[14px] text-ink placeholder:text-text-muted focus:border-ink focus:outline-none"
+            />
+            <textarea
+              required
+              rows={8}
+              value={form.content}
+              onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))}
+              placeholder="내용"
+              className="w-full resize-y rounded-none border border-hairline bg-canvas px-4 py-2.5 text-[14px] text-ink placeholder:text-text-muted focus:border-ink focus:outline-none"
             />
             <input
               type="file"
