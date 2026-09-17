@@ -23,12 +23,20 @@ function ProductDetail() {
           {!model && <p className="py-20 text-center text-[14px] text-text-muted">모델을 찾을 수 없습니다.</p>}
 
           {model && (
-            <div className="mt-6">
-              {/* header text + image, styled like the main page's hero — centered title/tagline above a boxed product shot */}
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-2">
+            <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className="flex h-[360px] items-center justify-center bg-canvas-soft lg:h-[460px]">
+                <img
+                  src={model.image}
+                  alt={model.name}
+                  className="h-[85%] w-[85%] object-contain"
+                  style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
+                />
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2">
                   {model.name.split('\n').map((line, i) => (
-                    <h1 key={i} className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px] lg:text-[48px]">
+                    <h1 key={i} className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">
                       {line}
                     </h1>
                   ))}
@@ -39,23 +47,11 @@ function ProductDetail() {
                     <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
                   )}
                 </div>
-                <p className="mx-auto mt-4 max-w-md text-[16px] leading-[1.5] text-text-muted">{model.tagline}</p>
-              </div>
 
-              <div className="mt-10 flex w-full items-center justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft py-6 sm:py-10">
-                <div className="relative aspect-[1005/877] w-full max-w-[260px] sm:max-w-md lg:max-w-xl">
-                  <img
-                    src={model.image}
-                    alt={model.name}
-                    className="relative h-full w-full object-contain"
-                    style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
-                  />
-                </div>
-              </div>
+                <p className="mt-4 text-[16px] leading-[1.5] text-text-muted">{model.tagline}</p>
 
-              <div className="mx-auto mt-10 max-w-[700px]">
                 {model.specs ? (
-                  <div className="grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2">
+                  <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2">
                     {model.specs.map((spec) => (
                       <div key={spec.label} className="flex justify-between border-b border-hairline py-3 text-[14px]">
                         <span className="text-text-muted">{spec.label}</span>
@@ -64,7 +60,7 @@ function ProductDetail() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center text-[13px] text-text-muted">상세 스펙 준비 중입니다.</p>
+                  <p className="mt-8 text-[13px] text-text-muted">상세 스펙 준비 중입니다.</p>
                 )}
 
                 {model.features && (
