@@ -25,6 +25,8 @@ export type Model = {
   badgeLabel?: string
   // overrides the default 18px name size — for longer names that need to fit on one line
   nameTextClass?: string
+  // detail-page spec table — filled in per model as the info comes in
+  specs?: { label: string; value: string }[]
 }
 
 export const MODELS: Model[] = [
@@ -34,6 +36,11 @@ export const MODELS: Model[] = [
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     categories: ['전기식로스터기'],
     image: b30sImage,
+    specs: [
+      { label: '투입량', value: '100g ~ 300G (최대350g)' },
+      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '크기', value: '770 x 250 x 670mm' },
+    ],
   },
   {
     id: 'b80',
@@ -55,6 +62,11 @@ export const MODELS: Model[] = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     categories: ['전기식로스터기'],
     image: b80sImage,
+    specs: [
+      { label: '투입량', value: '300g ~ 800G (최대1kg)' },
+      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '크기', value: '1000 x 320 x 810mm' },
+    ],
   },
   {
     id: 'b150',

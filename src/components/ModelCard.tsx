@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Model } from '../data/models'
 
 function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boolean }) {
@@ -5,9 +6,8 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
   const isElectric = model.categories.includes('전기식로스터기')
 
   return (
-    <a
-      href="#"
-      onClick={(e) => e.preventDefault()}
+    <Link
+      to={`/products/${model.id}`}
       className={`group flex ${fullWidth ? 'w-full max-w-[420px] rounded-none border border-transparent bg-canvas hover:border-ink' : 'w-[300px] shrink-0 rounded-none bg-canvas'} flex-col overflow-hidden px-4 py-7 shadow-sm transition-[box-shadow,border-color] hover:shadow-lg`}
     >
       <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
           자세히보기
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
