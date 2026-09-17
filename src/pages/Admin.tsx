@@ -33,7 +33,10 @@ function Admin() {
       .from('news')
       .select('*')
       .order('date', { ascending: false })
-      .then(({ data }) => setPosts(data ?? []))
+      .then(({ data, error }) => {
+        if (error) console.error('뉴스 목록 조회 실패:', error.message)
+        setPosts(data ?? [])
+      })
   }
 
   useEffect(() => {
@@ -80,8 +83,9 @@ function Admin() {
 
       resetForm()
       loadPosts()
-    } catch {
-      setError('저장에 실패했습니다. 다시 시도해 주세요.')
+    } catch (err) {
+      const message = err instanceof Error ? err.message : JSON.stringify(err)
+      setError(`저장 실패: ${message}`)
     } finally {
       setSaving(false)
     }
