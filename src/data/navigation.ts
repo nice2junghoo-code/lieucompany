@@ -15,20 +15,12 @@ export const NAV_LINKS: NavLink[] = [
       { label: '뎀트럭트롤리', to: '/products?category=뎀트럭트롤리' },
     ],
   },
-  {
-    label: '구매',
-    to: '/purchase',
-    children: [
-      { label: '견적내기', to: '/purchase' },
-      { label: '시현 신청', to: '/purchase' },
-      { label: '구매 상담 신청', to: '/purchase' },
-    ],
-  },
   { label: '전시장', to: '/showroom' },
   {
     label: '서비스',
     to: '/service',
     children: [
+      { label: '시현 신청', to: '/service' },
       { label: 'A/S 서비스', to: '/service' },
       { label: '이전 설치 및 시운전 지원', to: '/service' },
       { label: '오버홀', to: '/service' },

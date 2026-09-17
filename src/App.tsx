@@ -6,7 +6,6 @@ import News from './pages/News'
 import NewsDetail from './pages/NewsDetail'
 import Service from './pages/Service'
 import Showroom from './pages/Showroom'
-import Purchase from './pages/Purchase'
 import Admin from './pages/Admin'
 import AdminLogin from './pages/AdminLogin'
 import ScrollToTop from './components/ScrollToTop'
@@ -23,7 +22,6 @@ function App() {
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route path="/service" element={<Service />} />
         <Route path="/showroom" element={<Showroom />} />
-        <Route path="/purchase" element={<Purchase />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
