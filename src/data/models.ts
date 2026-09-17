@@ -39,7 +39,7 @@ export const MODELS: Model[] = [
   {
     id: 'b30s',
     name: '부자로스터 B30S',
-    tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
+    tagline: '부자로스터 B30S은 스마트 기능이 기본 탑재된 홈 로스팅 및 샘플용 로스터기 모델입니다.',
     categories: ['전기식로스터기'],
     image: b30sImage,
     specs: [
