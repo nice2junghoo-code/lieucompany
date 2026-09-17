@@ -9,8 +9,7 @@ const SLIDES = [
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     image: heroImageB30S,
     alt: '부자로스터 B30S',
-    aspectClass: 'aspect-[1300/657]',
-    sizeClass: 'max-w-[380px] sm:max-w-xl lg:max-w-3xl',
+    fit: 'cover' as const,
     stats: [
       { label: '투입량', value: '100g ~ 300G (최대350g)' },
       { label: '전압', value: 'Ac220V / 60Hz' },
@@ -23,8 +22,7 @@ const SLIDES = [
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
     image: heroImageB80S,
     alt: '부자로스터 B80S',
-    aspectClass: 'aspect-[943/807]',
-    sizeClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
+    fit: 'contain' as const,
     stats: [
       { label: '투입량', value: '300g ~ 800G (최대1kg)' },
       { label: '전압', value: 'Ac220V / 60Hz' },
@@ -89,93 +87,103 @@ function HeroCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden bg-canvas">
-      <div
-        className="flex touch-pan-y transition-transform duration-700 ease-out select-none"
-        style={{ transform: `translateX(-${index * 100}%)` }}
-        onPointerDown={handlePointerDown}
-        onPointerUp={handlePointerEnd}
-        onPointerCancel={handlePointerEnd}
-      >
-        {SLIDES.map((slide, i) => {
-          const isActive = i === index
-          return (
-            <div key={slide.key} className="flex w-full shrink-0 flex-col">
-              <div className="mx-auto w-full max-w-[1400px] px-6 pt-10 text-center sm:pt-14 lg:px-10 lg:pt-16">
-                {/* keyed on isActive so the entrance animation replays each time this slide becomes current */}
-                <div key={`text-${isActive}`} className={`mx-auto max-w-md ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
-                  <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
-                    <span className="lg:whitespace-nowrap">
+      {/* full-bleed image strip — arrows/dots are scoped to this wrapper so they sit on the image, not the stats row below */}
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="flex touch-pan-y transition-transform duration-700 ease-out select-none"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
+        >
+          {SLIDES.map((slide, i) => {
+            const isActive = i === index
+            return (
+              <div
+                key={slide.key}
+                className="relative h-[60vh] min-h-[420px] w-full shrink-0 overflow-hidden bg-canvas-soft sm:h-[75vh] lg:h-[calc(100vh-97px)]"
+              >
+                <img
+                  key={`img-${isActive}`}
+                  src={slide.image}
+                  alt={slide.alt}
+                  draggable={false}
+                  className={`absolute inset-0 h-full w-full ${slide.fit === 'cover' ? 'object-cover' : 'object-contain'} ${
+                    isActive ? 'animate-[slide-in-right_0.7s_ease-out_0.25s_both]' : ''
+                  }`}
+                />
+
+                {/* bottom scrim so the white overlay text stays legible over any image */}
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                <div className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:pb-14 lg:px-10 lg:pb-16">
+                  {/* keyed on isActive so the entrance animation replays each time this slide becomes current */}
+                  <div key={`text-${isActive}`} className={`mx-auto max-w-[1400px] ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_both]' : ''}`}>
+                    <h1 className="text-[32px] font-[652] leading-[1.13] text-white sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                       부자로스터 {slide.model}
-                    </span>
-                  </h1>
-
-                  <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">{slide.tagline}</p>
-                </div>
-              </div>
-
-              {/* flex-1 column so this fills any leftover height when a taller slide stretches the row — the slack lands after the stats block instead of pushing image/stats apart */}
-              <div className="flex w-full flex-1 flex-col bg-canvas-soft">
-                <div className="flex w-full items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-                  <div className={`relative mx-auto ${slide.aspectClass} w-full ${slide.sizeClass} px-6 pt-6 sm:pt-0 lg:px-10`}>
-                    <img
-                      key={`img-${isActive}`}
-                      src={slide.image}
-                      alt={slide.alt}
-                      draggable={false}
-                      className={`relative h-full w-full object-contain ${isActive ? 'animate-[slide-in-right_0.7s_ease-out_0.25s_both]' : ''}`}
-                    />
+                    </h1>
+                    <p className="mt-4 max-w-md text-[16px] font-[456] leading-[1.38] text-white/90 sm:text-[18px]">{slide.tagline}</p>
                   </div>
                 </div>
-
-                {slide.stats && (
-                  <div className="w-full px-6 pt-8 pb-8 lg:px-10 lg:pt-10 lg:pb-10">
-                    <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
-                      {slide.stats.map((stat) => (
-                        <div key={stat.label} className="px-2 text-center">
-                          <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
-                          <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
+
+        {/* prev/next arrows — desktop/tablet only, mobile stays swipe-free as before */}
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label={`${prevSlide.model} 보기`}
+          className="absolute top-1/2 left-4 z-10 hidden -translate-y-1/2 items-center gap-2 rounded-full bg-black/30 py-2 pr-4 pl-2 text-white backdrop-blur-sm transition-colors hover:bg-black/50 sm:flex lg:left-8"
+        >
+          <ArrowIcon direction="left" />
+          <span className="text-[16px] font-[456]">{prevSlide.model}</span>
+        </button>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label={`${nextSlide.model} 보기`}
+          className="absolute top-1/2 right-4 z-10 hidden -translate-y-1/2 items-center gap-2 rounded-full bg-black/30 py-2 pr-2 pl-4 text-white backdrop-blur-sm transition-colors hover:bg-black/50 sm:flex lg:right-8"
+        >
+          <span className="text-[16px] font-[456]">{nextSlide.model}</span>
+          <ArrowIcon direction="right" />
+        </button>
+
+        {/* dots */}
+        <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2">
+          {SLIDES.map((slide, i) => (
+            <button
+              key={slide.key}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`${slide.model} 보기`}
+              className={`h-2 rounded-full transition-all ${i === index ? 'w-6 bg-white' : 'w-2 bg-white/40'}`}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* prev/next arrows — desktop/tablet only, mobile stays swipe-free as before */}
-      <button
-        type="button"
-        onClick={goPrev}
-        aria-label={`${prevSlide.model} 보기`}
-        className="absolute top-[51%] left-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:left-8"
-      >
-        <ArrowIcon direction="left" />
-        <span className="text-[16px] font-[456]">{prevSlide.model}</span>
-      </button>
-      <button
-        type="button"
-        onClick={goNext}
-        aria-label={`${nextSlide.model} 보기`}
-        className="absolute top-[51%] right-4 z-10 hidden -translate-y-1/2 items-center gap-2 text-ink transition-colors hover:text-text-muted sm:flex lg:right-8"
-      >
-        <span className="text-[16px] font-[456]">{nextSlide.model}</span>
-        <ArrowIcon direction="right" />
-      </button>
-
-      {/* dots */}
-      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2">
-        {SLIDES.map((slide, i) => (
-          <button
-            key={slide.key}
-            type="button"
-            onClick={() => setIndex(i)}
-            aria-label={`${slide.model} 보기`}
-            className={`h-2 rounded-full transition-all ${i === index ? 'w-6 bg-ink' : 'w-2 bg-hairline'}`}
-          />
-        ))}
+      {/* stats — a second row synced to the same index, scrolling beneath the image */}
+      <div className="w-full overflow-hidden bg-canvas-soft">
+        <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${index * 100}%)` }}>
+          {SLIDES.map((slide) =>
+            slide.stats ? (
+              <div key={slide.key} className="w-full shrink-0 px-6 pt-8 pb-8 lg:px-10 lg:pt-10 lg:pb-10">
+                <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
+                  {slide.stats.map((stat) => (
+                    <div key={stat.label} className="px-2 text-center">
+                      <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
+                      <p className="mt-2 text-[18px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div key={slide.key} className="w-full shrink-0" />
+            ),
+          )}
+        </div>
       </div>
     </section>
   )
