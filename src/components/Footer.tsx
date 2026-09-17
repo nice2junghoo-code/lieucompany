@@ -24,14 +24,19 @@ function Footer() {
           return (
             <div key={link.label} className="border-b border-white/10">
               {link.children ? (
-                <button
-                  type="button"
-                  onClick={() => setExpanded(isExpanded ? null : link.label)}
-                  className="flex w-full items-center justify-between py-5 text-left text-[16px] font-[700] text-on-primary"
-                >
-                  {link.label}
-                  <PlusIcon open={isExpanded} />
-                </button>
+                <div className="flex w-full items-center justify-between">
+                  <Link to={link.to} className="flex-1 py-5 text-left text-[16px] font-[700] text-on-primary">
+                    {link.label}
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setExpanded(isExpanded ? null : link.label)}
+                    aria-label={isExpanded ? '하위 메뉴 닫기' : '하위 메뉴 열기'}
+                    className="flex items-center justify-center py-5 pl-4 text-on-primary"
+                  >
+                    <PlusIcon open={isExpanded} />
+                  </button>
+                </div>
               ) : (
                 <Link to={link.to} className="block py-5 text-[16px] font-[700] text-on-primary">
                   {link.label}

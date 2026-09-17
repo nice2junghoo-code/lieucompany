@@ -101,14 +101,19 @@ function Header() {
             return (
               <div key={link.to} className="border-b border-hairline-soft">
                 {link.children ? (
-                  <button
-                    type="button"
-                    onClick={() => setExpanded(isExpanded ? null : link.label)}
-                    className="flex w-full items-center justify-between py-4 text-left text-[17px] font-[600] text-ink"
-                  >
-                    {link.label}
-                    <PlusIcon open={isExpanded} />
-                  </button>
+                  <div className="flex w-full items-center justify-between">
+                    <Link to={link.to} onClick={closeAll} className="flex-1 py-4 text-left text-[17px] font-[600] text-ink">
+                      {link.label}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setExpanded(isExpanded ? null : link.label)}
+                      aria-label={isExpanded ? '하위 메뉴 닫기' : '하위 메뉴 열기'}
+                      className="flex items-center justify-center py-4 pl-4 text-ink"
+                    >
+                      <PlusIcon open={isExpanded} />
+                    </button>
+                  </div>
                 ) : (
                   <Link to={link.to} onClick={closeAll} className="block py-4 text-[17px] font-[600] text-ink">
                     {link.label}
