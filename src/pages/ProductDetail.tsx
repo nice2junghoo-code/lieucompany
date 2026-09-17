@@ -77,7 +77,7 @@ function ProductDetail() {
               </div>
 
               {model.colors && (
-                <div className="mt-10 lg:col-start-1">
+                <div className="lg:col-start-1">
                   <p className="text-[13px] font-[600] text-text-muted">색상</p>
                   <div className="mt-3 flex gap-2">
                     {model.colors.map((color) => (
@@ -88,7 +88,7 @@ function ProductDetail() {
               )}
 
               {model.features && (
-                <ul className="mt-10 flex flex-col gap-2 lg:col-start-2">
+                <ul className="flex flex-col gap-2 lg:col-start-2">
                   {model.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
                       <span className="text-red-600">▪</span>
