@@ -50,6 +50,8 @@ function ProductDetail() {
 
                 <p className="mt-4 text-[16px] leading-[1.5] text-text-muted">{model.tagline}</p>
 
+                {model.description && <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{model.description}</p>}
+
                 {model.specs ? (
                   <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2">
                     {model.specs.map((spec) => (

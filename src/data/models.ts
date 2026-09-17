@@ -16,6 +16,8 @@ export type Model = {
   id: string
   name: string
   tagline: string
+  // longer detail-page paragraph shown below the tagline — filled in per model
+  description?: string
   categories: string[]
   image: string
   // scales the product photo up within its card — use when the source photo
@@ -67,6 +69,8 @@ export const MODELS: Model[] = [
     id: 'b80',
     name: '부자로스터 B80',
     tagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
+    description:
+      '부자 로스터 B80 모델은 기본형 · 쿨러 장착형 · 스마트 자동화형의 3가지 타입으로 구성되어 있으며 카페 및 소규모 로스팅 환경에 적합한 설계로 초보자부터 전문가까지 모두 수준 높은 로스팅을 구현할 수 있도록 제작되었습니다.',
     categories: ['전기식로스터기'],
     image: b80Image,
   },
