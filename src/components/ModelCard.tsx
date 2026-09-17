@@ -45,12 +45,9 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         />
       </div>
 
-      <div className="mt-auto grid grid-cols-2 gap-1.5 pt-6">
-        <div className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary">
+      <div className="mt-auto flex justify-center pt-6">
+        <div className="w-1/2 rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary">
           자세히보기
-        </div>
-        <div className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary">
-          구매 상담 신청
         </div>
       </div>
     </a>
