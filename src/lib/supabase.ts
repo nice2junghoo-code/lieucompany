@@ -1,7 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+// .trim() guards against stray whitespace/newlines that can sneak in when
+// pasting the value into a host's environment variable dashboard
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL.trim()
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY.trim()
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
