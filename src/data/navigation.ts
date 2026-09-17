@@ -4,7 +4,17 @@ export type NavLink = { label: string; to: string; children?: NavChild[] }
 // shared by Header (top nav + dropdowns) and Footer (link columns) — add a
 // new top-level category or child link here and both update together
 export const NAV_LINKS: NavLink[] = [
-  { label: '모델', to: '/products' },
+  {
+    label: '모델',
+    to: '/products',
+    children: [
+      { label: '전기식로스터기', to: '/products?category=전기식로스터기' },
+      { label: '가스식로스터기', to: '/products?category=가스식로스터기' },
+      { label: '대형로스터기', to: '/products?category=대형로스터기' },
+      { label: '테이블', to: '/products?category=테이블' },
+      { label: '뎀트럭트롤리', to: '/products?category=뎀트럭트롤리' },
+    ],
+  },
   {
     label: '구매',
     to: '/purchase',
