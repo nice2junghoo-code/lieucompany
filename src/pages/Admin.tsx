@@ -61,9 +61,9 @@ function Admin() {
       let imageUrl: string | undefined
       if (form.imageFile) {
         const path = `${Date.now()}-${form.imageFile.name}`
-        const { error: uploadError } = await supabase.storage.from('news-images').upload(path, form.imageFile)
+        const { error: uploadError } = await supabase.storage.from('lieucompany').upload(path, form.imageFile)
         if (uploadError) throw uploadError
-        imageUrl = supabase.storage.from('news-images').getPublicUrl(path).data.publicUrl
+        imageUrl = supabase.storage.from('lieucompany').getPublicUrl(path).data.publicUrl
       }
 
       if (form.id) {
