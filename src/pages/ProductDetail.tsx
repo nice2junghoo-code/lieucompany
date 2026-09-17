@@ -43,8 +43,7 @@ function ProductDetail() {
                 </div>
               </div>
 
-              <div>
-                <div className="lg:flex lg:h-[460px] lg:flex-col">
+              <div className="lg:flex lg:h-[460px] lg:flex-col">
                 <div className="flex items-center gap-2">
                   {model.name.split('\n').map((line, i) => (
                     <h1 key={i} className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">
@@ -75,38 +74,29 @@ function ProductDetail() {
                 ) : (
                   <p className="mt-8 text-[13px] text-text-muted lg:mt-auto">상세 스펙 준비 중입니다.</p>
                 )}
-                </div>
-
-                {(model.features || model.colors) && (
-                  <div className="mt-10 mb-10 flex flex-col lg:mt-10">
-                    {model.features && (
-                      <ul className="flex flex-col gap-2">
-                        {model.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
-                            <span className="text-red-600">▪</span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {model.colors && (
-                      <div className="mt-8">
-                        <p className="text-[13px] font-[600] text-text-muted">색상</p>
-                        <div className="mt-3 flex gap-2 lg:justify-end">
-                          {model.colors.map((color) => (
-                            <span
-                              key={color}
-                              className="h-7 w-7 rounded-full border border-hairline"
-                              style={{ backgroundColor: color }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
               </div>
+
+              {model.colors && (
+                <div className="mt-10 lg:col-start-1">
+                  <p className="text-[13px] font-[600] text-text-muted">색상</p>
+                  <div className="mt-3 flex gap-2">
+                    {model.colors.map((color) => (
+                      <span key={color} className="h-7 w-7 rounded-full border border-hairline" style={{ backgroundColor: color }} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {model.features && (
+                <ul className="mt-10 flex flex-col gap-2 lg:col-start-2">
+                  {model.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
+                      <span className="text-red-600">▪</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
