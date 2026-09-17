@@ -51,9 +51,9 @@ function ProductDetail() {
                 <p className="mt-4 text-[16px] leading-[1.5] text-text-muted">{model.tagline}</p>
 
                 {model.specs ? (
-                  <div className="mt-8 divide-y divide-hairline border-t border-b border-hairline">
+                  <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2">
                     {model.specs.map((spec) => (
-                      <div key={spec.label} className="flex justify-between py-3 text-[14px]">
+                      <div key={spec.label} className="flex justify-between border-b border-hairline py-3 text-[14px]">
                         <span className="text-text-muted">{spec.label}</span>
                         <span className="font-[600] text-ink">{spec.value}</span>
                       </div>
@@ -61,6 +61,32 @@ function ProductDetail() {
                   </div>
                 ) : (
                   <p className="mt-8 text-[13px] text-text-muted">상세 스펙 준비 중입니다.</p>
+                )}
+
+                {model.features && (
+                  <ul className="mt-8 flex flex-col gap-2">
+                    {model.features.map((feature) => (
+                      <li key={feature} className="flex gap-2 text-[14px] leading-[1.5] text-ink">
+                        <span className="text-red-600">▪</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {model.colors && (
+                  <div className="mt-8">
+                    <p className="text-[13px] font-[600] text-text-muted">색상</p>
+                    <div className="mt-3 flex gap-2">
+                      {model.colors.map((color) => (
+                        <span
+                          key={color}
+                          className="h-7 w-7 rounded-full border border-hairline"
+                          style={{ backgroundColor: color }}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

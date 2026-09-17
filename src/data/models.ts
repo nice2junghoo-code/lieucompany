@@ -27,6 +27,10 @@ export type Model = {
   nameTextClass?: string
   // detail-page spec table — filled in per model as the info comes in
   specs?: { label: string; value: string }[]
+  // detail-page bullet list of feature highlights
+  features?: string[]
+  // detail-page color swatches (hex)
+  colors?: string[]
 }
 
 export const MODELS: Model[] = [
@@ -37,10 +41,27 @@ export const MODELS: Model[] = [
     categories: ['전기식로스터기'],
     image: b30sImage,
     specs: [
-      { label: '투입량', value: '100g ~ 300G (최대350g)' },
+      { label: '투입량', value: '100g ~ 300g (최대 350g)' },
+      { label: '드럼 두께', value: '3T' },
       { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '열원', value: '코일히터' },
+      { label: '소비전력', value: '2.0kw' },
+      { label: '드럼 재질', value: '국산 SUS 304' },
+      { label: '제조국', value: 'Made in Korea' },
       { label: '크기', value: '770 x 250 x 670mm' },
+      { label: '로스팅 방식', value: '반열풍식 (전도열의 비율이 높음)' },
+      { label: '무게', value: '약 45kg' },
     ],
+    features: [
+      '스마트폰 블루투스 연동',
+      '로스팅 종료 후 자동 배출',
+      '로스팅 후 자동 배출 및 자동 쿨링',
+      '10단 댐퍼 조정 가능 (기본 개방상태 권장)',
+      '열량 제어 모드를 통해 직접 화력 설정 가능',
+      '수동 전환을 통해 아날로그 수동 방식 로스팅 가능',
+      '파이어스코프 및 아티산 연동 가능',
+    ],
+    colors: ['#111111', '#ffffff', '#dc2626'],
   },
   {
     id: 'b80',
