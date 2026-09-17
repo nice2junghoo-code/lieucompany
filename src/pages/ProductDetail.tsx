@@ -65,8 +65,8 @@ function ProductDetail() {
                 {model.specs ? (
                   <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2 lg:mt-auto">
                     {model.specs.map((spec) => (
-                      <div key={spec.label} className="flex justify-between border-b border-hairline py-3 text-[14px]">
-                        <span className="text-text-muted">{spec.label}</span>
+                      <div key={spec.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
+                        <span className="w-24 shrink-0 text-text-muted">{spec.label}</span>
                         <span className="font-[600] text-ink">{spec.value}</span>
                       </div>
                     ))}
