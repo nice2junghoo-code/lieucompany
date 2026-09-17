@@ -16,7 +16,7 @@ function AdminLogin() {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     setLoading(false)
     if (error) {
-      setError('이메일 또는 비밀번호가 올바르지 않습니다.')
+      setError(`로그인 실패: ${error.message}`)
       return
     }
     navigate('/admin')
