@@ -6,6 +6,8 @@ import News from './pages/News'
 import Service from './pages/Service'
 import Showroom from './pages/Showroom'
 import Purchase from './pages/Purchase'
+import Admin from './pages/Admin'
+import AdminLogin from './pages/AdminLogin'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/showroom" element={<Showroom />} />
         <Route path="/purchase" element={<Purchase />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   )

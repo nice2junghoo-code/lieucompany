@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { NEWS } from '../data/news'
+import { supabase, type NewsRow } from '../lib/supabase'
 
 function SearchIcon() {
   return (
@@ -13,8 +13,22 @@ function SearchIcon() {
 }
 
 function News() {
+  const [posts, setPosts] = useState<NewsRow[]>([])
+  const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
-  const filtered = NEWS.filter((item) => item.title.includes(query.trim()))
+
+  useEffect(() => {
+    supabase
+      .from('news')
+      .select('*')
+      .order('date', { ascending: false })
+      .then(({ data }) => {
+        setPosts(data ?? [])
+        setLoading(false)
+      })
+  }, [])
+
+  const filtered = posts.filter((item) => item.title.includes(query.trim()))
 
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
@@ -40,27 +54,33 @@ function News() {
           </div>
 
           {/* grid */}
-          <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((item) => (
-              <a key={item.id} href="#" onClick={(e) => e.preventDefault()} className="group block">
-                <div className="aspect-video w-full overflow-hidden bg-canvas-soft">
-                  {item.image ? (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center text-[13px] text-text-muted">이미지 준비 중</div>
-                  )}
-                </div>
-                <p className="mt-4 text-[14px] text-text-muted">{item.date}</p>
-                <p className="mt-2 line-clamp-2 text-[17px] font-[600] leading-[1.4] text-ink">{item.title}</p>
-              </a>
-            ))}
-          </div>
+          {!loading && filtered.length > 0 && (
+            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((item) => (
+                <a key={item.id} href="#" onClick={(e) => e.preventDefault()} className="group block">
+                  <div className="aspect-video w-full overflow-hidden bg-canvas-soft">
+                    {item.image_url ? (
+                      <img
+                        src={item.image_url}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center text-[13px] text-text-muted">이미지 준비 중</div>
+                    )}
+                  </div>
+                  <p className="mt-4 text-[14px] text-text-muted">{item.date}</p>
+                  <p className="mt-2 line-clamp-2 text-[17px] font-[600] leading-[1.4] text-ink">{item.title}</p>
+                </a>
+              ))}
+            </div>
+          )}
 
-          {filtered.length === 0 && <p className="py-20 text-center text-[14px] text-text-muted">검색 결과가 없습니다.</p>}
+          {!loading && filtered.length === 0 && (
+            <p className="py-20 text-center text-[14px] text-text-muted">
+              {posts.length === 0 ? '등록된 소식이 없습니다.' : '검색 결과가 없습니다.'}
+            </p>
+          )}
         </div>
       </main>
 
