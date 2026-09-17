@@ -53,7 +53,7 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
   if (layout === 'grid') {
     return (
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {models.map((model) => (
             <ModelCard key={model.id} model={model} fullWidth />
           ))}
