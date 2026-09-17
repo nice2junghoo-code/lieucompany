@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import heroImageB30S from '../assets/hero-roaster.png'
+import heroImageB30S from '../assets/hero-b30s-new.jpg'
 import heroImageB80S from '../assets/hero-roaster-b80s.png'
 
 const SLIDES = [
@@ -9,8 +9,8 @@ const SLIDES = [
     tagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     image: heroImageB30S,
     alt: '부자로스터 B30S',
-    aspectClass: 'aspect-[1005/877]',
-    sizeClass: 'max-w-[260px] sm:max-w-md lg:max-w-xl',
+    aspectClass: 'aspect-[1300/657]',
+    sizeClass: 'max-w-[380px] sm:max-w-xl lg:max-w-3xl',
     stats: [
       { label: '투입량', value: '100g ~ 300G (최대350g)' },
       { label: '전압', value: 'Ac220V / 60Hz' },
