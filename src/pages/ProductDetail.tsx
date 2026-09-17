@@ -23,7 +23,7 @@ function ProductDetail() {
           {!model && <p className="py-20 text-center text-[14px] text-text-muted">모델을 찾을 수 없습니다.</p>}
 
           {model && (
-            <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="mt-6 grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
               <div className="flex h-[360px] flex-col bg-canvas-soft lg:h-[460px]">
                 <div className="flex flex-1 items-center justify-center">
                   <img
