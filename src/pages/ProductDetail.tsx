@@ -24,13 +24,23 @@ function ProductDetail() {
 
           {model && (
             <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className="flex h-[360px] items-center justify-center bg-canvas-soft lg:h-[460px]">
-                <img
-                  src={model.image}
-                  alt={model.name}
-                  className="h-[85%] w-[85%] object-contain"
-                  style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
-                />
+              <div className="flex h-[360px] flex-col bg-canvas-soft lg:h-[460px]">
+                <div className="flex flex-1 items-center justify-center">
+                  <img
+                    src={model.image}
+                    alt={model.name}
+                    className="h-[85%] w-[85%] object-contain"
+                    style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
+                  />
+                </div>
+                <div className="flex justify-center pb-6">
+                  <button
+                    type="button"
+                    className="w-1/2 rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                  >
+                    구매 상담 신청
+                  </button>
+                </div>
               </div>
 
               <div>
@@ -68,14 +78,11 @@ function ProductDetail() {
                 </div>
 
                 {(model.features || model.colors) && (
-                  <div className="mt-8 flex flex-col lg:mt-0 lg:items-end lg:text-right">
+                  <div className="mt-10 mb-10 flex flex-col lg:mt-10">
                     {model.features && (
-                      <ul className="flex flex-col gap-2 lg:items-end">
+                      <ul className="flex flex-col gap-2">
                         {model.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink lg:flex-row-reverse"
-                          >
+                          <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
                             <span className="text-red-600">▪</span>
                             {feature}
                           </li>
