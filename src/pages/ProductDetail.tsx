@@ -70,7 +70,7 @@ function ProductDetail() {
                 <p className="text-[13px] leading-[1.7] text-text-muted">
                   부자로스터기 제품은 주문 제작 상품입니다.
                   <br />
-                  부자로스터기 제품 주문 시 계약금 납입일로부터 약 4~주 정도 소요됩니다.
+                  부자로스터기 제품 주문 시 계약금 납입일로부터 약 4~5주 정도 소요됩니다.
                 </p>
                 <p className="mt-4 text-[13px] leading-[1.7] text-text-muted">
                   지역 및 설치 환경에 따라 설치 운반비가 발생합니다.
