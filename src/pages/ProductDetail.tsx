@@ -15,6 +15,8 @@ function ProductDetail() {
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
 
+      <img src={partnerBanner} alt="LIEU.COMPANY x BUJA ROASTER" className="w-full" />
+
       <main className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
           <Link to="/products" className="text-[13px] font-[600] text-text-muted hover:text-ink">
@@ -114,10 +116,6 @@ function ProductDetail() {
             </div>
           )}
         </div>
-
-        {model && (
-          <img src={partnerBanner} alt="LIEU.COMPANY x BUJA ROASTER" className="mt-16 w-full lg:mt-20" />
-        )}
       </main>
 
       <Footer />
