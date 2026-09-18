@@ -66,26 +66,6 @@ function ProductDetail() {
                 )}
               </div>
 
-              <div className="flex flex-col justify-center bg-canvas-soft p-6 lg:col-start-1">
-                <p className="text-[14px] leading-[1.7] font-[600] text-ink">
-                  부자로스터기 제품은 주문 제작 상품입니다.
-                  <br />
-                  부자로스터기 제품 주문 시 계약금 납입일로부터 약 4~5주 정도 소요됩니다.
-                </p>
-                <p className="mt-4 text-[14px] leading-[1.7] font-[600] text-ink">
-                  지역 및 설치 환경에 따라 설치 운반비가 발생합니다.
-                  <br />
-                  자세한 사항은 구매 상담 신청 하시면 상담 도와드리겠습니다.
-                </p>
-
-                <button
-                  type="button"
-                  className="mt-6 w-1/2 self-start rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
-                >
-                  구매 상담 신청
-                </button>
-              </div>
-
               {(model.features || model.colors) && (
                 <div className="lg:col-start-2">
                   {model.features && (
@@ -111,6 +91,26 @@ function ProductDetail() {
                   )}
                 </div>
               )}
+
+              <div className="flex flex-col justify-center bg-canvas-soft p-6 lg:col-start-1">
+                <p className="text-[14px] leading-[1.7] font-[600] text-ink">
+                  부자로스터기 제품은 주문 제작 상품입니다.
+                  <br />
+                  부자로스터기 제품 주문 시 계약금 납입일로부터 약 4~5주 정도 소요됩니다.
+                </p>
+                <p className="mt-4 text-[14px] leading-[1.7] font-[600] text-ink">
+                  지역 및 설치 환경에 따라 설치 운반비가 발생합니다.
+                  <br />
+                  자세한 사항은 구매 상담 신청 하시면 상담 도와드리겠습니다.
+                </p>
+
+                <button
+                  type="button"
+                  className="mt-6 w-1/2 self-start rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                >
+                  구매 상담 신청
+                </button>
+              </div>
             </div>
           )}
         </div>
