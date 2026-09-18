@@ -49,7 +49,7 @@ function ProductDetail() {
                   )}
                 </div>
 
-                <p className="mt-4 text-[16px] leading-[1.5] text-text-muted">{model.tagline}</p>
+                <p className="mt-4 text-[14px] leading-[1.5] text-text-muted">{model.tagline}</p>
 
                 {model.description && <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{model.description}</p>}
 
