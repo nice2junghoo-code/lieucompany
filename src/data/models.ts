@@ -314,10 +314,20 @@ export const MODELS: Model[] = [
   {
     id: 'buja-table',
     name: '부자테이블',
-    tagline: '이동이 편리한 바퀴형 로스터기 거치대',
+    tagline:
+      '부자로스터 모델별 일체형 테이블 제품입니다. 부자로스터기와 전용 테이블이 결합되어 더욱 세련된 디자인을 연출할 수 있습니다.',
     categories: ['테이블'],
     image: bujaTableImage,
     badgeLabel: 'BUJA TABLE',
+    specs: [
+      { label: 'B80·B150용 사이즈', value: '1000 x 420 x 700mm' },
+      { label: 'B80·B150용 무게', value: '약 20kg' },
+      { label: 'B30용 사이즈', value: '770 x 420 x 700mm' },
+      { label: 'B30용 무게', value: '약 20kg' },
+      { label: 'B180용 사이즈', value: '1200 x 420 x 700mm' },
+      { label: 'B180용 무게', value: '약 20kg' },
+    ],
+    colors: ['#111111', '#ffffff', '#dc2626'],
   },
   {
     id: 'demtruck',
