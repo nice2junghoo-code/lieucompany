@@ -66,7 +66,7 @@ function ProductDetail() {
                 )}
               </div>
 
-              <div className="flex flex-col bg-canvas-soft p-6 lg:col-start-1">
+              <div className="flex flex-col justify-center bg-canvas-soft p-6 lg:col-start-1">
                 <p className="text-[14px] leading-[1.7] font-[600] text-ink">
                   부자로스터기 제품은 주문 제작 상품입니다.
                   <br />
