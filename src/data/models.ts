@@ -14,6 +14,10 @@ import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
 import b500sGalleryGraph from '../assets/b500s-gallery-graph.jpg'
+import b500sGalleryBurner from '../assets/b500s-gallery-burner.jpg'
+import b500sGalleryHeater from '../assets/b500s-gallery-heater.jpg'
+import b500sGalleryFeeder from '../assets/b500s-gallery-feeder.jpg'
+import b500sGalleryDischarge from '../assets/b500s-gallery-discharge.jpg'
 
 export type Model = {
   id: string
@@ -339,15 +343,18 @@ export const MODELS: Model[] = [
         title: '버너 챔버',
         subtitle: '가스 버너 연소실',
         description: '안정적인 화력으로 일관된 로스팅을 제공합니다.',
+        image: b500sGalleryBurner,
       },
       {
         title: '전기 코일 히터',
         description: '고르게 분산되는 열로 안정적인 로스팅 환경을 제공합니다.',
+        image: b500sGalleryHeater,
       },
       {
         title: '자동 투입 장치 (생두)',
         subtitle: '자동 생두 투입 장치',
         description: '버튼 한 번으로 생두를 손쉽게 투입할 수 있어 작업 효율이 높아집니다.',
+        image: b500sGalleryFeeder,
       },
       {
         title: '제어 터치 패널',
@@ -359,6 +366,7 @@ export const MODELS: Model[] = [
         title: '자동 배출 장치 (원두)',
         subtitle: '자동 배출 장치',
         description: '로스팅이 완료된 원두를 자동으로 배출하여 일정한 품질과 안전성을 확보합니다.',
+        image: b500sGalleryDischarge,
       },
       {
         title: '실시간 그래프 화면',
