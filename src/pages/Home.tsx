@@ -3,6 +3,7 @@ import ProductCatalog from '../components/ProductCatalog'
 import HeroCarousel from '../components/HeroCarousel'
 import ServiceSection from '../components/ServiceSection'
 import CompanyIntro from '../components/CompanyIntro'
+import LatestNews from '../components/LatestNews'
 import Footer from '../components/Footer'
 
 function Home() {
@@ -20,6 +21,8 @@ function Home() {
       <CompanyIntro />
 
       <ServiceSection />
+
+      <LatestNews />
 
       <Footer />
     </div>
