@@ -143,7 +143,7 @@ function ProductDetail() {
 
                 <button
                   type="button"
-                  className="relative mt-6 w-1/2 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[12px] font-[600] text-white transition-colors hover:bg-white hover:text-ink"
+                  className="relative mt-6 w-3/4 rounded-none sm:w-1/2 border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink"
                 >
                   구매 상담 신청
                 </button>
@@ -152,7 +152,7 @@ function ProductDetail() {
                   href="https://www.instagram.com/lieu.company/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative mt-3 w-1/2 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[12px] font-[600] text-white transition-colors hover:bg-white hover:text-ink"
+                  className="relative mt-3 w-3/4 rounded-none sm:w-1/2 border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink"
                 >
                   납품·설치 사례 더보기
                 </a>
