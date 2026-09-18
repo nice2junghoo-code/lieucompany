@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { MODELS } from '../data/models'
-import partnerBanner from '../assets/product-detail-partner-banner.jpg'
 
 function ProductDetail() {
   const { id } = useParams()
@@ -14,8 +13,6 @@ function ProductDetail() {
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
-
-      <img src={partnerBanner} alt="LIEU.COMPANY x BUJA ROASTER" className="w-full" />
 
       <main className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
