@@ -54,7 +54,7 @@ function ProductDetail() {
                 {model.description && <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{model.description}</p>}
 
                 {model.specGroups ? (
-                  <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:mt-auto">
+                  <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
                     {model.specGroups.map((group) => (
                       <div key={group.heading} className="border-t border-hairline">
                         {group.rows.map((row) => (
