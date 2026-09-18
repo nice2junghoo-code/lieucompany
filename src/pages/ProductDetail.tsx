@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { MODELS } from '../data/models'
+import partnerBanner from '../assets/product-detail-partner-banner.jpg'
 
 function ProductDetail() {
   const { id } = useParams()
@@ -113,6 +114,10 @@ function ProductDetail() {
             </div>
           )}
         </div>
+
+        {model && (
+          <img src={partnerBanner} alt="LIEU.COMPANY x BUJA ROASTER" className="mt-16 w-full lg:mt-20" />
+        )}
       </main>
 
       <Footer />
