@@ -35,8 +35,11 @@ export type Model = {
   badgeLabel?: string
   // overrides the default 18px name size — for longer names that need to fit on one line
   nameTextClass?: string
-  // detail-page spec table — filled in per model as the info comes in
-  specs?: { label: string; value: string }[]
+  // detail-page spec table — filled in per model as the info comes in.
+  // `order` optionally overrides desktop (sm+) grid position only — mobile
+  // always follows array order — for cases where two rows should swap
+  // columns on desktop without changing the single-column mobile order.
+  specs?: { label: string; value: string; order?: number }[]
   // grouped spec tables (each with its own heading) — used instead of
   // `specs` when a model has multiple variants with separate spec sets
   specGroups?: { heading: string; rows: { label: string; value: string }[] }[]
@@ -456,8 +459,8 @@ export const MODELS: Model[] = [
       { label: '로스팅 방식', value: '반열풍식(대류열의 비율이 높음)' },
       { label: '열원', value: '메탈화이버 버너' },
       { label: '드럼 재질', value: '국산 SUS 304' },
-      { label: '로스터기 크기', value: '2650 x 1050 x 2010mm' },
-      { label: '드럼 두께', value: '10T' },
+      { label: '드럼 두께', value: '10T', order: 8 },
+      { label: '로스터기 크기', value: '2650 x 1050 x 2010mm', order: 7 },
       { label: '컨트롤박스 크기', value: '400 x 300 x 880mm' },
       { label: '무게', value: '약 760kg' },
     ],

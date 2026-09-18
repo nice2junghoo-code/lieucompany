@@ -4,6 +4,22 @@ import Footer from '../components/Footer'
 import { MODELS } from '../data/models'
 import noticeBg from '../assets/product-detail-notice-bg.jpg'
 
+// literal classes so Tailwind's scanner can find them (dynamic template strings won't compile)
+const SPEC_ORDER_CLASS = [
+  'sm:order-1',
+  'sm:order-2',
+  'sm:order-3',
+  'sm:order-4',
+  'sm:order-5',
+  'sm:order-6',
+  'sm:order-7',
+  'sm:order-8',
+  'sm:order-9',
+  'sm:order-10',
+  'sm:order-11',
+  'sm:order-12',
+]
+
 function ProductDetail() {
   const { id } = useParams()
   const model = MODELS.find((m) => m.id === id)
@@ -68,8 +84,11 @@ function ProductDetail() {
                   </div>
                 ) : model.specs ? (
                   <div className="mt-12 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2">
-                    {model.specs.map((spec) => (
-                      <div key={spec.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
+                    {model.specs.map((spec, i) => (
+                      <div
+                        key={spec.label}
+                        className={`flex gap-4 border-b border-hairline py-3 text-[14px] ${SPEC_ORDER_CLASS[(spec.order ?? i + 1) - 1] ?? ''}`}
+                      >
                         <span className="w-24 shrink-0 text-text-muted">{spec.label}</span>
                         <span className="font-[600] text-ink">{spec.value}</span>
                       </div>
