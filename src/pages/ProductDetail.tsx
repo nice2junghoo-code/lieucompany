@@ -76,26 +76,30 @@ function ProductDetail() {
                 )}
               </div>
 
-              {model.colors && (
-                <div className="lg:col-start-1">
-                  <p className="text-[13px] font-[600] text-text-muted">색상</p>
-                  <div className="mt-3 flex gap-2">
-                    {model.colors.map((color) => (
-                      <span key={color} className="h-7 w-7 rounded-full border border-hairline" style={{ backgroundColor: color }} />
-                    ))}
-                  </div>
-                </div>
-              )}
+              {(model.features || model.colors) && (
+                <div className="lg:col-start-2">
+                  {model.features && (
+                    <ul className="flex flex-col gap-2">
+                      {model.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
+                          <span className="text-red-600">▪</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-              {model.features && (
-                <ul className="flex flex-col gap-2 lg:col-start-2">
-                  {model.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
-                      <span className="text-red-600">▪</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                  {model.colors && (
+                    <div className="mt-8">
+                      <p className="text-[13px] font-[600] text-text-muted">색상</p>
+                      <div className="mt-3 flex gap-2">
+                        {model.colors.map((color) => (
+                          <span key={color} className="h-7 w-7 rounded-full border border-hairline" style={{ backgroundColor: color }} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           )}
