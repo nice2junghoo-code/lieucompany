@@ -13,6 +13,7 @@ import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
+import b500sGalleryGraph from '../assets/b500s-gallery-graph.jpg'
 
 export type Model = {
   id: string
@@ -363,6 +364,7 @@ export const MODELS: Model[] = [
         title: '실시간 그래프 화면',
         subtitle: '로스팅 프로파일 UI',
         description: '온도, 화력, 배기 등 데이터를 실시간으로 확인할 수 있습니다.',
+        image: b500sGalleryGraph,
       },
     ],
   },
