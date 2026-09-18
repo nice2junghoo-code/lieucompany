@@ -34,7 +34,7 @@ function ProductDetail() {
                 />
               </div>
 
-              <div className="lg:flex lg:h-[460px] lg:flex-col">
+              <div className="lg:flex lg:min-h-[460px] lg:flex-col">
                 <div className="flex items-center gap-2">
                   {model.name.split('\n').map((line, i) => (
                     <h1 key={i} className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">
