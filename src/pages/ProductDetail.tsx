@@ -53,7 +53,21 @@ function ProductDetail() {
 
                 {model.description && <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{model.description}</p>}
 
-                {model.specs ? (
+                {model.specGroups ? (
+                  <div className="mt-8 flex flex-col gap-8 lg:mt-auto">
+                    {model.specGroups.map((group) => (
+                      <div key={group.heading}>
+                        <h3 className="border-b border-ink pb-2 text-[15px] font-[700] text-ink">{group.heading}</h3>
+                        {group.rows.map((row) => (
+                          <div key={row.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
+                            <span className="w-16 shrink-0 text-text-muted">{row.label}</span>
+                            <span className="font-[600] text-ink">{row.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ) : model.specs ? (
                   <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2 lg:mt-auto">
                     {model.specs.map((spec) => (
                       <div key={spec.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">

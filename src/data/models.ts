@@ -29,6 +29,9 @@ export type Model = {
   nameTextClass?: string
   // detail-page spec table — filled in per model as the info comes in
   specs?: { label: string; value: string }[]
+  // grouped spec tables (each with its own heading) — used instead of
+  // `specs` when a model has multiple variants with separate spec sets
+  specGroups?: { heading: string; rows: { label: string; value: string }[] }[]
   // detail-page bullet list of feature highlights
   features?: string[]
   // detail-page color swatches (hex)
@@ -319,13 +322,31 @@ export const MODELS: Model[] = [
     categories: ['테이블'],
     image: bujaTableImage,
     badgeLabel: 'BUJA TABLE',
-    specs: [
-      { label: 'B80·B150용 사이즈', value: '1000 x 420 x 700mm' },
-      { label: 'B80·B150용 무게', value: '약 20kg' },
-      { label: 'B30용 사이즈', value: '770 x 420 x 700mm' },
-      { label: 'B30용 무게', value: '약 20kg' },
-      { label: 'B180용 사이즈', value: '1200 x 420 x 700mm' },
-      { label: 'B180용 무게', value: '약 20kg' },
+    specGroups: [
+      {
+        heading: '부자로스터 테이블',
+        rows: [
+          { label: '사이즈', value: '1000 x 420 x 700mm' },
+          { label: '무게', value: '약 20kg' },
+          { label: '모델', value: 'B80 모델, B150 모델 전용' },
+        ],
+      },
+      {
+        heading: 'B180 모델 전용 테이블',
+        rows: [
+          { label: '사이즈', value: '1200 x 420 x 700mm' },
+          { label: '무게', value: '약 20kg' },
+          { label: '모델', value: 'B180 모델 전용 테이블' },
+        ],
+      },
+      {
+        heading: 'B30 모델 전용 테이블',
+        rows: [
+          { label: '사이즈', value: '770 x 420 x 700mm' },
+          { label: '무게', value: '약 20kg' },
+          { label: '모델', value: 'B30 모델 전용 테이블' },
+        ],
+      },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
   },
