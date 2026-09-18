@@ -97,7 +97,9 @@ function ProductDetail() {
                 <img src={noticeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-black/60" />
 
-                <p className="relative text-[14px] leading-[1.7] font-[600] text-white">
+                <p className="relative text-[20px] font-[700] text-white">부자로스터 공식 파트너 리우컴퍼니</p>
+
+                <p className="relative mt-3 text-[14px] leading-[1.7] font-[600] text-white">
                   본 제품은 주문 제작 방식으로 진행됩니다.
                   <br />
                   계약금 납입일로부터 약 4~5주의 제작 기간이 소요됩니다.
