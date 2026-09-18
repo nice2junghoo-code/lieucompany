@@ -54,7 +54,7 @@ function ProductDetail() {
                 {model.description && <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{model.description}</p>}
 
                 {model.specGroups ? (
-                  <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:mt-auto">
+                  <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:mt-auto">
                     {model.specGroups.map((group) => (
                       <div key={group.heading}>
                         <h3 className="border-b border-ink pb-2 text-[15px] font-[700] text-ink">{group.heading}</h3>
@@ -68,7 +68,7 @@ function ProductDetail() {
                     ))}
                   </div>
                 ) : model.specs ? (
-                  <div className="mt-8 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2 lg:mt-auto">
+                  <div className="mt-12 grid grid-cols-1 gap-x-8 border-t border-hairline sm:grid-cols-2 lg:mt-auto">
                     {model.specs.map((spec) => (
                       <div key={spec.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
                         <span className="w-24 shrink-0 text-text-muted">{spec.label}</span>
