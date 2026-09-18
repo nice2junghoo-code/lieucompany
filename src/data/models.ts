@@ -18,6 +18,7 @@ import b500sGalleryHeater from '../assets/b500s-gallery-heater.jpg'
 import b500sGalleryFeeder from '../assets/b500s-gallery-feeder.jpg'
 import b500sGalleryDischarge from '../assets/b500s-gallery-discharge.jpg'
 import b500sgGalleryBurner from '../assets/b500sg-gallery-burner.jpg'
+import b15kSgGalleryElevator from '../assets/b15k-sg-gallery-feeder-elevator.jpg'
 
 export type Model = {
   id: string
@@ -476,6 +477,49 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    detailGallery: [
+      {
+        title: '드럼 내부 구조',
+        subtitle: '로스팅 드럼 내부',
+        description: '균일한 교반을 위한 스크루형 날개 구조입니다.',
+        image: b500sGalleryDrum,
+      },
+      {
+        title: '버너 챔버',
+        subtitle: '가스 버너 연소실',
+        description: '안정적인 화력으로 일관된 로스팅을 제공합니다.',
+        image: b500sgGalleryBurner,
+      },
+      {
+        title: '자동 투입 장치 (생두)',
+        subtitle: '자동 생두 투입 장치',
+        description: '버튼 한 번으로 생두를 손쉽게 투입할 수 있어 작업 효율이 높아집니다.',
+        image: b500sGalleryFeeder,
+      },
+      {
+        title: '제어 터치 패널',
+        subtitle: '듀얼존 터치 패널',
+        description: '화력·배기·냉각을 직관적으로 제어할 수 있습니다.',
+        image: b500sGalleryPanel,
+      },
+      {
+        title: '자동 배출 장치 (원두)',
+        subtitle: '자동 배출 장치',
+        description: '로스팅이 완료된 원두를 자동으로 배출하여 일정한 품질과 안전성을 확보합니다.',
+        image: b500sGalleryDischarge,
+      },
+      {
+        title: '생두 이송기',
+        description: '하단 생두호퍼받이에 넣은 생두를 이송 버튼 한 번으로 로스터 상부 호퍼까지 자동으로 올려줍니다.',
+        image: b15kSgGalleryElevator,
+      },
+      {
+        title: '실시간 그래프 화면',
+        subtitle: '로스팅 프로파일 UI',
+        description: '온도, 화력, 배기 등 데이터를 실시간으로 확인할 수 있습니다.',
+        image: b500sGalleryGraph,
+      },
+    ],
   },
   {
     id: 'buja-table',
