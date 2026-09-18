@@ -12,6 +12,7 @@ import b15kSgImage from '../assets/model-b15k-sg.png'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
+import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
 
 export type Model = {
   id: string
@@ -351,6 +352,7 @@ export const MODELS: Model[] = [
         title: '제어 터치 패널',
         subtitle: '듀얼존 터치 패널',
         description: '화력·배기·냉각을 직관적으로 제어할 수 있습니다.',
+        image: b500sGalleryPanel,
       },
       {
         title: '자동 배출 장치 (원두)',
