@@ -147,6 +147,15 @@ function ProductDetail() {
                 >
                   구매 상담 신청
                 </button>
+
+                <a
+                  href="https://www.instagram.com/lieu.company/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative mt-3 w-1/2 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[12px] font-[600] text-white transition-colors hover:bg-white hover:text-ink"
+                >
+                  납품·설치 사례 더보기
+                </a>
               </div>
             </div>
           )}
