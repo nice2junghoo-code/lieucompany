@@ -35,11 +35,9 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
               ? fullWidth
                 ? 'mb-7'
                 : 'mb-12'
-              : model.id === 'b15k-sg'
-                ? ''
-                : fullWidth
-                  ? 'mb-2'
-                  : ''
+              : fullWidth
+                ? 'mb-2'
+                : ''
           }`}
           style={model.imageScale ? { transform: `scale(${model.imageScale})` } : undefined}
         />
