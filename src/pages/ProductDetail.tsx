@@ -71,7 +71,7 @@ function ProductDetail() {
                   {model.features && (
                     <ul className="flex flex-col gap-2">
                       {model.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] text-ink">
+                        <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] font-[600] text-ink">
                           <span className="text-red-600">▪</span>
                           {feature}
                         </li>
@@ -94,14 +94,13 @@ function ProductDetail() {
 
               <div className="flex flex-col justify-center bg-canvas-soft p-6 lg:order-3 lg:col-start-1">
                 <p className="text-[14px] leading-[1.7] font-[600] text-ink">
-                  부자로스터기 제품은 주문 제작 상품입니다.
+                  본 제품은 주문 제작 방식으로 진행됩니다.
                   <br />
-                  부자로스터기 제품 주문 시 계약금 납입일로부터 약 4~5주 정도 소요됩니다.
-                </p>
-                <p className="mt-4 text-[14px] leading-[1.7] font-[600] text-ink">
-                  지역 및 설치 환경에 따라 설치 운반비가 발생합니다.
+                  계약금 납입일로부터 약 4~5주의 제작 기간이 소요됩니다.
                   <br />
-                  자세한 사항은 구매 상담 신청 하시면 상담 도와드리겠습니다.
+                  지역 및 설치 환경에 따라 운반비 · 설치비가 별도로 발생할 수 있습니다.
+                  <br />
+                  용량, 가격, 설치 조건 등 자세한 사항은 구매 상담 신청 시 안내해 드립니다.
                 </p>
 
                 <button
