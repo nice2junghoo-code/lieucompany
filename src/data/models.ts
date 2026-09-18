@@ -11,6 +11,7 @@ import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
+import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 
 export type Model = {
   id: string
@@ -330,6 +331,7 @@ export const MODELS: Model[] = [
         title: '드럼 내부 구조',
         subtitle: '로스팅 드럼 내부',
         description: '균일한 교반을 위한 스크루형 날개 구조입니다.',
+        image: b500sGalleryDrum,
       },
       {
         title: '버너 챔버',
