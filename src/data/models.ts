@@ -14,7 +14,6 @@ import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
 import b500sGalleryGraph from '../assets/b500s-gallery-graph.jpg'
-import b500sGalleryBurner from '../assets/b500s-gallery-burner.jpg'
 import b500sGalleryHeater from '../assets/b500s-gallery-heater.jpg'
 import b500sGalleryFeeder from '../assets/b500s-gallery-feeder.jpg'
 import b500sGalleryDischarge from '../assets/b500s-gallery-discharge.jpg'
@@ -338,12 +337,6 @@ export const MODELS: Model[] = [
         subtitle: '로스팅 드럼 내부',
         description: '균일한 교반을 위한 스크루형 날개 구조입니다.',
         image: b500sGalleryDrum,
-      },
-      {
-        title: '버너 챔버',
-        subtitle: '가스 버너 연소실',
-        description: '안정적인 화력으로 일관된 로스팅을 제공합니다.',
-        image: b500sGalleryBurner,
       },
       {
         title: '전기 코일 히터',
