@@ -8,7 +8,7 @@ import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
 import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
-import b15kSgImage from '../assets/model-b15k-sg.png'
+import b15kSgImage from '../assets/model-b15k-sg.jpg'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
@@ -451,7 +451,6 @@ export const MODELS: Model[] = [
       '부자 로스터 B15K S.G 모델은 가스식 로스터기 입니다. 원두 납품용 로스터리에 적합하도록 설계되어 자동 예열부터 스마트 로스팅까지 세팅 값이 미리 정해져 있어 원하는 용량과 배전도를 선택하기만 하면 로스팅 시작부터 종료 후 자동 쿨링 기능까지 탑재되어 있어 초보자부터 전문가까지 누구나 손쉽게 수준 높은 로스팅을 구현할 수 있습니다.',
     categories: ['가스식로스터기', '대형로스터기'],
     image: b15kSgImage,
-    imageScale: 1.15,
     specs: [
       { label: '전압', value: '380V 3상 4선식' },
       { label: '소비전력', value: '3KW' },
