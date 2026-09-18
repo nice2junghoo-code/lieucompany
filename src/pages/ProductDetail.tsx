@@ -131,6 +131,29 @@ function ProductDetail() {
               </div>
             </div>
           )}
+
+          {model?.detailGallery && (
+            <div className="mt-16 lg:mt-20">
+              <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+                {model.detailGallery.map((item) => (
+                  <div key={item.title}>
+                    <div className="aspect-square w-full overflow-hidden bg-canvas-soft">
+                      {item.image ? (
+                        <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-[13px] text-text-muted">
+                          이미지 준비 중
+                        </div>
+                      )}
+                    </div>
+                    <p className="mt-4 text-[16px] font-[700] text-ink">{item.title}</p>
+                    {item.subtitle && <p className="mt-1 text-[13px] font-[600] text-text-muted">{item.subtitle}</p>}
+                    <p className="mt-2 text-[13px] leading-[1.6] text-text-muted">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
