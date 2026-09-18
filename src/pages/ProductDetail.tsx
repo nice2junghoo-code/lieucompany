@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { MODELS } from '../data/models'
+import noticeBg from '../assets/product-detail-notice-bg.jpg'
 
 function ProductDetail() {
   const { id } = useParams()
@@ -92,8 +93,11 @@ function ProductDetail() {
                 </div>
               )}
 
-              <div className="flex flex-col justify-center bg-canvas-soft p-6 lg:order-3 lg:col-start-1">
-                <p className="text-[14px] leading-[1.7] font-[600] text-ink">
+              <div className="relative flex flex-col items-center justify-center overflow-hidden p-6 text-center lg:order-3 lg:col-start-1">
+                <img src={noticeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-black/60" />
+
+                <p className="relative text-[14px] leading-[1.7] font-[600] text-white">
                   본 제품은 주문 제작 방식으로 진행됩니다.
                   <br />
                   계약금 납입일로부터 약 4~5주의 제작 기간이 소요됩니다.
@@ -105,7 +109,7 @@ function ProductDetail() {
 
                 <button
                   type="button"
-                  className="mt-6 w-1/2 self-start rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[12px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                  className="relative mt-6 w-1/2 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[12px] font-[600] text-white transition-colors hover:bg-white hover:text-ink"
                 >
                   구매 상담 신청
                 </button>
