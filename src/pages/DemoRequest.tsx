@@ -300,8 +300,9 @@ function DemoRequest() {
                     <span className="shrink-0 text-[15px] font-[700] text-ink sm:w-28">{step.label}</span>
                     <ChevronsRightIcon />
                     {step.phone ? (
-                      <a href={`tel:${step.phone}`} className="text-[17px] text-text-muted underline underline-offset-4">
+                      <a href={`tel:${step.phone}`} className="flex items-center gap-1.5 text-[17px] text-text-muted">
                         {step.desc}
+                        <PhoneIcon />
                       </a>
                     ) : (
                       <span className="text-[17px] text-text-muted">{step.desc}</span>
