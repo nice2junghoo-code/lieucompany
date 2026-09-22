@@ -286,10 +286,10 @@ function DemoRequest() {
             <div className="flex flex-col gap-3">
               {RESERVATION_STEPS.map((step, i) => (
                 <Fragment key={step.label}>
-                  <div className="flex flex-col gap-2 bg-canvas-soft px-5 py-4 sm:flex-row sm:items-center sm:gap-4">
-                    <span className="text-[15px] font-[700] text-ink sm:w-28 sm:shrink-0">{step.label}</span>
+                  <div className="flex items-center gap-2 bg-canvas-soft px-5 py-4 sm:gap-4">
+                    <span className="shrink-0 text-[15px] font-[700] text-ink sm:w-28">{step.label}</span>
                     <ChevronsRightIcon />
-                    <span className="text-[14px] text-text-muted">{step.desc}</span>
+                    <span className="text-[17px] text-text-muted">{step.desc}</span>
                   </div>
                   {i < RESERVATION_STEPS.length - 1 && (
                     <div className="flex justify-center text-text-muted">
