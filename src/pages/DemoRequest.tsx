@@ -15,7 +15,7 @@ const GALLERY_IMAGES = [gallery1, gallery2, gallery3, gallery4, gallery5, galler
 
 const RESERVATION_STEPS = [
   { label: '전화 연결', desc: '010-7466-2744' },
-  { label: '시현 접수', desc: '부자로스터 모델 · 희망일자 · 시간 상담' },
+  { label: '시현 접수', desc: '모델 · 희망일자 · 시간 상담' },
   { label: '예약배정', desc: '희망일자 · 시간 배정' },
 ]
 
@@ -289,7 +289,7 @@ function DemoRequest() {
                   <div className="flex items-center gap-2 bg-canvas-soft px-5 py-4 sm:gap-4">
                     <span className="shrink-0 text-[15px] font-[700] text-ink sm:w-28">{step.label}</span>
                     <ChevronsRightIcon />
-                    <span className="text-[16px] text-text-muted">{step.desc}</span>
+                    <span className="text-[17px] text-text-muted">{step.desc}</span>
                   </div>
                   {i < RESERVATION_STEPS.length - 1 && (
                     <div className="flex justify-center text-text-muted">
