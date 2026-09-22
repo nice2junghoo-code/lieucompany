@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -233,6 +234,13 @@ function Showroom() {
                 </div>
               )
             })}
+
+            <Link
+              to="/service/demo"
+              className="rounded-2xl border border-hairline p-5 transition-colors hover:border-ink"
+            >
+              <p className="text-[17px] font-[700] text-ink">시현 신청 하기 →</p>
+            </Link>
           </div>
 
           {/* shared map panel — desktop/tablet only; shows all of Korea until a location is picked */}
