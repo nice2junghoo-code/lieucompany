@@ -152,27 +152,8 @@ function DemoRequest() {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-[1400px] flex-col gap-8">
-          {/* shared map — full width, on top for both mobile and desktop */}
-          <div className="bg-canvas-soft">
-            {activeLocation?.address ? (
-              <iframe
-                title={activeLocation.name}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address)}&output=embed`}
-                className="h-[320px] w-full border-0 sm:h-[420px] lg:h-[520px]"
-                loading="lazy"
-              />
-            ) : (
-              <iframe
-                title="대한민국 전체 지도"
-                src="https://www.google.com/maps?q=대한민국&z=7&output=embed"
-                className="h-[320px] w-full border-0 sm:h-[420px] lg:h-[520px]"
-                loading="lazy"
-              />
-            )}
-          </div>
-
-          {/* self-contained cards — name + 지도 보기 toggle, contact rows */}
+        <div className="mx-auto mt-12 grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-[1fr_1fr] lg:grid-cols-[420px_1fr]">
+          {/* self-contained cards — name + 지도 보기 toggle, contact rows; map shows inline on mobile, in the shared panel on the right at sm+ */}
           <div className="flex flex-col gap-4">
             <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
 
@@ -259,9 +240,37 @@ function DemoRequest() {
                     )}
                   </div>
 
+                  {/* mobile only — desktop shows the map in the shared panel on the right instead */}
+                  {isActive && loc.address && (
+                    <iframe
+                      title={loc.name}
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`}
+                      className="mt-4 h-[280px] w-full border-0 sm:hidden"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
               )
             })}
+          </div>
+
+          {/* shared map panel — desktop/tablet only; shows all of Korea until a location is picked */}
+          <div className="hidden bg-canvas-soft sm:block">
+            {activeLocation?.address ? (
+              <iframe
+                title={activeLocation.name}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address)}&output=embed`}
+                className="h-full min-h-[520px] w-full border-0"
+                loading="lazy"
+              />
+            ) : (
+              <iframe
+                title="대한민국 전체 지도"
+                src="https://www.google.com/maps?q=대한민국&z=7&output=embed"
+                className="h-full min-h-[520px] w-full border-0"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
 
