@@ -5,8 +5,7 @@ import Footer from '../components/Footer'
 
 const RESERVATION_STEPS: { label: string; desc: string; phone?: string }[] = [
   { label: '전화 연결', desc: '010-7466-2744', phone: '010-7466-2744' },
-  { label: '시현 접수', desc: '모델 · 희망일자 · 시간 상담' },
-  { label: '예약배정', desc: '희망일자 · 시간 배정' },
+  { label: 'A/S 접수', desc: '모델 · 고장증상 · 일자 · 시간 상담' },
 ]
 
 function PhoneIcon() {
@@ -48,22 +47,21 @@ function AsService() {
       <main className="px-6 pb-16 lg:pb-20">
         {/* ARS reservation banner — full-bleed gray, centered */}
         <div className="mx-[calc(50%-50vw)] w-screen bg-canvas-soft px-6 py-16 text-center lg:py-20">
-          <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">부자로스터 시현 신청 예약 안내(ARS)</h2>
+          <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">A/S 서비스 예약 안내(ARS)</h2>
           <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-[1.7] text-text-muted">
-            전화 한통으로 고객님들께 맞춤형 서비스를 제공해드립니다.
-            <br />
-            부자로스터 시현은 사전 예약제로 진행됩니다.
+            전화 한통으로 고객님들께 신속한 A/S서비스를 제공합니다.
           </p>
         </div>
 
         {/* reservation intro + procedure */}
         <div className="mx-auto mt-16 max-w-[1400px] lg:mt-20">
-          <h2 className="text-[22px] font-[700] text-ink sm:text-[26px]">시현 신청 예약 소개</h2>
+          <h2 className="text-[22px] font-[700] text-ink sm:text-[26px]">A/S 서비스 예약 소개</h2>
           <p className="mt-4 text-[17px] leading-[1.7] text-text-muted">
-            예약을 받고 있습니다. 전화 한 통으로 고객님들에게 맞춤형 서비스를 제공해드립니다.
+            부자로 로스터기 정비 A/S 서비스 예약을 받고 있습니다. 전화 한통으로 고객님들에게 신속한 A/S 서비스를
+            제공해드립니다.
           </p>
 
-          <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">부자로스터기 로스팅 시현 예약 절차</h2>
+          <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">A/S 서비스 예약 절차</h2>
           <div className="mt-6 rounded-none border border-hairline p-6 sm:p-8">
             <div className="flex flex-col gap-3">
               {RESERVATION_STEPS.map((step, i) => (
