@@ -134,7 +134,7 @@ function DemoRequest() {
 
       <main className="px-6 py-16 lg:py-20">
         <h1 className="text-center text-[28px] font-[652] leading-[1.13] text-ink sm:text-[40px]">부자로스터 시현 신청</h1>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-[15px] font-[456] leading-[1.7] text-text-muted sm:text-[16px]">
+        <p className="mx-auto mt-6 max-w-2xl text-center text-[17px] font-[456] leading-[1.7] text-text-muted">
           리우컴퍼니 전시장에서는 부자로스터 제품을 직접 만나보고, 로스팅 시연까지 체험하실 수 있습니다.
         </p>
 
