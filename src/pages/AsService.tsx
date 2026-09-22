@@ -45,7 +45,7 @@ function AsService() {
     <div className="min-h-screen overflow-x-hidden bg-canvas font-display text-ink">
       <Header />
 
-      <main className="px-6 py-16 lg:py-20">
+      <main className="px-6 pb-16 lg:pb-20">
         {/* ARS reservation banner — full-bleed gray, centered */}
         <div className="mx-[calc(50%-50vw)] w-screen bg-canvas-soft px-6 py-16 text-center lg:py-20">
           <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">부자로스터 시현 신청 예약 안내(ARS)</h2>
