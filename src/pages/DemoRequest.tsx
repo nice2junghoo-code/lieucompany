@@ -200,7 +200,7 @@ function DemoRequest() {
         <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-1 gap-8 sm:grid-cols-[1fr_1fr] lg:mt-20 lg:grid-cols-[420px_1fr]">
           {/* self-contained cards — name + 지도 보기 toggle, contact rows; map shows inline on mobile, in the shared panel on the right at sm+ */}
           <div className="flex flex-col gap-4">
-            <p className="text-[20px] font-[652] text-ink">부자로스터 쇼룸 전시장</p>
+            <p className="text-[22px] font-[700] text-ink sm:text-[26px]">부자로스터 쇼룸 전시장</p>
 
             {LOCATIONS.map((loc) => {
               const isActive = activeId === loc.id
