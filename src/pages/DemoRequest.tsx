@@ -274,6 +274,16 @@ function DemoRequest() {
           </div>
         </div>
 
+        {/* ARS reservation banner — full-bleed gray, centered */}
+        <div className="mx-[calc(50%-50vw)] mt-16 w-screen bg-canvas-soft px-6 py-16 text-center lg:mt-20 lg:py-20">
+          <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">부자로스터 시현 신청 예약 안내(ARS)</h2>
+          <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-[1.7] text-text-muted">
+            전화 한통으로 고객님들께 맞춤형 서비스를 제공해드립니다.
+            <br />
+            부자로스터 시현은 사전 예약제로 진행됩니다.
+          </p>
+        </div>
+
         {/* reservation intro + procedure — below the map/location cards */}
         <div className="mx-auto mt-16 max-w-[1400px] lg:mt-20">
           <h2 className="text-[22px] font-[700] text-ink sm:text-[26px]">시현 신청 예약 소개</h2>
