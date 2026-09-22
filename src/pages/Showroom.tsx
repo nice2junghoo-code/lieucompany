@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import namyangjuPhoto from '../assets/showroom-namyangju.png'
+import hqPhoto from '../assets/showroom-hq.png'
 import gallery1 from '../assets/showroom-gallery/gallery-1.jpg'
 import gallery2 from '../assets/showroom-gallery/gallery-2.jpg'
 import gallery3 from '../assets/showroom-gallery/gallery-3.jpg'
@@ -15,6 +16,15 @@ import gallery7 from '../assets/showroom-gallery/gallery-7.jpg'
 const GALLERY_IMAGES = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7]
 
 const LOCATIONS = [
+  {
+    id: 'hq',
+    name: 'BUJA ROASTER 본사',
+    address: '충남 금산군 추부면 비례리 160-4',
+    phone: '010-8925-2099',
+    hours: '평일 10:00 ~ 18:00\n토/일/공휴일 휴무',
+    photo: hqPhoto,
+    dealerUrl: null,
+  },
   {
     id: 'namyangju',
     name: 'BUJA ROASTER 남양주 전시장',
