@@ -16,7 +16,7 @@ const GALLERY_IMAGES = [gallery1, gallery2, gallery3, gallery4, gallery5, galler
 const RESERVATION_STEPS: { label: string; desc: string; phone?: string }[] = [
   { label: '전화 연결', desc: '010-7466-2744', phone: '010-7466-2744' },
   { label: '시현 접수', desc: '모델 · 희망일자 · 시간 상담' },
-  { label: '예약배정', desc: '희망일자 · 시간 배정' },
+  { label: '예약 배정', desc: '희망일자 · 시간 배정' },
 ]
 
 const LOCATIONS = [
