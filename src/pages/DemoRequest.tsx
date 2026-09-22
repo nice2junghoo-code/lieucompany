@@ -300,7 +300,7 @@ function DemoRequest() {
           </div>
 
           {/* shared map panel — desktop/tablet only; shows all of Korea until a location is picked */}
-          <div className="hidden border border-hairline bg-canvas-soft transition-colors hover:border-ink sm:block">
+          <div className="hidden bg-canvas-soft sm:block">
             {activeLocation?.address ? (
               <iframe
                 title={activeLocation.name}
