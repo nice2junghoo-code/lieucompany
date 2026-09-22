@@ -13,8 +13,8 @@ import gallery7 from '../assets/showroom-gallery/gallery-7.jpg'
 
 const GALLERY_IMAGES = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7]
 
-const RESERVATION_STEPS = [
-  { label: '전화 연결', desc: '010-7466-2744' },
+const RESERVATION_STEPS: { label: string; desc: string; phone?: string }[] = [
+  { label: '전화 연결', desc: '010-7466-2744', phone: '010-7466-2744' },
   { label: '시현 접수', desc: '모델 · 희망일자 · 시간 상담' },
   { label: '예약배정', desc: '희망일자 · 시간 배정' },
 ]
@@ -193,10 +193,10 @@ function DemoRequest() {
 
                   <div className={`mt-4 flex-col gap-3 border-t border-hairline-soft pt-4 ${infoVisibilityClass}`}>
                     {loc.phone && (
-                      <div className="flex items-center gap-2 text-[14px] text-text-muted">
+                      <a href={`tel:${loc.phone}`} className="flex items-center gap-2 text-[14px] text-text-muted">
                         <PhoneIcon />
                         {loc.phone}
-                      </div>
+                      </a>
                     )}
 
                     {loc.address ? (
@@ -299,7 +299,13 @@ function DemoRequest() {
                   <div className="flex items-center gap-2 bg-canvas-soft px-5 py-4 sm:gap-4">
                     <span className="shrink-0 text-[15px] font-[700] text-ink sm:w-28">{step.label}</span>
                     <ChevronsRightIcon />
-                    <span className="text-[17px] text-text-muted">{step.desc}</span>
+                    {step.phone ? (
+                      <a href={`tel:${step.phone}`} className="text-[17px] text-text-muted underline underline-offset-4">
+                        {step.desc}
+                      </a>
+                    ) : (
+                      <span className="text-[17px] text-text-muted">{step.desc}</span>
+                    )}
                   </div>
                   {i < RESERVATION_STEPS.length - 1 && (
                     <div className="flex justify-center text-text-muted">

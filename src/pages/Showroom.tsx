@@ -174,10 +174,10 @@ function Showroom() {
 
                   <div className={`mt-4 flex-col gap-3 border-t border-hairline-soft pt-4 ${infoVisibilityClass}`}>
                     {loc.phone && (
-                      <div className="flex items-center gap-2 text-[14px] text-text-muted">
+                      <a href={`tel:${loc.phone}`} className="flex items-center gap-2 text-[14px] text-text-muted">
                         <PhoneIcon />
                         {loc.phone}
-                      </div>
+                      </a>
                     )}
 
                     {loc.address ? (
