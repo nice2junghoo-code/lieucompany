@@ -209,7 +209,7 @@ function DemoRequest() {
               return (
                 <div
                   key={loc.id}
-                  className={`rounded-2xl border p-5 transition-colors ${isActive ? 'border-ink' : 'border-hairline'}`}
+                  className={`rounded-2xl border p-5 transition-colors hover:border-ink ${isActive ? 'border-ink' : 'border-hairline'}`}
                 >
                   <button
                     type="button"
