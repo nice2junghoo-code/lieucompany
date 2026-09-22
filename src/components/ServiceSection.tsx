@@ -9,7 +9,7 @@ import serviceRelocationImage from '../assets/service-relocation.png'
 const SERVICES = [
   { key: 'center', label: '전시장 쇼룸', image: serviceShowroomImage, to: '/showroom' },
   { key: 'reservation', label: 'A/S 서비스 신청', image: serviceReservationImage, to: null },
-  { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage, to: '/service' },
+  { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage, to: '/service/demo' },
   { key: 'relocation', label: '이전 설치 및 시운전 지원', image: serviceRelocationImage, to: null },
   { key: 'overhaul', label: '오버홀', image: serviceOverhaulImage, to: null },
   { key: 'smoke-control', label: '로스터기 전문 덕트 배관 설비', image: serviceSmokeControlImage, to: null },
