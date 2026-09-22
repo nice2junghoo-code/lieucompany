@@ -282,7 +282,7 @@ function DemoRequest() {
           </p>
 
           <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">부자로스터기 로스팅 시현 예약 절차</h2>
-          <div className="mt-6 rounded-md border border-hairline p-6 sm:p-8">
+          <div className="mt-6 rounded-none border border-hairline p-6 sm:p-8">
             <div className="flex flex-col gap-3">
               {RESERVATION_STEPS.map((step, i) => (
                 <Fragment key={step.label}>
