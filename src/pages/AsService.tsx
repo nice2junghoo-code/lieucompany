@@ -3,6 +3,11 @@ import { Fragment } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+// zero-padded filenames keep the alphabetical sort equal to the numeric order
+const GALLERY_IMAGES = Object.entries(import.meta.glob<string>('../assets/as-gallery/*.jpg', { eager: true, import: 'default' }))
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, src]) => src)
+
 const RESERVATION_STEPS: { label: string; desc: string; phone?: string }[] = [
   { label: '전화 연결', desc: '010-7466-2744', phone: '010-7466-2744' },
   { label: 'A/S 접수', desc: '모델 · 고장증상 · 일자 · 시간 상담' },
@@ -45,8 +50,23 @@ function AsService() {
       <Header />
 
       <main className="px-6 pb-16 lg:pb-20">
+        {/* auto-scrolling gallery — full-bleed, right-to-left, seamless loop; 130s keeps the speed of the 7-image showroom gallery (36s) */}
+        <div className="mx-[calc(50%-50vw)] w-screen overflow-hidden">
+          <div className="flex w-max animate-[marquee-left_130s_linear_infinite] gap-4">
+            {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                loading="lazy"
+                className="h-[240px] w-[240px] shrink-0 rounded-none object-cover sm:h-[340px] sm:w-[340px]"
+              />
+            ))}
+          </div>
+        </div>
+
         {/* ARS reservation banner — full-bleed gray, centered */}
-        <div className="mx-[calc(50%-50vw)] w-screen bg-canvas-soft px-6 py-16 text-center lg:py-20">
+        <div className="mx-[calc(50%-50vw)] mt-16 w-screen bg-canvas-soft px-6 py-16 text-center lg:mt-20 lg:py-20">
           <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">A/S 서비스 예약 안내(ARS)</h2>
           <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-[1.7] text-text-muted">
             전화 한통으로 고객님들께 신속한 A/S서비스를 제공합니다.
