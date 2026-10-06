@@ -24,7 +24,7 @@ function CompanyIntro() {
           </Link>
         </div>
 
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
+        <div className="aspect-[4/3] w-full overflow-hidden rounded-none">
           <img src={companyIntroImage} alt="부자로스터기 공식 판매 대리점" className="h-full w-full object-cover" />
         </div>
       </div>
