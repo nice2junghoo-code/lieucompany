@@ -41,12 +41,12 @@ function Header() {
       className="group sticky top-0 z-10 w-full border-b border-hairline-soft bg-ink transition-colors duration-300 hover:bg-canvas"
       onMouseLeave={() => setHovered(null)}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex h-[63px] max-w-[1400px] items-center justify-between px-6 lg:px-10">
         <Link to="/" onClick={closeAll}>
           <img
             src={logo}
             alt="LIEU"
-            className="h-16 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
+            className="h-12 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
           />
         </Link>
 
@@ -94,7 +94,7 @@ function Header() {
 
       {/* mobile menu — full-screen accordion list, closed rows expand with + / − */}
       {open && (
-        <nav className="absolute inset-x-0 top-full z-20 max-h-[calc(100vh-97px)] overflow-y-auto bg-canvas px-6 py-2 sm:hidden">
+        <nav className="absolute inset-x-0 top-full z-20 max-h-[calc(100vh-64px)] overflow-y-auto bg-canvas px-6 py-2 sm:hidden">
           {NAV_LINKS.map((link) => {
             const isExpanded = expanded === link.label
 
