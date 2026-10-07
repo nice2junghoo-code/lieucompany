@@ -568,7 +568,7 @@ export const MODELS: Model[] = [
       '1982년 영국의 데이비드 파킨에 의해 설립된 뎀트럭(Demtruk)은 무거운 기계를 안전하고 쉽고 간편하게 이동하려는 엔지니어들에게 안성맞춤인 1인 운영 솔루션 제품입니다. 국내에는 아직 많이 알려지지 않았지만 해외에서는 수많은 유명 카페 컨설팅, 기계 설치 및 A/S 업체에서 제품 이동 수단으로 사용하고 있으며, 리우컴퍼니(Lieu company)를 통해 국내 공식 수입되고 있습니다.',
     categories: ['뎀트럭트롤리'],
     image: demtruckImage,
-    badgeLabel: 'Dumtruk',
+    badgeLabel: 'Demtruk',
     imageScale: 1.3,
     specs: [
       { label: '최대 적재량', value: '220kg / 480파운드' },
