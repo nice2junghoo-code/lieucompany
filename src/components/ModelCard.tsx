@@ -8,12 +8,15 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
   return (
     <Link
       to={`/products/${model.id}`}
-      className={`group flex ${fullWidth ? 'w-full max-w-[420px] rounded-none border border-transparent bg-canvas hover:border-ink' : 'w-[300px] shrink-0 rounded-none bg-canvas'} flex-col overflow-hidden px-4 py-7 shadow-sm transition-[box-shadow,border-color] hover:shadow-lg`}
+      className={`group flex ${fullWidth ? 'w-full max-w-[420px] rounded-none border border-transparent bg-canvas hover:border-ink xl:px-3' : 'w-[300px] shrink-0 rounded-none bg-canvas'} flex-col overflow-hidden px-4 py-7 shadow-sm transition-[box-shadow,border-color] hover:shadow-lg`}
     >
       <div className="flex items-center gap-2">
         <div className="flex flex-col">
           {model.name.split('\n').map((line, i) => (
-            <p key={i} className={`whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? 'text-[22px]'}`}>
+            <p
+              key={i}
+              className={`whitespace-nowrap font-[652] text-ink ${model.nameTextClass ?? (fullWidth ? 'text-[22px] xl:text-[16px]' : 'text-[22px]')}`}
+            >
               {line}
             </p>
           ))}
@@ -26,11 +29,11 @@ function ModelCard({ model, fullWidth = false }: { model: Model; fullWidth?: boo
         )}
       </div>
 
-      <div className={`${fullWidth ? 'mt-8 h-[250px]' : 'mt-4 h-[210px]'} flex items-end justify-center`}>
+      <div className={`${fullWidth ? 'mt-8 h-[250px] xl:mt-6 xl:h-[200px]' : 'mt-4 h-[210px]'} flex items-end justify-center`}>
         <img
           src={model.image}
           alt={model.name}
-          className={`block object-contain ${fullWidth ? 'w-[70%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${
+          className={`block object-contain ${fullWidth ? 'w-[70%] xl:w-[85%]' : 'w-[75%] transition-transform duration-500 group-hover:scale-110'} ${
             model.id === 'demtruck'
               ? fullWidth
                 ? 'mb-7'

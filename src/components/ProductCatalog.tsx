@@ -5,6 +5,60 @@ import ModelCard from './ModelCard'
 
 const CATEGORIES = ['모든모델', '전기식로스터기', '가스식로스터기', '대형로스터기', '테이블', '뎀트럭트롤리']
 
+// PC left-sidebar filters: options within a group are OR'd, groups are AND'd
+const FUEL_FILTERS = [
+  { label: '전기식', category: '전기식로스터기' },
+  { label: '가스식', category: '가스식로스터기' },
+]
+
+const MODEL_FILTERS = [
+  { label: 'B30S', ids: ['b30s'] },
+  { label: 'B80', ids: ['b80', 'b80c', 'b80s'] },
+  { label: 'B150', ids: ['b150', 'b150c', 'b150s'] },
+  { label: 'B180SG', ids: ['b180sg'] },
+  { label: 'B500S', ids: ['b500s'] },
+  { label: 'B500SG', ids: ['b500sg'] },
+  { label: 'B15K SG', ids: ['b15k-sg'] },
+  { label: 'TABLE', ids: ['buja-table'] },
+  { label: 'Demtruk', ids: ['demtruck'] },
+]
+
+const TYPE_FILTERS = [
+  { label: '일반형', ids: ['b80', 'b150'] },
+  { label: '쿨러장착형', ids: ['b80c', 'b150c'] },
+  { label: '스마트', ids: ['b80s', 'b150s'] },
+]
+
+// ?category= deep links (header menu) expressed as sidebar filters
+const CATEGORY_TO_FILTERS: Record<string, { fuel?: string[]; model?: string[] }> = {
+  전기식로스터기: { fuel: ['전기식'] },
+  가스식로스터기: { fuel: ['가스식'] },
+  대형로스터기: { model: ['B500S', 'B500SG', 'B15K SG'] },
+  테이블: { model: ['TABLE'] },
+  뎀트럭트롤리: { model: ['Demtruk'] },
+}
+
+function toggle(list: string[], value: string) {
+  return list.includes(value) ? list.filter((v) => v !== value) : [...list, value]
+}
+
+function sidebarPillClass(active: boolean) {
+  return `rounded-none border px-3 py-1.5 text-[13px] font-[600] transition-colors ${
+    active ? 'border-ink bg-ink text-on-primary' : 'border-hairline bg-canvas text-ink hover:border-ink'
+  }`
+}
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(() => window.matchMedia('(min-width: 1024px)').matches)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const onChange = () => setIsDesktop(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return isDesktop
+}
+
 function ChevronIcon({ open }: { open: boolean }) {
   return (
     <svg
@@ -44,6 +98,10 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
   const [searchParams] = useSearchParams()
   const [selected, setSelected] = useState('모든모델')
   const [open, setOpen] = useState(false)
+  const [fuel, setFuel] = useState<string[]>([])
+  const [modelPick, setModelPick] = useState<string[]>([])
+  const [typePick, setTypePick] = useState<string[]>([])
+  const isDesktop = useIsDesktop()
   const rowRef = useRef<HTMLDivElement>(null)
 
   // header mega-menu / any external link can deep-link a category via ?category=
@@ -51,10 +109,25 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
     const category = searchParams.get('category')
     if (category && CATEGORIES.includes(category)) {
       setSelected(category)
+      const mapped = CATEGORY_TO_FILTERS[category]
+      setFuel(mapped?.fuel ?? [])
+      setModelPick(mapped?.model ?? [])
+      setTypePick([])
     }
   }, [searchParams])
 
-  const models = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
+  const filtersActive = fuel.length + modelPick.length + typePick.length > 0
+
+  const sidebarModels = MODELS.filter((m) => {
+    const fuelOk = fuel.length === 0 || FUEL_FILTERS.some((f) => fuel.includes(f.label) && m.categories.includes(f.category))
+    const modelOk = modelPick.length === 0 || MODEL_FILTERS.some((f) => modelPick.includes(f.label) && f.ids.includes(m.id))
+    const typeOk = typePick.length === 0 || TYPE_FILTERS.some((f) => typePick.includes(f.label) && f.ids.includes(m.id))
+    return fuelOk && modelOk && typeOk
+  })
+
+  const categoryModels = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
+  // lg+ uses the sidebar filters; below lg keeps the original category selector
+  const models = layout === 'grid' && isDesktop ? sidebarModels : categoryModels
 
   const scrollRow = (direction: 1 | -1) => {
     rowRef.current?.scrollBy({ left: direction * rowRef.current.clientWidth * 0.9, behavior: 'smooth' })
@@ -109,20 +182,43 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
     return (
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
-          {/* left column (lg+) — existing categories stacked vertically for now; contents to be rearranged */}
-          <aside className="hidden lg:block lg:self-start">
-            <div className="flex flex-col gap-2">
-              {CATEGORIES.map((label) => (
-                <button
-                  key={label}
-                  type="button"
-                  onClick={() => setSelected(label)}
-                  className={`${boxClass(selected === label)} !w-full !justify-start px-4`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+          {/* left filter column (lg+) — click to toggle; options in a group are OR'd, groups are AND'd */}
+          <aside className="hidden lg:sticky lg:top-24 lg:block lg:self-start">
+            {[
+              { title: '연료 타입', options: FUEL_FILTERS.map((f) => f.label), picked: fuel, set: setFuel },
+              { title: '모델', options: MODEL_FILTERS.map((f) => f.label), picked: modelPick, set: setModelPick },
+              { title: '모델 유형', options: TYPE_FILTERS.map((f) => f.label), picked: typePick, set: setTypePick },
+            ].map((group) => (
+              <div key={group.title} className="mb-8">
+                <p className="text-[13px] font-[600] text-text-muted">{group.title}</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.options.map((label) => (
+                    <button
+                      key={label}
+                      type="button"
+                      onClick={() => group.set((prev) => toggle(prev, label))}
+                      className={sidebarPillClass(group.picked.includes(label))}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {filtersActive && (
+              <button
+                type="button"
+                onClick={() => {
+                  setFuel([])
+                  setModelPick([])
+                  setTypePick([])
+                }}
+                className="text-[13px] font-[600] text-ink underline underline-offset-4"
+              >
+                필터 초기화
+              </button>
+            )}
           </aside>
 
           <div>
@@ -130,10 +226,16 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
             <div className="lg:hidden">{selectorBody}</div>
 
             <p className="mt-8 text-[14px] font-[600] text-ink lg:mt-0">
-              {selected === '모든모델' ? '전체 모델' : selected} ({models.length})
+              {(isDesktop ? filtersActive : selected !== '모든모델')
+                ? `조건에 맞는 모델 (${models.length})`
+                : `전체 모델 (${models.length})`}
             </p>
 
-            <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
+            {models.length === 0 && (
+              <p className="py-20 text-center text-[14px] text-text-muted">조건에 맞는 모델이 없습니다. 필터를 줄여보세요.</p>
+            )}
+
+            <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
               {models.map((model) => (
                 <ModelCard key={model.id} model={model} fullWidth />
               ))}
