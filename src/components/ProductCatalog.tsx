@@ -60,8 +60,8 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
     rowRef.current?.scrollBy({ left: direction * rowRef.current.clientWidth * 0.9, behavior: 'smooth' })
   }
 
-  const categorySelector = (
-    <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+  const selectorBody = (
+    <>
       {/* desktop/tablet: full row, left-aligned */}
       <div className="hidden sm:flex sm:flex-wrap sm:items-center sm:justify-start sm:gap-2">
         {CATEGORIES.map((label) => (
@@ -100,19 +100,44 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
           </div>
         )}
       </div>
-    </div>
+    </>
   )
+
+  const categorySelector = <div className="mx-auto max-w-[1400px] px-6 lg:px-10">{selectorBody}</div>
 
   if (layout === 'grid') {
     return (
-      <div>
-        {categorySelector}
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-10">
+          {/* left column (lg+) — existing categories stacked vertically for now; contents to be rearranged */}
+          <aside className="hidden lg:block lg:self-start">
+            <div className="flex flex-col gap-2">
+              {CATEGORIES.map((label) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setSelected(label)}
+                  className={`${boxClass(selected === label)} !w-full !justify-start px-4`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </aside>
 
-        <div className="mx-auto mt-8 max-w-[1400px] px-6 lg:mt-10 lg:px-10">
-          <div className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {models.map((model) => (
-              <ModelCard key={model.id} model={model} fullWidth />
-            ))}
+          <div>
+            {/* below lg: the original category row / dropdown */}
+            <div className="lg:hidden">{selectorBody}</div>
+
+            <p className="mt-8 text-[14px] font-[600] text-ink lg:mt-0">
+              {selected === '모든모델' ? '전체 모델' : selected} ({models.length})
+            </p>
+
+            <div className="mt-4 grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
+              {models.map((model) => (
+                <ModelCard key={model.id} model={model} fullWidth />
+              ))}
+            </div>
           </div>
         </div>
       </div>
