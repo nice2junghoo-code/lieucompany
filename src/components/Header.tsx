@@ -46,7 +46,7 @@ function Header() {
           <img
             src={logo}
             alt="LIEU"
-            className="h-8 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
+            className="h-6 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
           />
         </Link>
 
