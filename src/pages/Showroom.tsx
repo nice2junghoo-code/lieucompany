@@ -247,9 +247,9 @@ function Showroom() {
 
             <Link
               to="/service/demo"
-              className="rounded-2xl border border-ink bg-ink p-5 transition-colors hover:bg-ink/85"
+              className="group rounded-2xl border border-ink bg-ink p-5 transition-colors hover:bg-canvas"
             >
-              <p className="text-[17px] font-[700] text-white">시현 신청 하기 →</p>
+              <p className="text-[17px] font-[700] text-white transition-colors group-hover:text-ink">시현 신청 하기 →</p>
             </Link>
           </div>
 
