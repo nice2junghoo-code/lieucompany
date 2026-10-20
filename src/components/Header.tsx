@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/lieu-logo.png'
+import logo from '../assets/lieu-logo-wordmark.png'
 import { NAV_LINKS } from '../data/navigation'
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -46,7 +46,7 @@ function Header() {
           <img
             src={logo}
             alt="LIEU"
-            className="h-12 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
+            className="h-8 w-auto invert transition-[filter] duration-300 group-hover:invert-0"
           />
         </Link>
 
