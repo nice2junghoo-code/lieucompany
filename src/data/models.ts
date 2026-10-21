@@ -1,4 +1,7 @@
 import b30sImage from '../assets/hero-roaster.png'
+import b30sColorBlack from '../assets/b30s-color-black.jpg'
+import b30sColorIvory from '../assets/b30s-color-ivory.jpg'
+import b30sColorRed from '../assets/b30s-color-red.jpg'
 import b80Image from '../assets/model-b80.png'
 import b80cImage from '../assets/model-b80c.png'
 import b80sImage from '../assets/hero-roaster-b80s.png'
@@ -47,6 +50,9 @@ export type Model = {
   features?: string[]
   // detail-page color swatches (hex)
   colors?: string[]
+  // full-width "Colors" section at the bottom of the detail page: big photo that
+  // swaps per selected swatch tile. When set, the small `colors` circles are hidden.
+  colorOptions?: { name: string; hex: string; image?: string }[]
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
 }
@@ -80,6 +86,11 @@ export const MODELS: Model[] = [
       '파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    colorOptions: [
+      { name: '블랙', hex: '#111111', image: b30sColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b30sColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b30sColorRed },
+    ],
   },
   {
     id: 'b80',

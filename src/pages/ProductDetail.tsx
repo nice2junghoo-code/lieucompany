@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -23,6 +24,9 @@ const SPEC_ORDER_CLASS = [
 function ProductDetail() {
   const { id } = useParams()
   const model = MODELS.find((m) => m.id === id)
+  const [colorIndex, setColorIndex] = useState(0)
+  useEffect(() => setColorIndex(0), [id])
+  const activeColor = model?.colorOptions?.[colorIndex]
 
   const isGas = model?.categories.includes('가스식로스터기')
   const isElectric = model?.categories.includes('전기식로스터기')
@@ -112,7 +116,7 @@ function ProductDetail() {
                     </ul>
                   )}
 
-                  {model.colors && (
+                  {model.colors && !model.colorOptions && (
                     <div className="mt-8">
                       <p className="text-[13px] font-[600] text-text-muted">색상</p>
                       <div className="mt-3 flex gap-2">
@@ -156,6 +160,49 @@ function ProductDetail() {
                 >
                   납품·설치 사례 더보기
                 </a>
+              </div>
+            </div>
+          )}
+
+          {model?.colorOptions && activeColor && (
+            <div className="mt-16 lg:mt-20">
+              <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">Colors</h2>
+
+              <div className="mt-6 flex h-[320px] items-center justify-center bg-canvas sm:h-[420px] lg:h-[520px]">
+                {activeColor.image ? (
+                  <img src={activeColor.image} alt={`${model.name} ${activeColor.name}`} className="h-[92%] w-[92%] object-contain" />
+                ) : (
+                  <p className="text-[14px] text-text-muted">{activeColor.name} 이미지 준비 중입니다.</p>
+                )}
+              </div>
+
+              <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
+                {model.colorOptions.map((option, i) => {
+                  const active = i === colorIndex
+                  return (
+                    <button
+                      key={option.name}
+                      type="button"
+                      onClick={() => setColorIndex(i)}
+                      aria-pressed={active}
+                      className="text-left"
+                    >
+                      <div
+                        className={`relative h-16 rounded-none border transition-colors sm:h-24 ${active ? 'border-2 border-ink' : 'border-hairline hover:border-ink'}`}
+                        style={{ backgroundColor: option.hex }}
+                      >
+                        {active && (
+                          <span className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-ink text-on-primary">
+                            <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+                              <path d="M5 10.5l3.2 3.2L15 6.8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-3 text-[14px] font-[600] text-ink sm:text-[16px]">{option.name}</p>
+                    </button>
+                  )
+                })}
               </div>
             </div>
           )}
