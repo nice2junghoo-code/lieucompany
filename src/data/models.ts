@@ -2,6 +2,13 @@ import b30sImage from '../assets/hero-roaster.png'
 import b30sColorBlack from '../assets/b30s-color-black.jpg'
 import b30sColorIvory from '../assets/b30s-color-ivory.jpg'
 import b30sColorRed from '../assets/b30s-color-red.jpg'
+import b30sGallery1 from '../assets/b30s-gallery/gallery-1.jpg'
+import b30sGallery2 from '../assets/b30s-gallery/gallery-2.jpg'
+import b30sGallery3 from '../assets/b30s-gallery/gallery-3.jpg'
+import b30sGallery4 from '../assets/b30s-gallery/gallery-4.jpg'
+import b30sGallery5 from '../assets/b30s-gallery/gallery-5.jpg'
+import b30sGallery6 from '../assets/b30s-gallery/gallery-6.jpg'
+import b30sGallery7 from '../assets/b30s-gallery/gallery-7.jpg'
 import b80Image from '../assets/model-b80.png'
 import b80cImage from '../assets/model-b80c.png'
 import b80sImage from '../assets/hero-roaster-b80s.png'
@@ -75,6 +82,8 @@ export type Model = {
     // section after 주요 기능 that reuses a table model's tagline, photo and one of its spec groups (matched by heading)
     // `specTitle` is the heading above the spec rows (same style as the model-name heading above the 제원 list)
     table?: { modelId: string; specHeading: string; title: string; specTitle: string }
+    // photo gallery under the table section: first photo large, the last two wide on PC, 2-column grid on mobile
+    gallery?: { title: string; images: string[] }
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -125,6 +134,10 @@ export const MODELS: Model[] = [
       heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
       heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(테블릿 미포함)' },
       table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블', specTitle: '부자로스터 B30S 전용 TABLE' },
+      gallery: {
+        title: '갤러리',
+        images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7],
+      },
     },
   },
   {
