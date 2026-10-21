@@ -285,69 +285,6 @@ export const MODELS: Model[] = [
               { name: '커스텀 컬러', price: '200,000' },
             ],
           },
-          {
-            name: 'B80C',
-            amount: '7,150,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
-              [{ text: '교반쿨러 장착', bold: true }],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동 가능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.2kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
-                { label: '무게', text: '약 80kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-          {
-            name: 'B80S',
-            amount: '8,800,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
-              [
-                { text: '10단계 댐퍼 조정 가능 (기본 개방상태 추천)' },
-                { text: '교반쿨러 장착', bold: true },
-              ],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능, 자동 투입 배출' }],
-              [
-                { text: '파이어스코프 및 아티산 연동 가능' },
-                { text: '스마트폰 블루투스 연동', bold: true },
-              ],
-              [{ text: '프로파일 저장(부자로스터어플), 수동전환모드 옵션 선택 가능', bold: true }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.2kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
-                { label: '무게', text: '약 80kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
         ],
       },
     },
