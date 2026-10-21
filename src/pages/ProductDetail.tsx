@@ -98,15 +98,20 @@ function ProductDetail() {
               </div>
 
               <div className="mx-auto w-full max-w-[1100px] px-6 pt-8 pb-12 text-left lg:px-10 lg:pt-10 lg:pb-16">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 lg:gap-4">
                   <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                     {model.name}
                   </h1>
+                  {/* PC: badge text matches the title size */}
                   {isElectric && (
-                    <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary">ER</span>
+                    <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-3 lg:py-1 lg:text-[64px] lg:leading-[1.0] lg:font-[652]">
+                      ER
+                    </span>
                   )}
                   {isGas && (
-                    <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
+                    <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-3 lg:py-1 lg:text-[64px] lg:leading-[1.0] lg:font-[652]">
+                      GR
+                    </span>
                   )}
                 </div>
                 <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">
