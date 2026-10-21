@@ -28,7 +28,7 @@ function ProductDetail() {
   useEffect(() => setColorIndex(0), [id])
   const activeColor = model?.colorOptions?.[colorIndex]
 
-  // "공식 파트너" notice box: sits in the top grid by default, or full-width at the very bottom (specShowcase.noticeAtBottom)
+  // "공식 파트너" notice box: sits in the top grid by default, or full-width just above the Colors section (specShowcase.noticeBeforeColors)
   const renderNotice = (className: string, wide = false) => (
     <div
       className={`relative flex flex-col items-center justify-center overflow-hidden p-6 text-center ${wide ? 'sm:p-10' : ''} ${className}`}
@@ -170,9 +170,11 @@ function ProductDetail() {
                 </div>
               )}
 
-              {!model.specShowcase?.noticeAtBottom && renderNotice('lg:order-3 lg:col-start-1')}
+              {!model.specShowcase?.noticeBeforeColors && renderNotice('lg:order-3 lg:col-start-1')}
             </div>
           )}
+
+          {model?.specShowcase?.noticeBeforeColors && <div className="mt-16 lg:mt-20">{renderNotice('', true)}</div>}
 
           {model?.colorOptions && activeColor && (
             <div className="mt-16 lg:mt-20">
@@ -303,8 +305,6 @@ function ProductDetail() {
               </div>
             </div>
           )}
-
-          {model?.specShowcase?.noticeAtBottom && <div className="mt-16 lg:mt-20">{renderNotice('', true)}</div>}
         </div>
       </main>
 
