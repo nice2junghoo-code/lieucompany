@@ -48,21 +48,24 @@ function ProductDetail() {
         용량, 가격, 설치 조건 등 자세한 사항은 구매 상담 신청 시 안내해 드립니다.
       </p>
 
-      <button
-        type="button"
-        className={`relative mt-6 w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[280px]' : 'sm:w-1/2'}`}
-      >
-        구매 상담 신청
-      </button>
+      {/* wide variant: buttons sit side by side on PC (stacked on mobile); narrow variant keeps them stacked */}
+      <div className={wide ? 'relative mt-6 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center' : 'contents'}>
+        <button
+          type="button"
+          className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-6 sm:w-1/2'}`}
+        >
+          구매 상담 신청
+        </button>
 
-      <a
-        href="https://www.instagram.com/lieu.company/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`relative mt-3 w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[280px]' : 'sm:w-1/2'}`}
-      >
-        납품·설치 사례 더보기
-      </a>
+        <a
+          href="https://www.instagram.com/lieu.company/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-3 sm:w-1/2'}`}
+        >
+          납품·설치 사례 더보기
+        </a>
+      </div>
     </div>
   )
 
