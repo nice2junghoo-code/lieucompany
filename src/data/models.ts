@@ -72,6 +72,8 @@ export type Model = {
     heroTagline?: string
     // price block under the tagline: big amount + small suffix on one line, optional caption below
     heroPrice?: { amount: string; suffix?: string; caption?: string }
+    // section after 주요 기능 that reuses a table model's tagline, photo and one of its spec groups (matched by heading)
+    table?: { modelId: string; specHeading: string; title: string }
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -121,6 +123,7 @@ export const MODELS: Model[] = [
       heroLayout: true,
       heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
       heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(테블릿 미포함)' },
+      table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블' },
     },
   },
   {

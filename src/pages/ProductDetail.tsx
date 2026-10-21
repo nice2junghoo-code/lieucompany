@@ -74,6 +74,8 @@ function ProductDetail() {
   const isGas = model?.categories.includes('가스식로스터기')
   const isElectric = model?.categories.includes('전기식로스터기')
   const heroLayout = !!model?.specShowcase?.heroLayout
+  const tableModel = MODELS.find((m) => m.id === model?.specShowcase?.table?.modelId)
+  const tableGroup = tableModel?.specGroups?.find((g) => g.heading === model?.specShowcase?.table?.specHeading)
   const backLink = (
     <Link to="/products" className="text-[13px] font-[600] text-text-muted hover:text-ink">
       ← 모델 목록으로
@@ -380,6 +382,26 @@ function ProductDetail() {
                     </ul>
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {tableModel && tableGroup && model?.specShowcase?.table && (
+            <div className="mt-16 lg:mt-20">
+              <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{model.specShowcase.table.title}</h2>
+              <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{tableModel.tagline}</p>
+
+              <div className="mt-6 flex h-[360px] items-center justify-center bg-canvas lg:h-[460px]">
+                <img src={tableModel.image} alt={tableModel.name} className="h-[85%] w-[85%] object-contain" />
+              </div>
+
+              <div className="mt-6 border-t border-hairline">
+                {tableGroup.rows.map((row) => (
+                  <div key={row.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
+                    <span className="w-16 shrink-0 text-text-muted">{row.label}</span>
+                    <span className="font-[600] text-ink">{row.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
           )}
