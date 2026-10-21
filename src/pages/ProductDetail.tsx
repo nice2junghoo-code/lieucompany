@@ -238,8 +238,6 @@ function ProductDetail() {
                   <h3 className="text-[20px] font-[652] text-ink">제원표</h3>
                 </div>
 
-                <div className="mt-4 bg-canvas-soft px-5 py-3 text-[14px] font-[600] text-ink">{model.name.replace('\n', ' ')}</div>
-
                 <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
                   {model.specs.map((spec) => (
                     <div key={spec.label} className="border-b border-hairline py-4">
