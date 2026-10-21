@@ -246,7 +246,6 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
-      heroTagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
       heroPrice: { amount: '6,270,000원', suffix: 'VAT포함', caption: '(기본형 기준)' },
       table: {
         modelId: 'buja-table',

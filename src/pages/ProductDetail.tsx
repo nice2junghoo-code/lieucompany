@@ -122,7 +122,7 @@ function ProductDetail() {
                     </span>
                   )}
                 </div>
-                <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">
+                <p className="mt-4 max-w-3xl text-[16px] font-[456] leading-[1.5] text-ink sm:text-[18px]">
                   {model.specShowcase?.heroTagline ?? model.tagline}
                 </p>
 
