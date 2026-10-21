@@ -98,8 +98,10 @@ function ProductDetail() {
 
             <div className="mt-6 w-full bg-canvas-soft sm:mt-8">
               <div className="flex w-full items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
-                <div className="relative mx-auto aspect-[1005/877] w-full max-w-[260px] px-6 pt-6 sm:max-w-md sm:pt-0 lg:max-w-xl lg:px-10">
-                  <img src={model.image} alt={model.name} draggable={false} className="h-full w-full object-contain" />
+                <div
+                  className={`relative mx-auto w-full px-6 pt-6 sm:pt-0 lg:px-10 ${model.specShowcase?.heroImageClass ?? 'max-w-[260px] sm:max-w-md lg:max-w-xl'}`}
+                >
+                  <img src={model.image} alt={model.name} draggable={false} className="block h-auto w-full" />
                 </div>
               </div>
 
@@ -467,50 +469,61 @@ function ProductDetail() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[160px_190px_1fr_1fr]">
+                {/* 구분 cell is shared; each variant row (기본형 / B80C / B80S ...) has its own price, specs and options */}
+                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[160px_1fr]">
                   <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
                     <p className="text-[20px] font-[652] text-ink">{price.type.code}</p>
                     <p className="whitespace-nowrap text-[12px] text-text-muted">({price.type.label})</p>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
-                    <p className="text-[13px] font-[600] text-text-muted lg:hidden">판매가격</p>
-                    <p className="text-[24px] font-[652] text-ink">{price.amount}</p>
-                    <p className="text-[12px] text-red-600">{price.vatNote}</p>
-                  </div>
+                  <div className="flex flex-col">
+                    {price.rows.map((row, idx) => (
+                      <div
+                        key={row.name ?? idx}
+                        className={`grid grid-cols-1 lg:grid-cols-[190px_1fr_1fr] ${idx > 0 ? 'border-t border-ink/40' : ''}`}
+                      >
+                        <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
+                          <p className="text-[13px] font-[600] text-text-muted lg:hidden">판매가격</p>
+                          {row.name && <p className="text-[15px] font-[600] text-ink">({row.name})</p>}
+                          <p className="text-[24px] font-[652] text-ink">{row.amount}</p>
+                          <p className="text-[12px] text-red-600">{row.vatNote}</p>
+                        </div>
 
-                  <div className="bg-canvas-soft px-5 py-6">
-                    <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">사양 및 제원</p>
-                    <ul className="flex flex-col gap-1.5 text-[14px] leading-[1.55] text-ink">
-                      {price.specLines.map((line, i) => (
-                        <li key={i}>
-                          {line.map((part, j) => (
-                            <span key={j}>
-                              {j > 0 && <span className="mx-1.5 text-text-muted">·</span>}
-                              {part.label && <span className="font-[700]">{part.label} : </span>}
-                              {part.text}
-                            </span>
-                          ))}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                        <div className="bg-canvas-soft px-5 py-6">
+                          <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">사양 및 제원</p>
+                          <ul className="flex flex-col gap-1.5 text-[14px] leading-[1.55] text-ink">
+                            {row.specLines.map((line, i) => (
+                              <li key={i}>
+                                {line.map((part, j) => (
+                                  <span key={j} className={part.bold ? 'font-[700]' : undefined}>
+                                    {j > 0 && <span className="mx-1.5 font-[456] text-text-muted">·</span>}
+                                    {part.label && <span className="font-[700]">{part.label} : </span>}
+                                    {part.text}
+                                  </span>
+                                ))}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                  <div className="border-t border-hairline bg-canvas-soft px-5 py-6 lg:border-t-0 lg:border-l lg:border-white">
-                    <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">
-                      추가 선택품목 <span className="text-[12px] font-[600] text-red-600">{price.optionsNote}</span>
-                    </p>
-                    <ul className="flex flex-col gap-3 text-[15px] text-ink">
-                      {price.options.map((option) => (
-                        <li key={option.name}>
-                          <div className="flex items-start justify-between gap-3">
-                            <span className="font-[700]">▶ {option.name}</span>
-                            {option.price && <span className="shrink-0 font-[600]">[{option.price}]</span>}
-                          </div>
-                          {option.sub && <p className="mt-1 pl-5 text-[13px] text-text-muted">└ {option.sub}</p>}
-                        </li>
-                      ))}
-                    </ul>
+                        <div className="border-t border-hairline bg-canvas-soft px-5 py-6 lg:border-t-0 lg:border-l lg:border-white">
+                          <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">
+                            추가 선택품목 <span className="text-[12px] font-[600] text-red-600">{price.optionsNote}</span>
+                          </p>
+                          <ul className="flex flex-col gap-3 text-[15px] text-ink">
+                            {row.options.map((option) => (
+                              <li key={option.name}>
+                                <div className="flex items-start justify-between gap-3">
+                                  <span className="font-[700]">▶ {option.name}</span>
+                                  {option.price && <span className="shrink-0 font-[600]">[{option.price}]</span>}
+                                </div>
+                                {option.sub && <p className="mt-1 pl-5 text-[13px] text-text-muted">└ {option.sub}</p>}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

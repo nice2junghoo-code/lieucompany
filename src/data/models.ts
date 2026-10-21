@@ -3,6 +3,7 @@ import b30sColorBlack from '../assets/b30s-color-black.jpg'
 import b30sColorIvory from '../assets/b30s-color-ivory.jpg'
 import b30sColorRed from '../assets/b30s-color-red.jpg'
 import b30sTableCombo from '../assets/b30s-table-combo.jpg'
+import b80TableCombo from '../assets/b80-table-combo.jpg'
 import b30sGallery1 from '../assets/b30s-gallery/gallery-1.jpg'
 import b30sGallery2 from '../assets/b30s-gallery/gallery-2.jpg'
 import b30sGallery3 from '../assets/b30s-gallery/gallery-3.jpg'
@@ -89,16 +90,22 @@ export type Model = {
     gallery?: { title: string; images: string[] }
     // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
     // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
+    // one `rows` entry per variant (e.g. 기본형 / B80C / B80S) sharing the 구분 cell on the left; a part with `bold` is rendered bold
     price?: {
       title: string
       subtitle: string
       type: { code: string; label: string }
-      amount: string
-      vatNote: string
-      specLines: { label?: string; text: string }[][]
       optionsNote: string
-      options: { name: string; price?: string; sub?: string }[]
+      rows: {
+        name?: string
+        amount: string
+        vatNote: string
+        specLines: { label?: string; text: string; bold?: boolean }[][]
+        options: { name: string; price?: string; sub?: string }[]
+      }[]
     }
+    // size classes for the hero photo (max-width steps); defaults to the B30S sizing
+    heroImageClass?: string
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -157,33 +164,37 @@ export const MODELS: Model[] = [
         title: '가격',
         subtitle: '2026년 기준 (단위 : 원)',
         type: { code: 'ER', label: 'Electric Roaster' },
-        amount: '6,380,000',
-        vatNote: '(부가세 VAT 포함)',
-        specLines: [
-          [{ label: '적정 투입량', text: '100g ~ 300g (최대 350g)' }],
-          [{ text: '스마트폰 블루투스 연동, 로스팅 종료 후 자동 배출' }],
-          [{ text: '로스팅 후 자동 배출 및 자동 쿨링' }],
-          [{ text: '10단 댐퍼 조정 가능 (기본 개방상태 권장)' }],
-          [{ text: '수동 전환을 통해 직접 화력 설정, 파이어스코프 및 아티산 연동' }],
-          [
-            { label: '정격전압', text: 'AC220V / 60Hz' },
-            { label: '소비전력', text: '2.0kw' },
-          ],
-          [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-          [
-            { label: '열원', text: '코일히터' },
-            { label: '드럼재질', text: '국산 SUS304' },
-          ],
-          [
-            { label: '사이즈', text: '770(가로) x 250(폭) x 670(높이) mm' },
-            { label: '무게', text: '약 45kg' },
-          ],
-        ],
         optionsNote: '(부가세 VAT 미포함)',
-        options: [
-          { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
-          { name: '커스텀 컬러', price: '200,000' },
-          { name: '테블릿PC 고객님 별도 구매 품목' },
+        rows: [
+          {
+            amount: '6,380,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '100g ~ 300g (최대 350g)' }],
+              [{ text: '스마트폰 블루투스 연동, 로스팅 종료 후 자동 배출' }],
+              [{ text: '로스팅 후 자동 배출 및 자동 쿨링' }],
+              [{ text: '10단 댐퍼 조정 가능 (기본 개방상태 권장)' }],
+              [{ text: '수동 전환을 통해 직접 화력 설정, 파이어스코프 및 아티산 연동' }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '2.0kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '770(가로) x 250(폭) x 670(높이) mm' },
+                { label: '무게', text: '약 45kg' },
+              ],
+            ],
+            options: [
+              { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
+              { name: '커스텀 컬러', price: '200,000' },
+              { name: '테블릿PC 고객님 별도 구매 품목' },
+            ],
+          },
         ],
       },
     },
@@ -217,6 +228,129 @@ export const MODELS: Model[] = [
       '모듈형 서랍식 특허등록 (제10-1971999호)',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B30S (hero, 공식 파트너 box, Colors, 제원, 전용 테이블, 가격). Color photos / gallery are added once the images arrive.
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
+      width: '1000mm',
+      height: '810mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroTagline: '초보자부터 전문가까지 수준 높은 로스팅 구현',
+      heroPrice: { amount: '6,270,000원', suffix: 'VAT포함', caption: '(기본형 기준)' },
+      table: {
+        modelId: 'buja-table',
+        specHeading: '부자로스터 테이블',
+        title: '부자로스터 B80 전용 테이블',
+        specTitle: '부자로스터 B80 전용 TABLE',
+        image: b80TableCombo,
+      },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'ER', label: 'Electric Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            name: '기본형',
+            amount: '6,270,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
+              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
+              [{ text: '파이어스코프 및 아티산 연동 가능' }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '3.2kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '세라믹 코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
+                { label: '무게', text: '약 75kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+          {
+            name: 'B80C',
+            amount: '7,150,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
+              [{ text: '교반쿨러 장착', bold: true }],
+              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
+              [{ text: '파이어스코프 및 아티산 연동 가능' }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '3.2kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '세라믹 코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
+                { label: '무게', text: '약 80kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+          {
+            name: 'B80S',
+            amount: '8,800,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
+              [
+                { text: '10단계 댐퍼 조정 가능 (기본 개방상태 추천)' },
+                { text: '교반쿨러 장착', bold: true },
+              ],
+              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능, 자동 투입 배출' }],
+              [
+                { text: '파이어스코프 및 아티산 연동 가능' },
+                { text: '스마트폰 블루투스 연동', bold: true },
+              ],
+              [{ text: '프로파일 저장(부자로스터어플), 수동전환모드 옵션 선택 가능', bold: true }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '3.2kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '세라믹 코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
+                { label: '무게', text: '약 80kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+        ],
+      },
+    },
   },
   {
     id: 'b80c',
