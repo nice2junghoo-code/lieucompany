@@ -332,6 +332,61 @@ function ProductDetail() {
             </div>
           )}
 
+          {model?.specShowcase?.lineup && (
+            <div className="mt-16 lg:mt-20">
+              <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{model.specShowcase.lineup.title}</h2>
+
+              <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+                {model.specShowcase.lineup.items.map((item) => {
+                  const itemModel = MODELS.find((m) => m.id === item.modelId)
+                  const isCurrent = item.modelId === model.id
+                  return (
+                    <div
+                      key={item.modelId}
+                      className={`flex flex-col rounded-2xl border bg-canvas p-5 ${isCurrent ? 'border-ink' : 'border-hairline'}`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-[20px] font-[652] leading-[1.3] text-ink">{item.name}</p>
+                        {isCurrent && (
+                          <span className="shrink-0 rounded-full bg-ink px-3 py-1 text-[12px] font-[600] text-on-primary">현재 모델</span>
+                        )}
+                      </div>
+
+                      <div className="mt-6 flex h-[200px] items-center justify-center">
+                        {itemModel && <img src={itemModel.image} alt={item.name} className="h-full w-full object-contain" />}
+                      </div>
+
+                      <div className="mt-6 flex flex-1 flex-col gap-2 pb-5 text-[14px] leading-[1.5]">
+                        {item.rows.map((row, i) => (
+                          <div key={i} className="grid grid-cols-[64px_1fr] gap-3">
+                            <span className="font-[700] text-ink">{row.label}</span>
+                            <span className="text-right text-text-muted">{row.text}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex items-baseline justify-end gap-1.5 border-t border-hairline pt-5">
+                        <span className="text-[24px] font-[652] text-ink">{item.price}</span>
+                        <span className="text-[14px] font-[600] text-ink">원</span>
+                        <span className="text-[12px] text-text-muted">{item.vatNote}</span>
+                      </div>
+
+                      <div className="mt-auto flex justify-center pt-6">
+                        <Link
+                          to={`/products/${item.modelId}`}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                          className="block w-1/2 min-w-[140px] rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[13px] font-[600] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                        >
+                          자세히보기
+                        </Link>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
           {model?.specShowcase && model.specs && (
             <div className="mt-16 lg:mt-20">
               <div className="bg-canvas-soft px-6 pt-14 pb-24 text-center lg:pt-20">

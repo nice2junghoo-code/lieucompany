@@ -89,6 +89,18 @@ export type Model = {
     // `specTitle` is the heading above the spec rows (same style as the model-name heading above the 제원 list)
     // `image` replaces the table model's own photo (e.g. a composite with the roaster sitting on the table)
     table?: { modelId: string; specHeading: string; title: string; specTitle: string; image?: string }
+    // card row under Colors (like a "recommended models" list): one card per variant, photo taken from the model with `modelId`;
+    // a row with a `label` shows it on the left, rows without one are plain lines on the right; "자세히보기" links to /products/{modelId}
+    lineup?: {
+      title: string
+      items: {
+        modelId: string
+        name: string
+        price: string
+        vatNote: string
+        rows: { label?: string; text: string }[]
+      }[]
+    }
     // photo gallery under the table section: first photo large, the 6th photo wide, 2-column grid on mobile (8 photos fill the grid exactly)
     gallery?: { title: string; images: string[] }
     // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
@@ -247,6 +259,36 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroPrice: { amount: '6,270,000원', suffix: 'VAT포함', caption: '(기본형 기준)' },
+      lineup: {
+        title: 'B80 모델 라인업',
+        items: [
+          {
+            modelId: 'b80',
+            name: 'B80 기본형',
+            price: '6,270,000',
+            vatNote: 'VAT포함',
+            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { text: '모듈형 쿨러' }],
+          },
+          {
+            modelId: 'b80c',
+            name: 'B80C 쿨러 장착형',
+            price: '7,150,000',
+            vatNote: 'VAT포함',
+            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { text: '교반 쿨러 장착' }],
+          },
+          {
+            modelId: 'b80s',
+            name: 'B80S 스마트형',
+            price: '8,800,000',
+            vatNote: 'VAT포함',
+            rows: [
+              { label: '투입량', text: '300g ~ 800g (최대 1kg)' },
+              { text: '교반 쿨러 장착' },
+              { text: '스마트 자동화 (블루투스 연동)' },
+            ],
+          },
+        ],
+      },
       table: {
         modelId: 'buja-table',
         specHeading: '부자로스터 테이블',
