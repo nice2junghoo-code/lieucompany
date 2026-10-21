@@ -152,14 +152,17 @@ function ProductDetail() {
                       >
                         구매 상담 신청
                       </a>
-                      <a
-                        href="https://www.instagram.com/lieu.company/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
-                      >
-                        납품·설치 사례 더보기
-                      </a>
+                      {/* pages with a gallery show this link under the photos instead */}
+                      {!model.specShowcase?.gallery && (
+                        <a
+                          href="https://www.instagram.com/lieu.company/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                        >
+                          납품·설치 사례 더보기
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
@@ -504,6 +507,17 @@ function ProductDetail() {
                     </div>
                   )
                 })}
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <a
+                  href="https://www.instagram.com/lieu.company/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-3/4 rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                >
+                  납품·설치 사례 더보기
+                </a>
               </div>
             </div>
           )}
