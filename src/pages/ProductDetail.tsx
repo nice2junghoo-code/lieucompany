@@ -74,6 +74,7 @@ function ProductDetail() {
   const isGas = model?.categories.includes('가스식로스터기')
   const isElectric = model?.categories.includes('전기식로스터기')
   const heroLayout = !!model?.specShowcase?.heroLayout
+  const price = model?.specShowcase?.price
   const tableModel = MODELS.find((m) => m.id === model?.specShowcase?.table?.modelId)
   const tableGroup = tableModel?.specGroups?.find((g) => g.heading === model?.specShowcase?.table?.specHeading)
   const backLink = (
@@ -443,6 +444,72 @@ function ProductDetail() {
                     </div>
                   )
                 })}
+              </div>
+            </div>
+          )}
+
+          {price && (
+            <div className="mt-16 lg:mt-20">
+              <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{price.title}</h2>
+              <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{price.subtitle}</p>
+
+              <div className="mt-6">
+                {/* PC: dark header bar with the four column titles, like the printed price list */}
+                <div className="hidden grid-cols-[130px_190px_1fr_1fr] bg-ink text-center text-[14px] font-[600] text-on-primary lg:grid">
+                  <p className="py-3">구분</p>
+                  <p className="py-3">판매가격</p>
+                  <p className="py-3">사양 및 제원</p>
+                  <p className="py-3">
+                    추가 선택품목 <span className="text-[12px] font-[600] text-red-400">{price.optionsNote}</span>
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[130px_190px_1fr_1fr]">
+                  <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
+                    <p className="text-[20px] font-[652] text-ink">{price.type.code}</p>
+                    <p className="text-[12px] text-text-muted">({price.type.label})</p>
+                  </div>
+
+                  <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
+                    <p className="text-[13px] font-[600] text-text-muted lg:hidden">판매가격</p>
+                    <p className="text-[24px] font-[652] text-ink">{price.amount}</p>
+                    <p className="text-[12px] text-red-600">{price.vatNote}</p>
+                  </div>
+
+                  <div className="bg-canvas-soft px-5 py-6">
+                    <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">사양 및 제원</p>
+                    <ul className="flex flex-col gap-1.5 text-[14px] leading-[1.55] text-ink">
+                      {price.specLines.map((line, i) => (
+                        <li key={i}>
+                          {line.map((part, j) => (
+                            <span key={j}>
+                              {j > 0 && <span className="mx-1.5 text-text-muted">·</span>}
+                              {part.label && <span className="font-[700]">{part.label} : </span>}
+                              {part.text}
+                            </span>
+                          ))}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="border-t border-hairline bg-canvas-soft px-5 py-6 lg:border-t-0 lg:border-l lg:border-white">
+                    <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">
+                      추가 선택품목 <span className="text-[12px] font-[600] text-red-600">{price.optionsNote}</span>
+                    </p>
+                    <ul className="flex flex-col gap-3 text-[15px] text-ink">
+                      {price.options.map((option) => (
+                        <li key={option.name}>
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="font-[700]">▶ {option.name}</span>
+                            {option.price && <span className="shrink-0 font-[600]">[{option.price}]</span>}
+                          </div>
+                          {option.sub && <p className="mt-1 pl-5 text-[13px] text-text-muted">└ {option.sub}</p>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           )}

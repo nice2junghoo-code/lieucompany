@@ -87,6 +87,18 @@ export type Model = {
     table?: { modelId: string; specHeading: string; title: string; specTitle: string; image?: string }
     // photo gallery under the table section: first photo large, the 6th photo wide, 2-column grid on mobile (8 photos fill the grid exactly)
     gallery?: { title: string; images: string[] }
+    // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
+    // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
+    price?: {
+      title: string
+      subtitle: string
+      type: { code: string; label: string }
+      amount: string
+      vatNote: string
+      specLines: { label?: string; text: string }[][]
+      optionsNote: string
+      options: { name: string; price?: string; sub?: string }[]
+    }
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -140,6 +152,39 @@ export const MODELS: Model[] = [
       gallery: {
         title: '갤러리',
         images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7, b30sGallery8],
+      },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'ER', label: 'Electric Roaster' },
+        amount: '6,380,000',
+        vatNote: '(부가세 VAT 포함)',
+        specLines: [
+          [{ label: '적정 투입량', text: '100g ~ 300g (최대 350g)' }],
+          [{ text: '스마트폰 블루투스 연동, 로스팅 종료 후 자동 배출' }],
+          [{ text: '로스팅 후 자동 배출 및 자동 쿨링' }],
+          [{ text: '10단 댐퍼 조정 가능 (기본 개방상태 권장)' }],
+          [{ text: '수동 전환을 통해 직접 화력 설정, 파이어스코프 및 아티산 연동' }],
+          [
+            { label: '정격전압', text: 'AC220V / 60Hz' },
+            { label: '소비전력', text: '2.0kw' },
+          ],
+          [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+          [
+            { label: '열원', text: '코일히터' },
+            { label: '드럼재질', text: '국산 SUS304' },
+          ],
+          [
+            { label: '사이즈', text: '770(가로) x 250(폭) x 670(높이) mm' },
+            { label: '무게', text: '약 45kg' },
+          ],
+        ],
+        optionsNote: '(부가세 VAT 미포함)',
+        options: [
+          { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
+          { name: '커스텀 컬러', price: '200,000' },
+          { name: '테블릿PC 고객님 별도 구매 품목' },
+        ],
       },
     },
   },
