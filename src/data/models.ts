@@ -9,6 +9,7 @@ import b30sGallery4 from '../assets/b30s-gallery/gallery-4.jpg'
 import b30sGallery5 from '../assets/b30s-gallery/gallery-5.jpg'
 import b30sGallery6 from '../assets/b30s-gallery/gallery-6.jpg'
 import b30sGallery7 from '../assets/b30s-gallery/gallery-7.jpg'
+import b30sGallery8 from '../assets/b30s-gallery/gallery-8.jpg'
 import b80Image from '../assets/model-b80.png'
 import b80cImage from '../assets/model-b80c.png'
 import b80sImage from '../assets/hero-roaster-b80s.png'
@@ -82,7 +83,7 @@ export type Model = {
     // section after 주요 기능 that reuses a table model's tagline, photo and one of its spec groups (matched by heading)
     // `specTitle` is the heading above the spec rows (same style as the model-name heading above the 제원 list)
     table?: { modelId: string; specHeading: string; title: string; specTitle: string }
-    // photo gallery under the table section: first photo large, the last two wide on PC, 2-column grid on mobile
+    // photo gallery under the table section: first photo large, the 6th photo wide, 2-column grid on mobile (8 photos fill the grid exactly)
     gallery?: { title: string; images: string[] }
   }
   // detail-page component gallery — photo + title/subtitle/description per part
@@ -136,7 +137,7 @@ export const MODELS: Model[] = [
       table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블', specTitle: '부자로스터 B30S 전용 TABLE' },
       gallery: {
         title: '갤러리',
-        images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7],
+        images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7, b30sGallery8],
       },
     },
   },

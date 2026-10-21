@@ -416,14 +416,14 @@ function ProductDetail() {
             <div className="mt-16 lg:mt-20">
               <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{model.specShowcase.gallery.title}</h2>
 
-              {/* 2 columns on mobile (first photo full width); on PC a 4-column mosaic: big first photo, four squares, two wide photos */}
+              {/* 2 columns on mobile / 4 on PC; first photo big (2x2 on PC), 6th photo wide, the rest squares */}
               <div className="mt-6 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
                 {model.specShowcase.gallery.images.map((src, i) => {
                   const itemClass =
                     i === 0
                       ? 'col-span-2 aspect-square lg:row-span-2 lg:aspect-auto'
-                      : i >= 5
-                        ? 'aspect-square lg:col-span-2 lg:aspect-[2/1]'
+                      : i === 5
+                        ? 'col-span-2 aspect-[2/1] lg:aspect-auto'
                         : 'aspect-square'
                   return (
                     <div key={src} className={`relative overflow-hidden bg-canvas-soft ${itemClass}`}>
