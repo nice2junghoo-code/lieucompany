@@ -278,7 +278,7 @@ export const MODELS: Model[] = [
           },
           {
             modelId: 'b80s',
-            name: 'B80S 스마트형',
+            name: 'B80S 스마트 자동화형',
             price: '8,800,000',
             vatNote: 'VAT포함',
             rows: [
