@@ -59,6 +59,8 @@ export type Model = {
   // `hideTopSpecs` removes the small spec table next to the product photo at the top
   // `noticeBeforeColors` moves the "공식 파트너" box out of the top grid to a full-width row just above the Colors section
   // `buttonsInMain` moves the 구매 상담 신청 / 납품·설치 사례 더보기 buttons out of that box to the bottom of the top-right column
+  // `heroLayout` replaces the top photo/title grid with the home-page hero look: centered title + `heroTagline`,
+  // big product photo on the light gradient, a 투입량 / 전압 / 크기 stat row (from `specs`) and the CTA buttons underneath
   specShowcase?: {
     width: string
     height: string
@@ -66,6 +68,8 @@ export type Model = {
     hideTopSpecs?: boolean
     noticeBeforeColors?: boolean
     buttonsInMain?: boolean
+    heroLayout?: boolean
+    heroTagline?: string
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -112,6 +116,8 @@ export const MODELS: Model[] = [
       hideTopSpecs: true,
       noticeBeforeColors: true,
       buttonsInMain: true,
+      heroLayout: true,
+      heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
     },
   },
   {

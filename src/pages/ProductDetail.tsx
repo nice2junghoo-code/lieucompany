@@ -73,20 +73,94 @@ function ProductDetail() {
 
   const isGas = model?.categories.includes('가스식로스터기')
   const isElectric = model?.categories.includes('전기식로스터기')
+  const heroLayout = !!model?.specShowcase?.heroLayout
+  const heroStats = ['투입량', '전압', '크기']
+    .map((label) => model?.specs?.find((s) => s.label === label))
+    .filter((s): s is { label: string; value: string } => !!s)
+
+  const backLink = (
+    <Link to="/products" className="text-[13px] font-[600] text-text-muted hover:text-ink">
+      ← 모델 목록으로
+    </Link>
+  )
 
   return (
     <div className="min-h-screen bg-canvas font-display text-ink">
       <Header />
 
-      <main className="py-16 lg:py-20">
+      <main className={heroLayout ? 'pt-6 pb-16 lg:pb-20' : 'py-16 lg:py-20'}>
+        {/* home-page hero look (specShowcase.heroLayout): centered title + tagline, product on the light gradient, stat row, CTA buttons */}
+        {model && heroLayout && (
+          <section>
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">{backLink}</div>
+
+            <div className="mx-auto w-full max-w-[1400px] px-6 pt-6 text-center sm:pt-8 lg:px-10 lg:pt-10">
+              <div className="mx-auto max-w-md">
+                <div className="flex items-center justify-center gap-2">
+                  <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0] lg:whitespace-nowrap">
+                    {model.name}
+                  </h1>
+                  {isElectric && (
+                    <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary">ER</span>
+                  )}
+                  {isGas && (
+                    <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary">GR</span>
+                  )}
+                </div>
+                <p className="mt-4 text-[16px] font-[456] leading-[1.38] text-ink sm:text-[18px]">
+                  {model.specShowcase?.heroTagline ?? model.tagline}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 w-full bg-canvas-soft sm:mt-8">
+              <div className="flex w-full items-start justify-center bg-gradient-to-b from-canvas via-canvas-soft to-canvas-soft">
+                <div className="relative mx-auto aspect-[1005/877] w-full max-w-[260px] px-6 pt-6 sm:max-w-md sm:pt-0 lg:max-w-xl lg:px-10">
+                  <img src={model.image} alt={model.name} draggable={false} className="h-full w-full object-contain" />
+                </div>
+              </div>
+
+              {heroStats.length > 0 && (
+                <div className="w-full px-6 pt-8 lg:px-10 lg:pt-10">
+                  <div className="mx-auto grid w-full max-w-[1400px] grid-cols-3 divide-x divide-hairline">
+                    {heroStats.map((stat) => (
+                      <div key={stat.label} className="px-2 text-center">
+                        <p className="text-[13px] font-[456] text-text-muted">{stat.label}</p>
+                        <p className="mt-2 text-[15px] font-[700] text-ink sm:text-[22px]">{stat.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {model.specShowcase?.buttonsInMain && (
+                <div className="flex w-full flex-col items-center gap-3 px-6 pt-8 pb-10 sm:flex-row sm:justify-center lg:pt-10 lg:pb-12">
+                  <button
+                    type="button"
+                    className="w-3/4 rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                  >
+                    구매 상담 신청
+                  </button>
+                  <a
+                    href="https://www.instagram.com/lieu.company/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-3/4 rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                  >
+                    납품·설치 사례 더보기
+                  </a>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-          <Link to="/products" className="text-[13px] font-[600] text-text-muted hover:text-ink">
-            ← 모델 목록으로
-          </Link>
+          {!heroLayout && backLink}
 
           {!model && <p className="py-20 text-center text-[14px] text-text-muted">모델을 찾을 수 없습니다.</p>}
 
-          {model && (
+          {model && !heroLayout && (
             <div className="mt-6 grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8">
               <div className="flex h-[360px] items-center justify-center bg-canvas lg:h-[460px]">
                 <img
