@@ -31,7 +31,7 @@ function ProductDetail() {
   // "공식 파트너" notice box: sits in the top grid by default, or full-width just above the Colors section (specShowcase.noticeBeforeColors)
   const renderNotice = (className: string, wide = false, showButtons = true) => (
     <div
-      className={`relative flex flex-col items-center justify-center overflow-hidden p-6 text-center ${wide ? 'sm:p-10' : ''} ${className}`}
+      className={`relative flex flex-col items-center justify-center overflow-hidden p-6 text-center ${wide ? 'min-h-[240px] sm:min-h-[300px] sm:p-10' : ''} ${className}`}
     >
       <img src={noticeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-black/60" />
