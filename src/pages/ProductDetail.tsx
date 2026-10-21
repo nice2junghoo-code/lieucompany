@@ -395,7 +395,10 @@ function ProductDetail() {
                 <img src={tableModel.image} alt={tableModel.name} className="h-[85%] w-[85%] object-contain" />
               </div>
 
-              <div className="mt-6 border-t border-hairline">
+              <div className="mt-10">
+                <div className="border-b border-ink pb-3">
+                  <h3 className="text-[20px] font-[652] text-ink">{model.specShowcase.table.specTitle}</h3>
+                </div>
                 {tableGroup.rows.map((row) => (
                   <div key={row.label} className="flex gap-4 border-b border-hairline py-3 text-[14px]">
                     <span className="w-16 shrink-0 text-text-muted">{row.label}</span>
