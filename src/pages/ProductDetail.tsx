@@ -192,12 +192,12 @@ function ProductDetail() {
                       className="text-left"
                     >
                       <div
-                        className={`relative h-8 rounded-none border transition-colors sm:h-10 ${active ? 'border-2 border-ink' : 'border-hairline hover:border-ink'}`}
+                        className={`relative h-8 rounded-none border transition-colors sm:h-10 ${active ? 'border-ink' : 'border-hairline hover:border-ink'}`}
                         style={{ backgroundColor: option.hex }}
                       >
                         {active && (
-                          <span className="absolute top-1/2 right-2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-on-primary sm:h-6 sm:w-6">
-                            <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+                          <span className="absolute top-1/2 right-2 flex h-4 w-4 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-on-primary sm:h-5 sm:w-5">
+                            <svg viewBox="0 0 20 20" fill="none" className="h-2.5 w-2.5 sm:h-3 sm:w-3" aria-hidden="true">
                               <path d="M5 10.5l3.2 3.2L15 6.8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </span>
