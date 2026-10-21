@@ -103,9 +103,9 @@ function ProductDetail() {
                 )}
               </div>
 
-              {(model.features || model.colors) && (
+              {((model.features && !model.specShowcase?.featuresBelow) || (model.colors && !model.colorOptions)) && (
                 <div className="lg:order-4 lg:col-start-2">
-                  {model.features && (
+                  {model.features && !model.specShowcase?.featuresBelow && (
                     <ul className="flex flex-col gap-2">
                       {model.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-2 text-[14px] leading-[1.5] font-[600] text-ink">
@@ -250,6 +250,23 @@ function ProductDetail() {
                     </div>
                   ))}
                 </dl>
+
+                {model.specShowcase.featuresBelow && model.features && (
+                  <div className="mt-14">
+                    <div className="border-b border-ink pb-3">
+                      <h3 className="text-[20px] font-[652] text-ink">주요 기능</h3>
+                    </div>
+
+                    <ul className="mt-5 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+                      {model.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-[15px] leading-[1.5] font-[600] text-ink">
+                          <span className="text-red-600">▪</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           )}
