@@ -29,7 +29,7 @@ function ProductDetail() {
   const activeColor = model?.colorOptions?.[colorIndex]
 
   // "공식 파트너" notice box: sits in the top grid by default, or full-width just above the Colors section (specShowcase.noticeBeforeColors)
-  const renderNotice = (className: string, wide = false) => (
+  const renderNotice = (className: string, wide = false, showButtons = true) => (
     <div
       className={`relative flex flex-col items-center justify-center overflow-hidden p-6 text-center ${wide ? 'sm:p-10' : ''} ${className}`}
     >
@@ -49,23 +49,25 @@ function ProductDetail() {
       </p>
 
       {/* wide variant: buttons sit side by side on PC (stacked on mobile); narrow variant keeps them stacked */}
-      <div className={wide ? 'relative mt-6 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center' : 'contents'}>
-        <button
-          type="button"
-          className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-6 sm:w-1/2'}`}
-        >
-          구매 상담 신청
-        </button>
+      {showButtons && (
+        <div className={wide ? 'relative mt-6 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center' : 'contents'}>
+          <button
+            type="button"
+            className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-6 sm:w-1/2'}`}
+          >
+            구매 상담 신청
+          </button>
 
-        <a
-          href="https://www.instagram.com/lieu.company/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-3 sm:w-1/2'}`}
-        >
-          납품·설치 사례 더보기
-        </a>
-      </div>
+          <a
+            href="https://www.instagram.com/lieu.company/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-3 sm:w-1/2'}`}
+          >
+            납품·설치 사례 더보기
+          </a>
+        </div>
+      )}
     </div>
   )
 
@@ -142,6 +144,26 @@ function ProductDetail() {
                 ) : (
                   <p className="mt-8 text-[13px] text-text-muted lg:mt-auto">상세 스펙 준비 중입니다.</p>
                 )}
+
+                {/* CTA buttons moved out of the 공식 파트너 box: bottom of the right column, stacked (specShowcase.buttonsInMain) */}
+                {model.specShowcase?.buttonsInMain && (
+                  <div className="mt-8 flex flex-col gap-3 sm:w-[260px] lg:mt-auto">
+                    <button
+                      type="button"
+                      className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                    >
+                      구매 상담 신청
+                    </button>
+                    <a
+                      href="https://www.instagram.com/lieu.company/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                    >
+                      납품·설치 사례 더보기
+                    </a>
+                  </div>
+                )}
               </div>
 
               {((model.features && !model.specShowcase?.featuresBelow) || (model.colors && !model.colorOptions)) && (
@@ -174,7 +196,7 @@ function ProductDetail() {
             </div>
           )}
 
-          {model?.specShowcase?.noticeBeforeColors && <div className="mt-16 lg:mt-20">{renderNotice('', true)}</div>}
+          {model?.specShowcase?.noticeBeforeColors && <div className="mt-16 lg:mt-20">{renderNotice('', true, !model.specShowcase.buttonsInMain)}</div>}
 
           {model?.colorOptions && activeColor && (
             <div className="mt-16 lg:mt-20">
