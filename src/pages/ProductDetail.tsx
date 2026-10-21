@@ -21,6 +21,9 @@ const SPEC_ORDER_CLASS = [
   'sm:order-12',
 ]
 
+// 구매 상담 신청 buttons dial the Namyangju showroom
+const CONSULT_TEL = 'tel:010-7466-2744'
+
 function ProductDetail() {
   const { id } = useParams()
   const model = MODELS.find((m) => m.id === id)
@@ -51,12 +54,12 @@ function ProductDetail() {
       {/* wide variant: buttons sit side by side on PC (stacked on mobile); narrow variant keeps them stacked */}
       {showButtons && (
         <div className={wide ? 'relative mt-6 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center' : 'contents'}>
-          <button
-            type="button"
-            className={`relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-6 sm:w-1/2'}`}
+          <a
+            href={CONSULT_TEL}
+            className={`block relative w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[240px]' : 'mt-6 sm:w-1/2'}`}
           >
             구매 상담 신청
-          </button>
+          </a>
 
           <a
             href="https://www.instagram.com/lieu.company/"
@@ -141,12 +144,12 @@ function ProductDetail() {
 
                   {model.specShowcase?.buttonsInMain && (
                     <div className="flex flex-col gap-3 sm:flex-row">
-                      <button
-                        type="button"
-                        className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                      <a
+                        href={CONSULT_TEL}
+                        className="block rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
                       >
                         구매 상담 신청
-                      </button>
+                      </a>
                       <a
                         href="https://www.instagram.com/lieu.company/"
                         target="_blank"
@@ -230,12 +233,12 @@ function ProductDetail() {
                 {/* CTA buttons moved out of the 공식 파트너 box: bottom of the right column, stacked (specShowcase.buttonsInMain) */}
                 {model.specShowcase?.buttonsInMain && (
                   <div className="mt-8 flex flex-col gap-3 sm:w-[260px] lg:mt-auto">
-                    <button
-                      type="button"
-                      className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary"
+                    <a
+                      href={CONSULT_TEL}
+                      className="block rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary"
                     >
                       구매 상담 신청
-                    </button>
+                    </a>
                     <a
                       href="https://www.instagram.com/lieu.company/"
                       target="_blank"
