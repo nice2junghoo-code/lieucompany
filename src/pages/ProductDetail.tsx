@@ -102,14 +102,14 @@ function ProductDetail() {
                   <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                     {model.name}
                   </h1>
-                  {/* PC: badge text matches the title size */}
+                  {/* PC: badge scaled up to sit beside the large title */}
                   {isElectric && (
-                    <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-3 lg:py-1 lg:text-[64px] lg:leading-[1.0] lg:font-[652]">
+                    <span className="shrink-0 rounded-none bg-blue-900 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-2.5 lg:py-1 lg:text-[32px] lg:leading-[1.0] lg:font-[700]">
                       ER
                     </span>
                   )}
                   {isGas && (
-                    <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-3 lg:py-1 lg:text-[64px] lg:leading-[1.0] lg:font-[652]">
+                    <span className="shrink-0 rounded-none bg-red-600 px-1.5 py-1 text-[11px] font-[700] text-on-primary lg:px-2.5 lg:py-1 lg:text-[32px] lg:leading-[1.0] lg:font-[700]">
                       GR
                     </span>
                   )}
