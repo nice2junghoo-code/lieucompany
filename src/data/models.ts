@@ -2,6 +2,7 @@ import b30sImage from '../assets/hero-roaster.png'
 import b30sColorBlack from '../assets/b30s-color-black.jpg'
 import b30sColorIvory from '../assets/b30s-color-ivory.jpg'
 import b30sColorRed from '../assets/b30s-color-red.jpg'
+import b30sTableCombo from '../assets/b30s-table-combo.jpg'
 import b30sGallery1 from '../assets/b30s-gallery/gallery-1.jpg'
 import b30sGallery2 from '../assets/b30s-gallery/gallery-2.jpg'
 import b30sGallery3 from '../assets/b30s-gallery/gallery-3.jpg'
@@ -82,7 +83,8 @@ export type Model = {
     heroPrice?: { amount: string; suffix?: string; caption?: string }
     // section after 주요 기능 that reuses a table model's tagline, photo and one of its spec groups (matched by heading)
     // `specTitle` is the heading above the spec rows (same style as the model-name heading above the 제원 list)
-    table?: { modelId: string; specHeading: string; title: string; specTitle: string }
+    // `image` replaces the table model's own photo (e.g. a composite with the roaster sitting on the table)
+    table?: { modelId: string; specHeading: string; title: string; specTitle: string; image?: string }
     // photo gallery under the table section: first photo large, the 6th photo wide, 2-column grid on mobile (8 photos fill the grid exactly)
     gallery?: { title: string; images: string[] }
   }
@@ -134,7 +136,7 @@ export const MODELS: Model[] = [
       heroLayout: true,
       heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
       heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(테블릿 미포함)' },
-      table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블', specTitle: '부자로스터 B30S 전용 TABLE' },
+      table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블', specTitle: '부자로스터 B30S 전용 TABLE', image: b30sTableCombo },
       gallery: {
         title: '갤러리',
         images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7, b30sGallery8],

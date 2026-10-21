@@ -391,8 +391,15 @@ function ProductDetail() {
               <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{model.specShowcase.table.title}</h2>
               <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{tableModel.tagline}</p>
 
-              <div className="mt-6 flex h-[360px] items-center justify-center bg-canvas lg:h-[460px]">
-                <img src={tableModel.image} alt={tableModel.name} className="h-[85%] w-[85%] object-contain" />
+              {/* a custom (taller) table image gets a taller box so the roaster-on-table composite isn't shrunk */}
+              <div
+                className={`mt-6 flex items-center justify-center bg-canvas ${model.specShowcase.table.image ? 'h-[480px] lg:h-[680px]' : 'h-[360px] lg:h-[460px]'}`}
+              >
+                <img
+                  src={model.specShowcase.table.image ?? tableModel.image}
+                  alt={tableModel.name}
+                  className="h-[92%] w-[92%] object-contain"
+                />
               </div>
 
               <div className="mt-10">
