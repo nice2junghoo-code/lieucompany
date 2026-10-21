@@ -455,7 +455,7 @@ function ProductDetail() {
 
               <div className="mt-6">
                 {/* PC: dark header bar with the four column titles, like the printed price list */}
-                <div className="hidden grid-cols-[130px_190px_1fr_1fr] bg-ink text-center text-[14px] font-[600] text-on-primary lg:grid">
+                <div className="hidden grid-cols-[160px_190px_1fr_1fr] bg-ink text-center text-[14px] font-[600] text-on-primary lg:grid">
                   <p className="py-3">구분</p>
                   <p className="py-3">판매가격</p>
                   <p className="py-3">사양 및 제원</p>
@@ -464,10 +464,10 @@ function ProductDetail() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[130px_190px_1fr_1fr]">
+                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[160px_190px_1fr_1fr]">
                   <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
                     <p className="text-[20px] font-[652] text-ink">{price.type.code}</p>
-                    <p className="text-[12px] text-text-muted">({price.type.label})</p>
+                    <p className="whitespace-nowrap text-[12px] text-text-muted">({price.type.label})</p>
                   </div>
 
                   <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
