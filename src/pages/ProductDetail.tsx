@@ -354,7 +354,7 @@ function ProductDetail() {
 
               <div className="mt-14">
                 <div className="border-b border-ink pb-3">
-                  <h3 className="text-[20px] font-[652] text-ink">제원표</h3>
+                  <h3 className="text-[20px] font-[652] text-ink">{model.name}</h3>
                 </div>
 
                 <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
