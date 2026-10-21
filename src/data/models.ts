@@ -53,6 +53,9 @@ export type Model = {
   // full-width "Colors" section at the bottom of the detail page: big photo that
   // swaps per selected swatch tile. When set, the small `colors` circles are hidden.
   colorOptions?: { name: string; hex: string; image?: string }[]
+  // "제원" showcase below the Colors section: product photo with dimension lines
+  // (width/height shown on the photo) above the spec grid built from `specs`
+  specShowcase?: { width: string; height: string }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
 }
@@ -91,6 +94,7 @@ export const MODELS: Model[] = [
       { name: '아이보리', hex: '#f3efe3', image: b30sColorIvory },
       { name: '빨강', hex: '#dc2626', image: b30sColorRed },
     ],
+    specShowcase: { width: '770mm', height: '670mm' },
   },
   {
     id: 'b80',

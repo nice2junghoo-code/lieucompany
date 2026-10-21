@@ -207,6 +207,51 @@ function ProductDetail() {
             </div>
           )}
 
+          {model?.specShowcase && model.specs && (
+            <div className="mt-16 lg:mt-20">
+              <div className="bg-canvas-soft px-6 pt-14 pb-24 text-center lg:pt-20">
+                <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">제원</h2>
+
+                {/* product photo with dimension brackets: height on the left, width underneath */}
+                <div className="mt-10 flex justify-center">
+                  <div className="relative ml-10">
+                    <img src={model.image} alt={model.name} className="h-[200px] w-auto sm:h-[280px] lg:h-[340px]" />
+
+                    <div className="absolute top-0 bottom-0 -left-5 w-3 border-y border-l border-ink/50" />
+                    <span
+                      className="absolute top-1/2 -left-12 -translate-y-1/2 text-[13px] font-[600] text-ink"
+                      style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
+                    >
+                      {model.specShowcase.height}
+                    </span>
+
+                    <div className="absolute inset-x-0 -bottom-6 h-3 border-x border-b border-ink/50" />
+                    <span className="absolute inset-x-0 -bottom-12 text-center text-[13px] font-[600] text-ink">
+                      {model.specShowcase.width}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-14">
+                <div className="border-b border-ink pb-3">
+                  <h3 className="text-[20px] font-[652] text-ink">제원표</h3>
+                </div>
+
+                <div className="mt-4 bg-canvas-soft px-5 py-3 text-[14px] font-[600] text-ink">{model.name.replace('\n', ' ')}</div>
+
+                <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
+                  {model.specs.map((spec) => (
+                    <div key={spec.label} className="border-b border-hairline py-4">
+                      <dt className="text-[13px] text-text-muted">{spec.label}</dt>
+                      <dd className="mt-1 text-[16px] font-[700] text-ink">{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          )}
+
           {model?.detailGallery && (
             <div className="mt-16 lg:mt-20">
               <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
