@@ -267,14 +267,14 @@ export const MODELS: Model[] = [
             name: 'B80 기본형',
             price: '6,270,000',
             vatNote: 'VAT포함',
-            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { text: '모듈형 쿨러' }],
+            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { label: '옵션', text: '모듈형 쿨러' }],
           },
           {
             modelId: 'b80c',
             name: 'B80C 쿨러 장착형',
             price: '7,150,000',
             vatNote: 'VAT포함',
-            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { text: '교반 쿨러 장착' }],
+            rows: [{ label: '투입량', text: '300g ~ 800g (최대 1kg)' }, { label: '옵션', text: '교반 쿨러 장착' }],
           },
           {
             modelId: 'b80s',
@@ -283,7 +283,7 @@ export const MODELS: Model[] = [
             vatNote: 'VAT포함',
             rows: [
               { label: '투입량', text: '300g ~ 800g (최대 1kg)' },
-              { text: '교반 쿨러 장착' },
+              { label: '옵션', text: '교반 쿨러 장착' },
               { text: '스마트 자동화 (블루투스 연동)' },
             ],
           },
