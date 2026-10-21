@@ -113,40 +113,43 @@ function ProductDetail() {
                   {model.specShowcase?.heroTagline ?? model.tagline}
                 </p>
 
-                {model.specShowcase?.heroPrice && (
-                  <div className="mt-8 lg:mt-10">
-                    <p className="flex items-baseline gap-2">
-                      <span className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[40px]">
-                        {model.specShowcase.heroPrice.amount}
-                      </span>
-                      {model.specShowcase.heroPrice.suffix && (
-                        <span className="text-[14px] font-[600] text-ink sm:text-[16px]">{model.specShowcase.heroPrice.suffix}</span>
+                {/* price on the left, CTA buttons beside it on PC (stacked below on mobile) */}
+                <div className="mt-8 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:items-center lg:gap-14">
+                  {model.specShowcase?.heroPrice && (
+                    <div>
+                      <p className="flex items-baseline gap-2">
+                        <span className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[40px]">
+                          {model.specShowcase.heroPrice.amount}
+                        </span>
+                        {model.specShowcase.heroPrice.suffix && (
+                          <span className="text-[14px] font-[600] text-ink sm:text-[16px]">{model.specShowcase.heroPrice.suffix}</span>
+                        )}
+                      </p>
+                      {model.specShowcase.heroPrice.caption && (
+                        <p className="mt-1 text-[14px] font-[456] text-text-muted">{model.specShowcase.heroPrice.caption}</p>
                       )}
-                    </p>
-                    {model.specShowcase.heroPrice.caption && (
-                      <p className="mt-1 text-[14px] font-[456] text-text-muted">{model.specShowcase.heroPrice.caption}</p>
-                    )}
-                  </div>
-                )}
+                    </div>
+                  )}
 
-                {model.specShowcase?.buttonsInMain && (
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-10">
-                    <button
-                      type="button"
-                      className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
-                    >
-                      구매 상담 신청
-                    </button>
-                    <a
-                      href="https://www.instagram.com/lieu.company/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
-                    >
-                      납품·설치 사례 더보기
-                    </a>
-                  </div>
-                )}
+                  {model.specShowcase?.buttonsInMain && (
+                    <div className="flex flex-col gap-3 sm:flex-row">
+                      <button
+                        type="button"
+                        className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                      >
+                        구매 상담 신청
+                      </button>
+                      <a
+                        href="https://www.instagram.com/lieu.company/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-none border border-ink bg-canvas px-2 py-2.5 text-center text-[15px] font-[700] text-ink transition-colors hover:bg-ink hover:text-on-primary sm:w-[240px]"
+                      >
+                        납품·설치 사례 더보기
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </section>
