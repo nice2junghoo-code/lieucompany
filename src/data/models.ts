@@ -57,7 +57,8 @@ export type Model = {
   // (width/height shown on the photo) above the spec grid built from `specs`
   // `featuresBelow` moves the red-bullet feature list from the top-right column to the bottom of this section
   // `hideTopSpecs` removes the small spec table next to the product photo at the top
-  specShowcase?: { width: string; height: string; featuresBelow?: boolean; hideTopSpecs?: boolean }
+  // `noticeAtBottom` moves the "공식 파트너" box to the very bottom of the page, full content width
+  specShowcase?: { width: string; height: string; featuresBelow?: boolean; hideTopSpecs?: boolean; noticeAtBottom?: boolean }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
 }
@@ -96,7 +97,7 @@ export const MODELS: Model[] = [
       { name: '아이보리', hex: '#f3efe3', image: b30sColorIvory },
       { name: '빨강', hex: '#dc2626', image: b30sColorRed },
     ],
-    specShowcase: { width: '770mm', height: '670mm', featuresBelow: true, hideTopSpecs: true },
+    specShowcase: { width: '770mm', height: '670mm', featuresBelow: true, hideTopSpecs: true, noticeAtBottom: true },
   },
   {
     id: 'b80',

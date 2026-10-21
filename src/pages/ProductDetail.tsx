@@ -28,6 +28,44 @@ function ProductDetail() {
   useEffect(() => setColorIndex(0), [id])
   const activeColor = model?.colorOptions?.[colorIndex]
 
+  // "공식 파트너" notice box: sits in the top grid by default, or full-width at the very bottom (specShowcase.noticeAtBottom)
+  const renderNotice = (className: string, wide = false) => (
+    <div
+      className={`relative flex flex-col items-center justify-center overflow-hidden p-6 text-center ${wide ? 'sm:p-10' : ''} ${className}`}
+    >
+      <img src={noticeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-black/60" />
+
+      <p className="relative text-[20px] font-[700] text-white">부자로스터 공식 파트너 리우컴퍼니</p>
+
+      <p className="relative mt-3 text-[14px] leading-[1.7] font-[600] text-white">
+        본 제품은 주문 제작 방식으로 진행됩니다.
+        <br />
+        계약금 납입일로부터 약 4~5주의 제작 기간이 소요됩니다.
+        <br />
+        지역 및 설치 환경에 따라 운반비 · 설치비가 별도로 발생할 수 있습니다.
+        <br />
+        용량, 가격, 설치 조건 등 자세한 사항은 구매 상담 신청 시 안내해 드립니다.
+      </p>
+
+      <button
+        type="button"
+        className={`relative mt-6 w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[280px]' : 'sm:w-1/2'}`}
+      >
+        구매 상담 신청
+      </button>
+
+      <a
+        href="https://www.instagram.com/lieu.company/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`relative mt-3 w-3/4 rounded-none border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink ${wide ? 'sm:w-[280px]' : 'sm:w-1/2'}`}
+      >
+        납품·설치 사례 더보기
+      </a>
+    </div>
+  )
+
   const isGas = model?.categories.includes('가스식로스터기')
   const isElectric = model?.categories.includes('전기식로스터기')
 
@@ -129,38 +167,7 @@ function ProductDetail() {
                 </div>
               )}
 
-              <div className="relative flex flex-col items-center justify-center overflow-hidden p-6 text-center lg:order-3 lg:col-start-1">
-                <img src={noticeBg} alt="" className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-black/60" />
-
-                <p className="relative text-[20px] font-[700] text-white">부자로스터 공식 파트너 리우컴퍼니</p>
-
-                <p className="relative mt-3 text-[14px] leading-[1.7] font-[600] text-white">
-                  본 제품은 주문 제작 방식으로 진행됩니다.
-                  <br />
-                  계약금 납입일로부터 약 4~5주의 제작 기간이 소요됩니다.
-                  <br />
-                  지역 및 설치 환경에 따라 운반비 · 설치비가 별도로 발생할 수 있습니다.
-                  <br />
-                  용량, 가격, 설치 조건 등 자세한 사항은 구매 상담 신청 시 안내해 드립니다.
-                </p>
-
-                <button
-                  type="button"
-                  className="relative mt-6 w-3/4 rounded-none sm:w-1/2 border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink"
-                >
-                  구매 상담 신청
-                </button>
-
-                <a
-                  href="https://www.instagram.com/lieu.company/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative mt-3 w-3/4 rounded-none sm:w-1/2 border border-white bg-transparent px-2 py-2.5 text-center text-[15px] font-[700] text-white transition-colors hover:bg-white hover:text-ink"
-                >
-                  납품·설치 사례 더보기
-                </a>
-              </div>
+              {!model.specShowcase?.noticeAtBottom && renderNotice('lg:order-3 lg:col-start-1')}
             </div>
           )}
 
@@ -293,6 +300,8 @@ function ProductDetail() {
               </div>
             </div>
           )}
+
+          {model?.specShowcase?.noticeAtBottom && <div className="mt-16 lg:mt-20">{renderNotice('', true)}</div>}
         </div>
       </main>
 
