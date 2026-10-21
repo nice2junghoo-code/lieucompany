@@ -70,6 +70,8 @@ export type Model = {
     buttonsInMain?: boolean
     heroLayout?: boolean
     heroTagline?: string
+    // price block under the tagline: big amount + small suffix on one line, optional caption below
+    heroPrice?: { amount: string; suffix?: string; caption?: string }
   }
   // detail-page component gallery — photo + title/subtitle/description per part
   detailGallery?: { title: string; subtitle?: string; description: string; image?: string }[]
@@ -118,6 +120,7 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
+      heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(테블릿 미포함)' },
     },
   },
   {
