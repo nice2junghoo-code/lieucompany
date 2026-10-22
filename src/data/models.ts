@@ -53,6 +53,7 @@ import b80cImage from '../assets/model-b80c.png'
 import b80sImage from '../assets/hero-roaster-b80s.png'
 import b150Image from '../assets/model-b150.png'
 import b150TableCombo from '../assets/b150-table-combo.jpg'
+import b150cTableCombo from '../assets/b150c-table-combo.jpg'
 import b150ColorBlack from '../assets/b150-color-black.jpg'
 import b150ColorIvory from '../assets/b150-color-ivory.jpg'
 import b150ColorRed from '../assets/b150-color-red.jpg'
@@ -746,6 +747,67 @@ export const MODELS: Model[] = [
       '모듈형 서랍식 특허등록 (제10-1971999호)',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B150 / B80C; Colors photos and the gallery are added once the photos arrive
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
+      width: '1050mm',
+      height: '880mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '8,690,000원', suffix: 'VAT포함', caption: '(쿨러 장착형 기준)' },
+      lineup: B150_LINEUP,
+      table: {
+        modelId: 'buja-table',
+        specHeading: '부자로스터 테이블',
+        title: '부자로스터 B150C 전용 테이블',
+        specTitle: '부자로스터 B150C 전용 TABLE',
+        image: b150cTableCombo,
+      },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'ER', label: 'Electric Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            name: 'B150C',
+            amount: '8,690,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 1.2kg (최대 1.5kg), 시간당 최대 4.8kg 생산' }],
+              [{ text: '교반쿨러 장착', bold: true }],
+              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
+              [{ text: '파이어스코프 및 아티산 연동 가능' }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '3.4kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '세라믹 코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1050(가로) x 340(폭) x 880(높이) mm' },
+                { label: '무게', text: '약 95kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+        ],
+      },
+    },
   },
   {
     id: 'b150s',
