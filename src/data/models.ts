@@ -1211,12 +1211,7 @@ export const MODELS: Model[] = [
       },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as the roaster pages (hero, notice, Colors, 제원 with one table per variant); Colors photos, gallery and the 추가 선택품목 block are added later
-    colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
-    ],
+    // same page layout as the roaster pages (hero, notice, 제원 with one table per variant); no Colors section on this page
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
       noticeBeforeColors: true,
