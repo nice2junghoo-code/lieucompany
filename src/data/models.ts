@@ -53,6 +53,9 @@ import b80cImage from '../assets/model-b80c.png'
 import b80sImage from '../assets/hero-roaster-b80s.png'
 import b150Image from '../assets/model-b150.png'
 import b150TableCombo from '../assets/b150-table-combo.jpg'
+import b150Gallery1 from '../assets/b150-gallery/gallery-1.jpg'
+import b150Gallery2 from '../assets/b150-gallery/gallery-2.jpg'
+import b150Gallery3 from '../assets/b150-gallery/gallery-3.jpg'
 import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
@@ -136,7 +139,7 @@ export type Model = {
       }[]
     }
     // photo gallery under the table section: first photo large, 2-column grid on mobile; with exactly 8 photos the 6th is wide (fills the grid),
-    // with 9 photos all the others are squares (fills 3 rows on PC)
+    // with 9 photos all the others are squares (fills 3 rows on PC); with 3 photos: 3 equal squares in one row on PC
     gallery?: { title: string; images: string[] }
     // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
     // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
@@ -646,7 +649,7 @@ export const MODELS: Model[] = [
       '모듈형 서랍식 특허등록 (제10-1971999호)',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80; Colors photos and the gallery are added once the photos arrive
+    // same page layout as B80; Colors photos are added once the photos arrive
     colorOptions: [
       { name: '블랙', hex: '#111111' },
       { name: '아이보리', hex: '#f3efe3' },
@@ -669,6 +672,10 @@ export const MODELS: Model[] = [
         title: '부자로스터 B150 전용 테이블',
         specTitle: '부자로스터 B150 전용 TABLE',
         image: b150TableCombo,
+      },
+      gallery: {
+        title: '갤러리',
+        images: [b150Gallery1, b150Gallery2, b150Gallery3],
       },
       price: {
         title: '가격',
