@@ -184,8 +184,9 @@ export type Model = {
   // `heroLayout` replaces the top photo/title grid with the home-page hero look: centered title + `heroTagline`,
   // big product photo on the light gradient, a 투입량 / 전압 / 크기 stat row (from `specs`) and the CTA buttons underneath
   specShowcase?: {
-    width: string
-    height: string
+    // dimension brackets on the 제원 photo are drawn only when both are given
+    width?: string
+    height?: string
     featuresBelow?: boolean
     hideTopSpecs?: boolean
     noticeBeforeColors?: boolean
@@ -1208,6 +1209,19 @@ export const MODELS: Model[] = [
       },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as the roaster pages (hero, notice, Colors, 제원 with one table per variant); Colors photos, gallery and the 추가 선택품목 block are added later
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '400,000원', suffix: 'VAT 미포함' },
+    },
   },
   {
     id: 'demtruck',

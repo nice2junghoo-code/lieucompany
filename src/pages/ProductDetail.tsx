@@ -416,7 +416,7 @@ function ProductDetail() {
             </div>
           )}
 
-          {model?.specShowcase && model.specs && (
+          {model?.specShowcase && (model.specs || model.specGroups) && (
             <div className="mt-16 lg:mt-20">
               <div className="bg-canvas-soft px-6 pt-14 pb-24 text-center lg:pt-20">
                 <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">제원</h2>
@@ -426,35 +426,44 @@ function ProductDetail() {
                   <div className="relative ml-10">
                     <img src={model.image} alt={model.name} className="h-[200px] w-auto sm:h-[280px] lg:h-[340px]" />
 
-                    <div className="absolute top-0 bottom-0 -left-5 w-3 border-y border-l border-ink/50" />
-                    <span
-                      className="absolute top-1/2 -left-12 -translate-y-1/2 text-[13px] font-[600] text-ink"
-                      style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
-                    >
-                      {model.specShowcase.height}
-                    </span>
+                    {model.specShowcase.width && model.specShowcase.height && (
+                      <>
+                        <div className="absolute top-0 bottom-0 -left-5 w-3 border-y border-l border-ink/50" />
+                        <span
+                          className="absolute top-1/2 -left-12 -translate-y-1/2 text-[13px] font-[600] text-ink"
+                          style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
+                        >
+                          {model.specShowcase.height}
+                        </span>
 
-                    <div className="absolute inset-x-0 -bottom-6 h-3 border-x border-b border-ink/50" />
-                    <span className="absolute inset-x-0 -bottom-12 text-center text-[13px] font-[600] text-ink">
-                      {model.specShowcase.width}
-                    </span>
+                        <div className="absolute inset-x-0 -bottom-6 h-3 border-x border-b border-ink/50" />
+                        <span className="absolute inset-x-0 -bottom-12 text-center text-[13px] font-[600] text-ink">
+                          {model.specShowcase.width}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
 
               <div className="mt-14">
-                <div className="border-b border-ink pb-3">
-                  <h3 className="text-[20px] font-[652] text-ink">{model.name}</h3>
-                </div>
-
-                <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
-                  {model.specs.map((spec) => (
-                    <div key={spec.label} className="border-b border-hairline py-4">
-                      <dt className="text-[13px] text-text-muted">{spec.label}</dt>
-                      <dd className="mt-1 text-[16px] font-[700] text-ink">{spec.value}</dd>
+                {/* one 제원표 for the model, or one per variant (e.g. 부자테이블: B80·B150 / B180 / B30) */}
+                {(model.specs ? [{ heading: model.name, rows: model.specs }] : (model.specGroups ?? [])).map((group, gi) => (
+                  <div key={group.heading} className={gi > 0 ? 'mt-10' : undefined}>
+                    <div className="border-b border-ink pb-3">
+                      <h3 className="text-[20px] font-[652] text-ink">{group.heading}</h3>
                     </div>
-                  ))}
-                </dl>
+
+                    <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
+                      {group.rows.map((spec) => (
+                        <div key={spec.label} className="border-b border-hairline py-4">
+                          <dt className="text-[13px] text-text-muted">{spec.label}</dt>
+                          <dd className="mt-1 text-[16px] font-[700] text-ink">{spec.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ))}
 
                 {model.specShowcase.featuresBelow && model.features && (
                   <div className="mt-14">
