@@ -367,7 +367,7 @@ export const MODELS: Model[] = [
       { label: '제조국', value: 'Made in Korea' },
       { label: '크기', value: '1000 x 320 x 810mm' },
       { label: '로스팅 방식', value: '반열풍식 (전도열의 비율이 높음)' },
-      { label: '무게', value: '약 75kg' },
+      { label: '무게', value: '약 80kg' },
       { label: '드럼 두께', value: '3T' },
     ],
     features: [
