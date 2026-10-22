@@ -372,7 +372,7 @@ function ProductDetail() {
                   return (
                     <div
                       key={item.modelId}
-                      className={`flex flex-col rounded-2xl border bg-canvas p-5 ${isCurrent ? 'border-ink' : 'border-hairline'}`}
+                      className={`flex flex-col rounded-2xl border p-5 ${isCurrent ? 'border-ink bg-canvas-soft' : 'border-hairline bg-canvas'}`}
                     >
                       <div className="flex items-start justify-between gap-3">
                         <p className="text-[20px] font-[652] leading-[1.3] text-ink">{item.name}</p>
