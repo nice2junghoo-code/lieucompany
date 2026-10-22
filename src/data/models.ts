@@ -1230,7 +1230,7 @@ export const MODELS: Model[] = [
       { label: '컨트롤박스 크기', value: '400 x 300 x 880mm' },
       { label: '드럼 두께', value: '8T' },
       { label: '무게', value: '약 400kg' },
-      { label: '로스팅 방식', value: '반열풍식 + 메탈파이어 버너' },
+      { label: '로스팅 방식', value: '반열풍식 + 메탈화이버 버너' },
     ],
     features: [
       '시간당 16kg 생산 가능',
@@ -1244,6 +1244,55 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B500S; Colors photos and the gallery are added once the photos arrive
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[260px] sm:max-w-sm lg:max-w-md',
+      width: '1900mm',
+      height: '1830mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '25,850,000원', suffix: 'VAT포함' },
+      lineup: B500_LINEUP,
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'GR', label: 'Gas Type Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            amount: '25,850,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '1.5kg ~ 5kg, 시간당 생산량 최대 16kg' }],
+              [{ text: '싸이클론 모터 송풍량 전자식 제어, 드럼속도 제어' }],
+              [{ text: '프로파일 저장 50개, 자동 로스팅 중 설정 변환 가능' }],
+              [{ text: '예열 유지 기능, 자동 투입 및 배출, 자동종료 기능' }],
+              [
+                { label: '정격전압', text: '220v / 단상 / 60hz' },
+                { label: '소비전력', text: '1.5kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (메탈 파이버 버너 열풍 비율이 높음)' }],
+              [
+                { label: '열원', text: '메탈화이버 버너' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [{ label: '로스터기 사이즈', text: '1900(가로) x 750(폭) x 1830(높이) mm' }],
+              [{ label: '외장 컨트롤 박스 사이즈', text: '400(가로) x 300(폭) x 880(높이) mm' }],
+              [{ label: '무게', text: '약 400kg' }],
+            ],
+            options: [{ name: '커스텀 컬러', price: '400,000' }],
+          },
+        ],
+      },
+    },
     detailGallery: [
       {
         title: '드럼 내부 구조',
