@@ -54,6 +54,9 @@ import b80sImage from '../assets/hero-roaster-b80s.png'
 import b150Image from '../assets/model-b150.png'
 import b150TableCombo from '../assets/b150-table-combo.jpg'
 import b150cTableCombo from '../assets/b150c-table-combo.jpg'
+import b150cColorBlack from '../assets/b150c-color-black.jpg'
+import b150cColorIvory from '../assets/b150c-color-ivory.jpg'
+import b150cColorRed from '../assets/b150c-color-red.jpg'
 import b150ColorBlack from '../assets/b150-color-black.jpg'
 import b150ColorIvory from '../assets/b150-color-ivory.jpg'
 import b150ColorRed from '../assets/b150-color-red.jpg'
@@ -747,11 +750,11 @@ export const MODELS: Model[] = [
       '모듈형 서랍식 특허등록 (제10-1971999호)',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B150 / B80C; Colors photos and the gallery are added once the photos arrive
+    // same page layout as B150 / B80C; the gallery is added once the photos arrive
     colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
+      { name: '블랙', hex: '#111111', image: b150cColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b150cColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b150cColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
