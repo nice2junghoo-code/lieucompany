@@ -570,7 +570,11 @@ function ProductDetail() {
                         <p className="text-[16px] font-[700] text-ink">{option.name}</p>
                         {option.sub && <p className="mt-1 text-[13px] text-text-muted">{option.sub}</p>}
                       </div>
-                      {option.price && <p className="shrink-0 text-[18px] font-[652] text-ink">{option.price}원</p>}
+                      {option.price && (
+                        <p className="shrink-0 text-right text-[18px] font-[652] text-ink">
+                          {option.price}원<span className="ml-1.5 text-[12px] font-[600] text-red-600">VAT 포함</span>
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
