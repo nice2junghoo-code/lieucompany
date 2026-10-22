@@ -111,6 +111,9 @@ import b500sGallery6 from '../assets/b500s-gallery/gallery-6.jpg'
 import b500sGallery7 from '../assets/b500s-gallery/gallery-7.jpg'
 import b500sGallery8 from '../assets/b500s-gallery/gallery-8.jpg'
 import b500sgImage from '../assets/model-b500sg.png'
+import b500sgColorBlack from '../assets/b500sg-color-black.jpg'
+import b500sgColorIvory from '../assets/b500sg-color-ivory.jpg'
+import b500sgColorRed from '../assets/b500sg-color-red.jpg'
 import b15kSgImage from '../assets/model-b15k-sg.png'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
@@ -1244,11 +1247,11 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B500S; Colors photos and the gallery are added once the photos arrive
+    // same page layout as B500S; the gallery is added once the photos arrive
     colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
+      { name: '블랙', hex: '#111111', image: b500sgColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b500sgColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b500sgColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[260px] sm:max-w-sm lg:max-w-md',
