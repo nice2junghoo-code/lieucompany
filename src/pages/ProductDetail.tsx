@@ -572,7 +572,7 @@ function ProductDetail() {
                       </div>
                       {option.price && (
                         <p className="shrink-0 text-right text-[18px] font-[652] text-ink">
-                          {option.price}원<span className="ml-1.5 text-[12px] font-[600] text-red-600">VAT 포함</span>
+                          {option.price}원<span className="ml-1.5 text-[12px] font-[600] text-red-600">VAT {option.vat ?? '미포함'}</span>
                         </p>
                       )}
                     </div>

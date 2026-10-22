@@ -217,7 +217,8 @@ export type Model = {
     price?: {
       title: string
       subtitle: string
-      options: { name: string; price?: string; sub?: string }[]
+      // `vat` is the label next to the amount (defaults to 미포함, like the price sheet)
+      options: { name: string; price?: string; sub?: string; vat?: '포함' | '미포함' }[]
       // shown in red below the options, e.g. 소비자 준비 사항 (연통, 가스공사)
       notice?: { title: string; lines: string[] }
     }
@@ -372,8 +373,8 @@ export const MODELS: Model[] = [
         title: '추가 선택품목',
         subtitle: '2026년 기준 (단위 : 원)',
         options: [
-        { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
-        { name: '커스텀 컬러', price: '200,000' },
+        { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능', vat: '미포함' },
+        { name: '커스텀 컬러', price: '200,000', vat: '미포함' },
         { name: '테블릿PC 고객님 별도 구매 품목' },
       ],
       },
