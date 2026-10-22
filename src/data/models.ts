@@ -126,6 +126,14 @@ import b15kSgImage from '../assets/model-b15k-sg.png'
 import b15kSgColorBlack from '../assets/b15k-sg-color-black.jpg'
 import b15kSgColorIvory from '../assets/b15k-sg-color-ivory.jpg'
 import b15kSgColorRed from '../assets/b15k-sg-color-red.jpg'
+import b15kSgGallery1 from '../assets/b15k-sg-gallery/gallery-1.jpg'
+import b15kSgGallery2 from '../assets/b15k-sg-gallery/gallery-2.jpg'
+import b15kSgGallery3 from '../assets/b15k-sg-gallery/gallery-3.jpg'
+import b15kSgGallery4 from '../assets/b15k-sg-gallery/gallery-4.jpg'
+import b15kSgGallery5 from '../assets/b15k-sg-gallery/gallery-5.jpg'
+import b15kSgGallery6 from '../assets/b15k-sg-gallery/gallery-6.jpg'
+import b15kSgGallery7 from '../assets/b15k-sg-gallery/gallery-7.jpg'
+import b15kSgGallery8 from '../assets/b15k-sg-gallery/gallery-8.jpg'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
@@ -1387,7 +1395,7 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B500SG (single model: no lineup / table); the gallery is added once the photos arrive
+    // same page layout as B500SG (single model: no lineup / table); the 갤러리 sits between 제원/부품 사진 and 가격
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b15kSgColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b15kSgColorIvory },
@@ -1403,6 +1411,10 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroPrice: { amount: '45,100,000원', suffix: 'VAT포함' },
+      gallery: {
+        title: '갤러리',
+        images: [b15kSgGallery1, b15kSgGallery2, b15kSgGallery3, b15kSgGallery4, b15kSgGallery5, b15kSgGallery6, b15kSgGallery7, b15kSgGallery8],
+      },
       price: {
         title: '가격',
         subtitle: '2026년 기준 (단위 : 원)',
