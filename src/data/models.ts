@@ -1383,6 +1383,22 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B500SG (single model: no lineup / table); the price block, Colors photos and the gallery are added once they arrive
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-lg',
+      width: '2650mm',
+      height: '2010mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+    },
     detailGallery: [
       {
         title: '드럼 내부 구조',
