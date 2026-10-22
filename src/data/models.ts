@@ -11,6 +11,14 @@ import b80cTableCombo from '../assets/b80c-table-combo.jpg'
 import b80cColorBlack from '../assets/b80c-color-black.jpg'
 import b80cColorIvory from '../assets/b80c-color-ivory.jpg'
 import b80cColorRed from '../assets/b80c-color-red.jpg'
+import b80cGallery1 from '../assets/b80c-gallery/gallery-1.jpg'
+import b80cGallery2 from '../assets/b80c-gallery/gallery-2.jpg'
+import b80cGallery3 from '../assets/b80c-gallery/gallery-3.jpg'
+import b80cGallery4 from '../assets/b80c-gallery/gallery-4.jpg'
+import b80cGallery5 from '../assets/b80c-gallery/gallery-5.jpg'
+import b80cGallery6 from '../assets/b80c-gallery/gallery-6.jpg'
+import b80cGallery7 from '../assets/b80c-gallery/gallery-7.jpg'
+import b80cGallery8 from '../assets/b80c-gallery/gallery-8.jpg'
 import b80Gallery1 from '../assets/b80-gallery/gallery-1.jpg'
 import b80Gallery2 from '../assets/b80-gallery/gallery-2.jpg'
 import b80Gallery3 from '../assets/b80-gallery/gallery-3.jpg'
@@ -381,7 +389,7 @@ export const MODELS: Model[] = [
       '모듈형 서랍식 특허등록 (제10-1971999호)',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 / B30S; the gallery is added once the photos arrive
+    // same page layout as B80 / B30S
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b80cColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b80cColorIvory },
@@ -404,6 +412,10 @@ export const MODELS: Model[] = [
         title: '부자로스터 B80C 전용 테이블',
         specTitle: '부자로스터 B80C 전용 TABLE',
         image: b80cTableCombo,
+      },
+      gallery: {
+        title: '갤러리',
+        images: [b80cGallery1, b80cGallery2, b80cGallery3, b80cGallery4, b80cGallery5, b80cGallery6, b80cGallery7, b80cGallery8],
       },
       price: {
         title: '가격',
