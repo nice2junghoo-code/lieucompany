@@ -959,7 +959,7 @@ export const MODELS: Model[] = [
       { label: '드럼 재질', value: '국산 SUS 304 6T 단드럼' },
       { label: '제조국', value: 'Made in Korea' },
       { label: '크기', value: '1200 x 450 x 960mm' },
-      { label: '로스팅 방식', value: '반열풍식 (대류열의 비율이 높음)' },
+      { label: '로스팅 방식', value: '반열풍식 (전도열의 비율이 높음)' },
       { label: '무게', value: '약 90kg' },
     ],
     features: [
@@ -1016,7 +1016,7 @@ export const MODELS: Model[] = [
               [{ text: '7단계 댐퍼 조정 가능 (기본 개방상태 추천), 자동가스차단 안전장치' }],
               [{ text: '드럼 속도 제어, 외부 프로파일 저장 10개, 자동 로스팅 중 설정 변환' }],
               [
-                { label: '정격전압', text: '220v / 단상 / 60hz' },
+                { label: '정격전압', text: 'AC220V / 60Hz' },
                 { label: '소비전력', text: '200w' },
               ],
               [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
