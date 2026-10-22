@@ -1184,6 +1184,14 @@ export const MODELS: Model[] = [
     badgeLabel: 'BUJA TABLE',
     specGroups: [
       {
+        heading: 'B30 모델 전용 테이블',
+        rows: [
+          { label: '사이즈', value: '770 x 420 x 700mm' },
+          { label: '무게', value: '약 20kg' },
+          { label: '모델', value: 'B30 모델 전용 테이블' },
+        ],
+      },
+      {
         heading: '부자로스터 테이블',
         rows: [
           { label: '사이즈', value: '1000 x 420 x 700mm' },
@@ -1197,14 +1205,6 @@ export const MODELS: Model[] = [
           { label: '사이즈', value: '1200 x 420 x 700mm' },
           { label: '무게', value: '약 20kg' },
           { label: '모델', value: 'B180 모델 전용 테이블' },
-        ],
-      },
-      {
-        heading: 'B30 모델 전용 테이블',
-        rows: [
-          { label: '사이즈', value: '770 x 420 x 700mm' },
-          { label: '무게', value: '약 20kg' },
-          { label: '모델', value: 'B30 모델 전용 테이블' },
         ],
       },
     ],
