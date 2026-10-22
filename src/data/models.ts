@@ -54,6 +54,7 @@ import b80sImage from '../assets/hero-roaster-b80s.png'
 import b150Image from '../assets/model-b150.png'
 import b150TableCombo from '../assets/b150-table-combo.jpg'
 import b150cTableCombo from '../assets/b150c-table-combo.jpg'
+import b150sTableCombo from '../assets/b150s-table-combo.jpg'
 import b150cColorBlack from '../assets/b150c-color-black.jpg'
 import b150cColorIvory from '../assets/b150c-color-ivory.jpg'
 import b150cColorRed from '../assets/b150c-color-red.jpg'
@@ -857,6 +858,74 @@ export const MODELS: Model[] = [
       '[B150S 스마트 자동화형] 파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B150 / B80S; Colors photos and the gallery are added once the photos arrive
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
+      width: '1050mm',
+      height: '880mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '10,450,000원', suffix: 'VAT포함', caption: '(스마트 자동화형 기준)' },
+      lineup: B150_LINEUP,
+      table: {
+        modelId: 'buja-table',
+        specHeading: '부자로스터 테이블',
+        title: '부자로스터 B150S 전용 테이블',
+        specTitle: '부자로스터 B150S 전용 TABLE',
+        image: b150sTableCombo,
+      },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'ER', label: 'Electric Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            name: 'B150S',
+            amount: '10,450,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 1.2kg (최대 1.5kg), 시간당 최대 4.8kg 생산' }],
+              [
+                { text: '10단계 댐퍼 조정 가능 (기본 개방상태 추천)' },
+                { text: '교반쿨러 장착', bold: true },
+              ],
+              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능, 자동 투입 배출' }],
+              [
+                { text: '파이어스코프 및 아티산 연동 가능' },
+                { text: '스마트폰 블루투스 연동', bold: true },
+              ],
+              [{ text: '프로파일 저장(부자로스터어플), 수동전환모드 옵션 선택 가능', bold: true }],
+              [
+                { label: '정격전압', text: 'AC220V / 60Hz' },
+                { label: '소비전력', text: '3.4kw' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '세라믹 코일히터' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1050(가로) x 340(폭) x 880(높이) mm' },
+                { label: '무게', text: '약 95kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+        ],
+      },
+    },
   },
   {
     id: 'b180sg',
