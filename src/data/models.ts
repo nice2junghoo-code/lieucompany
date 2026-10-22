@@ -9,6 +9,9 @@ import b80ColorIvory from '../assets/b80-color-ivory.jpg'
 import b80ColorRed from '../assets/b80-color-red.jpg'
 import b80cTableCombo from '../assets/b80c-table-combo.jpg'
 import b80sTableCombo from '../assets/b80s-table-combo.jpg'
+import b80sColorBlack from '../assets/b80s-color-black.jpg'
+import b80sColorIvory from '../assets/b80s-color-ivory.jpg'
+import b80sColorRed from '../assets/b80s-color-red.jpg'
 import b80cColorBlack from '../assets/b80c-color-black.jpg'
 import b80cColorIvory from '../assets/b80c-color-ivory.jpg'
 import b80cColorRed from '../assets/b80c-color-red.jpg'
@@ -488,11 +491,11 @@ export const MODELS: Model[] = [
       '파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 / B80C; Colors photos and the gallery are added once the photos arrive
+    // same page layout as B80 / B80C; the gallery is added once the photos arrive
     colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
+      { name: '블랙', hex: '#111111', image: b80sColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b80sColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b80sColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
