@@ -55,6 +55,9 @@ import b150Image from '../assets/model-b150.png'
 import b150TableCombo from '../assets/b150-table-combo.jpg'
 import b150cTableCombo from '../assets/b150c-table-combo.jpg'
 import b150sTableCombo from '../assets/b150s-table-combo.jpg'
+import b150sColorBlack from '../assets/b150s-color-black.jpg'
+import b150sColorIvory from '../assets/b150s-color-ivory.jpg'
+import b150sColorRed from '../assets/b150s-color-red.jpg'
 import b150cColorBlack from '../assets/b150c-color-black.jpg'
 import b150cColorIvory from '../assets/b150c-color-ivory.jpg'
 import b150cColorRed from '../assets/b150c-color-red.jpg'
@@ -858,11 +861,11 @@ export const MODELS: Model[] = [
       '[B150S 스마트 자동화형] 파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B150 / B80S; Colors photos and the gallery are added once the photos arrive
+    // same page layout as B150 / B80S; the gallery is added once the photos arrive
     colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
+      { name: '블랙', hex: '#111111', image: b150sColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b150sColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b150sColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
