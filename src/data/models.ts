@@ -370,7 +370,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -438,7 +438,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -505,7 +505,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -585,7 +585,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -652,7 +652,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -719,7 +719,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -789,7 +789,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -862,7 +862,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [
         { name: '부자테이블', price: '400,000' },
         { name: '커스텀 컬러', price: '200,000' },
@@ -925,7 +925,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [{ name: '커스텀 컬러', price: '400,000' }],
       },
     },
@@ -1022,7 +1022,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [{ name: '커스텀 컬러', price: '400,000' }],
       },
     },
@@ -1124,7 +1124,7 @@ export const MODELS: Model[] = [
       },
       price: {
         title: '추가 선택품목',
-        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        subtitle: '2026년 기준 (단위 : 원)',
         options: [{ name: '15kg 이송기', price: '3,300,000' }],
         notice: {
           title: '소비자 준비 사항',
