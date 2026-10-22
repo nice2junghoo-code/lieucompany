@@ -58,6 +58,14 @@ import b150sTableCombo from '../assets/b150s-table-combo.jpg'
 import b150sColorBlack from '../assets/b150s-color-black.jpg'
 import b150sColorIvory from '../assets/b150s-color-ivory.jpg'
 import b150sColorRed from '../assets/b150s-color-red.jpg'
+import b150sGallery1 from '../assets/b150s-gallery/gallery-1.jpg'
+import b150sGallery2 from '../assets/b150s-gallery/gallery-2.jpg'
+import b150sGallery3 from '../assets/b150s-gallery/gallery-3.jpg'
+import b150sGallery4 from '../assets/b150s-gallery/gallery-4.jpg'
+import b150sGallery5 from '../assets/b150s-gallery/gallery-5.jpg'
+import b150sGallery6 from '../assets/b150s-gallery/gallery-6.jpg'
+import b150sGallery7 from '../assets/b150s-gallery/gallery-7.jpg'
+import b150sGallery8 from '../assets/b150s-gallery/gallery-8.jpg'
 import b150cColorBlack from '../assets/b150c-color-black.jpg'
 import b150cColorIvory from '../assets/b150c-color-ivory.jpg'
 import b150cColorRed from '../assets/b150c-color-red.jpg'
@@ -860,7 +868,7 @@ export const MODELS: Model[] = [
       '파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B150 / B80S; the gallery is added once the photos arrive
+    // same page layout as B150 / B80S
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b150sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b150sColorIvory },
@@ -883,6 +891,10 @@ export const MODELS: Model[] = [
         title: '부자로스터 B150S 전용 테이블',
         specTitle: '부자로스터 B150S 전용 TABLE',
         image: b150sTableCombo,
+      },
+      gallery: {
+        title: '갤러리',
+        images: [b150sGallery1, b150sGallery2, b150sGallery3, b150sGallery4, b150sGallery5, b150sGallery6, b150sGallery7, b150sGallery8],
       },
       price: {
         title: '가격',
