@@ -996,7 +996,7 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
-      heroPrice: { amount: '15,400,000원', suffix: 'VAT포함' },
+      heroPrice: { amount: '16,500,000원', suffix: 'VAT포함' },
       table: {
         modelId: 'buja-table',
         specHeading: 'B180 모델 전용 테이블',
@@ -1011,7 +1011,7 @@ export const MODELS: Model[] = [
         optionsNote: '(부가세 VAT 미포함)',
         rows: [
           {
-            amount: '15,400,000',
+            amount: '16,500,000',
             vatNote: '(부가세 VAT 포함)',
             specLines: [
               [{ label: '적정 투입량', text: '300g ~ 1.8kg (최대 2kg), 시간당 최대 6kg 생산 가능' }],
