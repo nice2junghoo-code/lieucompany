@@ -1126,7 +1126,7 @@ export const MODELS: Model[] = [
       price: {
         title: '추가 선택품목',
         subtitle: '2026년 기준 (단위 : 원)',
-        options: [{ name: '15kg 이송기', price: '3,300,000' }],
+        options: [{ name: '15kg 이송기', price: '3,000,000' }],
       },
     },
     detailGallery: [
