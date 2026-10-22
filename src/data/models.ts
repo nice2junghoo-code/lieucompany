@@ -12,6 +12,15 @@ import b80sTableCombo from '../assets/b80s-table-combo.jpg'
 import b80sColorBlack from '../assets/b80s-color-black.jpg'
 import b80sColorIvory from '../assets/b80s-color-ivory.jpg'
 import b80sColorRed from '../assets/b80s-color-red.jpg'
+import b80sGallery1 from '../assets/b80s-gallery/gallery-1.jpg'
+import b80sGallery2 from '../assets/b80s-gallery/gallery-2.jpg'
+import b80sGallery3 from '../assets/b80s-gallery/gallery-3.jpg'
+import b80sGallery4 from '../assets/b80s-gallery/gallery-4.jpg'
+import b80sGallery5 from '../assets/b80s-gallery/gallery-5.jpg'
+import b80sGallery6 from '../assets/b80s-gallery/gallery-6.jpg'
+import b80sGallery7 from '../assets/b80s-gallery/gallery-7.jpg'
+import b80sGallery8 from '../assets/b80s-gallery/gallery-8.jpg'
+import b80sGallery9 from '../assets/b80s-gallery/gallery-9.jpg'
 import b80cColorBlack from '../assets/b80c-color-black.jpg'
 import b80cColorIvory from '../assets/b80c-color-ivory.jpg'
 import b80cColorRed from '../assets/b80c-color-red.jpg'
@@ -125,7 +134,8 @@ export type Model = {
         rows: { label?: string; text: string }[]
       }[]
     }
-    // photo gallery under the table section: first photo large, the 6th photo wide, 2-column grid on mobile (8 photos fill the grid exactly)
+    // photo gallery under the table section: first photo large, 2-column grid on mobile; with exactly 8 photos the 6th is wide (fills the grid),
+    // with 9 photos all the others are squares (fills 3 rows on PC)
     gallery?: { title: string; images: string[] }
     // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
     // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
@@ -491,7 +501,7 @@ export const MODELS: Model[] = [
       '파이어스코프 및 아티산 연동 가능',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 / B80C; the gallery is added once the photos arrive
+    // same page layout as B80 / B80C
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b80sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b80sColorIvory },
@@ -514,6 +524,20 @@ export const MODELS: Model[] = [
         title: '부자로스터 B80S 전용 테이블',
         specTitle: '부자로스터 B80S 전용 TABLE',
         image: b80sTableCombo,
+      },
+      gallery: {
+        title: '갤러리',
+        images: [
+          b80sGallery1,
+          b80sGallery2,
+          b80sGallery3,
+          b80sGallery4,
+          b80sGallery5,
+          b80sGallery6,
+          b80sGallery7,
+          b80sGallery8,
+          b80sGallery9,
+        ],
       },
       price: {
         title: '가격',
