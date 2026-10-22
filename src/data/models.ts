@@ -102,6 +102,14 @@ import b500sImage from '../assets/model-b500s.png'
 import b500sColorBlack from '../assets/b500s-color-black.jpg'
 import b500sColorIvory from '../assets/b500s-color-ivory.jpg'
 import b500sColorRed from '../assets/b500s-color-red.jpg'
+import b500sGallery1 from '../assets/b500s-gallery/gallery-1.jpg'
+import b500sGallery2 from '../assets/b500s-gallery/gallery-2.jpg'
+import b500sGallery3 from '../assets/b500s-gallery/gallery-3.jpg'
+import b500sGallery4 from '../assets/b500s-gallery/gallery-4.jpg'
+import b500sGallery5 from '../assets/b500s-gallery/gallery-5.jpg'
+import b500sGallery6 from '../assets/b500s-gallery/gallery-6.jpg'
+import b500sGallery7 from '../assets/b500s-gallery/gallery-7.jpg'
+import b500sGallery8 from '../assets/b500s-gallery/gallery-8.jpg'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
 import bujaTableImage from '../assets/model-buja-table.png'
@@ -1114,7 +1122,7 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 (no 전용 테이블 section: B500 has no dedicated table); the gallery is added once the photos arrive
+    // same page layout as B80 (no 전용 테이블 section: B500 has no dedicated table); the 갤러리 sits between 라인업/제원 and 가격
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b500sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b500sColorIvory },
@@ -1131,6 +1139,10 @@ export const MODELS: Model[] = [
       heroLayout: true,
       heroPrice: { amount: '24,750,000원', suffix: 'VAT포함' },
       lineup: B500_LINEUP,
+      gallery: {
+        title: '갤러리',
+        images: [b500sGallery1, b500sGallery2, b500sGallery3, b500sGallery4, b500sGallery5, b500sGallery6, b500sGallery7, b500sGallery8],
+      },
       price: {
         title: '가격',
         subtitle: '2026년 기준 (단위 : 원)',
