@@ -204,6 +204,7 @@ export type Model = {
     gallery?: { title: string; images: string[] }
     // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
     // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
+    // a part with `red` is shown in red (e.g. the 소비자 준비 사항 notes)
     // one `rows` entry per variant (e.g. 기본형 / B80C / B80S) sharing the 구분 cell on the left; a part with `bold` is rendered bold
     price?: {
       title: string
@@ -214,7 +215,7 @@ export type Model = {
         name?: string
         amount: string
         vatNote: string
-        specLines: { label?: string; text: string; bold?: boolean }[][]
+        specLines: { label?: string; text: string; bold?: boolean; red?: boolean }[][]
         options: { name: string; price?: string; sub?: string }[]
       }[]
     }
@@ -1359,7 +1360,7 @@ export const MODELS: Model[] = [
       { label: '전압', value: '380V 3상 4선식' },
       { label: '소비전력', value: '3KW' },
       { label: '제조국', value: 'Made in Korea' },
-      { label: '로스팅 방식', value: '반열풍식(대류열의 비율이 높음)' },
+      { label: '로스팅 방식', value: '반열풍식(전도열의 비율이 높음)' },
       { label: '열원', value: '메탈화이버 버너' },
       { label: '드럼 재질', value: '국산 SUS 304' },
       { label: '드럼 두께', value: '10T', order: 8 },
@@ -1383,7 +1384,7 @@ export const MODELS: Model[] = [
       '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B500SG (single model: no lineup / table); the price block, Colors photos and the gallery are added once they arrive
+    // same page layout as B500SG (single model: no lineup / table); Colors photos and the gallery are added once they arrive
     colorOptions: [
       { name: '블랙', hex: '#111111' },
       { name: '아이보리', hex: '#f3efe3' },
@@ -1398,6 +1399,43 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
+      heroPrice: { amount: '45,100,000원', suffix: 'VAT포함' },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'GR', label: 'Gas Type Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            amount: '45,100,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '5kg ~ 15kg (최대 16kg), 시간당 최대 55kg 생산 가능' }],
+              [{ text: '싸이클론 모터 송풍량 전자식 제어, 드럼속도 제어, 예열 유지 기능' }],
+              [{ text: '외부 프로파일 저장 10개 / 내부 50개, 로스팅 종료 후 자동 배출' }],
+              [{ text: '자동 투입 및 자동 배출, 로스터기 자동 오프 기능, 자동 쿨링 및 종료' }],
+              [{ text: '[ 소비자 준비 사항 ]', bold: true, red: true }],
+              [{ text: '연통 (125파이 사이클론, 쿨러 각각 1개씩 총 2개 필요)', bold: true, red: true }],
+              [{ text: '가스공사 (저압, 연결 후렉시블 연결)', bold: true, red: true }],
+              [
+                { label: '정격전압', text: 'AC380V / 60Hz' },
+                { label: '소비전력', text: '삼상 3kw' },
+              ],
+              [
+                { label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' },
+                { label: '열원', text: '메탈화이버 버너' },
+              ],
+              [
+                { label: '드럼재질', text: '국산 SUS304' },
+                { label: '무게', text: '약 760kg' },
+              ],
+              [{ label: '로스터기 사이즈', text: '2650(가로) x 1050(폭) x 2010(높이) mm' }],
+              [{ label: '외장 컨트롤 박스 사이즈', text: '400(가로) x 300(폭) x 880(높이) mm' }],
+            ],
+            options: [{ name: '15kg 이송기', price: '3,300,000' }],
+          },
+        ],
+      },
     },
     detailGallery: [
       {

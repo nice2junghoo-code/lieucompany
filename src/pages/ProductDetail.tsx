@@ -598,7 +598,7 @@ function ProductDetail() {
                             {row.specLines.map((line, i) => (
                               <li key={i}>
                                 {line.map((part, j) => (
-                                  <span key={j} className={part.bold ? 'font-[700]' : undefined}>
+                                  <span key={j} className={`${part.bold ? 'font-[700]' : ''} ${part.red ? 'text-red-600' : ''}`.trim() || undefined}>
                                     {j > 0 && <span className="mx-1.5 font-[456] text-text-muted">·</span>}
                                     {part.label && <span className="font-[700]">{part.label} : </span>}
                                     {part.text}
