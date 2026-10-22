@@ -26,7 +26,7 @@ const MODEL_FILTERS = [
 const TYPE_FILTERS = [
   { label: '일반형', ids: ['b80', 'b150'] },
   { label: '쿨러장착형', ids: ['b80c', 'b150c'] },
-  { label: '스마트', ids: ['b80s', 'b150s'] },
+  { label: '스마트', ids: ['b30s', 'b80s', 'b150s', 'b180sg', 'b500s', 'b500sg', 'b15k-sg'] },
 ]
 
 // ?category= deep links (header menu) expressed as sidebar filters
