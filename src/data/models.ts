@@ -90,6 +90,14 @@ import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
 import b180sgColorBlack from '../assets/b180sg-color-black.jpg'
 import b180sgColorIvory from '../assets/b180sg-color-ivory.jpg'
 import b180sgColorRed from '../assets/b180sg-color-red.jpg'
+import b180sgGallery1 from '../assets/b180sg-gallery/gallery-1.jpg'
+import b180sgGallery2 from '../assets/b180sg-gallery/gallery-2.jpg'
+import b180sgGallery3 from '../assets/b180sg-gallery/gallery-3.jpg'
+import b180sgGallery4 from '../assets/b180sg-gallery/gallery-4.jpg'
+import b180sgGallery5 from '../assets/b180sg-gallery/gallery-5.jpg'
+import b180sgGallery6 from '../assets/b180sg-gallery/gallery-6.jpg'
+import b180sgGallery7 from '../assets/b180sg-gallery/gallery-7.jpg'
+import b180sgGallery8 from '../assets/b180sg-gallery/gallery-8.jpg'
 import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
@@ -981,7 +989,7 @@ export const MODELS: Model[] = [
       '옵션 : 자동 투입',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 / B150 (no lineup row: B180SG is a single model); the gallery is added once the photos arrive
+    // same page layout as B80 / B150 (no lineup row: B180SG is a single model)
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b180sgColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b180sgColorIvory },
@@ -1003,6 +1011,10 @@ export const MODELS: Model[] = [
         title: '부자로스터 B180SG 전용 테이블',
         specTitle: '부자로스터 B180SG 전용 TABLE',
         image: b180sgTableCombo,
+      },
+      gallery: {
+        title: '갤러리',
+        images: [b180sgGallery1, b180sgGallery2, b180sgGallery3, b180sgGallery4, b180sgGallery5, b180sgGallery6, b180sgGallery7, b180sgGallery8],
       },
       price: {
         title: '가격',
