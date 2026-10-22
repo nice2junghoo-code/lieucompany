@@ -85,7 +85,8 @@ import b150Gallery2 from '../assets/b150-gallery/gallery-2.jpg'
 import b150Gallery3 from '../assets/b150-gallery/gallery-3.jpg'
 import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
-import b180sgImage from '../assets/model-b180sg.jpg'
+import b180sgImage from '../assets/model-b180sg.png'
+import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
 import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
@@ -977,6 +978,65 @@ export const MODELS: Model[] = [
       '옵션 : 자동 투입',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    // same page layout as B80 / B150 (no lineup row: B180SG is a single model); Colors photos and the gallery are added once the photos arrive
+    colorOptions: [
+      { name: '블랙', hex: '#111111' },
+      { name: '아이보리', hex: '#f3efe3' },
+      { name: '빨강', hex: '#dc2626' },
+    ],
+    specShowcase: {
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
+      width: '1200mm',
+      height: '960mm',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '15,400,000원', suffix: 'VAT포함' },
+      table: {
+        modelId: 'buja-table',
+        specHeading: 'B180 모델 전용 테이블',
+        title: '부자로스터 B180SG 전용 테이블',
+        specTitle: '부자로스터 B180SG 전용 TABLE',
+        image: b180sgTableCombo,
+      },
+      price: {
+        title: '가격',
+        subtitle: '2026년 기준 (단위 : 원)',
+        type: { code: 'GR', label: 'Gas Type Roaster' },
+        optionsNote: '(부가세 VAT 미포함)',
+        rows: [
+          {
+            amount: '15,400,000',
+            vatNote: '(부가세 VAT 포함)',
+            specLines: [
+              [{ label: '적정 투입량', text: '300g ~ 1.8kg (최대 2kg), 시간당 최대 6kg 생산 가능' }],
+              [{ text: '파이어스코프 및 아티산 연동, 싸이클론 모터 송풍량 전자식제어' }],
+              [{ text: '7단계 댐퍼 조정 가능 (기본 개방상태 추천), 자동가스차단 안전장치' }],
+              [{ text: '드럼 속도 제어, 외부 프로파일 저장 10개, 자동 로스팅 중 설정 변환' }],
+              [
+                { label: '정격전압', text: '220v / 단상 / 60hz' },
+                { label: '소비전력', text: '200w' },
+              ],
+              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [
+                { label: '열원', text: '메탈화이버 버너' },
+                { label: '드럼재질', text: '국산 SUS304' },
+              ],
+              [
+                { label: '사이즈', text: '1200(가로) x 450(폭) x 960(높이) mm' },
+                { label: '무게', text: '약 90kg' },
+              ],
+            ],
+            options: [
+              { name: '부자테이블', price: '400,000' },
+              { name: '커스텀 컬러', price: '200,000' },
+            ],
+          },
+        ],
+      },
+    },
   },
   {
     id: 'b500s',
