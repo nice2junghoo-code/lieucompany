@@ -87,6 +87,9 @@ import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
 import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
+import b180sgColorBlack from '../assets/b180sg-color-black.jpg'
+import b180sgColorIvory from '../assets/b180sg-color-ivory.jpg'
+import b180sgColorRed from '../assets/b180sg-color-red.jpg'
 import b500sImage from '../assets/model-b500s.png'
 import b500sgImage from '../assets/model-b500sg.png'
 import b15kSgImage from '../assets/model-b15k-sg.png'
@@ -978,11 +981,11 @@ export const MODELS: Model[] = [
       '옵션 : 자동 투입',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // same page layout as B80 / B150 (no lineup row: B180SG is a single model); Colors photos and the gallery are added once the photos arrive
+    // same page layout as B80 / B150 (no lineup row: B180SG is a single model); the gallery is added once the photos arrive
     colorOptions: [
-      { name: '블랙', hex: '#111111' },
-      { name: '아이보리', hex: '#f3efe3' },
-      { name: '빨강', hex: '#dc2626' },
+      { name: '블랙', hex: '#111111', image: b180sgColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b180sgColorIvory },
+      { name: '빨강', hex: '#dc2626', image: b180sgColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
