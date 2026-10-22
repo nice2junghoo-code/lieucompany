@@ -561,75 +561,33 @@ function ProductDetail() {
               <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{price.title}</h2>
               <p className="mt-4 text-[14px] leading-[1.6] text-text-muted">{price.subtitle}</p>
 
-              <div className="mt-6">
-                {/* PC: dark header bar with the four column titles, like the printed price list */}
-                <div className="hidden grid-cols-[160px_190px_1fr_1fr] bg-ink text-center text-[14px] font-[600] text-on-primary lg:grid">
-                  <p className="py-3">구분</p>
-                  <p className="py-3">판매가격</p>
-                  <p className="py-3">사양 및 제원</p>
-                  <p className="py-3">
-                    추가 선택품목 <span className="text-[12px] font-[600] text-red-400">{price.optionsNote}</span>
-                  </p>
-                </div>
-
-                {/* 구분 cell is shared; each variant row (기본형 / B80C / B80S ...) has its own price, specs and options */}
-                <div className="grid grid-cols-1 border-b border-ink lg:grid-cols-[160px_1fr]">
-                  <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
-                    <p className="text-[20px] font-[652] text-ink">{price.type.code}</p>
-                    <p className="whitespace-nowrap text-[12px] text-text-muted">({price.type.label})</p>
-                  </div>
-
-                  <div className="flex flex-col">
-                    {price.rows.map((row, idx) => (
-                      <div
-                        key={row.name ?? idx}
-                        className={`grid grid-cols-1 lg:grid-cols-[190px_1fr_1fr] ${idx > 0 ? 'border-t border-ink/40' : ''}`}
-                      >
-                        <div className="flex flex-col items-center justify-center gap-1 border-b border-hairline px-4 py-6 text-center lg:border-b-0">
-                          <p className="text-[13px] font-[600] text-text-muted lg:hidden">판매가격</p>
-                          {row.name && <p className="text-[15px] font-[600] text-ink">({row.name})</p>}
-                          <p className="text-[24px] font-[652] text-ink">{row.amount}</p>
-                          <p className="text-[12px] text-red-600">{row.vatNote}</p>
-                        </div>
-
-                        <div className="bg-canvas-soft px-5 py-6">
-                          <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">사양 및 제원</p>
-                          <ul className="flex flex-col gap-1.5 text-[14px] leading-[1.55] text-ink">
-                            {row.specLines.map((line, i) => (
-                              <li key={i}>
-                                {line.map((part, j) => (
-                                  <span key={j} className={`${part.bold ? 'font-[700]' : ''} ${part.red ? 'text-red-600' : ''}`.trim() || undefined}>
-                                    {j > 0 && <span className="mx-1.5 font-[456] text-text-muted">·</span>}
-                                    {part.label && <span className="font-[700]">{part.label} : </span>}
-                                    {part.text}
-                                  </span>
-                                ))}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="border-t border-hairline bg-canvas-soft px-5 py-6 lg:border-t-0 lg:border-l lg:border-white">
-                          <p className="mb-3 text-[13px] font-[600] text-text-muted lg:hidden">
-                            추가 선택품목 <span className="text-[12px] font-[600] text-red-600">{price.optionsNote}</span>
-                          </p>
-                          <ul className="flex flex-col gap-3 text-[15px] text-ink">
-                            {row.options.map((option) => (
-                              <li key={option.name}>
-                                <div className="flex items-start justify-between gap-3">
-                                  <span className="font-[700]">▶ {option.name}</span>
-                                  {option.price && <span className="shrink-0 font-[600]">[{option.price}]</span>}
-                                </div>
-                                {option.sub && <p className="mt-1 pl-5 text-[13px] text-text-muted">└ {option.sub}</p>}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+              {/* the sale price is shown once, at the top; here only the optional extras and what the buyer has to prepare */}
+              {price.options.length > 0 && (
+                <div className="mt-6 border-t border-ink">
+                  {price.options.map((option) => (
+                    <div key={option.name} className="flex items-start justify-between gap-4 border-b border-hairline py-4">
+                      <div>
+                        <p className="text-[16px] font-[700] text-ink">{option.name}</p>
+                        {option.sub && <p className="mt-1 text-[13px] text-text-muted">{option.sub}</p>}
                       </div>
-                    ))}
-                  </div>
+                      {option.price && <p className="shrink-0 text-[18px] font-[652] text-ink">{option.price}원</p>}
+                    </div>
+                  ))}
                 </div>
-              </div>
+              )}
+
+              {price.notice && (
+                <div className="mt-8 bg-canvas-soft px-5 py-6">
+                  <p className="text-[15px] font-[700] text-red-600">[ {price.notice.title} ]</p>
+                  <ul className="mt-3 flex flex-col gap-1.5">
+                    {price.notice.lines.map((line) => (
+                      <li key={line} className="text-[14px] leading-[1.55] font-[600] text-red-600">
+                        ・ {line}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )}
 

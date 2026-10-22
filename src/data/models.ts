@@ -213,22 +213,13 @@ export type Model = {
     // photo gallery under the table section: first photo large, 2-column grid on mobile; with exactly 8 photos the 6th is wide (fills the grid),
     // with 9 photos all the others are squares (fills 3 rows on PC); with 3 photos: 3 equal squares in one row on PC
     gallery?: { title: string; images: string[] }
-    // price sheet under the gallery, laid out like the printed price list: 구분 / 판매가격 / 사양 및 제원 / 추가 선택품목
-    // each `specLines` entry is one line made of parts; a part with a `label` renders that label in bold
-    // a part with `red` is shown in red (e.g. the 소비자 준비 사항 notes)
-    // one `rows` entry per variant (e.g. 기본형 / B80C / B80S) sharing the 구분 cell on the left; a part with `bold` is rendered bold
+    // under the gallery: just the optional extras and the buyer-preparation notes (the sale price itself lives in `heroPrice`, shown once at the top)
     price?: {
       title: string
       subtitle: string
-      type: { code: string; label: string }
-      optionsNote: string
-      rows: {
-        name?: string
-        amount: string
-        vatNote: string
-        specLines: { label?: string; text: string; bold?: boolean; red?: boolean }[][]
-        options: { name: string; price?: string; sub?: string }[]
-      }[]
+      options: { name: string; price?: string; sub?: string }[]
+      // shown in red below the options, e.g. 소비자 준비 사항 (연통, 가스공사)
+      notice?: { title: string; lines: string[] }
     }
     // size classes for the hero photo (max-width steps); defaults to the B30S sizing
     heroImageClass?: string
@@ -378,41 +369,13 @@ export const MODELS: Model[] = [
         images: [b30sGallery1, b30sGallery2, b30sGallery3, b30sGallery4, b30sGallery5, b30sGallery6, b30sGallery7, b30sGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            amount: '6,380,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '100g ~ 300g (최대 350g)' }],
-              [{ text: '스마트폰 블루투스 연동, 로스팅 종료 후 자동 배출' }],
-              [{ text: '로스팅 후 자동 배출 및 자동 쿨링' }],
-              [{ text: '10단 댐퍼 조정 가능 (기본 개방상태 권장)' }],
-              [{ text: '수동 전환을 통해 직접 화력 설정, 파이어스코프 및 아티산 연동' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '2.0kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '770(가로) x 250(폭) x 670(높이) mm' },
-                { label: '무게', text: '약 45kg' },
-              ],
-            ],
-            options: [
-              { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
-              { name: '커스텀 컬러', price: '200,000' },
-              { name: '테블릿PC 고객님 별도 구매 품목' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능' },
+        { name: '커스텀 컬러', price: '200,000' },
+        { name: '테블릿PC 고객님 별도 구매 품목' },
+      ],
       },
     },
   },
@@ -474,39 +437,12 @@ export const MODELS: Model[] = [
         images: [b80Gallery1, b80Gallery2, b80Gallery3, b80Gallery4, b80Gallery5, b80Gallery6, b80Gallery7, b80Gallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: '기본형',
-            amount: '6,270,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동 가능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.2kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
-                { label: '무게', text: '약 75kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -568,40 +504,12 @@ export const MODELS: Model[] = [
         images: [b80cGallery1, b80cGallery2, b80cGallery3, b80cGallery4, b80cGallery5, b80cGallery6, b80cGallery7, b80cGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: 'B80C',
-            amount: '7,150,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
-              [{ text: '교반쿨러 장착', bold: true }],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동 가능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.2kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
-                { label: '무게', text: '약 80kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -676,47 +584,12 @@ export const MODELS: Model[] = [
         ],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: 'B80S',
-            amount: '8,800,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 800g (최대 1kg), 시간당 최대 3.2kg 생산' }],
-              [
-                { text: '10단계 댐퍼 조정 가능 (기본 개방상태 추천)' },
-                { text: '교반쿨러 장착', bold: true },
-              ],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능, 자동 투입 배출' }],
-              [
-                { text: '파이어스코프 및 아티산 연동 가능' },
-                { text: '스마트폰 블루투스 연동', bold: true },
-              ],
-              [{ text: '프로파일 저장(부자로스터어플), 수동전환모드 옵션 선택 가능', bold: true }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.2kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1000(가로) x 320(폭) x 810(높이) mm' },
-                { label: '무게', text: '약 80kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -778,39 +651,12 @@ export const MODELS: Model[] = [
         images: [b150Gallery1, b150Gallery2, b150Gallery3],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: '기본형',
-            amount: '7,700,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 1.2kg (최대 1.5kg), 시간당 최대 4.8kg 생산' }],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동 가능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.4kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1050(가로) x 340(폭) x 880(높이) mm' },
-                { label: '무게', text: '약 95kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -872,40 +718,12 @@ export const MODELS: Model[] = [
         images: [b150cGallery1, b150cGallery2, b150cGallery3, b150cGallery4, b150cGallery5, b150cGallery6, b150cGallery7, b150cGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: 'B150C',
-            amount: '8,690,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 1.2kg (최대 1.5kg), 시간당 최대 4.8kg 생산' }],
-              [{ text: '교반쿨러 장착', bold: true }],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동 가능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.4kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1050(가로) x 340(폭) x 880(높이) mm' },
-                { label: '무게', text: '약 95kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -970,47 +788,12 @@ export const MODELS: Model[] = [
         images: [b150sGallery1, b150sGallery2, b150sGallery3, b150sGallery4, b150sGallery5, b150sGallery6, b150sGallery7, b150sGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            name: 'B150S',
-            amount: '10,450,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 1.2kg (최대 1.5kg), 시간당 최대 4.8kg 생산' }],
-              [
-                { text: '10단계 댐퍼 조정 가능 (기본 개방상태 추천)' },
-                { text: '교반쿨러 장착', bold: true },
-              ],
-              [{ text: '수동전환을 통해 아날로그 수동 방식 로스팅 가능, 자동 투입 배출' }],
-              [
-                { text: '파이어스코프 및 아티산 연동 가능' },
-                { text: '스마트폰 블루투스 연동', bold: true },
-              ],
-              [{ text: '프로파일 저장(부자로스터어플), 수동전환모드 옵션 선택 가능', bold: true }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '3.4kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '세라믹 코일히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1050(가로) x 340(폭) x 880(높이) mm' },
-                { label: '무게', text: '약 95kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -1078,39 +861,12 @@ export const MODELS: Model[] = [
         images: [b180sgGallery1, b180sgGallery2, b180sgGallery3, b180sgGallery4, b180sgGallery5, b180sgGallery6, b180sgGallery7, b180sgGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'GR', label: 'Gas Type Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            amount: '16,500,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '300g ~ 1.8kg (최대 2kg), 시간당 최대 6kg 생산 가능' }],
-              [{ text: '파이어스코프 및 아티산 연동, 싸이클론 모터 송풍량 전자식제어' }],
-              [{ text: '7단계 댐퍼 조정 가능 (기본 개방상태 추천), 자동가스차단 안전장치' }],
-              [{ text: '드럼 속도 제어, 외부 프로파일 저장 10개, 자동 로스팅 중 설정 변환' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '200w' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
-              [
-                { label: '열원', text: '메탈화이버 버너' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [
-                { label: '사이즈', text: '1200(가로) x 450(폭) x 960(높이) mm' },
-                { label: '무게', text: '약 90kg' },
-              ],
-            ],
-            options: [
-              { name: '부자테이블', price: '400,000' },
-              { name: '커스텀 컬러', price: '200,000' },
-            ],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [
+        { name: '부자테이블', price: '400,000' },
+        { name: '커스텀 컬러', price: '200,000' },
+      ],
       },
     },
   },
@@ -1122,6 +878,7 @@ export const MODELS: Model[] = [
     categories: ['전기식로스터기', '대형로스터기'],
     image: b500sImage,
     specs: [
+      { label: '투입량', value: '1.5kg ~ 5kg (시간당 최대 16kg)' },
       { label: '제조국', value: 'Made in Korea' },
       { label: '항목', value: 'B500S(전기식)' },
       { label: '드럼 재질', value: '국산 SUS 304' },
@@ -1167,35 +924,9 @@ export const MODELS: Model[] = [
         images: [b500sGallery1, b500sGallery2, b500sGallery3, b500sGallery4, b500sGallery5, b500sGallery6, b500sGallery7, b500sGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'ER', label: 'Electric Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            amount: '24,750,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '1.5kg ~ 5kg, 시간당 생산량 최대 16kg' }],
-              [{ text: '싸이클론 모터 송풍량 전자식 제어, 드럼속도 제어' }],
-              [{ text: '프로파일 저장 50개, 자동 로스팅 중 설정 변환 가능' }],
-              [{ text: '예열 유지 기능, 자동 투입 및 배출, 자동종료 기능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 380V / 60Hz' },
-                { label: '소비전력', text: '14kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식' }],
-              [
-                { label: '열원', text: '전기 코일 히터' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [{ label: '로스터기 사이즈', text: '1900(가로) x 750(폭) x 1830(높이) mm' }],
-              [{ label: '외장 컨트롤 박스 사이즈', text: '400(가로) x 300(폭) x 880(높이) mm' }],
-              [{ label: '무게', text: '약 400kg' }],
-            ],
-            options: [{ name: '커스텀 컬러', price: '400,000' }],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [{ name: '커스텀 컬러', price: '400,000' }],
       },
     },
     detailGallery: [
@@ -1244,6 +975,7 @@ export const MODELS: Model[] = [
     categories: ['가스식로스터기', '대형로스터기'],
     image: b500sgImage,
     specs: [
+      { label: '투입량', value: '1.5kg ~ 5kg (시간당 최대 16kg)' },
       { label: '제조국', value: 'Made in Korea' },
       { label: '항목', value: 'B500S.G(가스식)' },
       { label: '드럼 재질', value: '국산 SUS 304' },
@@ -1289,35 +1021,9 @@ export const MODELS: Model[] = [
         images: [b500sgGallery1, b500sgGallery2, b500sgGallery3, b500sgGallery4, b500sgGallery5, b500sgGallery6, b500sgGallery7, b500sgGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'GR', label: 'Gas Type Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            amount: '25,850,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '1.5kg ~ 5kg, 시간당 생산량 최대 16kg' }],
-              [{ text: '싸이클론 모터 송풍량 전자식 제어, 드럼속도 제어' }],
-              [{ text: '프로파일 저장 50개, 자동 로스팅 중 설정 변환 가능' }],
-              [{ text: '예열 유지 기능, 자동 투입 및 배출, 자동종료 기능' }],
-              [
-                { label: '정격전압', text: 'AC220V / 60Hz' },
-                { label: '소비전력', text: '1.5kw' },
-              ],
-              [{ label: '로스팅방식', text: '반열풍식' }],
-              [
-                { label: '열원', text: '메탈화이버 버너' },
-                { label: '드럼재질', text: '국산 SUS304' },
-              ],
-              [{ label: '로스터기 사이즈', text: '1900(가로) x 750(폭) x 1830(높이) mm' }],
-              [{ label: '외장 컨트롤 박스 사이즈', text: '400(가로) x 300(폭) x 880(높이) mm' }],
-              [{ label: '무게', text: '약 400kg' }],
-            ],
-            options: [{ name: '커스텀 컬러', price: '400,000' }],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [{ name: '커스텀 컬러', price: '400,000' }],
       },
     },
     detailGallery: [
@@ -1368,6 +1074,7 @@ export const MODELS: Model[] = [
     image: b15kSgImage,
     imageScale: 1.1,
     specs: [
+      { label: '투입량', value: '5kg ~ 15kg (최대 16kg)' },
       { label: '전압', value: '380V 3상 4선식' },
       { label: '소비전력', value: '3KW' },
       { label: '제조국', value: 'Made in Korea' },
@@ -1416,40 +1123,13 @@ export const MODELS: Model[] = [
         images: [b15kSgGallery1, b15kSgGallery2, b15kSgGallery3, b15kSgGallery4, b15kSgGallery5, b15kSgGallery6, b15kSgGallery7, b15kSgGallery8],
       },
       price: {
-        title: '가격',
-        subtitle: '2026년 기준 (단위 : 원)',
-        type: { code: 'GR', label: 'Gas Type Roaster' },
-        optionsNote: '(부가세 VAT 미포함)',
-        rows: [
-          {
-            amount: '45,100,000',
-            vatNote: '(부가세 VAT 포함)',
-            specLines: [
-              [{ label: '적정 투입량', text: '5kg ~ 15kg (최대 16kg), 시간당 최대 55kg 생산 가능' }],
-              [{ text: '싸이클론 모터 송풍량 전자식 제어, 드럼속도 제어, 예열 유지 기능' }],
-              [{ text: '외부 프로파일 저장 10개 / 내부 50개, 로스팅 종료 후 자동 배출' }],
-              [{ text: '자동 투입 및 자동 배출, 로스터기 자동 오프 기능, 자동 쿨링 및 종료' }],
-              [{ text: '[ 소비자 준비 사항 ]', bold: true, red: true }],
-              [{ text: '연통 (125파이 사이클론, 쿨러 각각 1개씩 총 2개 필요)', bold: true, red: true }],
-              [{ text: '가스공사 (저압, 연결 후렉시블 연결)', bold: true, red: true }],
-              [
-                { label: '정격전압', text: '380V 3상 4선식' },
-                { label: '소비전력', text: '3kw' },
-              ],
-              [
-                { label: '로스팅방식', text: '반열풍식 (대류열의 비율이 높음)' },
-                { label: '열원', text: '메탈화이버 버너' },
-              ],
-              [
-                { label: '드럼재질', text: '국산 SUS304' },
-                { label: '무게', text: '약 760kg' },
-              ],
-              [{ label: '로스터기 사이즈', text: '2650(가로) x 1050(폭) x 2010(높이) mm' }],
-              [{ label: '외장 컨트롤 박스 사이즈', text: '400(가로) x 300(폭) x 880(높이) mm' }],
-            ],
-            options: [{ name: '15kg 이송기', price: '3,300,000' }],
-          },
-        ],
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원) · 판매가격은 부가세 포함, 추가 선택품목은 부가세 미포함',
+        options: [{ name: '15kg 이송기', price: '3,300,000' }],
+        notice: {
+          title: '소비자 준비 사항',
+          lines: ['연통 (125파이 사이클론, 쿨러 각각 1개씩 총 2개 필요)', '가스공사 (저압, 연결 후렉시블 연결)'],
+        },
       },
     },
     detailGallery: [
