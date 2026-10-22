@@ -455,7 +455,7 @@ function ProductDetail() {
                     </div>
 
                     <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-10">
-                      {group.rows.map((spec) => (
+                      {group.rows.filter((spec) => !model.specShowcase?.hideSpecLabels?.includes(spec.label)).map((spec) => (
                         <div key={spec.label} className="border-b border-hairline py-4">
                           <dt className="text-[13px] text-text-muted">{spec.label}</dt>
                           <dd className="mt-1 text-[16px] font-[700] text-ink">{spec.value}</dd>

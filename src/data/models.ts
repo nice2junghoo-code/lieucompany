@@ -184,6 +184,8 @@ export type Model = {
   // `heroLayout` replaces the top photo/title grid with the home-page hero look: centered title + `heroTagline`,
   // big product photo on the light gradient, a 투입량 / 전압 / 크기 stat row (from `specs`) and the CTA buttons underneath
   specShowcase?: {
+    // 제원 rows with these labels are not shown on this page (the underlying data stays for other pages)
+    hideSpecLabels?: string[]
     // dimension brackets on the 제원 photo are drawn only when both are given
     width?: string
     height?: string
@@ -1219,6 +1221,7 @@ export const MODELS: Model[] = [
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
       noticeBeforeColors: true,
       buttonsInMain: true,
+      hideSpecLabels: ['무게'],
       heroLayout: true,
       heroPrice: { amount: '400,000원', suffix: 'VAT 미포함' },
     },
