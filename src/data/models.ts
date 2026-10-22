@@ -1127,10 +1127,6 @@ export const MODELS: Model[] = [
         title: '추가 선택품목',
         subtitle: '2026년 기준 (단위 : 원)',
         options: [{ name: '15kg 이송기', price: '3,300,000' }],
-        notice: {
-          title: '소비자 준비 사항',
-          lines: ['연통 (125파이 사이클론, 쿨러 각각 1개씩 총 2개 필요)', '가스공사 (저압, 연결 후렉시블 연결)'],
-        },
       },
     },
     detailGallery: [
