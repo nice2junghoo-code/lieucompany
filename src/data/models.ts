@@ -1170,12 +1170,12 @@ export const MODELS: Model[] = [
               [{ text: '프로파일 저장 50개, 자동 로스팅 중 설정 변환 가능' }],
               [{ text: '예열 유지 기능, 자동 투입 및 배출, 자동종료 기능' }],
               [
-                { label: '정격전압', text: 'AC220V / 380V 사선식 / 60Hz' },
+                { label: '정격전압', text: 'AC220V / 380V / 60Hz' },
                 { label: '소비전력', text: '14kw' },
               ],
-              [{ label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' }],
+              [{ label: '로스팅방식', text: '반열풍식' }],
               [
-                { label: '열원', text: '세라믹 코일히터' },
+                { label: '열원', text: '전기 코일 히터' },
                 { label: '드럼재질', text: '국산 SUS304' },
               ],
               [{ label: '로스터기 사이즈', text: '1900(가로) x 750(폭) x 1830(높이) mm' }],
@@ -1292,10 +1292,10 @@ export const MODELS: Model[] = [
               [{ text: '프로파일 저장 50개, 자동 로스팅 중 설정 변환 가능' }],
               [{ text: '예열 유지 기능, 자동 투입 및 배출, 자동종료 기능' }],
               [
-                { label: '정격전압', text: '220v / 단상 / 60hz' },
+                { label: '정격전압', text: 'AC220V / 60Hz' },
                 { label: '소비전력', text: '1.5kw' },
               ],
-              [{ label: '로스팅방식', text: '반열풍식 (메탈 파이버 버너 열풍 비율이 높음)' }],
+              [{ label: '로스팅방식', text: '반열풍식' }],
               [
                 { label: '열원', text: '메탈화이버 버너' },
                 { label: '드럼재질', text: '국산 SUS304' },
@@ -1360,7 +1360,7 @@ export const MODELS: Model[] = [
       { label: '전압', value: '380V 3상 4선식' },
       { label: '소비전력', value: '3KW' },
       { label: '제조국', value: 'Made in Korea' },
-      { label: '로스팅 방식', value: '반열풍식(전도열의 비율이 높음)' },
+      { label: '로스팅 방식', value: '반열풍식(대류열의 비율이 높음)' },
       { label: '열원', value: '메탈화이버 버너' },
       { label: '드럼 재질', value: '국산 SUS 304' },
       { label: '드럼 두께', value: '10T', order: 8 },
@@ -1418,11 +1418,11 @@ export const MODELS: Model[] = [
               [{ text: '연통 (125파이 사이클론, 쿨러 각각 1개씩 총 2개 필요)', bold: true, red: true }],
               [{ text: '가스공사 (저압, 연결 후렉시블 연결)', bold: true, red: true }],
               [
-                { label: '정격전압', text: 'AC380V / 60Hz' },
-                { label: '소비전력', text: '삼상 3kw' },
+                { label: '정격전압', text: '380V 3상 4선식' },
+                { label: '소비전력', text: '3kw' },
               ],
               [
-                { label: '로스팅방식', text: '반열풍식 (전도열의 비율이 높음)' },
+                { label: '로스팅방식', text: '반열풍식 (대류열의 비율이 높음)' },
                 { label: '열원', text: '메탈화이버 버너' },
               ],
               [
