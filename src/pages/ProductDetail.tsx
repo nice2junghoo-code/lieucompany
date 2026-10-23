@@ -131,7 +131,7 @@ function ProductDetail() {
 
               <div className="mx-auto w-full max-w-[1100px] px-6 pt-8 pb-12 text-left lg:px-10 lg:pt-10 lg:pb-16">
                 <div className="flex items-center gap-2 lg:gap-4">
-                  <h1 className="text-[32px] font-[652] leading-[1.13] text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
+                  <h1 className="text-[32px] font-[652] leading-[1.13] whitespace-pre-line text-ink sm:text-[48px] lg:text-[64px] lg:leading-[1.0]">
                     {model.name}
                   </h1>
                   {/* PC: badge scaled up to sit beside the large title */}

@@ -1232,13 +1232,13 @@ export const MODELS: Model[] = [
     badgeLabel: 'Demtruk',
     imageScale: 1.3,
     specs: [
-      { label: '최대 적재량', value: '220kg / 480파운드' },
+      { label: '최대 적재량', value: '218kg / 480파운드' },
       { label: '베이스 무게', value: '21.5kg / 47.4파운드' },
-      { label: '상판 무게', value: '23.6kg / 52파운드' },
+      { label: '상판 무게', value: '21.5kg / 47.4파운드' },
       { label: '상판 크기', value: '1220 x 660 x 50mm (플랫폼 확장 포함)' },
       { label: '접힘 크기', value: '995 x 330 x 385mm' },
-      { label: '직립 로우', value: '895 x 620 x 700mm' },
-      { label: '직립 하이', value: '895 x 620 x 935mm' },
+      { label: '최저 높이', value: '895 x 620 x 700mm' },
+      { label: '최고 높이', value: '895 x 620 x 935mm' },
     ],
     features: [
       '[대형 롤오프 플랫폼 상판] 플랫폼 보안 잠금',
@@ -1246,10 +1246,20 @@ export const MODELS: Model[] = [
       '[대형 롤오프 플랫폼 상판] 계단 오르기 손잡이',
       '[대형 롤오프 플랫폼 상판] 도어 글라이드 프로텍터',
       '[대형 롤오프 플랫폼 상판] 로드 스트랩 2개',
-      '[대형 롤오프 플랫폼 상판] 수송 방패 가방',
-      '[헤비 듀티 베이스] 사전 조정 가능한 하중 높이',
-      '[헤비 듀티 베이스] 공압 뒷바퀴 & 앞뒤 잠금 휠',
+      '[대형 롤오프 플랫폼 상판] 수송용 보호 커버(가방)',
+      '[헤비 듀티 베이스] 적재 높이 사전 조정 가능',
+      '[헤비 듀티 베이스] 공압 뒷바퀴 & 앞바퀴 잠금 캐스터',
       '[헤비 듀티 베이스] 하단 베이스 선반 클립 온 앤 오프',
     ],
+    // same page layout as the roaster pages (hero, 제원 + 주요 기능); no price / Colors / 공식 파트너 박스 yet, the catalog photos are added later
+    specShowcase: {
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroTagline:
+        '1982년 영국의 데이비드 파킨에 의해 설립된 뎀트럭(Demtruk)은 무거운 기계를 안전하고 쉽고 간편하게 이동하려는 엔지니어들에게 안성맞춤인 1인 운영 솔루션 제품입니다. 국내에는 아직 많이 알려지지 않았지만, 해외에서는 수많은 카페 컨설팅, 기계 설치 및 A/S 업체에서 이동 수단으로 사용하고 있는 트롤리입니다. 저희 리우 컴퍼니(Lieu Company)를 통해 국내에 공식 수입된 뎀트럭 트롤리 제품을 소개합니다.',
+    },
   },
 ]
