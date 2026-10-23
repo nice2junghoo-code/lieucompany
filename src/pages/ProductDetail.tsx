@@ -422,28 +422,39 @@ function ProductDetail() {
                 <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">제원</h2>
 
                 {/* product photo with dimension brackets: height on the left, width underneath */}
-                <div className="mt-10 flex justify-center">
-                  <div className="relative ml-10">
-                    <img src={model.image} alt={model.name} className="h-[200px] w-auto sm:h-[280px] lg:h-[340px]" />
-
-                    {model.specShowcase.width && model.specShowcase.height && (
-                      <>
-                        <div className="absolute top-0 bottom-0 -left-5 w-3 border-y border-l border-ink/50" />
-                        <span
-                          className="absolute top-1/2 -left-12 -translate-y-1/2 text-[13px] font-[600] text-ink"
-                          style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
-                        >
-                          {model.specShowcase.height}
-                        </span>
-
-                        <div className="absolute inset-x-0 -bottom-6 h-3 border-x border-b border-ink/50" />
-                        <span className="absolute inset-x-0 -bottom-12 text-center text-[13px] font-[600] text-ink">
-                          {model.specShowcase.width}
-                        </span>
-                      </>
-                    )}
+                {model.specShowcase.specImage ? (
+                  /* ready-made dimension diagram (white background blends into the gray band) */
+                  <div className="mt-10 flex justify-center">
+                    <img
+                      src={model.specShowcase.specImage}
+                      alt={`${model.name} 제원 치수`}
+                      className="h-[300px] w-auto mix-blend-multiply sm:h-[400px] lg:h-[500px]"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div className="mt-10 flex justify-center">
+                    <div className="relative ml-10">
+                      <img src={model.image} alt={model.name} className="h-[200px] w-auto sm:h-[280px] lg:h-[340px]" />
+
+                      {model.specShowcase.width && model.specShowcase.height && (
+                        <>
+                          <div className="absolute top-0 bottom-0 -left-5 w-3 border-y border-l border-ink/50" />
+                          <span
+                            className="absolute top-1/2 -left-12 -translate-y-1/2 text-[13px] font-[600] text-ink"
+                            style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
+                          >
+                            {model.specShowcase.height}
+                          </span>
+
+                          <div className="absolute inset-x-0 -bottom-6 h-3 border-x border-b border-ink/50" />
+                          <span className="absolute inset-x-0 -bottom-12 text-center text-[13px] font-[600] text-ink">
+                            {model.specShowcase.width}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="mt-14">
