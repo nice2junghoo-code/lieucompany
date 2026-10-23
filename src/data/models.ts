@@ -370,7 +370,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b30sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b30sColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b30sColorRed },
+      { name: '레드', hex: '#dc2626', image: b30sColorRed },
     ],
     specShowcase: {
       width: '770mm',
@@ -431,7 +431,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b80ColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b80ColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b80ColorRed },
+      { name: '레드', hex: '#dc2626', image: b80ColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -498,7 +498,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b80cColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b80cColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b80cColorRed },
+      { name: '레드', hex: '#dc2626', image: b80cColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -568,7 +568,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b80sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b80sColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b80sColorRed },
+      { name: '레드', hex: '#dc2626', image: b80sColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -645,7 +645,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b150ColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b150ColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b150ColorRed },
+      { name: '레드', hex: '#dc2626', image: b150ColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -712,7 +712,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b150cColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b150cColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b150cColorRed },
+      { name: '레드', hex: '#dc2626', image: b150cColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -782,7 +782,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b150sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b150sColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b150sColorRed },
+      { name: '레드', hex: '#dc2626', image: b150sColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
@@ -856,7 +856,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b180sgColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b180sgColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b180sgColorRed },
+      { name: '레드', hex: '#dc2626', image: b180sgColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
@@ -925,7 +925,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b500sColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b500sColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b500sColorRed },
+      { name: '레드', hex: '#dc2626', image: b500sColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[260px] sm:max-w-sm lg:max-w-md',
@@ -1022,7 +1022,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b500sgColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b500sgColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b500sgColorRed },
+      { name: '레드', hex: '#dc2626', image: b500sgColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[260px] sm:max-w-sm lg:max-w-md',
@@ -1125,7 +1125,7 @@ export const MODELS: Model[] = [
     colorOptions: [
       { name: '블랙', hex: '#111111', image: b15kSgColorBlack },
       { name: '아이보리', hex: '#f3efe3', image: b15kSgColorIvory },
-      { name: '빨강', hex: '#dc2626', image: b15kSgColorRed },
+      { name: '레드', hex: '#dc2626', image: b15kSgColorRed },
     ],
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-lg',
