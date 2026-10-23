@@ -416,6 +416,25 @@ function ProductDetail() {
             </div>
           )}
 
+          {model?.specShowcase?.video && (
+            <div className="mt-16 lg:mt-20">
+              {model.specShowcase.video.title && (
+                <h2 className="text-[28px] font-[652] leading-[1.13] text-ink sm:text-[36px]">{model.specShowcase.video.title}</h2>
+              )}
+              {/* 16:9 YouTube embed, plays on click (no autoplay) */}
+              <div className={`relative aspect-video w-full overflow-hidden bg-canvas-soft ${model.specShowcase.video.title ? 'mt-6' : ''}`}>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${model.specShowcase.video.youtubeId}?rel=0`}
+                  title={model.specShowcase.video.title ?? `${model.name.split('\n').join(' ')} 영상`}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+            </div>
+          )}
+
           {model?.specShowcase && (model.specs || model.specGroups) && (
             <div className="mt-16 lg:mt-20">
               <div className="bg-canvas-soft px-6 pt-14 pb-24 text-center lg:pt-20">

@@ -197,6 +197,8 @@ export type Model = {
   specShowcase?: {
     // 제원 rows with these labels are not shown on this page (the underlying data stays for other pages)
     hideSpecLabels?: string[]
+    // YouTube video block right above the 제원 section (embed only, plays on click)
+    video?: { youtubeId: string; title?: string }
     // drawings shown in the 제원 band instead of the product photo: side by side on PC, stacked on mobile, each with its own width / height brackets
     specImages?: { src: string; caption: string; width: string; height: string }[]
     // dimension brackets on the 제원 photo are drawn only when both are given
@@ -1267,6 +1269,7 @@ export const MODELS: Model[] = [
     // same page layout as the roaster pages (hero, 제원 + 주요 기능); no price / Colors / 공식 파트너 박스
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
+      video: { youtubeId: 'cYj46wAXdRY' },
       specImages: [
         { src: demtruckFolded, caption: '접은 모습', width: '995mm', height: '385mm' },
         { src: demtruckUpright, caption: '세운 모습', width: '895mm', height: '700 ~ 935mm' },
