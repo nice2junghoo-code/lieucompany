@@ -348,7 +348,7 @@ export const MODELS: Model[] = [
     specs: [
       { label: '투입량', value: '100g ~ 300g (최대 350g)' },
       { label: '드럼 두께', value: '3T' },
-      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '전압', value: 'AC220V / 60Hz' },
       { label: '열원', value: '코일히터' },
       { label: '소비전력', value: '2.0kw' },
       { label: '드럼 재질', value: '국산 SUS 304' },
@@ -381,7 +381,7 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroTagline: '스마트 기능이 탑재한 홈 로스팅 및 샘플용 로스터기',
-      heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(테블릿 미포함)' },
+      heroPrice: { amount: '6,380,000원', suffix: 'VAT포함', caption: '(태블릿 미포함)' },
       table: { modelId: 'buja-table', specHeading: 'B30 모델 전용 테이블', title: '부자로스터 B30S 전용 테이블', specTitle: '부자로스터 B30S 전용 TABLE', image: b30sTableCombo },
       gallery: {
         title: '갤러리',
@@ -393,7 +393,7 @@ export const MODELS: Model[] = [
         options: [
         { name: 'B30S 전용테이블', price: '400,000', sub: '부자테이블 변경 선택가능', vat: '미포함' },
         { name: '커스텀 컬러', price: '200,000', vat: '미포함' },
-        { name: '테블릿PC 고객님 별도 구매 품목' },
+        { name: '태블릿PC 고객님 별도 구매 품목' },
       ],
       },
     },
@@ -417,7 +417,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '3T' },
     ],
     features: [
-      '시간당 3.2kg 생산가능',
+      '시간당 3.2kg 생산 가능',
       '파이어스코프 및 아티산 연동',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
@@ -484,7 +484,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '3T' },
     ],
     features: [
-      '시간당 3.2kg 생산가능',
+      '시간당 3.2kg 생산 가능',
       '파이어스코프 및 아티산 연동',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
@@ -551,7 +551,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '3T' },
     ],
     features: [
-      '시간당 3.2kg 생산가능',
+      '시간당 3.2kg 생산 가능',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
       '모듈형 서랍식 히터 방식',
@@ -631,7 +631,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '4T' },
     ],
     features: [
-      '시간당 4.8kg 생산가능',
+      '시간당 4.8kg 생산 가능',
       '파이어스코프 및 아티산 연동',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
@@ -698,7 +698,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '4T' },
     ],
     features: [
-      '시간당 4.8kg 생산가능',
+      '시간당 4.8kg 생산 가능',
       '파이어스코프 및 아티산 연동',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
@@ -765,7 +765,7 @@ export const MODELS: Model[] = [
       { label: '드럼 두께', value: '4T' },
     ],
     features: [
-      '시간당 4.8kg 생산가능',
+      '시간당 4.8kg 생산 가능',
       '10단 댐퍼 조정 가능 (기본 개방상태 추천)',
       '로스팅 후 자동 배출 및 자동 쿨링',
       '모듈형 서랍식 히터 방식',
@@ -837,11 +837,11 @@ export const MODELS: Model[] = [
       { label: '무게', value: '약 90kg' },
     ],
     features: [
-      '시간당 6kg 생산가능',
+      '시간당 6kg 생산 가능',
       '파이어스코프 및 아티산 연동',
       '싸이클론 모터 송풍량 전자식 제어',
       '드럼 속도 제어',
-      '외부 프로파일 저장 10, 내부 50개',
+      '외부 프로파일 저장 10개, 내부 50개',
       '자동 로스팅 중 설정 변환 기능',
       '예열 유지 기능',
       '로스팅 종료 후 자동 배출',
@@ -1107,7 +1107,7 @@ export const MODELS: Model[] = [
     ],
     features: [
       '시간당 55kg 생산 가능',
-      '싸이클론 모터 송풍향 전자식 제어',
+      '싸이클론 모터 송풍량 전자식 제어',
       '드럼 속도 제어',
       '외부 프로파일 저장 10개, 내부 50개',
       '자동 로스팅 중 설정 변환 기능',

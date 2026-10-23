@@ -12,8 +12,8 @@ const SLIDES = [
     aspectClass: 'aspect-[1005/877]',
     sizeClass: 'max-w-[260px] sm:max-w-md lg:max-w-xl',
     stats: [
-      { label: '투입량', value: '100g ~ 300G (최대350g)' },
-      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '투입량', value: '100g ~ 300g (최대 350g)' },
+      { label: '전압', value: 'AC220V / 60Hz' },
       { label: '크기', value: '770 x 250 x 670mm' },
     ],
   },
@@ -26,8 +26,8 @@ const SLIDES = [
     aspectClass: 'aspect-[943/807]',
     sizeClass: 'max-w-[280px] sm:max-w-lg lg:max-w-2xl',
     stats: [
-      { label: '투입량', value: '300g ~ 800G (최대1kg)' },
-      { label: '전압', value: 'Ac220V / 60Hz' },
+      { label: '투입량', value: '300g ~ 800g (최대 1kg)' },
+      { label: '전압', value: 'AC220V / 60Hz' },
       { label: '크기', value: '1000 x 320 x 810mm' },
     ],
   },
