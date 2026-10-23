@@ -136,7 +136,8 @@ import b15kSgGallery7 from '../assets/b15k-sg-gallery/gallery-7.jpg'
 import b15kSgGallery8 from '../assets/b15k-sg-gallery/gallery-8.jpg'
 import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
-import demtruckDimensions from '../assets/demtruck-dimensions.jpg'
+import demtruckFolded from '../assets/demtruck-folded.jpg'
+import demtruckUpright from '../assets/demtruck-upright.jpg'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
 import b500sGalleryGraph from '../assets/b500s-gallery-graph.jpg'
@@ -187,8 +188,8 @@ export type Model = {
   specShowcase?: {
     // 제원 rows with these labels are not shown on this page (the underlying data stays for other pages)
     hideSpecLabels?: string[]
-    // ready-made diagram shown in the 제원 band instead of the product photo + brackets
-    specImage?: string
+    // drawings shown in the 제원 band instead of the product photo: side by side on PC, stacked on mobile, each with its own width / height brackets
+    specImages?: { src: string; caption: string; width: string; height: string }[]
     // dimension brackets on the 제원 photo are drawn only when both are given
     width?: string
     height?: string
@@ -1257,7 +1258,10 @@ export const MODELS: Model[] = [
     // same page layout as the roaster pages (hero, 제원 + 주요 기능); no price / Colors / 공식 파트너 박스 yet, the catalog photos are added later
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
-      specImage: demtruckDimensions,
+      specImages: [
+        { src: demtruckFolded, caption: '접은 모습', width: '995mm', height: '385mm' },
+        { src: demtruckUpright, caption: '세운 모습', width: '895mm', height: '700 ~ 935mm' },
+      ],
       featuresBelow: true,
       hideTopSpecs: true,
       buttonsInMain: true,
