@@ -138,6 +138,15 @@ import bujaTableImage from '../assets/model-buja-table.png'
 import demtruckImage from '../assets/model-demtruck.png'
 import demtruckFolded from '../assets/demtruck-folded.jpg'
 import demtruckUpright from '../assets/demtruck-upright.jpg'
+import demtruckGallery1 from '../assets/demtruck-gallery/gallery-1.jpg'
+import demtruckGallery2 from '../assets/demtruck-gallery/gallery-2.jpg'
+import demtruckGallery3 from '../assets/demtruck-gallery/gallery-3.jpg'
+import demtruckGallery4 from '../assets/demtruck-gallery/gallery-4.jpg'
+import demtruckGallery5 from '../assets/demtruck-gallery/gallery-5.jpg'
+import demtruckGallery6 from '../assets/demtruck-gallery/gallery-6.jpg'
+import demtruckGallery7 from '../assets/demtruck-gallery/gallery-7.jpg'
+import demtruckGallery8 from '../assets/demtruck-gallery/gallery-8.jpg'
+import demtruckGallery9 from '../assets/demtruck-gallery/gallery-9.jpg'
 import b500sGalleryDrum from '../assets/b500s-gallery-drum.jpg'
 import b500sGalleryPanel from '../assets/b500s-gallery-panel.jpg'
 import b500sGalleryGraph from '../assets/b500s-gallery-graph.jpg'
@@ -1255,7 +1264,7 @@ export const MODELS: Model[] = [
       '[헤비 듀티 베이스] 공압 뒷바퀴 & 앞바퀴 잠금 캐스터',
       '[헤비 듀티 베이스] 하단 베이스 선반 클립 온 앤 오프',
     ],
-    // same page layout as the roaster pages (hero, 제원 + 주요 기능); no price / Colors / 공식 파트너 박스 yet, the catalog photos are added later
+    // same page layout as the roaster pages (hero, 제원 + 주요 기능); no price / Colors / 공식 파트너 박스
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-xl',
       specImages: [
@@ -1266,6 +1275,20 @@ export const MODELS: Model[] = [
       hideTopSpecs: true,
       buttonsInMain: true,
       heroLayout: true,
+      gallery: {
+        title: '갤러리',
+        images: [
+          demtruckGallery1,
+          demtruckGallery2,
+          demtruckGallery3,
+          demtruckGallery4,
+          demtruckGallery5,
+          demtruckGallery6,
+          demtruckGallery7,
+          demtruckGallery8,
+          demtruckGallery9,
+        ],
+      },
       heroTagline:
         '1982년 영국의 데이비드 파킨에 의해 설립된 뎀트럭(Demtruk)은 무거운 기계를 안전하고 쉽고 간편하게 이동하려는 엔지니어들에게 안성맞춤인 1인 운영 솔루션 제품입니다. 국내에는 아직 많이 알려지지 않았지만, 해외에서는 수많은 카페 컨설팅, 기계 설치 및 A/S 업체에서 이동 수단으로 사용하고 있는 트롤리입니다. 저희 리우 컴퍼니(Lieu Company)를 통해 국내에 공식 수입된 뎀트럭 트롤리 제품을 소개합니다.',
     },
