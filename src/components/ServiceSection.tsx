@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import serviceShowroomImage from '../assets/service-showroom.jpg'
 import serviceReservationImage from '../assets/service-reservation.png'
 import serviceDemoImage from '../assets/service-demo.png'
+import serviceRelocationImage from '../assets/service-relocation.jpg'
 
 const SERVICES = [
   { key: 'center', label: '전시장 쇼룸', image: serviceShowroomImage, to: '/showroom' },
   { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage, to: '/service/demo' },
   { key: 'reservation', label: 'A/S 서비스 신청', image: serviceReservationImage, to: '/service/as' },
-  // same photo as A/S for now — swap in a relocation photo later
-  { key: 'relocation', label: '이전 설치 신청', image: serviceReservationImage, to: '/service/relocation' },
+  { key: 'relocation', label: '이전 설치 신청', image: serviceRelocationImage, to: '/service/relocation' },
 ]
 
 function ChevronRightIcon() {
