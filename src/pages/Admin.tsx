@@ -3,13 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import { supabase, NEWS_CATEGORY, RELOCATION_CATEGORY, type NewsRow } from '../lib/supabase'
 
-// originalCategory lets the save step send `category` only when it matters: plain news posts are saved exactly as before
+const MAX_IMAGES = 5
+
+// originalCategory lets the save step send `category` only when it matters: plain news posts are saved exactly as before.
+// Photos: keptImages are the already-uploaded ones still on the post, imageFiles the new picks; together at most MAX_IMAGES, first = cover.
 const emptyForm = {
   id: '',
   date: '',
   title: '',
   content: '',
-  imageFile: null as File | null,
+  imageFiles: [] as File[],
+  keptImages: [] as string[],
+  originalImages: [] as string[],
+  hasImagesColumn: false,
   category: NEWS_CATEGORY,
   originalCategory: NEWS_CATEGORY,
 }
@@ -21,6 +27,8 @@ function Admin() {
   const [form, setForm] = useState(emptyForm)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  // changing the key clears the (uncontrolled) file input after a save / cancel
+  const [fileInputKey, setFileInputKey] = useState(0)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -59,19 +67,43 @@ function Admin() {
 
   const startEdit = (post: NewsRow) => {
     const category = post.category ?? NEWS_CATEGORY
+    const photos = post.images && post.images.length > 0 ? post.images : post.image_url ? [post.image_url] : []
     setForm({
       id: post.id,
       date: post.date,
       title: post.title,
       content: post.content ?? '',
-      imageFile: null,
+      imageFiles: [],
+      keptImages: photos,
+      originalImages: photos,
+      hasImagesColumn: post.images !== undefined,
       category,
       originalCategory: category,
     })
+    setFileInputKey((k) => k + 1)
     setError('')
   }
 
-  const resetForm = () => setForm(emptyForm)
+  const resetForm = () => {
+    setForm(emptyForm)
+    setFileInputKey((k) => k + 1)
+  }
+
+  const handleFilesPicked = (files: FileList | null) => {
+    const picked = Array.from(files ?? [])
+    const room = MAX_IMAGES - form.keptImages.length
+    if (picked.length > room) {
+      setError(`사진은 한 글에 최대 ${MAX_IMAGES}장까지예요. 앞에서부터 ${Math.max(room, 0)}장만 올라갑니다.`)
+    } else {
+      setError('')
+    }
+    setForm((f) => ({ ...f, imageFiles: picked.slice(0, Math.max(room, 0)) }))
+  }
+
+  const removeKeptImage = (url: string) => {
+    setError('')
+    setForm((f) => ({ ...f, keptImages: f.keptImages.filter((u) => u !== url) }))
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -79,22 +111,30 @@ function Admin() {
     setSaving(true)
 
     try {
-      let imageUrl: string | undefined
-      if (form.imageFile) {
-        const path = `${Date.now()}-${form.imageFile.name}`
-        const { error: uploadError } = await supabase.storage.from('lieucompany').upload(path, form.imageFile)
+      // upload the new photos one by one (keeps the order they were picked in)
+      const uploaded: string[] = []
+      for (const [i, file] of form.imageFiles.entries()) {
+        const path = `${Date.now()}-${i}-${file.name}`
+        const { error: uploadError } = await supabase.storage.from('lieucompany').upload(path, file)
         if (uploadError) throw uploadError
-        imageUrl = supabase.storage.from('lieucompany').getPublicUrl(path).data.publicUrl
+        uploaded.push(supabase.storage.from('lieucompany').getPublicUrl(path).data.publicUrl)
       }
+      const photos = [...form.keptImages, ...uploaded]
+      const photosChanged = uploaded.length > 0 || form.keptImages.length !== form.originalImages.length
 
       if (form.id) {
         const update: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content }
-        if (imageUrl) update.image_url = imageUrl
+        if (photosChanged) {
+          update.image_url = photos[0] ?? null
+          // `images` (the full list) is only sent when it is needed, so single-photo posts keep working before the column exists
+          if (photos.length > 1 || form.hasImagesColumn) update.images = photos
+        }
         if (form.category !== form.originalCategory) update.category = form.category
         const { error: updateError } = await supabase.from('news').update(update).eq('id', form.id)
         if (updateError) throw updateError
       } else {
-        const insert: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content, image_url: imageUrl ?? null }
+        const insert: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content, image_url: photos[0] ?? null }
+        if (photos.length > 1) insert.images = photos
         if (form.category !== NEWS_CATEGORY) insert.category = form.category
         const { error: insertError } = await supabase.from('news').insert(insert)
         if (insertError) throw insertError
@@ -165,12 +205,41 @@ function Admin() {
               placeholder="내용"
               className="w-full resize-y rounded-none border border-hairline bg-canvas px-4 py-2.5 text-[14px] text-ink placeholder:text-text-muted focus:border-ink focus:outline-none"
             />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setForm((f) => ({ ...f, imageFile: e.target.files?.[0] ?? null }))}
-              className="w-full text-[13px] text-text-muted"
-            />
+            <div>
+              <p className="text-[13px] font-[600] text-ink">
+                사진 (최대 {MAX_IMAGES}장 · 첫 번째 사진이 대표 사진) — 현재 {form.keptImages.length + form.imageFiles.length}장
+              </p>
+
+              {form.keptImages.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {form.keptImages.map((url, i) => (
+                    <div key={url} className="relative h-20 w-20 border border-hairline bg-canvas-soft">
+                      <img src={url} alt={`사진 ${i + 1}`} className="h-full w-full object-cover" />
+                      <button
+                        type="button"
+                        onClick={() => removeKeptImage(url)}
+                        aria-label={`사진 ${i + 1} 삭제`}
+                        className="absolute top-0 right-0 bg-ink px-1.5 text-[12px] leading-5 text-on-primary"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {form.keptImages.length < MAX_IMAGES && (
+                <input
+                  key={fileInputKey}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(e) => handleFilesPicked(e.target.files)}
+                  className="mt-2 w-full text-[13px] text-text-muted"
+                />
+              )}
+              <p className="mt-1 text-[12px] text-text-muted">여러 장은 한 번에 선택해 주세요. 선택한 순서대로 올라가요.</p>
+            </div>
           </div>
 
           {error && <p className="mt-3 text-[13px] text-red-600">{error}</p>}

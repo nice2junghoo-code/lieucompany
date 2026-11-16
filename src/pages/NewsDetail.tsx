@@ -51,6 +51,13 @@ function NewsDetail() {
               )}
 
               <div className="mt-8 whitespace-pre-wrap text-[16px] leading-[1.7] text-ink">{post.content}</div>
+
+              {/* the other photos (the first one is the cover above), stacked under the text */}
+              {(post.images ?? [])
+                .filter((url) => url !== post.image_url)
+                .map((url, i) => (
+                  <img key={url} src={url} alt={`${post.title} 사진 ${i + 2}`} loading="lazy" className="mt-6 w-full" />
+                ))}
             </article>
           )}
         </div>

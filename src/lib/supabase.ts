@@ -16,6 +16,8 @@ export type NewsRow = {
   created_at: string
   // 'news' (default) or 'relocation' (이전 설치 사례). Missing until the column exists in Supabase, so treat undefined as 'news'.
   category?: string | null
+  // all photos of the post in order (first = cover = image_url); missing until the column exists in Supabase
+  images?: string[] | null
 }
 
 export const NEWS_CATEGORY = 'news'
