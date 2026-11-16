@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import RelocationPosts from '../components/RelocationPosts'
 
 // zero-padded filenames keep the alphabetical sort equal to the numeric order
 const GALLERY_IMAGES = Object.entries(import.meta.glob<string>('../assets/relocation-gallery/*.jpg', { eager: true, import: 'default' }))
@@ -108,6 +109,8 @@ function RelocationService() {
             </div>
           </div>
         </div>
+
+        <RelocationPosts />
       </main>
 
       <Footer />

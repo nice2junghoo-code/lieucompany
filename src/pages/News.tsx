@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { supabase, type NewsRow } from '../lib/supabase'
+import { supabase, isNewsPost, type NewsRow } from '../lib/supabase'
 
 function SearchIcon() {
   return (
@@ -24,7 +24,8 @@ function News() {
       .select('*')
       .order('date', { ascending: false })
       .then(({ data }) => {
-        setPosts(data ?? [])
+        // 이전 설치 사례 posts live in the same table but are shown on their own page
+        setPosts((data ?? []).filter(isNewsPost))
         setLoading(false)
       })
   }, [])

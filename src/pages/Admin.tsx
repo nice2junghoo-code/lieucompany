@@ -1,9 +1,18 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
-import { supabase, type NewsRow } from '../lib/supabase'
+import { supabase, NEWS_CATEGORY, RELOCATION_CATEGORY, type NewsRow } from '../lib/supabase'
 
-const emptyForm = { id: '', date: '', title: '', content: '', imageFile: null as File | null }
+// originalCategory lets the save step send `category` only when it matters: plain news posts are saved exactly as before
+const emptyForm = {
+  id: '',
+  date: '',
+  title: '',
+  content: '',
+  imageFile: null as File | null,
+  category: NEWS_CATEGORY,
+  originalCategory: NEWS_CATEGORY,
+}
 
 function Admin() {
   const navigate = useNavigate()
@@ -49,7 +58,16 @@ function Admin() {
   }
 
   const startEdit = (post: NewsRow) => {
-    setForm({ id: post.id, date: post.date, title: post.title, content: post.content ?? '', imageFile: null })
+    const category = post.category ?? NEWS_CATEGORY
+    setForm({
+      id: post.id,
+      date: post.date,
+      title: post.title,
+      content: post.content ?? '',
+      imageFile: null,
+      category,
+      originalCategory: category,
+    })
     setError('')
   }
 
@@ -72,12 +90,13 @@ function Admin() {
       if (form.id) {
         const update: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content }
         if (imageUrl) update.image_url = imageUrl
+        if (form.category !== form.originalCategory) update.category = form.category
         const { error: updateError } = await supabase.from('news').update(update).eq('id', form.id)
         if (updateError) throw updateError
       } else {
-        const { error: insertError } = await supabase
-          .from('news')
-          .insert({ date: form.date, title: form.title, content: form.content, image_url: imageUrl ?? null })
+        const insert: Partial<NewsRow> = { date: form.date, title: form.title, content: form.content, image_url: imageUrl ?? null }
+        if (form.category !== NEWS_CATEGORY) insert.category = form.category
+        const { error: insertError } = await supabase.from('news').insert(insert)
         if (insertError) throw insertError
       }
 
@@ -114,6 +133,15 @@ function Admin() {
           <h2 className="text-[15px] font-[600] text-ink">{form.id ? '게시글 수정' : '새 게시글 작성'}</h2>
 
           <div className="mt-4 flex flex-col gap-3">
+            {/* where the post shows up: 뉴스 page, or the bottom of the 이전 설치 page */}
+            <select
+              value={form.category}
+              onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+              className="w-full rounded-none border border-hairline bg-canvas px-4 py-2.5 text-[14px] text-ink focus:border-ink focus:outline-none"
+            >
+              <option value={NEWS_CATEGORY}>뉴스</option>
+              <option value={RELOCATION_CATEGORY}>이전 설치 사례</option>
+            </select>
             <input
               type="date"
               required
@@ -174,7 +202,10 @@ function Admin() {
           {posts.map((post) => (
             <div key={post.id} className="flex items-center justify-between gap-4 border border-hairline bg-canvas px-5 py-4">
               <div className="min-w-0">
-                <p className="text-[13px] text-text-muted">{post.date}</p>
+                <p className="text-[13px] text-text-muted">
+                  {post.date}
+                  {post.category === RELOCATION_CATEGORY && <span className="ml-2 font-[700] text-red-600">이전 설치 사례</span>}
+                </p>
                 <p className="truncate text-[15px] font-[600] text-ink">{post.title}</p>
               </div>
               <div className="flex shrink-0 gap-2">

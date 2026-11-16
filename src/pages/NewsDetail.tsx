@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { supabase, type NewsRow } from '../lib/supabase'
+import { supabase, RELOCATION_CATEGORY, type NewsRow } from '../lib/supabase'
 
 function NewsDetail() {
   const { id } = useParams()
@@ -24,9 +24,16 @@ function NewsDetail() {
 
       <main className="py-16 lg:py-20">
         <div className="mx-auto max-w-[820px] px-6 lg:px-10">
-          <Link to="/news" className="text-[13px] font-[600] text-text-muted hover:text-ink">
-            ← 목록으로
-          </Link>
+          {/* 이전 설치 사례 posts go back to their own page instead of the news list */}
+          {post && post !== 'loading' && post.category === RELOCATION_CATEGORY ? (
+            <Link to="/service/relocation" className="text-[13px] font-[600] text-text-muted hover:text-ink">
+              ← 이전 설치로 돌아가기
+            </Link>
+          ) : (
+            <Link to="/news" className="text-[13px] font-[600] text-text-muted hover:text-ink">
+              ← 목록으로
+            </Link>
+          )}
 
           {post === 'loading' && <p className="py-20 text-center text-[14px] text-text-muted">불러오는 중...</p>}
 

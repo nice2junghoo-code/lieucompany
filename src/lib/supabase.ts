@@ -14,4 +14,11 @@ export type NewsRow = {
   content: string | null
   image_url: string | null
   created_at: string
+  // 'news' (default) or 'relocation' (이전 설치 사례). Missing until the column exists in Supabase, so treat undefined as 'news'.
+  category?: string | null
 }
+
+export const NEWS_CATEGORY = 'news'
+export const RELOCATION_CATEGORY = 'relocation'
+
+export const isNewsPost = (post: NewsRow) => (post.category ?? NEWS_CATEGORY) === NEWS_CATEGORY

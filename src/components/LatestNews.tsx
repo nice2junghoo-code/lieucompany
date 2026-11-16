@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase, type NewsRow } from '../lib/supabase'
+import { supabase, isNewsPost, type NewsRow } from '../lib/supabase'
 
 function LatestNews() {
   const [posts, setPosts] = useState<NewsRow[]>([])
@@ -10,8 +10,9 @@ function LatestNews() {
       .from('news')
       .select('*')
       .order('date', { ascending: false })
-      .limit(3)
-      .then(({ data }) => setPosts(data ?? []))
+      .limit(12)
+      // fetch a few extra so 이전 설치 사례 posts can be skipped and 3 news posts still show
+      .then(({ data }) => setPosts((data ?? []).filter(isNewsPost).slice(0, 3)))
   }, [])
 
   if (posts.length === 0) return null
