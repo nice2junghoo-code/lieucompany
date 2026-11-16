@@ -69,7 +69,7 @@ function RelocationService() {
         <div className="mx-[calc(50%-50vw)] mt-16 w-screen bg-canvas-soft px-6 py-16 text-center lg:mt-20 lg:py-20">
           <h2 className="text-[26px] font-[700] text-ink sm:text-[32px]">부자로스터 이전 설치 안내(ARS)</h2>
           <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-[1.7] text-text-muted">
-            전화 한통으로 고객님들께 신속한 A/S서비스를 제공합니다.
+            전화 한 통으로 로스터기 이전 설치를 안전하고 신속하게 도와드립니다.
           </p>
         </div>
 
