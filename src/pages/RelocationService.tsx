@@ -50,9 +50,9 @@ function RelocationService() {
       <Header />
 
       <main className="px-6 pb-16 lg:pb-20">
-        {/* auto-scrolling gallery — full-bleed, right-to-left, seamless loop; 130s keeps the speed of the 7-image showroom gallery (36s) */}
+        {/* auto-scrolling gallery — full-bleed, right-to-left, seamless loop; 73s for 14 photos keeps the same per-photo speed as the A/S page (130s for 25) */}
         <div className="mx-[calc(50%-50vw)] w-screen overflow-hidden">
-          <div className="flex w-max animate-[marquee-left_130s_linear_infinite] gap-4">
+          <div className="flex w-max animate-[marquee-left_73s_linear_infinite] gap-4">
             {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((src, i) => (
               <img
                 key={i}
