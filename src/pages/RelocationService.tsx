@@ -10,7 +10,7 @@ const GALLERY_IMAGES = Object.entries(import.meta.glob<string>('../assets/reloca
 
 const RESERVATION_STEPS: { label: string; desc: string; phone?: string }[] = [
   { label: '전화 연결', desc: '010-7466-2744', phone: '010-7466-2744' },
-  { label: 'A/S 접수', desc: '모델 · 고장증상 · 일자 · 시간 상담' },
+  { label: '이전 설치 접수', desc: '모델 · 현재 위치 · 이전 위치 · 일자 · 시간 상담' },
 ]
 
 function PhoneIcon() {
@@ -81,7 +81,7 @@ function RelocationService() {
             안전하고 신속하게 이전 설치를 도와드립니다.
           </p>
 
-          <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">A/S 서비스 예약 절차</h2>
+          <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">이전 설치 서비스 예약 절차</h2>
           <div className="mt-6 rounded-none border border-hairline p-6 sm:p-8">
             <div className="flex flex-col gap-3">
               {RESERVATION_STEPS.map((step, i) => (
