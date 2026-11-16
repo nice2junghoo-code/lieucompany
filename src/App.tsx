@@ -8,6 +8,7 @@ import NewsDetail from './pages/NewsDetail'
 import Service from './pages/Service'
 import DemoRequest from './pages/DemoRequest'
 import AsService from './pages/AsService'
+import RelocationService from './pages/RelocationService'
 import Showroom from './pages/Showroom'
 import Admin from './pages/Admin'
 import AdminLogin from './pages/AdminLogin'
@@ -27,6 +28,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/service/demo" element={<DemoRequest />} />
         <Route path="/service/as" element={<AsService />} />
+        <Route path="/service/relocation" element={<RelocationService />} />
         <Route path="/showroom" element={<Showroom />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<Admin />} />

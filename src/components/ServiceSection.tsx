@@ -7,6 +7,8 @@ const SERVICES = [
   { key: 'center', label: '전시장 쇼룸', image: serviceShowroomImage, to: '/showroom' },
   { key: 'demo', label: '부자로스터 시현 신청', image: serviceDemoImage, to: '/service/demo' },
   { key: 'reservation', label: 'A/S 서비스 신청', image: serviceReservationImage, to: '/service/as' },
+  // same photo as A/S for now — swap in a relocation photo later
+  { key: 'relocation', label: '이전 설치 신청', image: serviceReservationImage, to: '/service/relocation' },
 ]
 
 function ChevronRightIcon() {

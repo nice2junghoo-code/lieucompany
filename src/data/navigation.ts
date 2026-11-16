@@ -22,6 +22,7 @@ export const NAV_LINKS: NavLink[] = [
     children: [
       { label: '시현 신청', to: '/service/demo' },
       { label: 'A/S 서비스', to: '/service/as' },
+      { label: '이전 설치', to: '/service/relocation' },
     ],
   },
   {
