@@ -75,10 +75,10 @@ function RelocationService() {
 
         {/* reservation intro + procedure */}
         <div className="mx-auto mt-16 max-w-[1400px] lg:mt-20">
-          <h2 className="text-[22px] font-[700] text-ink sm:text-[26px]">A/S 서비스 예약 소개</h2>
+          <h2 className="text-[22px] font-[700] text-ink sm:text-[26px]">이전 설치 서비스 예약 소개</h2>
           <p className="mt-4 text-[17px] leading-[1.7] text-text-muted">
-            부자로 로스터기 정비 A/S 서비스 예약을 받고 있습니다. 전화 한통으로 고객님들에게 신속한 A/S 서비스를
-            제공해드립니다.
+            부자로스터 이전 설치 서비스 예약을 받고 있습니다. 매장 이전이나 확장으로 로스터기를 옮기실 때, 전화 한 통으로
+            안전하고 신속하게 이전 설치를 도와드립니다.
           </p>
 
           <h2 className="mt-14 text-[22px] font-[700] text-ink sm:text-[26px]">A/S 서비스 예약 절차</h2>
