@@ -935,6 +935,11 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroPrice: { amount: '19,800,000원', suffix: 'VAT포함' },
+      price: {
+        title: '추가 선택품목',
+        subtitle: '2026년 기준 (단위 : 원)',
+        options: [{ name: '커스텀 컬러', price: '400,000' }],
+      },
     },
   },
   {
