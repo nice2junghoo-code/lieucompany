@@ -200,6 +200,8 @@ export type Model = {
   specShowcase?: {
     // 제원 rows with these labels are not shown on this page (the underlying data stays for other pages)
     hideSpecLabels?: string[]
+    // small note shown under the 주요 기능 list
+    featuresNote?: string
     // YouTube video block right above the 제원 section (embed only, plays on click)
     video?: { youtubeId: string; title?: string }
     // drawings shown in the 제원 band instead of the product photo: side by side on PC, stacked on mobile, each with its own width / height brackets
@@ -895,25 +897,38 @@ export const MODELS: Model[] = [
   {
     id: 'b300sg',
     name: '부자로스터 B300SG',
-    tagline: '가스식 스마트 자동화형 로스터기',
+    tagline:
+      '부자로스터 B300SG 모델은 3kg 배치의 가스식 스마트 로스터기로, 카페 및 소규모 원두 납품용 로스터리에 적합하게 설계되었습니다. 기존 부자로스터 5kg부터 60kg까지의 스마트 로스터기에 적용된 동일한 제어 시스템을 탑재하여 자동 예열부터 생두 투입, 로스팅, 배출 및 쿨링까지 체계적인 공정 제어가 가능합니다. 정밀한 로스팅 제어와 프로파일 저장 기능을 통해 초보자부터 전문가까지 누구나 편리하게 일관성 높은 로스팅을 구현할 수 있습니다.',
     categories: ['가스식로스터기'],
     image: b300sgImage,
     specs: [
-      { label: '투입량', value: '-' },
-      { label: '드럼 두께', value: '-' },
-      { label: '전압', value: '-' },
-      { label: '열원', value: '-' },
-      { label: '소비전력', value: '-' },
-      { label: '드럼 재질', value: '-' },
-      { label: '제조국', value: '-' },
-      { label: '크기', value: '-' },
-      { label: '로스팅 방식', value: '-' },
-      { label: '무게', value: '-' },
+      { label: '투입량', value: '1.2kg ~ 3kg' },
+      { label: '로스팅 방식', value: '가스식 스마트 자동화' },
+      { label: '소비전력', value: '445W' },
+      { label: '가스 소비량', value: '12kW (10,320kcal/h)' },
+      { label: '크기', value: '1800 x 650 x 1680mm' },
+      { label: '무게', value: '약 300kg (예상)' },
+    ],
+    features: [
+      '시간당 최대 약 10kg 생산 가능',
+      '스마트 자동 로스팅 시스템',
+      '사이클론 모터 송풍량 전자식 제어',
+      '드럼 회전 속도 제어',
+      '로스팅 프로파일 50개 저장',
+      '생두 자동 투입',
+      '자동 로스팅 중 설정값 변경 가능',
+      '자동 예열 및 예열 유지 기능',
+      '로스팅 종료 후 자동 배출 및 자동 쿨링',
+      '로스팅 완료 후 자동 종료 기능',
+      '옵션 : 디지털 풍압계',
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // base frame copied from the B180SG layout; values, features, Colors, table, gallery and price are filled in one by one
+    // base frame copied from the B180SG layout; specs / features from the B300S.G catalog; Colors, table, gallery and price are filled in one by one
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-xl',
+      width: '1800mm',
+      height: '1680mm',
+      featuresNote: '자동화 기능은 작업자의 확인과 관리하에 운용됩니다.',
       featuresBelow: true,
       hideTopSpecs: true,
       noticeBeforeColors: true,

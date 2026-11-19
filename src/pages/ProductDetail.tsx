@@ -526,6 +526,10 @@ function ProductDetail() {
                         </li>
                       ))}
                     </ul>
+
+                    {model.specShowcase.featuresNote && (
+                      <p className="mt-5 text-[14px] leading-[1.6] text-text-muted">{model.specShowcase.featuresNote}</p>
+                    )}
                   </div>
                 )}
               </div>
