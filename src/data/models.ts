@@ -937,6 +937,10 @@ export const MODELS: Model[] = [
         image: b500sgGalleryBurner,
       },
       {
+        title: '로스팅 확인용 램프',
+        description: '샘플봉과 쿨러 내 원두의 시인성을 높여 로스팅 상태 확인 및 결점두 선별이 더욱 편리합니다.',
+      },
+      {
         title: '자동 투입 장치 (생두)',
         subtitle: '자동 생두 투입 장치',
         description: '버튼 한 번으로 생두를 손쉽게 투입할 수 있어 작업 효율이 높아집니다.',
