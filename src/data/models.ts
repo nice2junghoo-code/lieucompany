@@ -86,6 +86,7 @@ import b150Gallery3 from '../assets/b150-gallery/gallery-3.jpg'
 import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
+import b300sgImage from '../assets/model-b300sg.png'
 import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
 import b180sgColorBlack from '../assets/b180sg-color-black.jpg'
 import b180sgColorIvory from '../assets/b180sg-color-ivory.jpg'
@@ -896,8 +897,7 @@ export const MODELS: Model[] = [
     name: '부자로스터 B300SG',
     tagline: '가스식 스마트 자동화형 로스터기',
     categories: ['가스식로스터기'],
-    // TEMPORARY: B180SG photo until the B300SG main image is supplied
-    image: b180sgImage,
+    image: b300sgImage,
     draft: true,
     specs: [
       { label: '투입량', value: '-' },
@@ -914,7 +914,7 @@ export const MODELS: Model[] = [
     colors: ['#111111', '#ffffff', '#dc2626'],
     // base frame copied from the B180SG layout; values, features, Colors, table, gallery and price are filled in one by one
     specShowcase: {
-      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
+      heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-xl',
       featuresBelow: true,
       hideTopSpecs: true,
       noticeBeforeColors: true,
