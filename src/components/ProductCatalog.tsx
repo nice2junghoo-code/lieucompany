@@ -16,6 +16,7 @@ const MODEL_FILTERS = [
   { label: 'B80', ids: ['b80', 'b80c', 'b80s'] },
   { label: 'B150', ids: ['b150', 'b150c', 'b150s'] },
   { label: 'B180SG', ids: ['b180sg'] },
+  { label: 'B300SG', ids: ['b300sg'] },
   { label: 'B500S', ids: ['b500s'] },
   { label: 'B500SG', ids: ['b500sg'] },
   { label: 'B15K SG', ids: ['b15k-sg'] },
@@ -26,7 +27,7 @@ const MODEL_FILTERS = [
 const TYPE_FILTERS = [
   { label: '일반형', ids: ['b80', 'b150'] },
   { label: '쿨러장착형', ids: ['b80c', 'b150c'] },
-  { label: '스마트', ids: ['b30s', 'b80s', 'b150s', 'b180sg', 'b500s', 'b500sg', 'b15k-sg'] },
+  { label: '스마트', ids: ['b30s', 'b80s', 'b150s', 'b180sg', 'b300sg', 'b500s', 'b500sg', 'b15k-sg'] },
 ]
 
 // ?category= deep links (header menu) expressed as sidebar filters

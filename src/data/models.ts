@@ -898,7 +898,6 @@ export const MODELS: Model[] = [
     tagline: '가스식 스마트 자동화형 로스터기',
     categories: ['가스식로스터기'],
     image: b300sgImage,
-    draft: true,
     specs: [
       { label: '투입량', value: '-' },
       { label: '드럼 두께', value: '-' },
