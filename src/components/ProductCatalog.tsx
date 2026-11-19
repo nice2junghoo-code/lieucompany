@@ -118,14 +118,17 @@ function ProductCatalog({ layout = 'scroll' }: { layout?: 'scroll' | 'grid' }) {
 
   const filtersActive = fuel.length + modelPick.length + typePick.length > 0
 
-  const sidebarModels = MODELS.filter((m) => {
+  // draft models stay out of every list until they are published
+  const listedModels = MODELS.filter((m) => !m.draft)
+
+  const sidebarModels = listedModels.filter((m) => {
     const fuelOk = fuel.length === 0 || FUEL_FILTERS.some((f) => fuel.includes(f.label) && m.categories.includes(f.category))
     const modelOk = modelPick.length === 0 || MODEL_FILTERS.some((f) => modelPick.includes(f.label) && f.ids.includes(m.id))
     const typeOk = typePick.length === 0 || TYPE_FILTERS.some((f) => typePick.includes(f.label) && f.ids.includes(m.id))
     return fuelOk && modelOk && typeOk
   })
 
-  const categoryModels = selected === '모든모델' ? MODELS : MODELS.filter((m) => m.categories.includes(selected))
+  const categoryModels = selected === '모든모델' ? listedModels : listedModels.filter((m) => m.categories.includes(selected))
   // lg+ uses the sidebar filters; below lg keeps the original category selector
   const models = layout === 'grid' && isDesktop ? sidebarModels : categoryModels
 

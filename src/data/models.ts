@@ -167,6 +167,8 @@ export type Model = {
   // scales the product photo up within its card — use when the source photo
   // frames the machine smaller than the others (e.g. wider multi-part shots)
   imageScale?: number
+  // draft pages open by direct address only: they are hidden from the model list until published (remove this flag)
+  draft?: boolean
   // overrides the auto ER/GR badge with custom text — for non-roaster products
   badgeLabel?: string
   // overrides the default 18px name size — for longer names that need to fit on one line
@@ -887,6 +889,37 @@ export const MODELS: Model[] = [
         { name: '커스텀 컬러', price: '200,000' },
       ],
       },
+    },
+  },
+  {
+    id: 'b300sg',
+    name: '부자로스터 B300SG',
+    tagline: '가스식 스마트 자동화형 로스터기',
+    categories: ['가스식로스터기'],
+    // TEMPORARY: B180SG photo until the B300SG main image is supplied
+    image: b180sgImage,
+    draft: true,
+    specs: [
+      { label: '투입량', value: '-' },
+      { label: '드럼 두께', value: '-' },
+      { label: '전압', value: '-' },
+      { label: '열원', value: '-' },
+      { label: '소비전력', value: '-' },
+      { label: '드럼 재질', value: '-' },
+      { label: '제조국', value: '-' },
+      { label: '크기', value: '-' },
+      { label: '로스팅 방식', value: '-' },
+      { label: '무게', value: '-' },
+    ],
+    colors: ['#111111', '#ffffff', '#dc2626'],
+    // base frame copied from the B180SG layout; values, features, Colors, table, gallery and price are filled in one by one
+    specShowcase: {
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
     },
   },
   {
