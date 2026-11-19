@@ -88,6 +88,9 @@ import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
 import b300sgImage from '../assets/model-b300sg.png'
 import b300sgGalleryLamp from '../assets/b300sg-gallery-lamp.jpg'
+import b300sgColorBlack from '../assets/b300sg-color-black.jpg'
+import b300sgColorIvory from '../assets/b300sg-color-ivory.jpg'
+import b300sgColorRed from '../assets/b300sg-color-red.jpg'
 import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
 import b180sgColorBlack from '../assets/b180sg-color-black.jpg'
 import b180sgColorIvory from '../assets/b180sg-color-ivory.jpg'
@@ -968,6 +971,11 @@ export const MODELS: Model[] = [
       },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    colorOptions: [
+      { name: '블랙', hex: '#111111', image: b300sgColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b300sgColorIvory },
+      { name: '레드', hex: '#dc2626', image: b300sgColorRed },
+    ],
     // base frame copied from the B180SG layout; specs / features from the B300S.G catalog; Colors, table, gallery and price are filled in one by one
     specShowcase: {
       heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-xl',
