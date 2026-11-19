@@ -87,6 +87,7 @@ import b150cImage from '../assets/model-b150c.png'
 import b150sImage from '../assets/model-b150s.png'
 import b180sgImage from '../assets/model-b180sg.png'
 import b300sgImage from '../assets/model-b300sg.png'
+import b300sgGalleryLamp from '../assets/b300sg-gallery-lamp.jpg'
 import b180sgTableCombo from '../assets/b180sg-table-combo.jpg'
 import b180sgColorBlack from '../assets/b180sg-color-black.jpg'
 import b180sgColorIvory from '../assets/b180sg-color-ivory.jpg'
@@ -939,6 +940,7 @@ export const MODELS: Model[] = [
       {
         title: '로스팅 확인용 램프',
         description: '샘플봉과 쿨러 내 원두의 시인성을 높여 로스팅 상태 확인 및 결점두 선별이 더욱 편리합니다.',
+        image: b300sgGalleryLamp,
       },
       {
         title: '자동 투입 장치 (생두)',
