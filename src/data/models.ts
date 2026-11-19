@@ -934,6 +934,7 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
+      heroPrice: { amount: '19,800,000원', suffix: 'VAT포함' },
     },
   },
   {
