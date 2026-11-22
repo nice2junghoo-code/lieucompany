@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import SafetyNotice from '../components/SafetyNotice'
 import { MODELS } from '../data/models'
 import noticeBg from '../assets/product-detail-notice-bg.jpg'
 
@@ -654,6 +655,9 @@ function ProductDetail() {
               )}
             </div>
           )}
+
+          {/* roaster pages only: the table and the Demtruk trolley have no fire / heat safety notice */}
+          {model && !model.categories.some((c) => c === '테이블' || c === '뎀트럭트롤리') && <SafetyNotice />}
 
           {/* pages without the new layout keep the part-photo grid at the very bottom */}
           {!model?.specShowcase && detailBlock}
