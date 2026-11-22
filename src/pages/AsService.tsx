@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import SafetyNotice from '../components/SafetyNotice'
 
 // zero-padded filenames keep the alphabetical sort equal to the numeric order
 const GALLERY_IMAGES = Object.entries(import.meta.glob<string>('../assets/as-gallery/*.jpg', { eager: true, import: 'default' }))
@@ -107,6 +108,11 @@ function AsService() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* same 안전 사용 안내 as the roaster model pages */}
+        <div className="mx-auto max-w-[1400px]">
+          <SafetyNotice />
         </div>
       </main>
 
