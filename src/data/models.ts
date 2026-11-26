@@ -128,6 +128,8 @@ import b500sgGallery6 from '../assets/b500sg-gallery/gallery-6.jpg'
 import b500sgGallery7 from '../assets/b500sg-gallery/gallery-7.jpg'
 import b500sgGallery8 from '../assets/b500sg-gallery/gallery-8.jpg'
 import b15kSgImage from '../assets/model-b15k-sg.png'
+import b30kSgGalleryAirCurtain from '../assets/b30k-sg-gallery-aircurtain.jpg'
+import b30kSgImage from '../assets/model-b30ksg.png'
 import b15kSgColorBlack from '../assets/b15k-sg-color-black.jpg'
 import b15kSgColorIvory from '../assets/b15k-sg-color-ivory.jpg'
 import b15kSgColorRed from '../assets/b15k-sg-color-red.jpg'
@@ -1300,29 +1302,87 @@ export const MODELS: Model[] = [
   {
     id: 'b30k-sg',
     name: '부자로스터 B30K SG',
-    tagline: '가스식 스마트 자동화형 로스터기',
+    tagline:
+      '부자 로스터 B30K SG 모델은 30kg 배치의 가스식 대형 로스터기로, 대량 원두 납품과 전문 로스터리 운영에 적합한 성능과 효율성을 갖추고 있습니다. 스마트 자동화 시스템을 통해 예열부터 배출, 쿨링까지 전 과정이 설정값에 따라 안정적으로 실행되며, 고정밀 제어 기술로 일관된 품질의 대량 생산이 가능합니다. 숙련된 전문가뿐만 아니라 일정 수준의 자동화가 필요한 작업 환경에서도 높은 퍼포먼스를 발휘할 수 있도록 설계되었습니다.',
     categories: ['가스식로스터기', '대형로스터기'],
-    // TEMPORARY: B15K SG photo until the B30K SG main image is supplied
-    image: b15kSgImage,
-    imageScale: 1.1,
-    draft: true,
+    // photo cropped from the B30K S.G catalog (page 1); swap in the supplied main photo when it arrives
+    image: b30kSgImage,
     specs: [
-      { label: '투입량', value: '-' },
-      { label: '전압', value: '-' },
-      { label: '소비전력', value: '-' },
-      { label: '제조국', value: '-' },
-      { label: '로스팅 방식', value: '-' },
-      { label: '열원', value: '-' },
-      { label: '드럼 재질', value: '-' },
-      { label: '드럼 두께', value: '-', order: 8 },
-      { label: '로스터기 크기', value: '-', order: 7 },
-      { label: '컨트롤박스 크기', value: '-' },
-      { label: '무게', value: '-' },
+      { label: '투입량', value: '10kg ~ 30kg' },
+      { label: '전압', value: '380V 3상 4선식' },
+      { label: '소비전력', value: '6KW' },
+      { label: '제조국', value: 'Made in Korea' },
+      { label: '로스팅 방식', value: '반열풍식 (열풍에 비중이 높음)' },
+      { label: '드럼 재질', value: 'SUS 304, Steel' },
+      { label: '드럼 두께', value: '12T 단드럼' },
+      { label: '크기', value: '3450 x 1100 x 2270mm (사이클론 및 생두 이송기 포함 시 높이 2750mm)' },
+      { label: '무게', value: '900kg' },
+    ],
+    features: [
+      '시간당 최대 생산량 약 90kg',
+      '생두 투입 용량 최소 10kg ~ 최대 30kg',
+      '4모터 시스템으로 로스팅과 쿨링을 병렬 처리로 연속 로스팅 가능',
+      '예열 유지, 자동 투입 및 자동 배출',
+      '프로파일 저장, 안전 온도 설정 알람',
+      '드럼 속도 조절 가능',
+      '디지털 풍압계',
+    ],
+    detailGallery: [
+      {
+        title: '에어커튼 속도 조절 장치',
+        subtitle: '에어커튼 & 조절부',
+        description: '채프를 아래로 유도하고, 위로 딸려 올라가지 않게 차단해주는 장치입니다.',
+        image: b30kSgGalleryAirCurtain,
+      },
+      {
+        title: '드럼 내부 구조',
+        subtitle: '로스팅 드럼 내부',
+        description: '균일한 교반을 위한 스크루형 날개 구조입니다.',
+        image: b500sGalleryDrum,
+      },
+      {
+        title: '제어 터치 패널',
+        subtitle: '듀얼존 터치 패널',
+        description: '화력·배기·냉각을 직관적으로 제어할 수 있습니다.',
+        image: b500sGalleryPanel,
+      },
+      {
+        title: '버너 챔버',
+        subtitle: '가스 버너 연소실',
+        description: '안정적인 화력으로 일관된 로스팅을 제공합니다.',
+        image: b500sgGalleryBurner,
+      },
+      {
+        title: '자동 투입 장치 (생두)',
+        subtitle: '자동 생두 투입 장치',
+        description: '버튼 한 번으로 생두를 손쉽게 투입할 수 있어 작업 효율이 높아집니다.',
+        image: b500sGalleryFeeder,
+      },
+      {
+        title: '자동 배출 장치 (원두)',
+        subtitle: '자동 배출 장치',
+        description: '로스팅이 완료된 원두를 자동으로 배출하여 일정한 품질과 안전성을 확보합니다.',
+        image: b500sGalleryDischarge,
+      },
+      {
+        title: '생두 이송기',
+        description: '하단 생두호퍼받이에 넣은 생두를 이송 버튼 한 번으로 로스터 상부 호퍼까지 자동으로 올려줍니다.',
+        image: b15kSgGalleryElevator,
+      },
+      {
+        title: '실시간 그래프 화면',
+        subtitle: '로스팅 프로파일 UI',
+        description: '온도, 화력, 배기 등 데이터를 실시간으로 확인할 수 있습니다.',
+        image: b500sGalleryGraph,
+      },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
-    // base frame copied from the B15K SG layout; values, features, Colors, gallery and price are filled in one by one
+    // base frame copied from the B15K SG layout; specs / features / part cards from the B30K S.G catalog; Colors, gallery and price are filled in one by one
     specShowcase: {
-      heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-lg',
+      // narrow, tall photo; the box has side padding, so these widths give roughly 230 / 310 / 380px of photo
+      heroImageClass: 'max-w-[280px] sm:max-w-[360px] lg:max-w-[460px]',
+      width: '3450mm',
+      height: '2270mm',
       featuresBelow: true,
       hideTopSpecs: true,
       noticeBeforeColors: true,
