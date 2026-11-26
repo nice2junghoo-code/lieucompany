@@ -1413,7 +1413,8 @@ export const MODELS: Model[] = [
   {
     id: 'b60k-sg',
     name: '부자로스터 B60K SG',
-    tagline: '가스식 스마트 자동화형 대형 로스터기',
+    tagline:
+      '자동으로 예열하고 로스팅을 자동으로 진행할 수 있는 대용량 60kg 모델입니다. 세팅 값이 정해져 있어서 자신이 원하는 용량과 배전도를 선택하여 클릭 후 생두를 투입하면 로스팅이 시작되며, 종료 후 배출과 쿨링까지 자동으로 진행됩니다. 적정 투입량은 15kg 최대 60kg까지 로스팅이 가능하며 시간당 최대 200kg 원두커피 생산이 가능한 제품입니다.',
     categories: ['가스식로스터기', '대형로스터기'],
     // SAME photos as B30K SG for now (replace when B60K SG photos are supplied)
     image: b30kSgImage,
@@ -1422,15 +1423,25 @@ export const MODELS: Model[] = [
     // draft: hidden from the lists until the content is confirmed (remove this line to publish)
     draft: true,
     specs: [
-      { label: '투입량', value: '-' },
-      { label: '전압', value: '-' },
-      { label: '소비전력', value: '-' },
-      { label: '제조국', value: '-' },
-      { label: '로스팅 방식', value: '-' },
-      { label: '드럼 재질', value: '-' },
-      { label: '드럼 두께', value: '-' },
-      { label: '크기', value: '-' },
-      { label: '무게', value: '-' },
+      { label: '투입량', value: '15kg ~ 60kg' },
+      { label: '전압', value: '380V 3상 4선식' },
+      { label: '소비전력', value: '7KW' },
+      { label: '제조국', value: 'Made in Korea' },
+      { label: '로스팅 방식', value: '반열풍식 (열풍 비중이 높은 반열풍식)' },
+      { label: '가스 열량', value: '124,700kcal / h' },
+      { label: '드럼 재질', value: 'SUS 304, Steel 주요' },
+      { label: '드럼 두께', value: '15T 단드럼, 15T 이중드럼 중 택1' },
+      { label: '크기', value: '4000 x 1550 x 2950mm' },
+      { label: '무게', value: '약 2000kg' },
+      { label: '덕트', value: '사이클론 200파이, 쿨러 250파이' },
+    ],
+    features: [
+      '예열 유지, 자동 투입 및 자동 배출',
+      '프로파일 저장, 안전 온도 설정 알람',
+      '드럼 속도 조절 가능',
+      '싸이클론 체프통 자동 물분사 시스템',
+      '드럼 및 싸이클론 상부 소방 시스템',
+      '4모터 시스템으로 로스팅과 쿨링을 병렬 처리로 연속 로스팅 가능',
     ],
     detailGallery: [
       {
@@ -1487,9 +1498,11 @@ export const MODELS: Model[] = [
       { name: '아이보리', hex: '#f3efe3', image: b30kSgColorIvory },
       { name: '레드', hex: '#dc2626', image: b30kSgColorRed },
     ],
-    // B60K SG: copy of the B30K SG page; specs, features, intro and price are filled in after they are confirmed
+    // B60K SG: copy of the B30K SG page (same photos for now); intro / specs / features from the B60K S.G catalog; price still 상담 문의
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
+      width: '4000mm',
+      height: '2950mm',
       featuresBelow: true,
       hideTopSpecs: true,
       noticeBeforeColors: true,
