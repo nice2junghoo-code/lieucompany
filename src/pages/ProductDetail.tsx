@@ -162,24 +162,24 @@ function ProductDetail() {
                         {model.specShowcase.heroPrice.suffix && (
                           <span className="text-[14px] font-[600] text-ink sm:text-[16px]">{model.specShowcase.heroPrice.suffix}</span>
                         )}
-                        {model.specShowcase.heroPrice.phoneLink && (
-                          <a
-                            href={CONSULT_TEL}
-                            className="ml-2 inline-flex items-center gap-1.5 self-center text-[14px] font-[600] text-ink underline underline-offset-4 hover:text-text-muted sm:text-[16px]"
-                          >
-                            <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
-                              <path
-                                d="M5 3.5h2.2l1 3-1.5 1.3a8 8 0 0 0 4.5 4.5l1.3-1.5 3 1V14a1.5 1.5 0 0 1-1.6 1.5A11.5 11.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5Z"
-                                stroke="currentColor"
-                                strokeWidth="1.4"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            전화 연결
-                          </a>
-                        )}
                       </p>
+                      {model.specShowcase.heroPrice.phoneLink && (
+                        <a
+                          href={CONSULT_TEL}
+                          className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-[600] text-ink underline underline-offset-4 hover:text-text-muted sm:text-[16px]"
+                        >
+                          <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 shrink-0" aria-hidden="true">
+                            <path
+                              d="M5 3.5h2.2l1 3-1.5 1.3a8 8 0 0 0 4.5 4.5l1.3-1.5 3 1V14a1.5 1.5 0 0 1-1.6 1.5A11.5 11.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5Z"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          전화 연결
+                        </a>
+                      )}
                       {model.specShowcase.heroPrice.caption && (
                         <p className="mt-1 text-[14px] font-[456] text-text-muted">{model.specShowcase.heroPrice.caption}</p>
                       )}
