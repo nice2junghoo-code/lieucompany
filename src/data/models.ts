@@ -135,6 +135,9 @@ import b30kSgGallery2 from '../assets/b30k-sg-gallery/gallery-2.jpg'
 import b30kSgGallery3 from '../assets/b30k-sg-gallery/gallery-3.jpg'
 import b30kSgGallery4 from '../assets/b30k-sg-gallery/gallery-4.jpg'
 import b30kSgGallery5 from '../assets/b30k-sg-gallery/gallery-5.jpg'
+import b30kSgColorBlack from '../assets/b30k-sg-color-black.jpg'
+import b30kSgColorIvory from '../assets/b30k-sg-color-ivory.jpg'
+import b30kSgColorRed from '../assets/b30k-sg-color-red.jpg'
 import b15kSgColorBlack from '../assets/b15k-sg-color-black.jpg'
 import b15kSgColorIvory from '../assets/b15k-sg-color-ivory.jpg'
 import b15kSgColorRed from '../assets/b15k-sg-color-red.jpg'
@@ -1385,6 +1388,11 @@ export const MODELS: Model[] = [
       },
     ],
     colors: ['#111111', '#ffffff', '#dc2626'],
+    colorOptions: [
+      { name: '블랙', hex: '#111111', image: b30kSgColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b30kSgColorIvory },
+      { name: '레드', hex: '#dc2626', image: b30kSgColorRed },
+    ],
     // base frame copied from the B15K SG layout; specs / features / part cards from the B30K S.G catalog; Colors, gallery and price are filled in one by one
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
