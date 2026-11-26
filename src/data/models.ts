@@ -222,7 +222,8 @@ export type Model = {
     heroLayout?: boolean
     heroTagline?: string
     // price block under the tagline: big amount + small suffix on one line, optional caption below
-    heroPrice?: { amount: string; suffix?: string; caption?: string }
+    // phoneLink: small 전화 연결 link next to the price line (used where the price is shown as 상담 문의)
+    heroPrice?: { amount: string; suffix?: string; caption?: string; phoneLink?: boolean }
     // section after 주요 기능 that reuses a table model's tagline, photo and one of its spec groups (matched by heading)
     // `specTitle` is the heading above the spec rows (same style as the model-name heading above the 제원 list)
     // `image` replaces the table model's own photo (e.g. a composite with the roaster sitting on the table)
@@ -1389,7 +1390,7 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
-      heroPrice: { amount: '상담 문의' },
+      heroPrice: { amount: '상담 문의', phoneLink: true },
     },
   },
   {
