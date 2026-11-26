@@ -599,7 +599,9 @@ function ProductDetail() {
                       ? i === 0
                         ? 'col-span-2 aspect-square lg:col-span-1'
                         : 'aspect-square'
-                      : i === 0
+                      : images.length === 4
+                        ? 'aspect-square' // four equal squares: one row on PC, 2 x 2 on mobile (no big cell, so no empty slot)
+                        : i === 0
                         ? 'col-span-2 aspect-square lg:row-span-2 lg:aspect-auto'
                         : images.length === 8 && i === 5
                           ? 'col-span-2 aspect-[2/1] lg:aspect-auto'

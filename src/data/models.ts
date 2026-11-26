@@ -138,6 +138,10 @@ import b30kSgGallery5 from '../assets/b30k-sg-gallery/gallery-5.jpg'
 import b30kSgColorBlack from '../assets/b30k-sg-color-black.jpg'
 import b30kSgColorIvory from '../assets/b30k-sg-color-ivory.jpg'
 import b30kSgColorRed from '../assets/b30k-sg-color-red.jpg'
+import b60kSgGallery1 from '../assets/b60k-sg-gallery/gallery-1.jpg'
+import b60kSgGallery2 from '../assets/b60k-sg-gallery/gallery-2.jpg'
+import b60kSgGallery3 from '../assets/b60k-sg-gallery/gallery-3.jpg'
+import b60kSgGallery4 from '../assets/b60k-sg-gallery/gallery-4.jpg'
 import b15kSgColorBlack from '../assets/b15k-sg-color-black.jpg'
 import b15kSgColorIvory from '../assets/b15k-sg-color-ivory.jpg'
 import b15kSgColorRed from '../assets/b15k-sg-color-red.jpg'
@@ -1496,7 +1500,7 @@ export const MODELS: Model[] = [
       { name: '아이보리', hex: '#f3efe3', image: b30kSgColorIvory },
       { name: '레드', hex: '#dc2626', image: b30kSgColorRed },
     ],
-    // B60K SG: copy of the B30K SG page (same photos for now); intro / specs / features from the B60K S.G catalog; price still 상담 문의
+    // B60K SG: copy of the B30K SG page (B60K SG show photos in the gallery; the rest still B30K SG photos); intro / specs / features from the B60K S.G catalog; price still 상담 문의
     specShowcase: {
       heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
       width: '4000mm',
@@ -1509,7 +1513,7 @@ export const MODELS: Model[] = [
       heroPrice: { amount: '상담 문의', phoneLink: true },
       gallery: {
         title: '갤러리',
-        images: [b30kSgGallery1, b30kSgGallery2, b30kSgGallery3, b30kSgGallery4, b30kSgGallery5],
+        images: [b60kSgGallery1, b60kSgGallery2, b60kSgGallery3, b60kSgGallery4],
       },
     },
   },
