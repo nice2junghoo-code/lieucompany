@@ -1298,6 +1298,39 @@ export const MODELS: Model[] = [
     ],
   },
   {
+    id: 'b30k-sg',
+    name: '부자로스터 B30K SG',
+    tagline: '가스식 스마트 자동화형 로스터기',
+    categories: ['가스식로스터기', '대형로스터기'],
+    // TEMPORARY: B15K SG photo until the B30K SG main image is supplied
+    image: b15kSgImage,
+    imageScale: 1.1,
+    draft: true,
+    specs: [
+      { label: '투입량', value: '-' },
+      { label: '전압', value: '-' },
+      { label: '소비전력', value: '-' },
+      { label: '제조국', value: '-' },
+      { label: '로스팅 방식', value: '-' },
+      { label: '열원', value: '-' },
+      { label: '드럼 재질', value: '-' },
+      { label: '드럼 두께', value: '-', order: 8 },
+      { label: '로스터기 크기', value: '-', order: 7 },
+      { label: '컨트롤박스 크기', value: '-' },
+      { label: '무게', value: '-' },
+    ],
+    colors: ['#111111', '#ffffff', '#dc2626'],
+    // base frame copied from the B15K SG layout; values, features, Colors, gallery and price are filled in one by one
+    specShowcase: {
+      heroImageClass: 'max-w-[280px] sm:max-w-md lg:max-w-lg',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+    },
+  },
+  {
     id: 'buja-table',
     name: '부자테이블',
     tagline:
