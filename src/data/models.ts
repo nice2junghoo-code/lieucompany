@@ -1420,8 +1420,6 @@ export const MODELS: Model[] = [
     image: b30kSgImage,
     // wide photo looks small in the list cards: scaled up so it reads about as large as B15K SG (a bit larger than B15K SG; 1.3 would touch the card edges)
     imageScale: 1.25,
-    // draft: hidden from the lists until the content is confirmed (remove this line to publish)
-    draft: true,
     specs: [
       { label: '투입량', value: '15kg ~ 60kg' },
       { label: '전압', value: '380V 3상 4선식' },
