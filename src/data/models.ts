@@ -1305,7 +1305,7 @@ export const MODELS: Model[] = [
     tagline:
       '부자 로스터 B30K SG 모델은 30kg 배치의 가스식 대형 로스터기로, 대량 원두 납품과 전문 로스터리 운영에 적합한 성능과 효율성을 갖추고 있습니다. 스마트 자동화 시스템을 통해 예열부터 배출, 쿨링까지 전 과정이 설정값에 따라 안정적으로 실행되며, 고정밀 제어 기술로 일관된 품질의 대량 생산이 가능합니다. 숙련된 전문가뿐만 아니라 일정 수준의 자동화가 필요한 작업 환경에서도 높은 퍼포먼스를 발휘할 수 있도록 설계되었습니다.',
     categories: ['가스식로스터기', '대형로스터기'],
-    // photo cropped from the B30K S.G catalog (page 1); swap in the supplied main photo when it arrives
+    // supplied main photo (white background removed)
     image: b30kSgImage,
     specs: [
       { label: '투입량', value: '10kg ~ 30kg' },
@@ -1379,8 +1379,7 @@ export const MODELS: Model[] = [
     colors: ['#111111', '#ffffff', '#dc2626'],
     // base frame copied from the B15K SG layout; specs / features / part cards from the B30K S.G catalog; Colors, gallery and price are filled in one by one
     specShowcase: {
-      // narrow, tall photo; the box has side padding, so these widths give roughly 230 / 310 / 380px of photo
-      heroImageClass: 'max-w-[280px] sm:max-w-[360px] lg:max-w-[460px]',
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
       width: '3450mm',
       height: '2270mm',
       featuresBelow: true,
@@ -1388,6 +1387,7 @@ export const MODELS: Model[] = [
       noticeBeforeColors: true,
       buttonsInMain: true,
       heroLayout: true,
+      heroPrice: { amount: '상담 문의' },
     },
   },
   {
