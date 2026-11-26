@@ -130,6 +130,11 @@ import b500sgGallery8 from '../assets/b500sg-gallery/gallery-8.jpg'
 import b15kSgImage from '../assets/model-b15k-sg.png'
 import b30kSgGalleryAirCurtain from '../assets/b30k-sg-gallery-aircurtain.jpg'
 import b30kSgImage from '../assets/model-b30ksg.png'
+import b30kSgGallery1 from '../assets/b30k-sg-gallery/gallery-1.jpg'
+import b30kSgGallery2 from '../assets/b30k-sg-gallery/gallery-2.jpg'
+import b30kSgGallery3 from '../assets/b30k-sg-gallery/gallery-3.jpg'
+import b30kSgGallery4 from '../assets/b30k-sg-gallery/gallery-4.jpg'
+import b30kSgGallery5 from '../assets/b30k-sg-gallery/gallery-5.jpg'
 import b15kSgColorBlack from '../assets/b15k-sg-color-black.jpg'
 import b15kSgColorIvory from '../assets/b15k-sg-color-ivory.jpg'
 import b15kSgColorRed from '../assets/b15k-sg-color-red.jpg'
@@ -1391,6 +1396,10 @@ export const MODELS: Model[] = [
       buttonsInMain: true,
       heroLayout: true,
       heroPrice: { amount: '상담 문의', phoneLink: true },
+      gallery: {
+        title: '갤러리',
+        images: [b30kSgGallery1, b30kSgGallery2, b30kSgGallery3, b30kSgGallery4, b30kSgGallery5],
+      },
     },
   },
   {
