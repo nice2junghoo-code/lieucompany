@@ -21,6 +21,7 @@ const MODEL_FILTERS = [
   { label: 'B500SG', ids: ['b500sg'] },
   { label: 'B15K SG', ids: ['b15k-sg'] },
   { label: 'B30K SG', ids: ['b30k-sg'] },
+  { label: 'B60K SG', ids: ['b60k-sg'] },
   { label: 'TABLE', ids: ['buja-table'] },
   { label: 'Demtruk', ids: ['demtruck'] },
 ]
@@ -28,14 +29,14 @@ const MODEL_FILTERS = [
 const TYPE_FILTERS = [
   { label: '일반형', ids: ['b80', 'b150'] },
   { label: '쿨러장착형', ids: ['b80c', 'b150c'] },
-  { label: '스마트', ids: ['b30s', 'b80s', 'b150s', 'b180sg', 'b300sg', 'b500s', 'b500sg', 'b15k-sg', 'b30k-sg'] },
+  { label: '스마트', ids: ['b30s', 'b80s', 'b150s', 'b180sg', 'b300sg', 'b500s', 'b500sg', 'b15k-sg', 'b30k-sg', 'b60k-sg'] },
 ]
 
 // ?category= deep links (header menu) expressed as sidebar filters
 const CATEGORY_TO_FILTERS: Record<string, { fuel?: string[]; model?: string[] }> = {
   전기식로스터기: { fuel: ['전기식'] },
   가스식로스터기: { fuel: ['가스식'] },
-  대형로스터기: { model: ['B500S', 'B500SG', 'B15K SG', 'B30K SG'] },
+  대형로스터기: { model: ['B500S', 'B500SG', 'B15K SG', 'B30K SG', 'B60K SG'] },
   테이블: { model: ['TABLE'] },
   뎀트럭트롤리: { model: ['Demtruk'] },
 }

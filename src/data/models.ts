@@ -1411,6 +1411,98 @@ export const MODELS: Model[] = [
     },
   },
   {
+    id: 'b60k-sg',
+    name: '부자로스터 B60K SG',
+    tagline: '가스식 스마트 자동화형 대형 로스터기',
+    categories: ['가스식로스터기', '대형로스터기'],
+    // SAME photos as B30K SG for now (replace when B60K SG photos are supplied)
+    image: b30kSgImage,
+    // wide photo looks small in the list cards: scaled up so it reads about as large as B15K SG (a bit larger than B15K SG; 1.3 would touch the card edges)
+    imageScale: 1.25,
+    // draft: hidden from the lists until the content is confirmed (remove this line to publish)
+    draft: true,
+    specs: [
+      { label: '투입량', value: '-' },
+      { label: '전압', value: '-' },
+      { label: '소비전력', value: '-' },
+      { label: '제조국', value: '-' },
+      { label: '로스팅 방식', value: '-' },
+      { label: '드럼 재질', value: '-' },
+      { label: '드럼 두께', value: '-' },
+      { label: '크기', value: '-' },
+      { label: '무게', value: '-' },
+    ],
+    detailGallery: [
+      {
+        title: '에어커튼 속도 조절 장치',
+        subtitle: '에어커튼 & 조절부',
+        description: '채프를 아래로 유도하고, 위로 딸려 올라가지 않게 차단해주는 장치입니다.',
+        image: b30kSgGalleryAirCurtain,
+      },
+      {
+        title: '드럼 내부 구조',
+        subtitle: '로스팅 드럼 내부',
+        description: '균일한 교반을 위한 스크루형 날개 구조입니다.',
+        image: b500sGalleryDrum,
+      },
+      {
+        title: '제어 터치 패널',
+        subtitle: '듀얼존 터치 패널',
+        description: '화력·배기·냉각을 직관적으로 제어할 수 있습니다.',
+        image: b500sGalleryPanel,
+      },
+      {
+        title: '버너 챔버',
+        subtitle: '가스 버너 연소실',
+        description: '안정적인 화력으로 일관된 로스팅을 제공합니다.',
+        image: b500sgGalleryBurner,
+      },
+      {
+        title: '자동 투입 장치 (생두)',
+        subtitle: '자동 생두 투입 장치',
+        description: '버튼 한 번으로 생두를 손쉽게 투입할 수 있어 작업 효율이 높아집니다.',
+        image: b500sGalleryFeeder,
+      },
+      {
+        title: '자동 배출 장치 (원두)',
+        subtitle: '자동 배출 장치',
+        description: '로스팅이 완료된 원두를 자동으로 배출하여 일정한 품질과 안전성을 확보합니다.',
+        image: b500sGalleryDischarge,
+      },
+      {
+        title: '생두 이송기',
+        description: '하단 생두호퍼받이에 넣은 생두를 이송 버튼 한 번으로 로스터 상부 호퍼까지 자동으로 올려줍니다.',
+        image: b15kSgGalleryElevator,
+      },
+      {
+        title: '실시간 그래프 화면',
+        subtitle: '로스팅 프로파일 UI',
+        description: '온도, 화력, 배기 등 데이터를 실시간으로 확인할 수 있습니다.',
+        image: b500sGalleryGraph,
+      },
+    ],
+    colors: ['#111111', '#ffffff', '#dc2626'],
+    colorOptions: [
+      { name: '블랙', hex: '#111111', image: b30kSgColorBlack },
+      { name: '아이보리', hex: '#f3efe3', image: b30kSgColorIvory },
+      { name: '레드', hex: '#dc2626', image: b30kSgColorRed },
+    ],
+    // B60K SG: copy of the B30K SG page; specs, features, intro and price are filled in after they are confirmed
+    specShowcase: {
+      heroImageClass: 'max-w-[300px] sm:max-w-lg lg:max-w-2xl',
+      featuresBelow: true,
+      hideTopSpecs: true,
+      noticeBeforeColors: true,
+      buttonsInMain: true,
+      heroLayout: true,
+      heroPrice: { amount: '상담 문의', phoneLink: true },
+      gallery: {
+        title: '갤러리',
+        images: [b30kSgGallery1, b30kSgGallery2, b30kSgGallery3, b30kSgGallery4, b30kSgGallery5],
+      },
+    },
+  },
+  {
     id: 'buja-table',
     name: '부자테이블',
     tagline:

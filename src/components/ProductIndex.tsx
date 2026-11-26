@@ -3,8 +3,8 @@ import { MODELS } from '../data/models'
 const GROUPS = [
   { label: '홈 로스팅 및 샘플용 로스터기', ids: ['b30s'] },
   { label: '전기식 로스터기', ids: ['b80', 'b80c', 'b80s', 'b150', 'b150c', 'b150s', 'b500s'] },
-  { label: '가스식 로스터기', ids: ['b180sg', 'b300sg', 'b500sg', 'b15k-sg', 'b30k-sg'] },
-  { label: '대형 로스터기', ids: ['b500s', 'b500sg', 'b15k-sg', 'b30k-sg'] },
+  { label: '가스식 로스터기', ids: ['b180sg', 'b300sg', 'b500sg', 'b15k-sg', 'b30k-sg', 'b60k-sg'] },
+  { label: '대형 로스터기', ids: ['b500s', 'b500sg', 'b15k-sg', 'b30k-sg', 'b60k-sg'] },
   { label: '테이블', ids: ['buja-table'] },
   { label: '뎀트럭트롤리', ids: ['demtruck'] },
 ]
