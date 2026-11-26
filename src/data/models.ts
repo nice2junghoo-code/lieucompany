@@ -1307,8 +1307,8 @@ export const MODELS: Model[] = [
     categories: ['가스식로스터기', '대형로스터기'],
     // supplied main photo (white background removed)
     image: b30kSgImage,
-    // wide photo looks small in the list cards: scaled up so it reads about as large as B15K SG (208 x 199px on a 1450px screen)
-    imageScale: 1.2,
+    // wide photo looks small in the list cards: scaled up so it reads about as large as B15K SG (a bit larger than B15K SG; 1.3 would touch the card edges)
+    imageScale: 1.25,
     specs: [
       { label: '투입량', value: '10kg ~ 30kg' },
       { label: '전압', value: '380V 3상 4선식' },
